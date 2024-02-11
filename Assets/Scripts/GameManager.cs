@@ -18,22 +18,6 @@ public class GameManager : Singleton<GameManager>
         KeepSystemPrefabs();
     }
 
-    void Update()
-    {
-        // TODO: Change for new Input System
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            ToggleMenu();
-        }
-
-    }
-
-    private void ToggleMenu()
-    {
-        var menu = instanceSystemPrefabsKept[0];
-        menu.SetActive(!menu.activeInHierarchy);
-    }
-
     protected override void OnDestroy()
     {
         base.OnDestroy();
