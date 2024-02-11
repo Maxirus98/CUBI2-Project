@@ -8,24 +8,18 @@ using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
 
-public class RelayExample : MonoBehaviour
+public class RelayConnectionManager : MonoBehaviour
 {
     [SerializeField] private string joinCodeText;
     [SerializeField] private string joinInput;
-    [SerializeField] private GameObject buttons;
 
     private UnityTransport transport;
-    private const int MaxPlayers = 2;
+    private const int MaxConnections = 1;
 
     private async void Awake()
     {
         transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
-
-        buttons.SetActive(false);
-
         await Authenticate();
-
-        buttons.SetActive(true);
     }
 
     private static async Task Authenticate()
@@ -38,17 +32,15 @@ public class RelayExample : MonoBehaviour
             Debug.Log($"Signed in {AuthenticationService.Instance.PlayerId}");
         };
 
-        // On évite de créer des comptes. Pour ce prototype, on s'authentifie anonymement
+        // On évite de créer des comptes. Pour ce prototype, on s'authentifie au serveur anonymement
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
     }
 
     public async void CreateGame()
     {
-        buttons.SetActive(false);
-
         try
         {
-            var allocationDetails = await RelayService.Instance.CreateAllocationAsync(MaxPlayers);
+            var allocationDetails = await RelayService.Instance.CreateAllocationAsync(MaxConnections);
             joinCodeText = await RelayService.Instance.GetJoinCodeAsync(allocationDetails.AllocationId);
 
             // Applique les détails de la connexion au UnityTransport
@@ -66,7 +58,6 @@ public class RelayExample : MonoBehaviour
 
     public async void JoinGame()
     {
-        buttons.SetActive(false);
         try
         {
             JoinAllocation clientAllocationDetails = 
