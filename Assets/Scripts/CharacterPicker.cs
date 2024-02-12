@@ -28,11 +28,10 @@ public class CharacterPicker : NetworkBehaviour
         if(IsHost)
         {
             ActivateModel();
-            UpdateX(OwnerClientId <= 0 ? -4 : 4);
+            SetPosX(OwnerClientId <= 0 ? -4 : 4);
         } 
 
-        // Take note, RPCs are queued up to run.
-        // If we tried to immediately set our color locally after calling this RPC it wouldn't have propagated
+        // Démarre la File (Queue) du RPC
         if (IsOwner)
         {
             modelIndex = (int) OwnerClientId;
@@ -44,7 +43,7 @@ public class CharacterPicker : NetworkBehaviour
         }
     }
 
-    private void UpdateX(float x)
+    private void SetPosX(float x)
     {
         var pos = transform.position;
         pos.x = x;
