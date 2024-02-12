@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using TMPro;
 using Unity.Netcode;
@@ -9,13 +8,11 @@ using Unity.Services.Core;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class RelayConnectionManager : Singleton<RelayConnectionManager>
 {
     [SerializeField] private TextMeshProUGUI joinCodeTmp;
     [SerializeField] private TMP_InputField joinInputTmp;
-    private UnityTransport transport;
     private const int MaxConnections = 2;
 
     protected override async void Awake()
@@ -45,7 +42,6 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
         }
     }
 
-    // On create game button in LobbyScene
     public async void CreateGame()
     {
         var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
@@ -92,26 +88,6 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
         catch (RelayServiceException rse)
         {
             Debug.LogError(rse);
-        }
-    }
-
-    public void LoadNetwork(string sceneName)
-    {
-        var status = NetworkManager.Singleton.SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-        if (status != SceneEventProgressStatus.Started)
-        {
-            Debug.LogWarning($"Failed to load {sceneName} " +
-                    $"with a {nameof(SceneEventProgressStatus)}: {status}");
-        }
-
-        NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += SceneManager_OnLoadEventCompleted;
-    }
-
-    private void SceneManager_OnLoadEventCompleted(string sceneName, LoadSceneMode loadSceneMode, System.Collections.Generic.List<ulong> clientsCompleted, System.Collections.Generic.List<ulong> clientsTimedOut)
-    {
-        foreach (var clientId in NetworkManager.Singleton.ConnectedClientsIds)
-        {
-            //playerTransform.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId, true);
         }
     }
 }
