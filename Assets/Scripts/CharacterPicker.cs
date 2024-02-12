@@ -3,6 +3,13 @@ using UnityEngine;
 
 public class CharacterPicker : NetworkBehaviour
 {
+
+    public override void OnNetworkSpawn()
+    {
+        if (!IsOwner) Destroy(this);
+        AssignPlayerModelRpc();
+    }
+
     [Rpc(SendTo.ClientsAndHost)]
     public void AssignPlayerModelRpc()
     {

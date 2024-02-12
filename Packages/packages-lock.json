@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.tomduchene.unity-git-locks": {
+      "version": "https://github.com/TomDuchene/unity-git-locks.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "2.0.0"
+      },
+      "hash": "80a2d4ad8b45b5b88b3bc77a79f96b5670dd8f18"
+    },
     "com.unity.burst": {
       "version": "1.8.12",
       "depth": 2,
