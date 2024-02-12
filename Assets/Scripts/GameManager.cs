@@ -59,6 +59,7 @@ public class GameManager : Singleton<GameManager>
         loadSceneAsync.completed += OnLoadSceneComplete;
         loadOperations.Add(loadSceneAsync);
     }
+
     private void OnLoadSceneComplete(AsyncOperation ao)
     {
         if (loadOperations.Contains(ao))
