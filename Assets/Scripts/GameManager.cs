@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager>
     private List<AsyncOperation> loadOperations = new List<AsyncOperation>();
     private List<GameObject> instanceSystemPrefabsKept = new List<GameObject>();
 
+    private string prevLevelName;
     void Start()
     {
         CurrentLevelName = SceneManager.GetActiveScene().name;
@@ -31,6 +32,7 @@ public class GameManager : Singleton<GameManager>
         instanceSystemPrefabsKept.Clear();
     }
 
+    // Application.Quit() ne fonctionne pas dans l'éditeur, seulement dans le jeu build.
     // TODO: Vérifier que le jeu n'est pas en train de sauvegarder avant de fermer
     public void QuitGame()
     {
@@ -39,43 +41,24 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadLevel(string levelName)
     {
-        CurrentLevelName = levelName;
+        if (CurrentLevelName.Equals(levelName))
+        {
+            Debug.Log($"On ne peut pas charger la même scène 2 fois: {levelName}");
+            return;
+        }
 
+        prevLevelName = CurrentLevelName;
+        CurrentLevelName = levelName;
         AsyncOperation loadSceneAsync = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Single);
         if (loadSceneAsync == null)
         {
-            Debug.Log($"Une erreur est survenue lors du chargement de la scène: {levelName}");
+            Debug.Log($"Une erreur est surevenue lors du chargement de la scène: {levelName}");
             return;
         }
 
         loadSceneAsync.completed += OnLoadSceneComplete;
         loadOperations.Add(loadSceneAsync);
     }
-
-    public void UnloadLevel(string levelName)
-    {
-        AsyncOperation unloadSceneAsync = SceneManager.UnloadSceneAsync(levelName);
-        if (unloadSceneAsync == null)
-        {
-            print("error unloading scene : " + levelName);
-            return;
-        }
-        unloadSceneAsync.completed += OnUnloadSceneComplete;
-    }
-
-    /// <summary>
-    /// Méthode pour rendre les GameObjects de la liste systemPrefabs persistants à travers les scènes.
-    /// </summary>
-    private void KeepSystemPrefabs()
-    {
-        foreach (var go in systemPrefabs)
-        {
-            var clonePrefab = Instantiate(go);
-            instanceSystemPrefabsKept.Add(clonePrefab);
-            DontDestroyOnLoad(clonePrefab);
-        }
-    }
-
     private void OnLoadSceneComplete(AsyncOperation ao)
     {
         if (loadOperations.Contains(ao))
@@ -90,8 +73,16 @@ public class GameManager : Singleton<GameManager>
         Debug.Log($"Fin du chargement de la scène {CurrentLevelName}");
     }
 
-    private void OnUnloadSceneComplete(AsyncOperation obj)
+    /// <summary>
+    /// Méthode pour rendre les GameObjects de la liste systemPrefabs persistants à travers les scènes.
+    /// </summary>
+    private void KeepSystemPrefabs()
     {
-        Debug.Log($"Fin du déchargement de la scène {CurrentLevelName}");
+        foreach (var go in systemPrefabs)
+        {
+            var clonePrefab = Instantiate(go);
+            instanceSystemPrefabsKept.Add(clonePrefab);
+            DontDestroyOnLoad(clonePrefab);
+        }
     }
 }
