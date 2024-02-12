@@ -16,7 +16,7 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
     [SerializeField] private TextMeshProUGUI joinCodeTmp;
     [SerializeField] private TMP_InputField joinInputTmp;
     private UnityTransport transport;
-    private const int MaxConnections = 1;
+    private const int MaxConnections = 2;
 
     protected override async void Awake()
     {

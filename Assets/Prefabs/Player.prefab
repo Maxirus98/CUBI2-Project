@@ -14,9 +14,8 @@ GameObject:
   - component: {fileID: 8935773990446844503}
   - component: {fileID: 4981070563274668335}
   - component: {fileID: 1457757024807115006}
-  - component: {fileID: 1083400268354234950}
-  - component: {fileID: 3571787164562992085}
   - component: {fileID: 5144287323464732283}
+  - component: {fileID: 3571787164562992085}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -158,7 +157,7 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &1083400268354234950
+--- !u!114 &5144287323464732283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,11 +166,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6442938963885821006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4139d901027fbf247a7974bc087da6fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 960945178d345e640b675fe7ce6002ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
-  rotationSpeed: 10
 --- !u!114 &3571787164562992085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,18 +200,6 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &5144287323464732283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6442938963885821006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 960945178d345e640b675fe7ce6002ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3069226018358173400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -269,7 +254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8724770899456690165, guid: 6fb3f594596e57647b3928832f688f67, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -295,7 +280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3339967464063573586, guid: 69bb2e301dff6a94a888bdd65d2ec0a5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7151252137516933153, guid: 69bb2e301dff6a94a888bdd65d2ec0a5, type: 3}
       propertyPath: m_LocalPosition.x
