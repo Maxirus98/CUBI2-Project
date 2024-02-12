@@ -16,13 +16,8 @@ public class PlayerController : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         if (!IsOwner) Destroy(this);
-
-        if(IsOwner)
-        {
-            var index = (int)OwnerClientId;
-            
-        }
     }
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();

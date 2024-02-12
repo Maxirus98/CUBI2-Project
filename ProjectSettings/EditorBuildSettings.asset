@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Lobby.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/CharacterSelection.unity
+    guid: 88d9e103f18111d42b13dc3a69348cf8
+  - enabled: 1
     path: Assets/Scenes/LevelMaxime.unity
     guid: 9c82982b5f43a06449240f00d47a3b0c
   m_configObjects:

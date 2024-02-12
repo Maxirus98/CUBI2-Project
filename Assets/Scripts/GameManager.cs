@@ -11,7 +11,6 @@ public class GameManager : Singleton<GameManager>
     private List<AsyncOperation> loadOperations = new List<AsyncOperation>();
     private List<GameObject> instanceSystemPrefabsKept = new List<GameObject>();
 
-    private string prevLevelName;
     void Start()
     {
         CurrentLevelName = SceneManager.GetActiveScene().name;
@@ -39,7 +38,7 @@ public class GameManager : Singleton<GameManager>
         Application.Quit();
     }
 
-    public void LoadLevel(string levelName)
+    public void LoadLevelAsync(string levelName)
     {
         if (CurrentLevelName.Equals(levelName))
         {
@@ -47,7 +46,6 @@ public class GameManager : Singleton<GameManager>
             return;
         }
 
-        prevLevelName = CurrentLevelName;
         CurrentLevelName = levelName;
         AsyncOperation loadSceneAsync = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Single);
         if (loadSceneAsync == null)

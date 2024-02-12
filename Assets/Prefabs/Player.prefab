@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1457757024807115006}
   - component: {fileID: 1083400268354234950}
   - component: {fileID: 3571787164562992085}
-  - component: {fileID: 8995078322528876525}
+  - component: {fileID: 2367536190786169202}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -151,7 +151,7 @@ MonoBehaviour:
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
+  ActiveSceneSynchronization: 1
   SceneMigrationSynchronization: 1
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
@@ -201,7 +201,7 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &8995078322528876525
+--- !u!114 &2367536190786169202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,6 +210,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6442938963885821006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 673189af82e16dd4f896efc1529ecfc9, type: 3}
+  m_Script: {fileID: 11500000, guid: 960945178d345e640b675fe7ce6002ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  models:
+  - {fileID: 7151252137516933153, guid: 69bb2e301dff6a94a888bdd65d2ec0a5, type: 3}
+  - {fileID: 1483556686349895631, guid: 6fb3f594596e57647b3928832f688f67, type: 3}
