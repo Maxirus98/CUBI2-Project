@@ -1,7 +1,7 @@
-﻿using UnityEngine;
-using static UnityEngine.UI.Image;
+﻿using Unity.Netcode;
+using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     private Vector3 moveDirection;
     private Rigidbody rb;
@@ -12,6 +12,11 @@ public class PlayerController : MonoBehaviour
     [Header("Movements Stats")]
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private float rotationSpeed = 10f;
+
+    public override void OnNetworkSpawn()
+    {
+        if (!IsOwner) Destroy(this);
+    }
 
     void Start()
     {

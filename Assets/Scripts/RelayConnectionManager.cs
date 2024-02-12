@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using TMPro;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Networking.Transport.Relay;
@@ -10,8 +11,8 @@ using UnityEngine;
 
 public class RelayConnectionManager : MonoBehaviour
 {
-    [SerializeField] private string joinCodeText;
-    [SerializeField] private string joinInput;
+    [SerializeField] private TextMeshProUGUI joinCodeTmp;
+    [SerializeField] private TMP_InputField joinInputTmp;
 
     private UnityTransport transport;
     private const int MaxConnections = 1;
@@ -41,7 +42,7 @@ public class RelayConnectionManager : MonoBehaviour
         try
         {
             var allocationDetails = await RelayService.Instance.CreateAllocationAsync(MaxConnections);
-            joinCodeText = await RelayService.Instance.GetJoinCodeAsync(allocationDetails.AllocationId);
+            joinCodeTmp.text = await RelayService.Instance.GetJoinCodeAsync(allocationDetails.AllocationId);
 
             // Applique les détails de la connexion au UnityTransport
             var relayServerData = new RelayServerData(allocationDetails, "dtls");
@@ -61,7 +62,7 @@ public class RelayConnectionManager : MonoBehaviour
         try
         {
             JoinAllocation clientAllocationDetails = 
-                await RelayService.Instance.JoinAllocationAsync(joinInput);
+                await RelayService.Instance.JoinAllocationAsync(joinInputTmp.text);
 
             // Applique les détails de la connexion du client au UnityTransport
             var relayServerData = new RelayServerData(clientAllocationDetails, "dtls");

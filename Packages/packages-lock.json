@@ -89,11 +89,46 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.learn.iet-framework": {
+      "version": "3.1.3",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.editorcoroutines": "1.0.0",
+        "com.unity.settings-manager": "1.0.3"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.mathematics": {
       "version": "1.2.6",
       "depth": 2,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.multiplayer.samples.coop": {
+      "version": "https://github.com/Unity-Technologies/com.unity.multiplayer.samples.coop.git?path=/Packages/com.unity.multiplayer.samples.coop#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.learn.iet-framework": "3.1.3",
+        "com.unity.multiplayer.tools": "1.1.0",
+        "com.unity.netcode.gameobjects": "1.7.1",
+        "com.unity.services.relay": "1.0.5"
+      },
+      "hash": "e48babbbf2e903d65e08a114aac3f3eba824a94a"
+    },
+    "com.unity.multiplayer.tools": {
+      "version": "1.1.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.profiling.core": "1.0.0-pre.1",
+        "com.unity.nuget.newtonsoft-json": "2.0.0",
+        "com.unity.nuget.mono-cecil": "1.10.1",
+        "com.unity.collections": "1.1.0",
+        "com.unity.modules.uielements": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.netcode.gameobjects": {
@@ -123,6 +158,13 @@
     "com.unity.performance.profile-analyzer": {
       "version": "1.2.2",
       "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.profiling.core": {
+      "version": "1.0.2",
+      "depth": 2,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
