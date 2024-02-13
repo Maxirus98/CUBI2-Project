@@ -2,7 +2,7 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Base",
+            "name": "PlayerBase",
             "id": "c9c6a962-9da4-4d18-aac0-e2d55904caae",
             "actions": [
                 {
@@ -150,6 +150,85 @@
                     "processors": "",
                     "groups": "",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UiGamepad",
+            "id": "3edd0f90-4871-46d3-9da8-4e54f2cb95ab",
+            "actions": [
+                {
+                    "name": "Next",
+                    "type": "Button",
+                    "id": "740df49b-6379-43a9-8054-26072afdee96",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Back",
+                    "type": "Button",
+                    "id": "02d48655-529f-45c8-86f7-f3184189cf34",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Choose",
+                    "type": "Button",
+                    "id": "feda8563-a6dc-4da3-9aec-8ca6921c4cc4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1fc7a358-4cdb-4430-9a8d-3cfaf50300a8",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "551b4d06-fc77-4aa8-8456-13161e9b42a5",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3679576d-7af6-4be1-be64-cd7b4eced334",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Choose",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "42344965-ea1e-4013-ba24-17280e161dfd",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Choose",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

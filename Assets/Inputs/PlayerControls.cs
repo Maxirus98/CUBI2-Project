@@ -24,7 +24,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     ""name"": ""PlayerControls"",
     ""maps"": [
         {
-            ""name"": ""Base"",
+            ""name"": ""PlayerBase"",
             ""id"": ""c9c6a962-9da4-4d18-aac0-e2d55904caae"",
             ""actions"": [
                 {
@@ -176,16 +176,100 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UiGamepad"",
+            ""id"": ""3edd0f90-4871-46d3-9da8-4e54f2cb95ab"",
+            ""actions"": [
+                {
+                    ""name"": ""Next"",
+                    ""type"": ""Button"",
+                    ""id"": ""740df49b-6379-43a9-8054-26072afdee96"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""02d48655-529f-45c8-86f7-f3184189cf34"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Choose"",
+                    ""type"": ""Button"",
+                    ""id"": ""feda8563-a6dc-4da3-9aec-8ca6921c4cc4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""1fc7a358-4cdb-4430-9a8d-3cfaf50300a8"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Next"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""551b4d06-fc77-4aa8-8456-13161e9b42a5"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3679576d-7af6-4be1-be64-cd7b4eced334"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Choose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""42344965-ea1e-4013-ba24-17280e161dfd"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Choose"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // Base
-        m_Base = asset.FindActionMap("Base", throwIfNotFound: true);
-        m_Base_Jump = m_Base.FindAction("Jump", throwIfNotFound: true);
-        m_Base_Move = m_Base.FindAction("Move", throwIfNotFound: true);
-        m_Base_Attack = m_Base.FindAction("Attack", throwIfNotFound: true);
-        m_Base_Build = m_Base.FindAction("Build", throwIfNotFound: true);
+        // PlayerBase
+        m_PlayerBase = asset.FindActionMap("PlayerBase", throwIfNotFound: true);
+        m_PlayerBase_Jump = m_PlayerBase.FindAction("Jump", throwIfNotFound: true);
+        m_PlayerBase_Move = m_PlayerBase.FindAction("Move", throwIfNotFound: true);
+        m_PlayerBase_Attack = m_PlayerBase.FindAction("Attack", throwIfNotFound: true);
+        m_PlayerBase_Build = m_PlayerBase.FindAction("Build", throwIfNotFound: true);
+        // UiGamepad
+        m_UiGamepad = asset.FindActionMap("UiGamepad", throwIfNotFound: true);
+        m_UiGamepad_Next = m_UiGamepad.FindAction("Next", throwIfNotFound: true);
+        m_UiGamepad_Back = m_UiGamepad.FindAction("Back", throwIfNotFound: true);
+        m_UiGamepad_Choose = m_UiGamepad.FindAction("Choose", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -244,30 +328,30 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Base
-    private readonly InputActionMap m_Base;
-    private List<IBaseActions> m_BaseActionsCallbackInterfaces = new List<IBaseActions>();
-    private readonly InputAction m_Base_Jump;
-    private readonly InputAction m_Base_Move;
-    private readonly InputAction m_Base_Attack;
-    private readonly InputAction m_Base_Build;
-    public struct BaseActions
+    // PlayerBase
+    private readonly InputActionMap m_PlayerBase;
+    private List<IPlayerBaseActions> m_PlayerBaseActionsCallbackInterfaces = new List<IPlayerBaseActions>();
+    private readonly InputAction m_PlayerBase_Jump;
+    private readonly InputAction m_PlayerBase_Move;
+    private readonly InputAction m_PlayerBase_Attack;
+    private readonly InputAction m_PlayerBase_Build;
+    public struct PlayerBaseActions
     {
         private @PlayerControls m_Wrapper;
-        public BaseActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Jump => m_Wrapper.m_Base_Jump;
-        public InputAction @Move => m_Wrapper.m_Base_Move;
-        public InputAction @Attack => m_Wrapper.m_Base_Attack;
-        public InputAction @Build => m_Wrapper.m_Base_Build;
-        public InputActionMap Get() { return m_Wrapper.m_Base; }
+        public PlayerBaseActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Jump => m_Wrapper.m_PlayerBase_Jump;
+        public InputAction @Move => m_Wrapper.m_PlayerBase_Move;
+        public InputAction @Attack => m_Wrapper.m_PlayerBase_Attack;
+        public InputAction @Build => m_Wrapper.m_PlayerBase_Build;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerBase; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(BaseActions set) { return set.Get(); }
-        public void AddCallbacks(IBaseActions instance)
+        public static implicit operator InputActionMap(PlayerBaseActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayerBaseActions instance)
         {
-            if (instance == null || m_Wrapper.m_BaseActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_BaseActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_PlayerBaseActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerBaseActionsCallbackInterfaces.Add(instance);
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
@@ -282,7 +366,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Build.canceled += instance.OnBuild;
         }
 
-        private void UnregisterCallbacks(IBaseActions instance)
+        private void UnregisterCallbacks(IPlayerBaseActions instance)
         {
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
@@ -298,26 +382,94 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Build.canceled -= instance.OnBuild;
         }
 
-        public void RemoveCallbacks(IBaseActions instance)
+        public void RemoveCallbacks(IPlayerBaseActions instance)
         {
-            if (m_Wrapper.m_BaseActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_PlayerBaseActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IBaseActions instance)
+        public void SetCallbacks(IPlayerBaseActions instance)
         {
-            foreach (var item in m_Wrapper.m_BaseActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_PlayerBaseActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_BaseActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_PlayerBaseActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public BaseActions @Base => new BaseActions(this);
-    public interface IBaseActions
+    public PlayerBaseActions @PlayerBase => new PlayerBaseActions(this);
+
+    // UiGamepad
+    private readonly InputActionMap m_UiGamepad;
+    private List<IUiGamepadActions> m_UiGamepadActionsCallbackInterfaces = new List<IUiGamepadActions>();
+    private readonly InputAction m_UiGamepad_Next;
+    private readonly InputAction m_UiGamepad_Back;
+    private readonly InputAction m_UiGamepad_Choose;
+    public struct UiGamepadActions
+    {
+        private @PlayerControls m_Wrapper;
+        public UiGamepadActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Next => m_Wrapper.m_UiGamepad_Next;
+        public InputAction @Back => m_Wrapper.m_UiGamepad_Back;
+        public InputAction @Choose => m_Wrapper.m_UiGamepad_Choose;
+        public InputActionMap Get() { return m_Wrapper.m_UiGamepad; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UiGamepadActions set) { return set.Get(); }
+        public void AddCallbacks(IUiGamepadActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UiGamepadActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UiGamepadActionsCallbackInterfaces.Add(instance);
+            @Next.started += instance.OnNext;
+            @Next.performed += instance.OnNext;
+            @Next.canceled += instance.OnNext;
+            @Back.started += instance.OnBack;
+            @Back.performed += instance.OnBack;
+            @Back.canceled += instance.OnBack;
+            @Choose.started += instance.OnChoose;
+            @Choose.performed += instance.OnChoose;
+            @Choose.canceled += instance.OnChoose;
+        }
+
+        private void UnregisterCallbacks(IUiGamepadActions instance)
+        {
+            @Next.started -= instance.OnNext;
+            @Next.performed -= instance.OnNext;
+            @Next.canceled -= instance.OnNext;
+            @Back.started -= instance.OnBack;
+            @Back.performed -= instance.OnBack;
+            @Back.canceled -= instance.OnBack;
+            @Choose.started -= instance.OnChoose;
+            @Choose.performed -= instance.OnChoose;
+            @Choose.canceled -= instance.OnChoose;
+        }
+
+        public void RemoveCallbacks(IUiGamepadActions instance)
+        {
+            if (m_Wrapper.m_UiGamepadActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IUiGamepadActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UiGamepadActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UiGamepadActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public UiGamepadActions @UiGamepad => new UiGamepadActions(this);
+    public interface IPlayerBaseActions
     {
         void OnJump(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnBuild(InputAction.CallbackContext context);
+    }
+    public interface IUiGamepadActions
+    {
+        void OnNext(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
+        void OnChoose(InputAction.CallbackContext context);
     }
 }

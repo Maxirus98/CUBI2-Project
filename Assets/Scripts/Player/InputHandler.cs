@@ -11,7 +11,6 @@ public class InputHandler : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] private float moveSpeed;
     private Vector2 movementInput;
-    
 
     void Start()
     {
