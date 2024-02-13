@@ -1,10 +1,12 @@
 using Unity.Netcode;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterPicker : NetworkBehaviour
 {
     private readonly NetworkVariable<int> netIndex = new();
-    private readonly int[] indexes = { 0, 1 };
-    private int modelIndex = 0;
+    private Button switchCharacterButton;
+    private int modelIndex;
 
     private void Awake()
     {
@@ -19,30 +21,39 @@ public class CharacterPicker : NetworkBehaviour
 
     private void OnValueChanged(int prev, int next)
     {
-        ActivateModel();
+        Debug.Log("Received OnValueChanged");
+        SwitchCharacter();
     }
 
     public override void OnNetworkSpawn()
     {
         if(IsHost)
         {
-            ActivateModel();
-            SetPosX(OwnerClientId <= 0 ? -4 : 4);
-        } 
+            SetInitialPosX(OwnerClientId <= 0 ? -4 : 4);
+        }
 
         // Démarre la File (Queue) du RPC
         if (IsOwner)
         {
-            modelIndex = (int) OwnerClientId;
-            CommitNetworkIndexServerRpc(GetNextIndex());
-        }
-        else
-        {
+            modelIndex = (int)OwnerClientId;
             ActivateModel();
+            Debug.Log($"Current Model Index {modelIndex} for Owner: {OwnerClientId}");
         }
     }
 
-    private void SetPosX(float x)
+    private void Start()
+    {
+        switchCharacterButton = GameObject.Find("SwitchCharacter").GetComponent<Button>();
+        if (IsHost)
+        {
+            switchCharacterButton.onClick.AddListener(delegate { CommitNetworkIndexServerRpc(); });
+        } else
+        {
+            switchCharacterButton.gameObject.SetActive(false);
+        }
+    }
+
+        private void SetInitialPosX(float x)
     {
         var pos = transform.position;
         pos.x = x;
@@ -56,17 +67,23 @@ public class CharacterPicker : NetworkBehaviour
             transform.GetChild(i).gameObject.SetActive(false);
         }
 
-        transform.GetChild(netIndex.Value).gameObject.SetActive(true);
+        transform.GetChild(modelIndex).gameObject.SetActive(true);
+    }
+
+    private void SwitchCharacter()
+    {
+        Debug.Log($"Current modelIndex is: {modelIndex}");
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            var go = transform.GetChild(i).gameObject;
+            go.SetActive(!go.activeInHierarchy);
+        }
     }
 
     [Rpc(SendTo.Server)]
-    private void CommitNetworkIndexServerRpc(int index)
+    private void CommitNetworkIndexServerRpc()
     {
+        var index = netIndex.Value == 0 ? 1 : 0;
         netIndex.Value = index;
-    }
-
-    private int GetNextIndex()
-    {
-        return indexes[modelIndex++ % indexes.Length];
     }
 }

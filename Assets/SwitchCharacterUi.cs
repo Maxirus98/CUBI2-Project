@@ -1,9 +1,19 @@
+using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class SwitchCharacterUi : MonoBehaviour
+public class SwitchCharacterUi : NetworkBehaviour
 {
-    public void SwitchCharacter()
-    {
+    [SerializeField]
+    private Button switchCharacterButton;
 
+    public override void OnNetworkSpawn()
+    {
+        if(IsHost)
+        {
+        } else
+        {
+            switchCharacterButton.gameObject.SetActive(false);
+        }
     }
 }
