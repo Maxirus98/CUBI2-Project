@@ -8,8 +8,7 @@ public class CharacterPicker : NetworkBehaviour
 
     private void Awake()
     {
-        // Subscribing to a change event. This is how the owner will change its color.
-        // Could also be used for future color changes
+        // Subscribing to a change event. This is how the owner will change its model.
         netIndex.OnValueChanged += OnValueChanged;
     }
 

@@ -15,7 +15,7 @@ public class PlayerController : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        if (!IsOwner) Destroy(this);
+        if(!IsOwner) Destroy(this);
     }
 
     void Start()
@@ -28,6 +28,7 @@ public class PlayerController : NetworkBehaviour
     #region Movement
     private void Update()
     {
+        // Écrire dans le NetworkVariable
         var delta = Time.deltaTime;
         HandleMovement(delta);
     }
