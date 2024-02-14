@@ -41,4 +41,9 @@ public class InputHandler : MonoBehaviour
     {
         movementInput = inputValue.Get<Vector2>();
     }
+
+    private void OnToggleGameMenu()
+    {
+        GameManager.Instance.ToggleGameMenu();
+    }
 }

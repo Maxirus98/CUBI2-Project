@@ -62,6 +62,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleGameMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""f2c30918-a8ed-4ec4-8907-9c3d227d366b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -174,6 +183,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4ae5d30a-d75e-4e6f-90f2-71c80f21d1a0"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleGameMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -265,6 +285,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerBase_Move = m_PlayerBase.FindAction("Move", throwIfNotFound: true);
         m_PlayerBase_Attack = m_PlayerBase.FindAction("Attack", throwIfNotFound: true);
         m_PlayerBase_Build = m_PlayerBase.FindAction("Build", throwIfNotFound: true);
+        m_PlayerBase_ToggleGameMenu = m_PlayerBase.FindAction("ToggleGameMenu", throwIfNotFound: true);
         // UiGamepad
         m_UiGamepad = asset.FindActionMap("UiGamepad", throwIfNotFound: true);
         m_UiGamepad_Next = m_UiGamepad.FindAction("Next", throwIfNotFound: true);
@@ -335,6 +356,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerBase_Move;
     private readonly InputAction m_PlayerBase_Attack;
     private readonly InputAction m_PlayerBase_Build;
+    private readonly InputAction m_PlayerBase_ToggleGameMenu;
     public struct PlayerBaseActions
     {
         private @PlayerControls m_Wrapper;
@@ -343,6 +365,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_PlayerBase_Move;
         public InputAction @Attack => m_Wrapper.m_PlayerBase_Attack;
         public InputAction @Build => m_Wrapper.m_PlayerBase_Build;
+        public InputAction @ToggleGameMenu => m_Wrapper.m_PlayerBase_ToggleGameMenu;
         public InputActionMap Get() { return m_Wrapper.m_PlayerBase; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -364,6 +387,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Build.started += instance.OnBuild;
             @Build.performed += instance.OnBuild;
             @Build.canceled += instance.OnBuild;
+            @ToggleGameMenu.started += instance.OnToggleGameMenu;
+            @ToggleGameMenu.performed += instance.OnToggleGameMenu;
+            @ToggleGameMenu.canceled += instance.OnToggleGameMenu;
         }
 
         private void UnregisterCallbacks(IPlayerBaseActions instance)
@@ -380,6 +406,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Build.started -= instance.OnBuild;
             @Build.performed -= instance.OnBuild;
             @Build.canceled -= instance.OnBuild;
+            @ToggleGameMenu.started -= instance.OnToggleGameMenu;
+            @ToggleGameMenu.performed -= instance.OnToggleGameMenu;
+            @ToggleGameMenu.canceled -= instance.OnToggleGameMenu;
         }
 
         public void RemoveCallbacks(IPlayerBaseActions instance)
@@ -465,6 +494,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnBuild(InputAction.CallbackContext context);
+        void OnToggleGameMenu(InputAction.CallbackContext context);
     }
     public interface IUiGamepadActions
     {

@@ -6,8 +6,11 @@ public class GameManager : Singleton<GameManager>
 {
     public string CurrentLevelName { get; set; }
 
-    [SerializeField] 
+    [SerializeField]
     private GameObject[] systemPrefabs;
+
+    [SerializeField]
+    private GameObject gameMenu;
     private List<AsyncOperation> loadOperations = new List<AsyncOperation>();
     private List<GameObject> instanceSystemPrefabsKept = new List<GameObject>();
 
@@ -29,6 +32,11 @@ public class GameManager : Singleton<GameManager>
         }
 
         instanceSystemPrefabsKept.Clear();
+    }
+
+    public void ToggleGameMenu()
+    {
+        gameMenu.SetActive(!gameMenu.activeInHierarchy);
     }
 
     // Application.Quit() ne fonctionne pas dans l'éditeur, seulement dans le jeu build.
