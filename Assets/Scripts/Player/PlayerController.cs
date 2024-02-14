@@ -13,11 +13,6 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private float rotationSpeed = 10f;
 
-    public override void OnNetworkSpawn()
-    {
-        if(!IsOwner) Destroy(this);
-    }
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();

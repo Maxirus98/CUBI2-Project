@@ -11,7 +11,6 @@ public class CharacterPicker : NetworkBehaviour
     private int unactiveModelIndex;
     private Button switchCharacterButton;
 
-
     public override void OnNetworkSpawn()
     {
         Debug.Log("OnNetworkSpawn was called");
@@ -77,7 +76,6 @@ public class CharacterPicker : NetworkBehaviour
 
     private void SwitchCharacter()
     {
-        Debug.Log($"Owner Id {OwnerClientId} - UnActive is {unactiveModelIndex} - Active is: {activeModelIndex}");
         netActiveModelIndex.Value = unactiveModelIndex;
     }
 
