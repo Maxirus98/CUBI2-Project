@@ -1,89 +1,84 @@
+using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CharacterPicker : NetworkBehaviour
 {
-    private readonly NetworkVariable<int> netIndex = new();
+    private NetworkVariable<int> netActiveModelIndex = new();
+
+    private int activeModelIndex;
+    private int unactiveModelIndex;
     private Button switchCharacterButton;
-    private int modelIndex;
 
-    private void Awake()
-    {
-        // Subscribing to a change event. This is how the owner will change its model.
-        netIndex.OnValueChanged += OnValueChanged;
-    }
-
-    public override void OnDestroy()
-    {
-        netIndex.OnValueChanged -= OnValueChanged;
-    }
-
-    private void OnValueChanged(int prev, int next)
-    {
-        Debug.Log("Received OnValueChanged");
-        SwitchCharacter();
-    }
 
     public override void OnNetworkSpawn()
     {
-        if(IsHost)
-        {
-            SetInitialPosX(OwnerClientId <= 0 ? -4 : 4);
-        }
+        Debug.Log("OnNetworkSpawn was called");
 
-        // Démarre la File (Queue) du RPC
+        netActiveModelIndex.OnValueChanged += OnModelValueChanged;
+        activeModelIndex = IsHost ? 0 : 1;
+        unactiveModelIndex = IsHost ? 1 : 0;
+        var xPos = IsHost ? -4 : 4;
+
         if (IsOwner)
         {
-            modelIndex = (int)OwnerClientId;
-            ActivateModel();
-            Debug.Log($"Current Model Index {modelIndex} for Owner: {OwnerClientId}");
+            transform.GetChild(activeModelIndex).gameObject.SetActive(true);
+            transform.GetChild(unactiveModelIndex).gameObject.SetActive(false);
+            transform.position = Vector3.right * xPos + Vector3.up;
+        } else
+        {
+            transform.GetChild(unactiveModelIndex).gameObject.SetActive(true);
+            transform.GetChild(activeModelIndex).gameObject.SetActive(false);
+            transform.position = Vector3.left * xPos + Vector3.up;
         }
     }
 
     private void Start()
     {
+        StartCoroutine(FindSwitchButton());
+    }
+
+    private IEnumerator FindSwitchButton()
+    {
+        yield return new WaitForSeconds(1);
         switchCharacterButton = GameObject.Find("SwitchCharacter").GetComponent<Button>();
         if (IsHost)
         {
-            switchCharacterButton.onClick.AddListener(delegate { CommitNetworkIndexServerRpc(); });
-        } else
+            switchCharacterButton.onClick.AddListener(SwitchCharacter);
+        }
+        else
         {
             switchCharacterButton.gameObject.SetActive(false);
         }
     }
 
-        private void SetInitialPosX(float x)
+    public override void OnDestroy()
     {
-        var pos = transform.position;
-        pos.x = x;
-        transform.position = pos;
+        netActiveModelIndex.OnValueChanged -= OnModelValueChanged;
     }
 
-    private void ActivateModel()
+    private void OnModelValueChanged(int previousValue, int newValue)
     {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).gameObject.SetActive(false);
-        }
+        activeModelIndex = IsHost ? newValue : previousValue;
+        unactiveModelIndex = IsHost ? previousValue : newValue;
 
-        transform.GetChild(modelIndex).gameObject.SetActive(true);
+        if (IsOwner)
+        {
+            transform.GetChild(activeModelIndex).gameObject.SetActive(true);
+            transform.GetChild(unactiveModelIndex).gameObject.SetActive(false);
+        }
+        else
+        {
+            transform.GetChild(unactiveModelIndex).gameObject.SetActive(true);
+            transform.GetChild(activeModelIndex).gameObject.SetActive(false);
+        }
     }
 
     private void SwitchCharacter()
     {
-        Debug.Log($"Current modelIndex is: {modelIndex}");
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            var go = transform.GetChild(i).gameObject;
-            go.SetActive(!go.activeInHierarchy);
-        }
+        Debug.Log($"Owner Id {OwnerClientId} - UnActive is {unactiveModelIndex} - Active is: {activeModelIndex}");
+        netActiveModelIndex.Value = unactiveModelIndex;
     }
 
-    [Rpc(SendTo.Server)]
-    private void CommitNetworkIndexServerRpc()
-    {
-        var index = netIndex.Value == 0 ? 1 : 0;
-        netIndex.Value = index;
-    }
 }

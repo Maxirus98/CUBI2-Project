@@ -61,7 +61,7 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
 
             joinCodeTmp.transform.parent.gameObject.SetActive(true);
 
-            NetworkLoader.LoadNetwork(NetworkLoader.Scene.CharacterSelection);
+            NetworkLoader.LoadNetwork(NetworkLoader.Scene.CharacterSelection); 
         }
         catch (RelayServiceException rse)
         {
