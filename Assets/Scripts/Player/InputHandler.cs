@@ -28,8 +28,6 @@ public class InputHandler : MonoBehaviour
         horizontal = movementInput.x;
         vertical = movementInput.y;
 
-        // Clamp the value between 0 and 1.
-        // If the value is equal to then zero is returned. If value is greater than one then one is returned.
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontal) + Mathf.Abs(vertical));
     }
 

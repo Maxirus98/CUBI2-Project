@@ -24,10 +24,14 @@ public class StartGameUi : MonoBehaviour
         RelayConnectionManager.Instance.DisablePasswordUi();
     }
 
-    [Rpc(SendTo.Everyone)]
+    // TODO: Enable non-host client's component
+    [Rpc(SendTo.ClientsAndHost)]
     private void EnablePlayerControllerRpc()
     {
-        var playerController = NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerController>();
+        var playerPrefab = NetworkManager.Singleton.LocalClient.PlayerObject;
+        var playerController = playerPrefab.GetComponent<PlayerController>();
+        var rb = playerPrefab.GetComponent<Rigidbody>();
         playerController.enabled = true;
+        rb.useGravity = true;
     }
 }
