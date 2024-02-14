@@ -14,7 +14,7 @@ public class CharacterPicker : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         Debug.Log("OnNetworkSpawn was called");
-
+        if(!IsHost) EnableSwitchCharacterButtonRpc();
         netActiveModelIndex.OnValueChanged += OnModelValueChanged;
         activeModelIndex = IsHost ? 0 : 1;
         unactiveModelIndex = IsHost ? 1 : 0;
@@ -77,6 +77,12 @@ public class CharacterPicker : NetworkBehaviour
     private void SwitchCharacter()
     {
         netActiveModelIndex.Value = unactiveModelIndex;
+    }
+
+    [Rpc(SendTo.Server)]
+    private void EnableSwitchCharacterButtonRpc()
+    {
+        switchCharacterButton.interactable = true;
     }
 
 }

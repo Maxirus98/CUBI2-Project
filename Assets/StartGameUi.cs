@@ -11,7 +11,7 @@ public class StartGameUi : MonoBehaviour
         startButton = GetComponent<Button>();
         startButton.onClick.AddListener(OnClickStart);
 
-        if(!NetworkManager.Singleton.IsHost)
+        if (!NetworkManager.Singleton.IsHost)
         {
             startButton.gameObject.SetActive(false);
         }
@@ -19,7 +19,15 @@ public class StartGameUi : MonoBehaviour
 
     private void OnClickStart()
     {
-        Debug.Log("OnClickStart");
         NetworkLoader.LoadNetwork(NetworkLoader.Scene.LevelMaxime);
+        EnablePlayerControllerRpc();
+        RelayConnectionManager.Instance.DisablePasswordUi();
+    }
+
+    [Rpc(SendTo.Everyone)]
+    private void EnablePlayerControllerRpc()
+    {
+        var playerController = NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerController>();
+        playerController.enabled = true;
     }
 }

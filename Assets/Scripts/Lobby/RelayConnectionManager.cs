@@ -84,10 +84,16 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
 
             // Débute la connexion du client
             NetworkManager.Singleton.StartClient();
+            DisablePasswordUi();
         }
         catch (RelayServiceException rse)
         {
             Debug.LogError(rse);
         }
+    }
+
+    public void DisablePasswordUi()
+    {
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 }
