@@ -7,15 +7,13 @@ public class InputHandler : MonoBehaviour
     public float vertical;
     public float moveAmount;
 
-    private PlayerControls playerControls;
-    private Rigidbody rb;
+    private PlayerControls inputActions;
     [SerializeField] private float moveSpeed;
     private Vector2 movementInput;
 
     void Start()
     {
-        playerControls = new PlayerControls();
-        rb = GetComponent<Rigidbody>();
+        inputActions = new PlayerControls();
     }
 
     void Update()
@@ -32,11 +30,6 @@ public class InputHandler : MonoBehaviour
     }
 
     // Les méthodes d'Input doivent être prefix par le mot "On" pour le PlayerInput component
-    private void OnJump()
-    {
-        rb.AddForce(Vector3.up * 5f,ForceMode.Impulse);
-    }
-
     private void OnMove(InputValue inputValue)
     {
         movementInput = inputValue.Get<Vector2>();
