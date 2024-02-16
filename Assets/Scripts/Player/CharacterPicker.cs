@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CharacterPicker : NetworkBehaviour
@@ -14,7 +15,6 @@ public class CharacterPicker : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         Debug.Log("OnNetworkSpawn was called");
-        if(!IsHost) EnableSwitchCharacterButtonRpc();
         netActiveModelIndex.OnValueChanged += OnModelValueChanged;
         activeModelIndex = IsHost ? 0 : 1;
         unactiveModelIndex = IsHost ? 1 : 0;
@@ -42,13 +42,14 @@ public class CharacterPicker : NetworkBehaviour
     {
         yield return new WaitForSeconds(1);
         switchCharacterButton = GameObject.Find("SwitchCharacter").GetComponent<Button>();
+
         if (IsHost)
         {
             switchCharacterButton.onClick.AddListener(SwitchCharacter);
         }
         else
         {
-            switchCharacterButton.gameObject.SetActive(false);
+            EnableSwitchCharacterButtonRpc();   
         }
     }
 

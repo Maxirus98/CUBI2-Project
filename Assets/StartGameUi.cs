@@ -25,17 +25,17 @@ public class StartGameUi : MonoBehaviour
         RelayConnectionManager.Instance.DisablePasswordUi();
     }
 
-    private void EnablePlayerController(string sceneName, LoadSceneMode loadSceneMode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
+    private void EnablePlayer(string sceneName, LoadSceneMode loadSceneMode, List<ulong> clientsCompleted, List<ulong> clientsTimedOut)
     {
         var playerPrefab = NetworkManager.Singleton.LocalClient.PlayerObject;
-        var playerController = playerPrefab.GetComponent<PlayerController>();
+        var playerManager = playerPrefab.GetComponent<PlayerManager>();
         var rb = playerPrefab.GetComponent<Rigidbody>();
-        playerController.enabled = true;
+        playerManager.enabled = true;
         rb.useGravity = true;
     }
 
     private void OnDestroy()
     {
-        NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += EnablePlayerController;
+        NetworkManager.Singleton.SceneManager.OnLoadEventCompleted += EnablePlayer;
     }
 }

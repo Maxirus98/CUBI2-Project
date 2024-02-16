@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 9134091098793749110}
   - component: {fileID: 5052895866544885141}
   - component: {fileID: 5012381379690079572}
+  - component: {fileID: 4528625037589575673}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -135,9 +136,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76928839e91839445ac4305a255e09f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontal: 0
-  vertical: 0
+  Horizontal: 0
+  Vertical: 0
   moveAmount: 0
+  mouseX: 0
+  mouseY: 0
   moveSpeed: 5
 --- !u!114 &1457757024807115006
 MonoBehaviour:
@@ -210,11 +213,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6442938963885821006}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4139d901027fbf247a7974bc087da6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraObject: {fileID: 0}
   movementSpeed: 5
   rotationSpeed: 10
 --- !u!114 &5052895866544885141
@@ -243,6 +247,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   netIsReady:
     m_InternalValue: 0
+--- !u!114 &4528625037589575673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442938963885821006}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 890c84c3e3e9a7d409dd92f2fae68c61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraHandler: {fileID: 7986330913172783398, guid: 3411f9e4a6864b54b84edeb5d9e9d41c, type: 3}
+  cameraHandlerClone: {fileID: 0}
+  isInAir: 0
+  isGrounded: 0
 --- !u!1001 &3069226018358173400
 PrefabInstance:
   m_ObjectHideFlags: 0

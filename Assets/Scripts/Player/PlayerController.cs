@@ -6,7 +6,7 @@ public class PlayerController : NetworkBehaviour
     private Vector3 moveDirection;
     private Rigidbody rb;
 
-    private Transform cameraObject;
+    public Transform cameraObject;
     private InputHandler inputHandler;
 
     [Header("Movements Stats")]
@@ -17,21 +17,13 @@ public class PlayerController : NetworkBehaviour
     {
         rb = GetComponent<Rigidbody>();
         inputHandler = GetComponent<InputHandler>();
-        cameraObject = Camera.main.transform;
     }
 
     #region Movement
-    private void Update()
+    public void HandleMovement(float delta)
     {
-        // Écrire dans le NetworkVariable
-        var delta = Time.deltaTime;
-        HandleMovement(delta);
-    }
-
-    private void HandleMovement(float delta)
-    {
-        moveDirection = transform.forward * inputHandler.vertical;
-        moveDirection += transform.right * inputHandler.horizontal;
+        moveDirection = cameraObject.forward * inputHandler.Vertical;
+        moveDirection += cameraObject.right * inputHandler.Horizontal;
         moveDirection.Normalize();
         moveDirection.y = 0f;
 
@@ -42,14 +34,14 @@ public class PlayerController : NetworkBehaviour
             rb.velocity = projectedVelocity * movementSpeed;
         }
 
-        // HandleRotation(delta);
+        HandleRotation(delta);
     }
 
     private void HandleRotation(float delta)
     {
         Vector3 targetDirection;
-        targetDirection = cameraObject.forward * inputHandler.vertical;
-        targetDirection += cameraObject.right * inputHandler.horizontal;
+        targetDirection = cameraObject.forward * inputHandler.Vertical;
+        targetDirection += cameraObject.right * inputHandler.Horizontal;
 
         targetDirection.Normalize();
         targetDirection.y = 0f;

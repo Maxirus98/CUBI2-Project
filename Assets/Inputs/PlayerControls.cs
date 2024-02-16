@@ -71,6 +71,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveCamera"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""4a4f282c-1910-4e47-9e24-bde326d9053f"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -194,6 +203,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""ToggleGameMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aff5fc4b-4b83-4a69-b74a-636e39271fb3"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -286,6 +306,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerBase_Attack = m_PlayerBase.FindAction("Attack", throwIfNotFound: true);
         m_PlayerBase_Build = m_PlayerBase.FindAction("Build", throwIfNotFound: true);
         m_PlayerBase_ToggleGameMenu = m_PlayerBase.FindAction("ToggleGameMenu", throwIfNotFound: true);
+        m_PlayerBase_MoveCamera = m_PlayerBase.FindAction("MoveCamera", throwIfNotFound: true);
         // UiGamepad
         m_UiGamepad = asset.FindActionMap("UiGamepad", throwIfNotFound: true);
         m_UiGamepad_Next = m_UiGamepad.FindAction("Next", throwIfNotFound: true);
@@ -357,6 +378,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerBase_Attack;
     private readonly InputAction m_PlayerBase_Build;
     private readonly InputAction m_PlayerBase_ToggleGameMenu;
+    private readonly InputAction m_PlayerBase_MoveCamera;
     public struct PlayerBaseActions
     {
         private @PlayerControls m_Wrapper;
@@ -366,6 +388,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_PlayerBase_Attack;
         public InputAction @Build => m_Wrapper.m_PlayerBase_Build;
         public InputAction @ToggleGameMenu => m_Wrapper.m_PlayerBase_ToggleGameMenu;
+        public InputAction @MoveCamera => m_Wrapper.m_PlayerBase_MoveCamera;
         public InputActionMap Get() { return m_Wrapper.m_PlayerBase; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -390,6 +413,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ToggleGameMenu.started += instance.OnToggleGameMenu;
             @ToggleGameMenu.performed += instance.OnToggleGameMenu;
             @ToggleGameMenu.canceled += instance.OnToggleGameMenu;
+            @MoveCamera.started += instance.OnMoveCamera;
+            @MoveCamera.performed += instance.OnMoveCamera;
+            @MoveCamera.canceled += instance.OnMoveCamera;
         }
 
         private void UnregisterCallbacks(IPlayerBaseActions instance)
@@ -409,6 +435,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ToggleGameMenu.started -= instance.OnToggleGameMenu;
             @ToggleGameMenu.performed -= instance.OnToggleGameMenu;
             @ToggleGameMenu.canceled -= instance.OnToggleGameMenu;
+            @MoveCamera.started -= instance.OnMoveCamera;
+            @MoveCamera.performed -= instance.OnMoveCamera;
+            @MoveCamera.canceled -= instance.OnMoveCamera;
         }
 
         public void RemoveCallbacks(IPlayerBaseActions instance)
@@ -495,6 +524,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnBuild(InputAction.CallbackContext context);
         void OnToggleGameMenu(InputAction.CallbackContext context);
+        void OnMoveCamera(InputAction.CallbackContext context);
     }
     public interface IUiGamepadActions
     {
