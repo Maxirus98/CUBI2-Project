@@ -9,9 +9,9 @@ public class PlayerManager : NetworkBehaviour
 {
     [SerializeField]
     private CameraHandler cameraHandler;
-    public CameraHandler cameraHandlerClone;
+    [SerializeField] 
+    private CameraHandler cameraHandlerClone;
     private InputHandler inputHandler;
-    
     private PlayerController playerController;
 
     [Header("Player Flags")]
@@ -27,11 +27,14 @@ public class PlayerManager : NetworkBehaviour
     {
         inputHandler = GetComponent<InputHandler>();
         playerController = GetComponent<PlayerController>();
+        playerController.enabled = true;
+
+        // Spawn une caméra pour le joueur (Client)
         if (cameraHandlerClone == null)
         {
             cameraHandlerClone = Instantiate(cameraHandler);
             cameraHandlerClone.targetTransform = transform;
-            playerController.cameraObject = cameraHandlerClone.transform;
+            playerController.CameraPrefab = cameraHandlerClone.transform;
         }
     }
 
@@ -40,6 +43,7 @@ public class PlayerManager : NetworkBehaviour
         var delta = Time.deltaTime;
         inputHandler.TickInput(delta);
         playerController.HandleMovement(delta);
+        playerController.HandleFalling(delta);
     }
 
     private void FixedUpdate()
@@ -48,17 +52,7 @@ public class PlayerManager : NetworkBehaviour
         if (cameraHandler != null)
         {
             cameraHandlerClone.FollowTarget(delta);
-            cameraHandlerClone.HandleCameraRotation(delta, inputHandler.mouseX, inputHandler.mouseY);
-        }
-    }
-
-    private void LateUpdate()
-    {
-        // Reset the flags
-
-        if (isInAir)
-        {
-            // playerController.inAirTimer = playerController.inAirTimer + Time.deltaTime;
+            cameraHandlerClone.HandleCameraRotation(delta, inputHandler.MouseX, inputHandler.MouseY);
         }
     }
 }

@@ -3,45 +3,91 @@ using UnityEngine;
 
 public class PlayerController : NetworkBehaviour
 {
+    public Transform CameraPrefab;
+
     private Vector3 moveDirection;
     private Rigidbody rb;
-
-    public Transform cameraObject;
     private InputHandler inputHandler;
+    private PlayerManager playerManager;
 
     [Header("Movements Stats")]
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private float rotationSpeed = 10f;
+    [SerializeField] private float fallingSpeed = 90f;
+    [SerializeField] private float jumpingForce = 15f;
+    
+    [Header("Ground & Air Detection Stats")]
+    [SerializeField] private float minimumDistanceNeededToBeginFall = 1f;
+    [SerializeField] private float groundDetectionRayStartPoint = 0.5f;
+    private float groundDirectionRayDistance;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         inputHandler = GetComponent<InputHandler>();
+        playerManager = GetComponent<PlayerManager>();
+        groundDirectionRayDistance = groundDetectionRayStartPoint + 0.1f;
     }
 
     #region Movement
+    private Vector3 normalVector;
+
     public void HandleMovement(float delta)
     {
-        moveDirection = cameraObject.forward * inputHandler.Vertical;
-        moveDirection += cameraObject.right * inputHandler.Horizontal;
+        moveDirection = CameraPrefab.forward * inputHandler.Vertical;
+        moveDirection += CameraPrefab.right * inputHandler.Horizontal;
         moveDirection.Normalize();
-        moveDirection.y = 0f;
-
+            
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit))
+        // TODO: Add LayerMask to players and ignore that layer mask so they don't just walk on eachother's head
+        var originRay = transform.position + Vector3.down * groundDetectionRayStartPoint;
+        Debug.DrawRay(originRay, Vector3.down * groundDirectionRayDistance, Color.red);
+        playerManager.isGrounded = Physics.Raycast(originRay, Vector3.down, out hit, groundDirectionRayDistance);
+        if (playerManager.isGrounded)
         {
-            var projectedVelocity = Vector3.ProjectOnPlane(moveDirection, hit.normal);
+            normalVector = hit.normal;
+            var projectedVelocity = Vector3.ProjectOnPlane(moveDirection, normalVector);
             rb.velocity = projectedVelocity * movementSpeed;
         }
 
         HandleRotation(delta);
     }
 
+    public void HandleJump()
+    {
+        if(inputHandler.JumpInput && playerManager.isGrounded)
+        {
+            rb.AddForce(Vector3.up * jumpingForce + moveDirection, ForceMode.Impulse);
+            // TODO: Faire jouer l'animation Jumping
+            inputHandler.JumpInput = false;
+        }
+    }
+
+    public void HandleFalling(float delta)
+    {
+        // Si tombe en bas de la plateforme par hasard, le ramener au sol
+        var myPos = transform.position;
+        if (myPos.y < 0)
+        {
+            // TODO: la position va changer selon la normale de la surface
+            // Ou ramener au starting position
+            myPos.y = 2f;
+            transform.position = myPos;
+        }
+        // TODO: Faire jouer l'animation Falling
+        var originRay = transform.position + Vector3.down * groundDetectionRayStartPoint;
+        playerManager.isGrounded = Physics.Raycast(originRay, Vector3.down, out RaycastHit hit, groundDirectionRayDistance);
+        if (!playerManager.isGrounded)
+        {
+            rb.AddForce(delta * fallingSpeed * Vector3.down, ForceMode.VelocityChange);
+        }
+    }
+
     private void HandleRotation(float delta)
     {
         Vector3 targetDirection;
-        targetDirection = cameraObject.forward * inputHandler.Vertical;
-        targetDirection += cameraObject.right * inputHandler.Horizontal;
+        targetDirection = CameraPrefab.forward * inputHandler.Vertical;
+        targetDirection += CameraPrefab.right * inputHandler.Horizontal;
 
         targetDirection.Normalize();
         targetDirection.y = 0f;
