@@ -14,6 +14,8 @@ public class PlayerCombat : NetworkBehaviour
     {
         currentProjectile  = transform.GetChild(0).gameObject.activeInHierarchy ? 
             sandmanProjectile : petProjectile;
+
+        Debug.Log($"Current projectile chosen is: {currentProjectile} for player {gameObject.name}");
     }
 
     public void Attack()
@@ -43,7 +45,7 @@ public class PlayerCombat : NetworkBehaviour
 
     private void ExecuteShoot(Vector3 dir)
     {
-        var projectile = Instantiate(this.currentProjectile, transform.position, Quaternion.identity);
+        var projectile = Instantiate(currentProjectile, transform.position, Quaternion.identity);
         projectile.Init(dir * projectileSpeed);
         // AudioSource.PlayClipAtPoint(spawnClip, transform.position);
     }

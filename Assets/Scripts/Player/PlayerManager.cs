@@ -9,10 +9,11 @@ public class PlayerManager : NetworkBehaviour
 {
     [SerializeField]
     private CameraHandler cameraHandler;
-    [SerializeField] 
     private CameraHandler cameraHandlerClone;
     private InputHandler inputHandler;
     private PlayerController playerController;
+    private PlayerStats playerStats;
+    private PlayerCombat playerCombat;
 
     [Header("Player Flags")]
     public bool isInAir;
@@ -25,11 +26,7 @@ public class PlayerManager : NetworkBehaviour
 
     private void Start()
     {
-        inputHandler = GetComponent<InputHandler>();
-        inputHandler.enabled = true;
-        playerController = GetComponent<PlayerController>();
-        playerController.enabled = true;
-
+        InitializeComponents();
         // Spawn une caméra pour le joueur (Client)
         if (cameraHandlerClone == null)
         {
@@ -42,7 +39,7 @@ public class PlayerManager : NetworkBehaviour
     void Update()
     {
         var delta = Time.deltaTime;
-        inputHandler.TickInput(delta);
+        inputHandler.TickInput();
         playerController.HandleMovement(delta);
         playerController.HandleFalling(delta);
     }
@@ -55,5 +52,18 @@ public class PlayerManager : NetworkBehaviour
             cameraHandlerClone.FollowTarget(delta);
             cameraHandlerClone.HandleCameraRotation(delta, inputHandler.MouseX, inputHandler.MouseY);
         }
+    }
+
+    private void InitializeComponents()
+    {
+        inputHandler = GetComponent<InputHandler>();
+        playerController = GetComponent<PlayerController>();
+        playerStats = GetComponent<PlayerStats>();
+        playerCombat = GetComponent<PlayerCombat>();
+
+        inputHandler.enabled = true;
+        playerController.enabled = true;
+        playerStats.enabled = true;
+        playerCombat.enabled = true;
     }
 }

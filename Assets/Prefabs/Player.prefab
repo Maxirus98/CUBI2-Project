@@ -17,10 +17,10 @@ GameObject:
   - component: {fileID: 5144287323464732283}
   - component: {fileID: 3571787164562992085}
   - component: {fileID: 9134091098793749110}
-  - component: {fileID: 5052895866544885141}
   - component: {fileID: 5012381379690079572}
   - component: {fileID: 4528625037589575673}
   - component: {fileID: 5642718107428692866}
+  - component: {fileID: 5347896979987663414}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -227,18 +227,6 @@ MonoBehaviour:
   jumpingForce: 15
   minimumDistanceNeededToBeginFall: 1
   groundDetectionRayStartPoint: 0.5
---- !u!114 &5052895866544885141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6442938963885821006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f725f7841cdfa0f4eb792f35145ae8ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5012381379690079572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,7 +254,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraHandler: {fileID: 7986330913172783398, guid: 3411f9e4a6864b54b84edeb5d9e9d41c, type: 3}
-  cameraHandlerClone: {fileID: 0}
   isInAir: 0
   isGrounded: 0
 --- !u!114 &5642718107428692866
@@ -276,7 +263,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6442938963885821006}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a82858550cfa214097c88044502dd7c, type: 3}
   m_Name: 
@@ -284,6 +271,20 @@ MonoBehaviour:
   sandmanProjectile: {fileID: 5560382037365270321, guid: 3aabbd678fa368648b42748fcd9675c7, type: 3}
   petProjectile: {fileID: 5809231185570556130, guid: 8dceb70c25a149b4194280c14e7ad836, type: 3}
   projectileSpeed: 700
+--- !u!114 &5347896979987663414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442938963885821006}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00f9602f3104844db575c319cdca74a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 4104535678630300262, guid: 5397584597af8d4479d2f437323b5d51, type: 3}
+  maxHealth: 5
 --- !u!1001 &3069226018358173400
 PrefabInstance:
   m_ObjectHideFlags: 0
