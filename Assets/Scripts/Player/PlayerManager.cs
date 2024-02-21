@@ -26,6 +26,7 @@ public class PlayerManager : NetworkBehaviour
     private void Start()
     {
         inputHandler = GetComponent<InputHandler>();
+        inputHandler.enabled = true;
         playerController = GetComponent<PlayerController>();
         playerController.enabled = true;
 
