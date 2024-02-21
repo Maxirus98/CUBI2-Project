@@ -1,9 +1,9 @@
 using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+// IMPORTANT: This component needs to be placed before Client Network Transform
 public class CharacterPicker : NetworkBehaviour
 {
     private NetworkVariable<int> netActiveModelIndex = new();

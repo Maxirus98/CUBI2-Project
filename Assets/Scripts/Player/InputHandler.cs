@@ -48,7 +48,7 @@ public class InputHandler : MonoBehaviour
         inputActions.Disable();
     }
 
-    public void TickInput(float delta)
+    public void TickInput()
     {
         MoveInput();
     }
