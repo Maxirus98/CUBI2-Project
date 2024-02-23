@@ -16,10 +16,10 @@ GameObject:
   - component: {fileID: 1457757024807115006}
   - component: {fileID: 5144287323464732283}
   - component: {fileID: 3571787164562992085}
+  - component: {fileID: 5642718107428692866}
   - component: {fileID: 9134091098793749110}
   - component: {fileID: 5012381379690079572}
   - component: {fileID: 4528625037589575673}
-  - component: {fileID: 5642718107428692866}
   - component: {fileID: 5347896979987663414}
   m_Layer: 0
   m_Name: Player
@@ -93,7 +93,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &8935773990446844503
 MonoBehaviour:
@@ -208,7 +208,7 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &9134091098793749110
+--- !u!114 &5642718107428692866
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,6 +216,21 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6442938963885821006}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a82858550cfa214097c88044502dd7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sandmanProjectile: {fileID: 5560382037365270321, guid: 3aabbd678fa368648b42748fcd9675c7, type: 3}
+  petProjectile: {fileID: 5809231185570556130, guid: 8dceb70c25a149b4194280c14e7ad836, type: 3}
+  projectileSpeed: 700
+--- !u!114 &9134091098793749110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442938963885821006}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4139d901027fbf247a7974bc087da6fb, type: 3}
   m_Name: 
@@ -256,21 +271,6 @@ MonoBehaviour:
   cameraHandler: {fileID: 7986330913172783398, guid: 3411f9e4a6864b54b84edeb5d9e9d41c, type: 3}
   isInAir: 0
   isGrounded: 0
---- !u!114 &5642718107428692866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6442938963885821006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a82858550cfa214097c88044502dd7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sandmanProjectile: {fileID: 5560382037365270321, guid: 3aabbd678fa368648b42748fcd9675c7, type: 3}
-  petProjectile: {fileID: 5809231185570556130, guid: 8dceb70c25a149b4194280c14e7ad836, type: 3}
-  projectileSpeed: 700
 --- !u!114 &5347896979987663414
 MonoBehaviour:
   m_ObjectHideFlags: 0

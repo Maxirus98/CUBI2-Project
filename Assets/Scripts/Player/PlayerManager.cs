@@ -20,7 +20,7 @@ public class PlayerManager : NetworkBehaviour
 
     private void Awake()
     {
-        if (!IsOwner) this.enabled = false;
+       // if (!IsOwner) this.enabled = false;
     }
 
     private void Start()
