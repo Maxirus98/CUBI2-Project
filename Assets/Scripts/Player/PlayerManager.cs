@@ -13,7 +13,6 @@ public class PlayerManager : NetworkBehaviour
     private InputHandler inputHandler;
     private PlayerController playerController;
     private PlayerStats playerStats;
-    private PlayerCombat playerCombat;
 
     [Header("Player Flags")]
     public bool isInAir;
@@ -21,7 +20,7 @@ public class PlayerManager : NetworkBehaviour
 
     private void Awake()
     {
-        if (!IsOwner) this.enabled = false;
+       // if (!IsOwner) this.enabled = false;
     }
 
     private void Start()
@@ -59,11 +58,9 @@ public class PlayerManager : NetworkBehaviour
         inputHandler = GetComponent<InputHandler>();
         playerController = GetComponent<PlayerController>();
         playerStats = GetComponent<PlayerStats>();
-        playerCombat = GetComponent<PlayerCombat>();
 
         inputHandler.enabled = true;
         playerController.enabled = true;
         playerStats.enabled = true;
-        playerCombat.enabled = true;
     }
 }
