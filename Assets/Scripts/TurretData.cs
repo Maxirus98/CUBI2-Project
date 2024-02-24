@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TourretData : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+[System.Serializable]
+public class TurretData{
+    public GameObject turretPrefab;
+    public int cost;
+    public TurretType type;
 }
+public enum TurretType{
+    LaserTurret,
+    MissileTurret,
+    StandardTurret
+}
+
+
