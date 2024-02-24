@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BuildManager : MonoBehaviour
 {
@@ -21,10 +22,10 @@ public class BuildManager : MonoBehaviour
                 if (isCollider)
                 {
                     MapCube mapCube = hit.collider.GetComponent<MapCube>();
-                    if (mapCube.turretGo == null)
+                    if (selectedTurretData != null && mapCube.turretGo == null)
                     {
                         // Construire une tourelle
-                        mapCube.BuildTurret(selectedTurretData.turretPrefab);
+                        mapCube.BuildTurret(selectedTurretData);
                     }
                     else
                     {

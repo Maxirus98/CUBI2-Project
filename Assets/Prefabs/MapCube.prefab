@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5543704179398249569}
   - component: {fileID: 5642668665307310064}
   - component: {fileID: 8180891450906924474}
+  - component: {fileID: 1335542441574646885}
   m_Layer: 0
   m_Name: MapCube
   m_TagString: Untagged
@@ -105,3 +106,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1335542441574646885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2602678701219174094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77a5f85b1b9e4bbfabbd07a3b8c57bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretGo: {fileID: 0}
+  turretData:
+    turretPrefab: {fileID: 0}
+    cost: 0
+    type: 0
