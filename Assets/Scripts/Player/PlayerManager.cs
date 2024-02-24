@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public class PlayerManager : NetworkBehaviour
 {
+    public bool testing;
     [SerializeField]
     private CameraHandler cameraHandler;
     private CameraHandler cameraHandlerClone;
@@ -20,7 +21,10 @@ public class PlayerManager : NetworkBehaviour
 
     private void Awake()
     {
-       // if (!IsOwner) this.enabled = false;
+        if(!testing)
+        {
+            if (!IsOwner) this.enabled = false;
+        }
     }
 
     private void Start()
