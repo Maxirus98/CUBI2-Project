@@ -11,14 +11,12 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         positions = WayPoints.positions;
-        
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
-        
     }
 
     void Move()
@@ -29,5 +27,19 @@ public class Enemy : MonoBehaviour
         {
             index++;
         }
+        if (index > positions.Length - 1)
+        {
+            ReachDestination();
+        }
+    }
+
+    void ReachDestination()
+    {
+        GameObject.Destroy(this.gameObject);
+    }
+
+    void OnDestroy()
+    {
+        EnemySpawner.CountEnemyAlive--;
     }
 }
