@@ -67,19 +67,22 @@ public class PlayerController : NetworkBehaviour
     {
         // Si tombe en bas de la plateforme par hasard, le ramener au sol
         var myPos = transform.position;
-        if (myPos.y < 0)
+        if (myPos.y < -5)
         {
             // TODO: la position va changer selon la normale de la surface
             // Ou ramener au starting position
             myPos.y = 2f;
             transform.position = myPos;
         }
+
         // TODO: Faire jouer l'animation Falling
         var originRay = transform.position + Vector3.down * groundDetectionRayStartPoint;
         playerManager.isGrounded = Physics.Raycast(originRay, Vector3.down, out RaycastHit hit, groundDirectionRayDistance);
         if (!playerManager.isGrounded)
         {
             rb.AddForce(delta * fallingSpeed * Vector3.down, ForceMode.VelocityChange);
+            // Pouce le joueur pour pas qu'il soit stuck sur les coins
+            rb.AddForce(moveDirection * 2);
         }
     }
 
