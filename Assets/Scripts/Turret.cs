@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class Turret : NetworkBehaviour
 {
     public GameObject cannonPrefab;
     public bool isPlayerInRange = false;
@@ -10,6 +10,7 @@ public class Turret : MonoBehaviour
     public List<GameObject> enemies = new List<GameObject>();
     private InputHandler inputHandler;
     private bool isBuilt = false;
+    private NetworkObject instanceNetworkObject;
 
     void OnTriggerEnter(Collider col)
     {
@@ -48,15 +49,38 @@ public class Turret : MonoBehaviour
     {
         if (isPlayerInRange && cannonPrefab != null && !isBuilt)
         {
-            Vector3 buildPosition = transform.position + new Vector3(0, 4f, 0);
-            GameObject canonInstance = Instantiate(cannonPrefab, buildPosition, Quaternion.Euler(0, 0, 90));
-            var instanceNetworkObject = canonInstance.GetComponent<NetworkObject>();
-            isBuilt = true;
-
-            if (NetworkManager.Singleton.IsServer)
-            {
-                instanceNetworkObject.Spawn();
-            }
+            BuildServerRpc();
         }
     }
+
+    /// <summary>
+    /// Le joueur/client dit au serveur de spawn un cannon sur la scène 
+    /// pour que tous les joueurs puissent le voir
+    /// </summary>
+    [ServerRpc(RequireOwnership = false)]
+    private void BuildServerRpc()
+    {
+        if (IsServer)
+        {
+            // Spawn pour le joueur
+            Vector3 buildPosition = transform.position + new Vector3(0, 4f, 0);
+            GameObject canonInstance = Instantiate(cannonPrefab, buildPosition, Quaternion.Euler(0, 0, 0));
+            instanceNetworkObject = canonInstance.GetComponent<NetworkObject>();
+
+            // Spawn pour le serveur
+            instanceNetworkObject.Spawn();
+
+            IsBuiltClientRpc();
+        }
+    }
+
+    /// <summary>
+    /// Dis à tous les joueurs/clients que cette tour est construite
+    /// </summary>
+    [ClientRpc]
+    private void IsBuiltClientRpc()
+    {
+        isBuilt = true;
+    }
+
 }
