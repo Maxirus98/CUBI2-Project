@@ -8,7 +8,7 @@ public class PlayerCombat : NetworkBehaviour
 
     private Projectile currentProjectile;
     // [SerializeField] private AudioClip spawnClip;
-    [SerializeField] private float projectileSpeed = 700f;
+    [SerializeField] private float projectileSpeed = 1500f;
 
     private void Start()
     {

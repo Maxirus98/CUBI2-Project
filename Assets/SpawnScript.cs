@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class SpawnScript : MonoBehaviour
 {
+    public bool isTesting = false;
     [SerializeField]
     public GameObject ennemy;
 
@@ -12,9 +12,7 @@ public class SpawnScript : MonoBehaviour
 
     void Start()
     {
- 
-
-        var gameObject = new GameObject("EnnemyModel");
+        if (!isTesting && !NetworkManager.Singleton.IsHost) return;
         spawnPoint = new Transform[transform.childCount];
 
         for (int i=0; i<transform.childCount; i++) {
@@ -25,15 +23,9 @@ public class SpawnScript : MonoBehaviour
 
             Transform randomPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
 
-            GameObject instantiated = Instantiate(ennemy);
-            instantiated.transform.position = randomPoint.position;
+            var enemyInstance = Instantiate(ennemy, randomPoint.transform);
+            var instanceNetworkObject = enemyInstance.GetComponent<NetworkObject>(); 
+            instanceNetworkObject.Spawn();
         }
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76928839e91839445ac4305a255e09f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nearbyTurret: {fileID: 0}
   Horizontal: 0
   Vertical: 0
   MoveAmount: 0
@@ -222,7 +223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sandmanProjectile: {fileID: 5560382037365270321, guid: 3aabbd678fa368648b42748fcd9675c7, type: 3}
   petProjectile: {fileID: 5809231185570556130, guid: 8dceb70c25a149b4194280c14e7ad836, type: 3}
-  projectileSpeed: 700
+  projectileSpeed: 1500
 --- !u!114 &9134091098793749110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890c84c3e3e9a7d409dd92f2fae68c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testing: 0
   cameraHandler: {fileID: 7986330913172783398, guid: 3411f9e4a6864b54b84edeb5d9e9d41c, type: 3}
   isInAir: 0
   isGrounded: 0
