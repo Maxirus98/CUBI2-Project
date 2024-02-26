@@ -9,7 +9,7 @@ public static class NetworkLoader
         LoadingScene,
         Lobby,
         CharacterSelection,
-        LevelMaxime
+        Level_scene
     }
 
     /// <summary>

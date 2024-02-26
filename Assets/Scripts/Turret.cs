@@ -1,5 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class Turret : MonoBehaviour
@@ -8,14 +8,8 @@ public class Turret : MonoBehaviour
     public bool isPlayerInRange = false;
 
     public List<GameObject> enemies = new List<GameObject>();
-
-    void Update()
-    {
-        if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
-        {
-            BuildCannon();
-        }
-    }
+    private InputHandler inputHandler;
+    private bool isBuilt = false;
 
     void OnTriggerEnter(Collider col)
     {
@@ -26,6 +20,11 @@ public class Turret : MonoBehaviour
         else if (col.tag == "Player")
         {
             isPlayerInRange = true;
+            if(inputHandler == null)
+            {
+                inputHandler = col.GetComponent<InputHandler>();
+                inputHandler.nearbyTurret = this;
+            }
         }
     }
 
@@ -38,15 +37,26 @@ public class Turret : MonoBehaviour
         else if (col.tag == "Player")
         {
             isPlayerInRange = false;
+            if (inputHandler != null)
+            {
+                inputHandler.nearbyTurret = null;
+            }
         }
     }
 
-    void BuildCannon()
+    public void BuildCannon()
     {
-        if (cannonPrefab != null)
+        if (isPlayerInRange && cannonPrefab != null && !isBuilt)
         {
             Vector3 buildPosition = transform.position + new Vector3(0, 4f, 0);
             GameObject canonInstance = Instantiate(cannonPrefab, buildPosition, Quaternion.Euler(0, 0, 90));
+            var instanceNetworkObject = canonInstance.GetComponent<NetworkObject>();
+            isBuilt = true;
+
+            if (NetworkManager.Singleton.IsServer)
+            {
+                instanceNetworkObject.Spawn();
+            }
         }
     }
 }

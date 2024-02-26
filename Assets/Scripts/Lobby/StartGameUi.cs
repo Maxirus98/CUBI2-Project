@@ -21,7 +21,7 @@ public class StartGameUi : MonoBehaviour
 
     private void OnClickStart()
     {
-        NetworkLoader.LoadNetwork(NetworkLoader.Scene.LevelMaxime);
+        NetworkLoader.LoadNetwork(NetworkLoader.Scene.Level_scene);
         RelayConnectionManager.Instance.DisablePasswordUi();
     }
 

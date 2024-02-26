@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
+    public Turret nearbyTurret;
+
     public float Horizontal;
     public float Vertical;
     public float MoveAmount;
@@ -35,6 +37,7 @@ public class InputHandler : MonoBehaviour
             inputActions.Enable();
         }
     }
+
     private void Start()
     {
         playerController = GetComponent<PlayerController>();
@@ -87,6 +90,14 @@ public class InputHandler : MonoBehaviour
         {
             lastFired = Time.time;
             playerCombat.Attack();
+        }
+    }
+
+    private void OnBuild()
+    {
+        if(nearbyTurret)
+        {
+            nearbyTurret.BuildCannon();
         }
     }
 
