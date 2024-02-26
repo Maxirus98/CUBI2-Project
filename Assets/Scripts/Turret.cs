@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -6,11 +7,13 @@ public class Turret : NetworkBehaviour
 {
     public GameObject cannonPrefab;
     public bool isPlayerInRange = false;
+    public bool isBuilt = false;
 
     public List<GameObject> enemies = new List<GameObject>();
+
     private InputHandler inputHandler;
-    private bool isBuilt = false;
-    private NetworkObject instanceNetworkObject;
+    [SerializeField]
+    private GameObject buildText;
 
     void OnTriggerEnter(Collider col)
     {
@@ -21,7 +24,8 @@ public class Turret : NetworkBehaviour
         else if (col.tag == "Player")
         {
             isPlayerInRange = true;
-            if(inputHandler == null)
+            buildText.SetActive(!isBuilt);
+            if (inputHandler == null)
             {
                 inputHandler = col.GetComponent<InputHandler>();
                 inputHandler.nearbyTurret = this;
@@ -38,6 +42,7 @@ public class Turret : NetworkBehaviour
         else if (col.tag == "Player")
         {
             isPlayerInRange = false;
+            buildText.SetActive(false);
             if (inputHandler != null)
             {
                 inputHandler.nearbyTurret = null;
@@ -65,7 +70,7 @@ public class Turret : NetworkBehaviour
             // Spawn pour le joueur
             Vector3 buildPosition = transform.position + new Vector3(0, 4f, 0);
             GameObject canonInstance = Instantiate(cannonPrefab, buildPosition, Quaternion.Euler(0, 0, 0));
-            instanceNetworkObject = canonInstance.GetComponent<NetworkObject>();
+            var instanceNetworkObject = canonInstance.GetComponent<NetworkObject>();
 
             // Spawn pour le serveur
             instanceNetworkObject.Spawn();
