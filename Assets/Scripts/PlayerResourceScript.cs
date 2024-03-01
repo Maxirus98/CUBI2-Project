@@ -15,6 +15,8 @@ public class PlayerResourceScript : MonoBehaviour
 
     [SerializeField]
     private Slider useableSlider;
+    [SerializeField]
+    private Image useableFill;
 
     public void SetMaxHealth(int health)
     {
@@ -36,7 +38,7 @@ public class PlayerResourceScript : MonoBehaviour
     {
         Debug.Log("Setting max useable to " + resource);
         useableSlider.maxValue = resource;
-        useableSlider.value = resource;
+        useableSlider.value = resource / 2;
     }
 
     public void SetUseable(int resource)

@@ -12,8 +12,8 @@ public class PlayerCombat : NetworkBehaviour
 
     private void Start()
     {
-        currentProjectile  = transform.GetChild(0).gameObject.activeInHierarchy ? 
-            sandmanProjectile : petProjectile;
+        var isSandman = transform.GetChild(0).gameObject.activeInHierarchy;
+        currentProjectile  = isSandman ? sandmanProjectile : petProjectile;
 
         Debug.Log($"Current projectile chosen is: {currentProjectile} for player {gameObject.name}");
     }

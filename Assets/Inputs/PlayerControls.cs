@@ -55,7 +55,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Build"",
+                    ""name"": ""Interact"",
                     ""type"": ""Button"",
                     ""id"": ""abc61522-6099-4c08-bac1-6eebd8f8cf64"",
                     ""expectedControlType"": ""Button"",
@@ -178,7 +178,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Build"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -189,7 +189,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Build"",
+                    ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -348,7 +348,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerBase_Jump = m_PlayerBase.FindAction("Jump", throwIfNotFound: true);
         m_PlayerBase_Move = m_PlayerBase.FindAction("Move", throwIfNotFound: true);
         m_PlayerBase_Attack = m_PlayerBase.FindAction("Attack", throwIfNotFound: true);
-        m_PlayerBase_Build = m_PlayerBase.FindAction("Build", throwIfNotFound: true);
+        m_PlayerBase_Interact = m_PlayerBase.FindAction("Interact", throwIfNotFound: true);
         m_PlayerBase_ToggleGameMenu = m_PlayerBase.FindAction("ToggleGameMenu", throwIfNotFound: true);
         m_PlayerBase_MoveCamera = m_PlayerBase.FindAction("MoveCamera", throwIfNotFound: true);
         // UiGamepad
@@ -420,7 +420,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerBase_Jump;
     private readonly InputAction m_PlayerBase_Move;
     private readonly InputAction m_PlayerBase_Attack;
-    private readonly InputAction m_PlayerBase_Build;
+    private readonly InputAction m_PlayerBase_Interact;
     private readonly InputAction m_PlayerBase_ToggleGameMenu;
     private readonly InputAction m_PlayerBase_MoveCamera;
     public struct PlayerBaseActions
@@ -430,7 +430,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_PlayerBase_Jump;
         public InputAction @Move => m_Wrapper.m_PlayerBase_Move;
         public InputAction @Attack => m_Wrapper.m_PlayerBase_Attack;
-        public InputAction @Build => m_Wrapper.m_PlayerBase_Build;
+        public InputAction @Interact => m_Wrapper.m_PlayerBase_Interact;
         public InputAction @ToggleGameMenu => m_Wrapper.m_PlayerBase_ToggleGameMenu;
         public InputAction @MoveCamera => m_Wrapper.m_PlayerBase_MoveCamera;
         public InputActionMap Get() { return m_Wrapper.m_PlayerBase; }
@@ -451,9 +451,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Attack.started += instance.OnAttack;
             @Attack.performed += instance.OnAttack;
             @Attack.canceled += instance.OnAttack;
-            @Build.started += instance.OnBuild;
-            @Build.performed += instance.OnBuild;
-            @Build.canceled += instance.OnBuild;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
             @ToggleGameMenu.started += instance.OnToggleGameMenu;
             @ToggleGameMenu.performed += instance.OnToggleGameMenu;
             @ToggleGameMenu.canceled += instance.OnToggleGameMenu;
@@ -473,9 +473,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Attack.started -= instance.OnAttack;
             @Attack.performed -= instance.OnAttack;
             @Attack.canceled -= instance.OnAttack;
-            @Build.started -= instance.OnBuild;
-            @Build.performed -= instance.OnBuild;
-            @Build.canceled -= instance.OnBuild;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
             @ToggleGameMenu.started -= instance.OnToggleGameMenu;
             @ToggleGameMenu.performed -= instance.OnToggleGameMenu;
             @ToggleGameMenu.canceled -= instance.OnToggleGameMenu;
@@ -566,7 +566,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
-        void OnBuild(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
         void OnToggleGameMenu(InputAction.CallbackContext context);
         void OnMoveCamera(InputAction.CallbackContext context);
     }

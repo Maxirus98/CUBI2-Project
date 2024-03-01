@@ -26,6 +26,8 @@ public class InputHandler : MonoBehaviour
     private float lastFired = float.MinValue;
     private float attackCooldown = 0.5f;
 
+    private PlayerStats playerStats;
+
     private void OnEnable()
     {
         var playerInput = GetComponent<PlayerInput>();
@@ -41,7 +43,7 @@ public class InputHandler : MonoBehaviour
     private void Start()
     {
         playerController = GetComponent<PlayerController>();
-
+        playerStats = GetComponent<PlayerStats>();
         // Ce composant est sur l'enfant, car le projectile change selon le personnage sélectionné
         playerCombat = GetComponentInChildren<PlayerCombat>();
     }
@@ -85,20 +87,26 @@ public class InputHandler : MonoBehaviour
 
     private void OnAttack()
     {
+        var attackCost = 1;
         // Donne un cooldown aux attaques pour éviter de spawn le bouton d'attaque
-        if(lastFired + attackCooldown < Time.time)
+        if(lastFired + attackCooldown < Time.time && playerStats.CurrentUseable > 0)
         {
             lastFired = Time.time;
             playerCombat.Attack();
+            playerStats.UseResource(attackCost);
         }
     }
 
-    private void OnBuild()
+    private void OnInteract()
     {
-        if(nearbyTurret)
+        var buildingCost = 5;
+        if(nearbyTurret && playerStats.CurrentUseable >= buildingCost)
         {
             nearbyTurret.BuildCannon();
+            playerStats.UseResource(buildingCost);
         }
+
+        playerStats.GainResource();
     }
 
     private void OnToggleGameMenu()
