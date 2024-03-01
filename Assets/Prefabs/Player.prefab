@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00f9602f3104844db575c319cdca74a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 4104535678630300262, guid: 5397584597af8d4479d2f437323b5d51, type: 3}
+  playerResource: {fileID: 4104535678630300262, guid: 5397584597af8d4479d2f437323b5d51, type: 3}
   maxHealth: 5
 --- !u!1001 &3069226018358173400
 PrefabInstance:

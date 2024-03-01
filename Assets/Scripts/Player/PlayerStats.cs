@@ -3,17 +3,23 @@
 public class PlayerStats : MonoBehaviour
 {
     [SerializeField]
-    private HealthBar healthBar;
-    private HealthBar healthBarClone;
+    private PlayerResourceScript playerResource;
+    private PlayerResourceScript playerResourceClone;
 
     [SerializeField]
     private int maxHealth = 5;
     private int currentHealth;
 
+    private int maxUseable = 5;
+    private int currentUseable;
+
+    private float resourceDetectionRadius = 3f;
+
     void Start()
     {
-        InitializeHealthbar();
+        InitializePlayerResource();
     }
+
 
     public void OnCollisionEnter(Collision collision)
     {
@@ -33,11 +39,29 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    private void InitializeHealthbar()
+    /// <summary>
+    /// Action d'ajouter des ressources comme l'eau ou le sable lorsqu'on intéragit près de ces ressources.
+    /// </summary>
+    public void AddNearbyResource(string resourceTag)
     {
-        healthBarClone = Instantiate(healthBar, Vector3.zero, Quaternion.identity);
+        var playerPosition = transform.position;
+        if (Physics.SphereCast(playerPosition, resourceDetectionRadius, transform.position, out RaycastHit hit))
+        {
+            if (hit.collider.CompareTag(resourceTag))
+            {
+                // TODO: Add resource to player pool
+            }
+        }
+    }
+
+    private void InitializePlayerResource()
+    {
+        playerResourceClone = Instantiate(playerResource, Vector3.zero, Quaternion.identity);
         currentHealth = maxHealth;
-        healthBarClone.SetMaxHealth(maxHealth);
+        playerResourceClone.SetMaxHealth(maxHealth);
+
+        currentUseable = maxUseable;
+        playerResourceClone.SetMaxUseable(maxUseable);
     }
 
     private void TakeDamage(int damage)
@@ -45,7 +69,27 @@ public class PlayerStats : MonoBehaviour
         if(currentHealth > 0)
         {
             currentHealth -= damage;
-            healthBarClone.SetHealth(currentHealth);
+            playerResourceClone.SetHealth(currentHealth);
         }
+    }
+
+    public void UseResource(int spending)
+    {
+        currentUseable -= spending;
+        playerResourceClone.SetUseable(currentUseable);
+    }
+
+    private void GainResource(int gain)
+    {
+        if(currentUseable < maxUseable)
+        {
+            currentUseable += gain;
+            playerResourceClone.SetUseable(currentUseable);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, resourceDetectionRadius);
     }
 }
