@@ -25,11 +25,9 @@ public class Turret : NetworkBehaviour
         {
             isPlayerInRange = true;
             buildText.SetActive(!isBuilt);
-            if (inputHandler == null)
-            {
-                inputHandler = col.GetComponent<InputHandler>();
-                inputHandler.nearbyTurret = this;
-            }
+            inputHandler = col.GetComponent<InputHandler>();
+
+            inputHandler.nearbyTurret = this;
         }
     }
 
