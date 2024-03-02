@@ -15,7 +15,7 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float fallingSpeed = 90f;
     [SerializeField] private float jumpingForce = 15f;
-    
+
     [Header("Ground & Air Detection Stats")]
     [SerializeField] private float minimumDistanceNeededToBeginFall = 1f;
     [SerializeField] private float groundDetectionRayStartPoint = 0.5f;
@@ -37,7 +37,7 @@ public class PlayerController : NetworkBehaviour
         moveDirection = CameraPrefab.forward * inputHandler.Vertical;
         moveDirection += CameraPrefab.right * inputHandler.Horizontal;
         moveDirection.Normalize();
-            
+
         RaycastHit hit;
         // TODO: Add LayerMask to players and ignore that layer mask so they don't just walk on eachother's head
         var originRay = transform.position + Vector3.down * groundDetectionRayStartPoint;
@@ -53,9 +53,19 @@ public class PlayerController : NetworkBehaviour
         HandleRotation(delta);
     }
 
+    public bool IsOnDune()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1.5f, LayerMask.GetMask("DuneNonWalkable")))
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void HandleJump()
     {
-        if(inputHandler.JumpInput && playerManager.isGrounded)
+        if (inputHandler.JumpInput && playerManager.isGrounded)
         {
             rb.AddForce(Vector3.up * jumpingForce + moveDirection, ForceMode.Impulse);
             // TODO: Faire jouer l'animation Jumping

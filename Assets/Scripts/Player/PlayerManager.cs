@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 /// <summary>
-/// Script où tous les composants du joueur se rencontre pour intéragir entre eux
+/// Script oï¿½ tous les composants du joueur se rencontre pour intï¿½ragir entre eux
 /// </summary>
 public class PlayerManager : NetworkBehaviour
 {
@@ -14,6 +14,7 @@ public class PlayerManager : NetworkBehaviour
     private InputHandler inputHandler;
     private PlayerController playerController;
     private PlayerStats playerStats;
+    private Vector3 lastPosition;
 
     [Header("Player Flags")]
     public bool isInAir;
@@ -21,7 +22,7 @@ public class PlayerManager : NetworkBehaviour
 
     private void Awake()
     {
-        if(!testing)
+        if (!testing)
         {
             if (!IsOwner) this.enabled = false;
         }
@@ -30,13 +31,14 @@ public class PlayerManager : NetworkBehaviour
     private void Start()
     {
         InitializeComponents();
-        // Spawn une caméra pour le joueur (Client)
+        // Spawn une camï¿½ra pour le joueur (Client)
         if (cameraHandlerClone == null)
         {
             cameraHandlerClone = Instantiate(cameraHandler);
             cameraHandlerClone.targetTransform = transform;
             playerController.CameraPrefab = cameraHandlerClone.transform;
         }
+        lastPosition = transform.position;
     }
 
     void Update()
@@ -45,6 +47,16 @@ public class PlayerManager : NetworkBehaviour
         inputHandler.TickInput();
         playerController.HandleMovement(delta);
         playerController.HandleFalling(delta);
+
+        if (playerController.IsOnDune())
+        {
+            Debug.Log("On dune");
+            transform.position = lastPosition;
+        }
+        else
+        {
+            lastPosition = transform.position;
+        }
     }
 
     private void FixedUpdate()
