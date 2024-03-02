@@ -17,8 +17,6 @@ public class PlayerStats : MonoBehaviour
     private int maxUseable = 20;
     public int CurrentUseable;
 
-    private float resourceDetectionRadius = 3f;
-
     void Start()
     {
         InitializePlayerResource();

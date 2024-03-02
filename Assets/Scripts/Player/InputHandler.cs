@@ -12,8 +12,6 @@ public class InputHandler : MonoBehaviour
     public float MouseX;
     public float MouseY;
 
-    public bool JumpInput;
-
     private PlayerControls inputActions;
 
     [SerializeField] private float moveSpeed;
@@ -77,12 +75,6 @@ public class InputHandler : MonoBehaviour
     private void OnMoveCamera(InputValue inputValue)
     {
         cameraInput = inputValue.Get<Vector2>();
-    }
-
-    private void OnJump()
-    {
-        JumpInput = true;
-        playerController.HandleJump();
     }
 
     private void OnAttack()

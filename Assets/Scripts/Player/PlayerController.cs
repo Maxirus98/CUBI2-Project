@@ -63,16 +63,6 @@ public class PlayerController : NetworkBehaviour
         return false;
     }
 
-    public void HandleJump()
-    {
-        if (inputHandler.JumpInput && playerManager.isGrounded)
-        {
-            rb.AddForce(Vector3.up * jumpingForce + moveDirection, ForceMode.Impulse);
-            // TODO: Faire jouer l'animation Jumping
-            inputHandler.JumpInput = false;
-        }
-    }
-
     public void HandleFalling(float delta)
     {
         // Si tombe en bas de la plateforme par hasard, le ramener au sol
