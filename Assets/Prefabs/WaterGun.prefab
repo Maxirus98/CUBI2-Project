@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a82858550cfa214097c88044502dd7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentProjectile: {fileID: 5809231185570556130, guid: 8dceb70c25a149b4194280c14e7ad836, type: 3}
+  currentProjectile: {fileID: 7768350242552672694, guid: 4ee67bece110c834e9ad410898aa8ccf, type: 3}
   shootPoint: {fileID: 8091682433413131}
   projectileSpeed: 1500
 --- !u!1001 &5700812153438047287
