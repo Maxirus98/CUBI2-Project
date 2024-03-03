@@ -3,6 +3,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     // [SerializeField] private AudioClip shootClip;
+    [SerializeField] private ParticleSystem splashFx;
 
     public void Init(Vector3 dir)
     {
@@ -14,13 +15,17 @@ public class Projectile : MonoBehaviour
     {
         if (collider.CompareTag("Enemy"))
         {
+            var projectileModel =  transform.GetChild(0);
+            projectileModel.gameObject.SetActive(false);
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            splashFx.Play();
             DestroyProjectile();
         }
     }
 
     private void DestroyProjectile()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 0.5f);
     }
 
 }
