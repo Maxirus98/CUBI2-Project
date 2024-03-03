@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5932193688001033152}
   - component: {fileID: 5899658089695876280}
   - component: {fileID: 3821836162012964839}
+  - component: {fileID: 6651625581764865349}
+  - component: {fileID: 7520788871663162265}
   m_Layer: 0
   m_Name: PetModel
   m_TagString: Untagged
@@ -121,6 +123,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResourceTag: Water
   playerStats: {fileID: 0}
+--- !u!95 &6651625581764865349
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8724770899456690165}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0ce7197a38e2ec44182680c8052b675b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7520788871663162265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8724770899456690165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01f54e983405b2544ae8551a8e0193ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Anim: {fileID: 6651625581764865349}
 --- !u!1001 &7918573324344528292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -215,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 652973802
+  GlobalObjectIdHash: 4162292568
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1

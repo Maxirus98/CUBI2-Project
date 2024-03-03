@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1283750803
+  GlobalObjectIdHash: 2078291791
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -401,7 +401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2708778778741881235, guid: 6fb3f594596e57647b3928832f688f67, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3790702205
+      value: 2078291791
       objectReference: {fileID: 0}
     - target: {fileID: 3821836162012964839, guid: 6fb3f594596e57647b3928832f688f67, type: 3}
       propertyPath: playerStats
