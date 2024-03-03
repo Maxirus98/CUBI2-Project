@@ -9,6 +9,7 @@ public class PlayerController : NetworkBehaviour
     private Rigidbody rb;
     private InputHandler inputHandler;
     private PlayerManager playerManager;
+    private PlayerAnimatorHandler playerAnimatorHandler;
 
     [Header("Movements Stats")]
     [SerializeField] private float movementSpeed = 5f;
@@ -26,7 +27,8 @@ public class PlayerController : NetworkBehaviour
         rb = GetComponent<Rigidbody>();
         inputHandler = GetComponent<InputHandler>();
         playerManager = GetComponent<PlayerManager>();
-        groundDirectionRayDistance = groundDetectionRayStartPoint + 0.1f;
+        groundDirectionRayDistance = groundDetectionRayStartPoint + 0.05f;
+        playerAnimatorHandler = GetComponentInChildren<PlayerAnimatorHandler>();
     }
 
     #region Movement
@@ -51,6 +53,8 @@ public class PlayerController : NetworkBehaviour
         }
 
         HandleRotation(delta);
+
+        playerAnimatorHandler.UpdateAnimatorValues(inputHandler.MoveAmount);
     }
 
     public bool IsOnDune()
