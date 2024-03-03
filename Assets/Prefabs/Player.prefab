@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 1457757024807115006}
   - component: {fileID: 5144287323464732283}
   - component: {fileID: 3571787164562992085}
-  - component: {fileID: 5642718107428692866}
   - component: {fileID: 9134091098793749110}
   - component: {fileID: 5012381379690079572}
   - component: {fileID: 4528625037589575673}
@@ -143,7 +142,6 @@ MonoBehaviour:
   MoveAmount: 0
   MouseX: 0
   MouseY: 0
-  JumpInput: 0
   moveSpeed: 5
 --- !u!114 &1457757024807115006
 MonoBehaviour:
@@ -157,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2078291791
+  GlobalObjectIdHash: 2679986969
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -209,21 +207,6 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &5642718107428692866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6442938963885821006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a82858550cfa214097c88044502dd7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sandmanProjectile: {fileID: 5560382037365270321, guid: 3aabbd678fa368648b42748fcd9675c7, type: 3}
-  petProjectile: {fileID: 5809231185570556130, guid: 8dceb70c25a149b4194280c14e7ad836, type: 3}
-  projectileSpeed: 1500
 --- !u!114 &9134091098793749110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,7 +269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerResource: {fileID: 4104535678630300262, guid: 5397584597af8d4479d2f437323b5d51, type: 3}
+  PlayerResourceClone: {fileID: 0}
   maxHealth: 5
+  CurrentUseable: 0
 --- !u!1001 &3069226018358173400
 PrefabInstance:
   m_ObjectHideFlags: 0

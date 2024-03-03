@@ -3,20 +3,12 @@ using UnityEngine;
 
 public class PlayerCombat : NetworkBehaviour
 {
-    [SerializeField] private Projectile sandmanProjectile;
-    [SerializeField] private Projectile petProjectile;
-
+    [SerializeField]
     private Projectile currentProjectile;
+    [SerializeField]
+    private Transform shootPoint;
     // [SerializeField] private AudioClip spawnClip;
     [SerializeField] private float projectileSpeed = 1500f;
-
-    private void Start()
-    {
-        var isSandman = transform.GetChild(0).gameObject.activeInHierarchy;
-        currentProjectile  = isSandman ? sandmanProjectile : petProjectile;
-
-        Debug.Log($"Current projectile chosen is: {currentProjectile} for player {gameObject.name}");
-    }
 
     public void Attack()
     {
@@ -45,7 +37,7 @@ public class PlayerCombat : NetworkBehaviour
 
     private void ExecuteShoot(Vector3 dir)
     {
-        var projectile = Instantiate(currentProjectile, transform.position, Quaternion.identity);
+        var projectile = Instantiate(currentProjectile, shootPoint.position, Quaternion.identity);
         projectile.Init(dir * projectileSpeed);
         // AudioSource.PlayClipAtPoint(spawnClip, transform.position);
     }
