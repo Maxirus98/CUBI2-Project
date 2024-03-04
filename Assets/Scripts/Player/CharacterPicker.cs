@@ -19,7 +19,7 @@ public class CharacterPicker : NetworkBehaviour
         activeModelIndex = IsHost ? 0 : 1;
         unactiveModelIndex = IsHost ? 1 : 0;
         var xPos = IsHost ? -4 : 4;
-
+        transform.rotation = Quaternion.Euler(0f, 165f, 0f);
         if (IsOwner)
         {
             transform.GetChild(activeModelIndex).gameObject.SetActive(true);

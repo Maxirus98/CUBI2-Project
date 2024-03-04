@@ -39,6 +39,9 @@ public class PlayerManager : NetworkBehaviour
             playerController.CameraPrefab = cameraHandlerClone.transform;
         }
         lastPosition = transform.position;
+        var playerSpawnPoint = GameObject.Find("PlayerSpawn");
+        var offsetX = IsHost ? 4 : -4;
+        transform.position = playerSpawnPoint.transform.position + Vector3.right * offsetX;
     }
 
     void Update()
@@ -51,11 +54,12 @@ public class PlayerManager : NetworkBehaviour
         if (playerController.IsOnDune())
         {
             Debug.Log("On dune");
-            transform.position = lastPosition;
+            // TODO: Code commenté temporairement pour la démo puisque ça bloque le passage
+            ///transform.position = lastPosition;
         }
         else
         {
-            lastPosition = transform.position;
+            //lastPosition = transform.position;
         }
     }
 
