@@ -1,6 +1,5 @@
 using UnityEngine;
 
-// TODO: Unused for now
 /// <summary>
 /// Script pour Clamp les valeurs du blend des mouvements et pour animer programmatiquement par nom
 /// </summary>
