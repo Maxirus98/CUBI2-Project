@@ -12,7 +12,7 @@ public class PlayerController : NetworkBehaviour
     private PlayerAnimatorHandler playerAnimatorHandler;
 
     [Header("Movements Stats")]
-    [SerializeField] private float movementSpeed = 5f;
+    [SerializeField] private float movementSpeed = 10f;
     [SerializeField] private float rotationSpeed = 10f;
     [SerializeField] private float fallingSpeed = 90f;
     [SerializeField] private float jumpingForce = 15f;
