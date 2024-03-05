@@ -9,6 +9,11 @@ public class Turret : NetworkBehaviour
     public bool isPlayerInRange = false;
     public bool isBuilt = false;
 
+    public float attackRange = 10f;
+    private float attackCounter = 0f;
+
+    public GameObject bulletPrefab;
+
     public List<GameObject> enemies = new List<GameObject>();
 
     private InputHandler inputHandler;
@@ -57,7 +62,7 @@ public class Turret : NetworkBehaviour
     }
 
     /// <summary>
-    /// Le joueur/client dit au serveur de spawn un cannon sur la scène 
+    /// Le joueur/client dit au serveur de spawn un cannon sur la scï¿½ne 
     /// pour que tous les joueurs puissent le voir
     /// </summary>
     [ServerRpc(RequireOwnership = false)]
@@ -78,7 +83,7 @@ public class Turret : NetworkBehaviour
     }
 
     /// <summary>
-    /// Dis à tous les joueurs/clients que cette tour est construite
+    /// Dis ï¿½ tous les joueurs/clients que cette tour est construite
     /// </summary>
     [ClientRpc]
     private void IsBuiltClientRpc()
