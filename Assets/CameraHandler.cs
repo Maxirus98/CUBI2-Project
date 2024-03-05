@@ -12,9 +12,13 @@ public class CameraHandler : MonoBehaviour
     [SerializeField]
     private float pivotSpeed = 0.03f;
     [SerializeField]
-    private float minimumPivot = -35f;
+    private float minimumPivot = 0f;
     [SerializeField]
     private float maximumPivot = 35f;
+    [SerializeField]
+    private float minimumLookAngle = 0f;
+    [SerializeField]
+    private float maximumLookAngle = 90f;
 
     [SerializeField]
     private Transform cameraTransform;
@@ -54,7 +58,6 @@ public class CameraHandler : MonoBehaviour
 
         // Clamp pivotAngle entre le minimumPivot et le maximumPivot pour éviter d'aller sous ou plus haut que ces valeurs
         pivotAngle = Mathf.Clamp(pivotAngle, minimumPivot, maximumPivot);
-
         // L'angle de vue du Camera Holder sur l'axe des y
         var rotation = Vector3.zero;
         rotation.y = lookAngle;
