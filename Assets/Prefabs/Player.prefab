@@ -328,13 +328,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7243892660582821806}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.8223975, y: 0.10057454, z: 0.5460979, w: 0.1237915}
-  m_LocalPosition: {x: 0.110578574, y: 0.7265674, z: 0.6285443}
-  m_LocalScale: {x: 12.16691, y: 12.117189, z: 11.971567}
+  m_LocalRotation: {x: 0.71193147, y: 0.05490397, z: 0.6644577, w: -0.22053374}
+  m_LocalPosition: {x: -0.11637138, y: 0.6121252, z: 0.6690683}
+  m_LocalScale: {x: 12.132816, y: 12.171208, z: 11.949815}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8197047172534064175}
-  m_Father: {fileID: 7915456392103842686}
+  m_Father: {fileID: 6256300206711075877}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &716907578644684139
 MonoBehaviour:
@@ -351,6 +351,7 @@ MonoBehaviour:
   currentProjectile: {fileID: 1990290837585218829, guid: 733bc831d8111114bb44cd4f7f3f0750, type: 3}
   shootPoint: {fileID: 8197047172534064175}
   projectileSpeed: 1500
+  playerAnimatorHandler: {fileID: 7846121097352545806}
 --- !u!1001 &3069226018358173400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -502,13 +503,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 9100000, guid: 0ce7197a38e2ec44182680c8052b675b, type: 2}
     - target: {fileID: 5866666021909216657, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'DEF-spine'\n\tTransform 'DEF-spine'\n\tTransform
+        'DEF-spine.002'\n\tTransform 'DEF-neck'\n\tTransform 'DEF-thumb.01.L'\n\tTransform
+        'DEF-spine.003'\n\tTransform 'DEF-upper_arm.L'\n\tTransform 'DEF-thigh.L'\n\tTransform
+        'DEF-f_index.02.L'\n\tTransform 'DEF-spine.004'\n\tand more ...\n\tFrom animation
+        clip 'basicAttack'"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -7794145995985840027, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
+    - targetCorrespondingSourceObject: {fileID: -6278528321999487170, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3673639641734790175}
     m_AddedComponents:
@@ -530,9 +541,9 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
   m_PrefabInstance: {fileID: 9082907388776467227}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &7915456392103842686 stripped
+--- !u!4 &6256300206711075877 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -7794145995985840027, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
+  m_CorrespondingSourceObject: {fileID: -6278528321999487170, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
   m_PrefabInstance: {fileID: 9082907388776467227}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &8272428569717110346 stripped

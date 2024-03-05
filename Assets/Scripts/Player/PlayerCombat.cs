@@ -10,6 +10,7 @@ public class PlayerCombat : NetworkBehaviour
     // [SerializeField] private AudioClip spawnClip;
     [SerializeField] private float projectileSpeed = 1500f;
 
+    [SerializeField] private PlayerAnimatorHandler playerAnimatorHandler;
     public void Attack()
     {
         var dir = transform.forward;
@@ -20,6 +21,10 @@ public class PlayerCombat : NetworkBehaviour
 
         // On tire localement
         ExecuteShoot(dir);
+
+
+        // Anim
+        playerAnimatorHandler.PlayTargetAnimationByName("Attack");
     }
 
 
