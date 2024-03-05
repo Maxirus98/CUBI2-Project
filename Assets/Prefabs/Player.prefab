@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8197047172534064175}
   m_Layer: 0
-  m_Name: ShootPoint
+  m_Name: SandManShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1283750803
+  GlobalObjectIdHash: 2078291791
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -318,7 +318,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   petProbjectile: {fileID: 7768350242552672694, guid: 4ee67bece110c834e9ad410898aa8ccf, type: 3}
   sandmanProjectile: {fileID: 1990290837585218829, guid: 733bc831d8111114bb44cd4f7f3f0750, type: 3}
-  projectileSpeed: 500
+  petShootPoint: {fileID: 5143330543970329463}
+  sandmanShootPoint: {fileID: 8197047172534064175}
+  projectileSpeed: 1500
   playerAnimatorHandler: {fileID: 7846121097352545806}
 --- !u!1 &7243892660582821806
 GameObject:
@@ -408,6 +410,10 @@ PrefabInstance:
       propertyPath: playerStats
       value: 
       objectReference: {fileID: 5347896979987663414}
+    - target: {fileID: 5696470482260051809, guid: 6fb3f594596e57647b3928832f688f67, type: 3}
+      propertyPath: m_Name
+      value: PetShootPoint
+      objectReference: {fileID: 0}
     - target: {fileID: 5704133124845894037, guid: 6fb3f594596e57647b3928832f688f67, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2078291791
@@ -440,6 +446,11 @@ PrefabInstance:
 --- !u!4 &4471707465585170711 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1483556686349895631, guid: 6fb3f594596e57647b3928832f688f67, type: 3}
+  m_PrefabInstance: {fileID: 3069226018358173400}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5143330543970329463 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7924315731572080047, guid: 6fb3f594596e57647b3928832f688f67, type: 3}
   m_PrefabInstance: {fileID: 3069226018358173400}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9082907388776467227

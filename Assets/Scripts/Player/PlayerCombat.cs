@@ -7,9 +7,13 @@ public class PlayerCombat : NetworkBehaviour
     private Projectile petProbjectile;
     [SerializeField]
     private Projectile sandmanProjectile;
+    [SerializeField]
+    private Transform petShootPoint;
+    [SerializeField]
+    private Transform sandmanShootPoint;
 
     private Projectile currentProjectile;
-    private Transform shootPoint;
+    private Transform currentShootPoint;
 
     [SerializeField] private float projectileSpeed = 1500f;
     // [SerializeField] private AudioClip spawnClip;
@@ -17,18 +21,23 @@ public class PlayerCombat : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        SwitchProjectile();
+        SwitchProjectileAndShootPoint();
     }
 
     private void Start()
     {
-        SwitchProjectile();
+        var playerManager = GetComponent<PlayerManager>();
+        if(playerManager.testing)
+        {
+            SwitchProjectileAndShootPoint();
+        }
     }
 
-    public void SwitchProjectile()
+    public void SwitchProjectileAndShootPoint()
     {
         var isSandman = transform.GetChild(0).gameObject.activeInHierarchy;
         currentProjectile = isSandman ? sandmanProjectile : petProbjectile;
+        currentShootPoint = currentShootPoint ? sandmanShootPoint : petShootPoint;
     } 
 
     public void Attack()
@@ -62,13 +71,11 @@ public class PlayerCombat : NetworkBehaviour
             Debug.Log("Fired client rpc");
             ExecuteShoot(dir);
         }
-        
     }
 
     private void ExecuteShoot(Vector3 dir)
     {
-        var offset = transform.forward * 2;
-        var projectile = Instantiate(currentProjectile, transform.position + offset, Quaternion.identity);
+        var projectile = Instantiate(currentProjectile, currentShootPoint.position, Quaternion.identity);
         projectile.Init(dir * projectileSpeed);
         // AudioSource.PlayClipAtPoint(spawnClip, transform.position);
     }

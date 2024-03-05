@@ -74,7 +74,7 @@ public class CharacterPicker : NetworkBehaviour
             transform.GetChild(activeModelIndex).gameObject.SetActive(false);
         }
 
-        GetComponent<PlayerCombat>().SwitchProjectile();
+        GetComponent<PlayerCombat>().SwitchProjectileAndShootPoint();
     }
 
     private void SwitchCharacter()

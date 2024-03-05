@@ -4,12 +4,17 @@ public class CameraHandler : MonoBehaviour
 {
     public static CameraHandler singleton;
     public Transform targetTransform;
-    
-    private readonly float LOOK_SPEED = 0.1f;
-    private readonly float FOLLOW_SPEED = 0.1f;
-    private readonly float PIVOT_SPEED = 0.03f;
-    private readonly float MINIMUM_PIVOT = -35f;
-    private readonly float MAXIMUM_PIVOT = 35f;
+
+    [SerializeField]
+    private float lookSpeed = 0.1f;
+    [SerializeField]
+    private float followSpeed = 0.1f;
+    [SerializeField]
+    private float pivotSpeed = 0.03f;
+    [SerializeField]
+    private float minimumPivot = -35f;
+    [SerializeField]
+    private float maximumPivot = 35f;
 
     [SerializeField]
     private Transform cameraTransform;
@@ -32,7 +37,7 @@ public class CameraHandler : MonoBehaviour
     {
         var targetPosition = Vector3.SmoothDamp(myTransform.position,
             targetTransform.position, ref cameraFollowVelocity,
-            delta / FOLLOW_SPEED);
+            delta / followSpeed);
         myTransform.position = targetPosition;
     }
 
@@ -44,11 +49,11 @@ public class CameraHandler : MonoBehaviour
     /// <param name="mouseYInput">Mouse position on Y Axis</param>
     public void HandleCameraRotation(float delta, float mouseXInput, float mouseYInput)
     {
-        lookAngle += (mouseXInput * LOOK_SPEED) / delta;
-        pivotAngle -= (mouseYInput * PIVOT_SPEED) / delta;
+        lookAngle += (mouseXInput * lookSpeed) / delta;
+        pivotAngle -= (mouseYInput * pivotSpeed) / delta;
 
         // Clamp pivotAngle entre le minimumPivot et le maximumPivot pour éviter d'aller sous ou plus haut que ces valeurs
-        pivotAngle = Mathf.Clamp(pivotAngle, MINIMUM_PIVOT, MAXIMUM_PIVOT);
+        pivotAngle = Mathf.Clamp(pivotAngle, minimumPivot, maximumPivot);
 
         // L'angle de vue du Camera Holder sur l'axe des y
         var rotation = Vector3.zero;
