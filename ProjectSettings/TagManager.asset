@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Sand
   - Water
+  - Bed
   layers:
   - Default
   - TransparentFX

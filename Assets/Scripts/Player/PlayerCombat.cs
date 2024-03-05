@@ -67,8 +67,8 @@ public class PlayerCombat : NetworkBehaviour
 
     private void ExecuteShoot(Vector3 dir)
     {
-
-        var projectile = Instantiate(currentProjectile, transform.position, Quaternion.identity);
+        var offset = transform.forward * 2;
+        var projectile = Instantiate(currentProjectile, transform.position + offset, Quaternion.identity);
         projectile.Init(dir * projectileSpeed);
         // AudioSource.PlayClipAtPoint(spawnClip, transform.position);
     }

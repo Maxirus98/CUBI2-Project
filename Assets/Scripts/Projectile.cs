@@ -13,14 +13,12 @@ public class Projectile : MonoBehaviour
 
     public void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag("Enemy"))
-        {
-            var projectileModel =  transform.GetChild(0);
-            projectileModel.gameObject.SetActive(false);
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
-            splashFx.Play();
-            DestroyProjectile();
-        }
+        if (collider.CompareTag("Player")) return;
+        var projectileModel =  transform.GetChild(0);
+        projectileModel.gameObject.SetActive(false);
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        splashFx.Play();
+        DestroyProjectile();
     }
 
     private void DestroyProjectile()

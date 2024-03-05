@@ -424,6 +424,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8724770899456690165, guid: 6fb3f594596e57647b3928832f688f67, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 9120388600086223463, guid: 6fb3f594596e57647b3928832f688f67, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2078291791
@@ -505,6 +509,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
       propertyPath: m_Name
       value: SandmanModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
       propertyPath: m_Controller
