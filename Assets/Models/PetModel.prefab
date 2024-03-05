@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3821836162012964839}
   - component: {fileID: 6651625581764865349}
   - component: {fileID: 7520788871663162265}
-  - component: {fileID: 3700183115005990013}
+  - component: {fileID: 3652335081949147542}
   m_Layer: 0
   m_Name: PetModel
   m_TagString: Untagged
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Anim: {fileID: 6651625581764865349}
---- !u!114 &3700183115005990013
+--- !u!114 &3652335081949147542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8724770899456690165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
+  m_Script: {fileID: 11500000, guid: ad8deae8091111f4eb30a56c1f4e0d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TransitionStateInfoList: []
@@ -180,10 +180,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1483556686349895631}
     m_Modifications:
+    - target: {fileID: 2507742623344292913, guid: a1643e4d36c6fc143af2e518bea82def, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3932310354
+      objectReference: {fileID: 0}
     - target: {fileID: 3435945893727652895, guid: a1643e4d36c6fc143af2e518bea82def, type: 3}
       propertyPath: m_Name
       value: WaterGun
       objectReference: {fileID: 0}
+    - target: {fileID: 3663832167041445817, guid: a1643e4d36c6fc143af2e518bea82def, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 704091774
+      objectReference: {fileID: 0}
+    - target: {fileID: 5195918924166277051, guid: a1643e4d36c6fc143af2e518bea82def, type: 3}
+      propertyPath: playerAnimatorHandler
+      value: 
+      objectReference: {fileID: 7520788871663162265}
     - target: {fileID: 5230899143468837852, guid: a1643e4d36c6fc143af2e518bea82def, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -236,42 +248,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5195918924166277051, guid: a1643e4d36c6fc143af2e518bea82def, type: 3}
+    - {fileID: 3663832167041445817, guid: a1643e4d36c6fc143af2e518bea82def, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3435945893727652895, guid: a1643e4d36c6fc143af2e518bea82def, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2708778778741881235}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1643e4d36c6fc143af2e518bea82def, type: 3}
 --- !u!4 &954746265346521983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6979344467156055771, guid: a1643e4d36c6fc143af2e518bea82def, type: 3}
   m_PrefabInstance: {fileID: 7918573324344528292}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4776774313802580411 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3435945893727652895, guid: a1643e4d36c6fc143af2e518bea82def, type: 3}
-  m_PrefabInstance: {fileID: 7918573324344528292}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2708778778741881235
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4776774313802580411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 4162292568
-  InScenePlacedSourceGlobalObjectIdHash: 0
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1

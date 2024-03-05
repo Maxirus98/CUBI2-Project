@@ -1,3 +1,5 @@
+using Unity.Multiplayer.Samples.Utilities.ClientAuthority;
+using Unity.Netcode.Components;
 using UnityEngine;
 
 /// <summary>
@@ -25,10 +27,8 @@ public class PlayerAnimatorHandler : MonoBehaviour
         Anim.SetFloat("Movement", v, 0.1f, Time.deltaTime);
     }
 
-    public void PlayTargetAnimationByName(string targetAnim, bool isInteracting)
+    public void PlayTargetAnimationByName(string targetAnim)
     {
-        Anim.applyRootMotion = isInteracting;
-        Anim.SetBool("isInteracting", isInteracting);
         Anim.CrossFade(targetAnim, 0.2f);
     }
 
