@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 5012381379690079572}
   - component: {fileID: 4528625037589575673}
   - component: {fileID: 5347896979987663414}
+  - component: {fileID: 7823902636632377766}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -303,6 +304,22 @@ MonoBehaviour:
   PlayerResourceClone: {fileID: 0}
   maxHealth: 5
   CurrentUseable: 0
+--- !u!114 &7823902636632377766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6442938963885821006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a82858550cfa214097c88044502dd7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  petProbjectile: {fileID: 7768350242552672694, guid: 4ee67bece110c834e9ad410898aa8ccf, type: 3}
+  sandmanProjectile: {fileID: 1990290837585218829, guid: 733bc831d8111114bb44cd4f7f3f0750, type: 3}
+  projectileSpeed: 500
+  playerAnimatorHandler: {fileID: 7846121097352545806}
 --- !u!1 &7243892660582821806
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +329,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3673639641734790175}
-  - component: {fileID: 716907578644684139}
   m_Layer: 0
   m_Name: SandShooter
   m_TagString: Untagged
@@ -336,22 +352,6 @@ Transform:
   - {fileID: 8197047172534064175}
   m_Father: {fileID: 6256300206711075877}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &716907578644684139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7243892660582821806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a82858550cfa214097c88044502dd7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentProjectile: {fileID: 1990290837585218829, guid: 733bc831d8111114bb44cd4f7f3f0750, type: 3}
-  shootPoint: {fileID: 8197047172534064175}
-  projectileSpeed: 1500
-  playerAnimatorHandler: {fileID: 7846121097352545806}
 --- !u!1001 &3069226018358173400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -408,6 +408,14 @@ PrefabInstance:
       propertyPath: playerStats
       value: 
       objectReference: {fileID: 5347896979987663414}
+    - target: {fileID: 5704133124845894037, guid: 6fb3f594596e57647b3928832f688f67, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2078291791
+      objectReference: {fileID: 0}
+    - target: {fileID: 6862614513646510621, guid: 6fb3f594596e57647b3928832f688f67, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2078291791
+      objectReference: {fileID: 0}
     - target: {fileID: 8724770899456690165, guid: 6fb3f594596e57647b3928832f688f67, type: 3}
       propertyPath: m_Name
       value: PetModel
@@ -504,13 +512,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 0ce7197a38e2ec44182680c8052b675b, type: 2}
     - target: {fileID: 5866666021909216657, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'DEF-spine'\n\tTransform 'DEF-spine'\n\tTransform
-        'DEF-spine.002'\n\tTransform 'DEF-neck'\n\tTransform 'DEF-thumb.01.L'\n\tTransform
-        'DEF-spine.003'\n\tTransform 'DEF-upper_arm.L'\n\tTransform 'DEF-thigh.L'\n\tTransform
-        'DEF-f_index.02.L'\n\tTransform 'DEF-spine.004'\n\tand more ...\n\tFrom animation
-        clip 'basicAttack'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
       propertyPath: m_ApplyRootMotion
@@ -534,7 +536,7 @@ PrefabInstance:
       addedObject: {fileID: 7846121097352545806}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4383245826716962525}
+      addedObject: {fileID: 5305489553793865055}
   m_SourcePrefab: {fileID: 100100000, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
 --- !u!95 &3415537817215465098 stripped
 Animator:
@@ -599,7 +601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Anim: {fileID: 3415537817215465098}
---- !u!114 &4383245826716962525
+--- !u!114 &5305489553793865055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -608,7 +610,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8272428569717110346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8d0727d5ae3244e3b569694d3912374, type: 3}
+  m_Script: {fileID: 11500000, guid: ad8deae8091111f4eb30a56c1f4e0d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TransitionStateInfoList: []

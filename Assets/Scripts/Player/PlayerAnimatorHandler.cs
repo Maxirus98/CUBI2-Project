@@ -1,3 +1,5 @@
+using Unity.Multiplayer.Samples.Utilities.ClientAuthority;
+using Unity.Netcode.Components;
 using UnityEngine;
 
 /// <summary>

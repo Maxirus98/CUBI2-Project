@@ -4,13 +4,28 @@ using UnityEngine;
 public class PlayerCombat : NetworkBehaviour
 {
     [SerializeField]
-    private Projectile currentProjectile;
+    private Projectile petProbjectile;
     [SerializeField]
-    private Transform shootPoint;
-    // [SerializeField] private AudioClip spawnClip;
-    [SerializeField] private float projectileSpeed = 1500f;
+    private Projectile sandmanProjectile;
 
+    private Projectile currentProjectile;
+    private Transform shootPoint;
+
+    [SerializeField] private float projectileSpeed = 1500f;
+    // [SerializeField] private AudioClip spawnClip;
     [SerializeField] private PlayerAnimatorHandler playerAnimatorHandler;
+
+    public override void OnNetworkSpawn()
+    {
+        SwitchProjectile();
+    }
+
+    public void SwitchProjectile()
+    {
+        var isSandman = transform.GetChild(0).gameObject.activeInHierarchy;
+        currentProjectile = isSandman ? sandmanProjectile : petProbjectile;
+    } 
+
     public void Attack()
     {
         var dir = transform.forward;
@@ -20,29 +35,35 @@ public class PlayerCombat : NetworkBehaviour
         RequestFireServerRpc(dir);
 
         // On tire localement
+        Debug.Log("Fired locally");
         ExecuteShoot(dir);
-
 
         // Anim
         playerAnimatorHandler.PlayTargetAnimationByName("Attack");
     }
 
 
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     private void RequestFireServerRpc(Vector3 dir)
     {
+        Debug.Log("Fired Server Rpc");
         FireClientRpc(dir);
     }
 
     [ClientRpc]
     private void FireClientRpc(Vector3 dir)
     {
-        if (!IsOwner) ExecuteShoot(dir);
+        if (!IsOwner) {
+            Debug.Log("Fired client rpc");
+            ExecuteShoot(dir);
+        }
+        
     }
 
     private void ExecuteShoot(Vector3 dir)
     {
-        var projectile = Instantiate(currentProjectile, shootPoint.position, Quaternion.identity);
+
+        var projectile = Instantiate(currentProjectile, transform.position, Quaternion.identity);
         projectile.Init(dir * projectileSpeed);
         // AudioSource.PlayClipAtPoint(spawnClip, transform.position);
     }
