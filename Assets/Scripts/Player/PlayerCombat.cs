@@ -20,6 +20,11 @@ public class PlayerCombat : NetworkBehaviour
         SwitchProjectile();
     }
 
+    private void Start()
+    {
+        SwitchProjectile();
+    }
+
     public void SwitchProjectile()
     {
         var isSandman = transform.GetChild(0).gameObject.activeInHierarchy;
