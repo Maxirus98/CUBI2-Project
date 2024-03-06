@@ -13,7 +13,7 @@ public class Ennemy1Management : MonoBehaviour {
     [SerializeField]
     public Vector3 destination; // Destination finale
 
-    public LayerMask whatIsGround, whatIsPlayer;
+    public LayerMask whatIsPlayer;
 
     // Attaque on player
     bool isAttacked;
@@ -36,16 +36,21 @@ public class Ennemy1Management : MonoBehaviour {
     }
 
     private void Update() {
-        playerInRange   = Physics.CheckSphere(transform.position, rangeVue, whatIsPlayer);
+        playerInRange = Physics.CheckSphere(transform.position, rangeVue, whatIsPlayer);
+        Debug.Log(playerInRange);
         playerInAttackRange = Physics.CheckSphere(transform.position, rangeAttack, whatIsPlayer);
-        
+        Debug.Log(playerInAttackRange);
+
         if (!playerInRange && !playerInAttackRange) {
             ToKid();
+            Debug.Log("kid");
         }
         if (playerInRange && !playerInAttackRange) {
+            Debug.Log("player");
             ToPlayer();
         }
         if (playerInRange && playerInAttackRange) {
+            Debug.Log("Attack");
             AttackPlayer();
         }
 
@@ -55,14 +60,11 @@ public class Ennemy1Management : MonoBehaviour {
     }
 
     void ToPlayer() {
-        agent.SetDestination(sandMan.position);
-
+        agent.SetDestination(pet.position);
     }
-
     void AttackPlayer() {
         agent.SetDestination(transform.position);
-
-        transform.LookAt(sandMan);
+        transform.LookAt(pet);
 
     }
 }
