@@ -6,10 +6,11 @@ using UnityEngine;
 public class Turret : NetworkBehaviour
 {
     public GameObject cannonPrefab;
+    private GameObject cannonInstance;
     public bool isPlayerInRange = false;
     public bool isBuilt = false;
 
-    public float attackRange = 10f;
+    public float attackRate = 1f;
     private float attackCounter = 0f;
 
     public GameObject bulletPrefab;
@@ -19,6 +20,21 @@ public class Turret : NetworkBehaviour
     private InputHandler inputHandler;
     [SerializeField]
     private GameObject buildText;
+
+    void Update()
+    {
+        if (isBuilt && enemies.Count > 0)
+        {
+            attackCounter += Time.deltaTime;
+            if (attackCounter >= (1f / attackRate))
+            {
+                attackCounter = 0f;
+                FireAtEnemy();
+            }
+            RotateTowardsEnemy();
+        }
+    }
+
 
     void OnTriggerEnter(Collider col)
     {
@@ -72,8 +88,8 @@ public class Turret : NetworkBehaviour
         {
             // Spawn pour le joueur
             Vector3 buildPosition = transform.position + new Vector3(0, 4f, 0);
-            GameObject canonInstance = Instantiate(cannonPrefab, buildPosition, Quaternion.Euler(0, 0, 0));
-            var instanceNetworkObject = canonInstance.GetComponent<NetworkObject>();
+            cannonInstance = Instantiate(cannonPrefab, buildPosition, Quaternion.Euler(0, 0, 0));
+            var instanceNetworkObject = cannonInstance.GetComponent<NetworkObject>();
 
             // Spawn pour le serveur
             instanceNetworkObject.Spawn();
@@ -91,4 +107,40 @@ public class Turret : NetworkBehaviour
         isBuilt = true;
     }
 
+    void FireAtEnemy()
+    {
+        GameObject targetEnemy = enemies[0];
+        Vector3 firePoint = transform.position + new Vector3(0, 4.5f, 1.5f);
+        if (targetEnemy != null)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, firePoint, Quaternion.identity);
+
+            Bullet bulletComponent = bullet.GetComponent<Bullet>();
+            bulletComponent.SetTarget(targetEnemy.transform);
+
+            // Assurez que la méthode Spawn() fonctionne bien sur le serveur
+            NetworkObject bulletNetworkObject = bullet.GetComponent<NetworkObject>();
+            if (bulletNetworkObject != null && IsServer)
+            {
+                bulletNetworkObject.Spawn();
+            }
+            else
+            {
+                Debug.LogError("Trying to spawn bullet on non-server or NetworkObject is null");
+            }
+        }
+    }
+
+    void RotateTowardsEnemy()
+    {
+        if (enemies.Count > 0 && enemies[0] != null && cannonInstance != null)
+        {
+            GameObject targetEnemy = enemies[0];
+            Vector3 targetDirection = targetEnemy.transform.position - transform.position;
+            targetDirection.y = 0; // todo: vérifier si le cannon fonctionne bien
+
+            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+            cannonInstance.transform.rotation = Quaternion.Slerp(cannonInstance.transform.rotation, targetRotation, Time.deltaTime * 5f);
+        }
+    }
 }
