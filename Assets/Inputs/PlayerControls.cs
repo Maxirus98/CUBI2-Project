@@ -228,8 +228,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3c349c97-f502-436e-a486-c974e17b2ee8"",
-                    ""path"": ""<Gamepad>/select"",
+                    ""id"": ""dbc6fff1-6a1f-471e-a50e-34d193910201"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
