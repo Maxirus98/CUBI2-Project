@@ -123,7 +123,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   rangeVue: 20
-  rangeAttack: 5
+  rangeAttack: 0
 --- !u!114 &-5868117586542664610
 MonoBehaviour:
   m_ObjectHideFlags: 0

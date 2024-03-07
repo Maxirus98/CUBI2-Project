@@ -26,9 +26,9 @@ public class Ennemy1Management : MonoBehaviour {
     private void Awake() {
         agent = GetComponent<NavMeshAgent>();
 
-        sandMan = GameObject.FindGameObjectWithTag("SandmanModel").transform;
-        pet = GameObject.FindGameObjectWithTag("PetModel").transform;
-        players = GameObject.FindGameObjectsWithTag("Player");
+        sandMan = GameObject.Find("SandmanModel").transform;
+        pet = GameObject.Find("PetModel").transform;
+        //players = GameObject.FindGameObjectsWithTag("Player");
     }
     void Start() {
         destination = new Vector3(-63.45f, 1.5f, 32.46f);
@@ -37,20 +37,15 @@ public class Ennemy1Management : MonoBehaviour {
 
     private void Update() {
         playerInRange = Physics.CheckSphere(transform.position, rangeVue, whatIsPlayer);
-        Debug.Log(playerInRange);
         playerInAttackRange = Physics.CheckSphere(transform.position, rangeAttack, whatIsPlayer);
-        Debug.Log(playerInAttackRange);
 
         if (!playerInRange && !playerInAttackRange) {
             ToKid();
-            Debug.Log("kid");
         }
         if (playerInRange && !playerInAttackRange) {
-            Debug.Log("player");
             ToPlayer();
         }
         if (playerInRange && playerInAttackRange) {
-            Debug.Log("Attack");
             AttackPlayer();
         }
 
@@ -63,7 +58,7 @@ public class Ennemy1Management : MonoBehaviour {
         agent.SetDestination(pet.position);
     }
     void AttackPlayer() {
-        agent.SetDestination(transform.position);
+        agent.SetDestination(pet.position); // Attaque corps à corps
         transform.LookAt(pet);
 
     }
