@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 344b56692d2e9734bb26095dca2de471
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - agent: {fileID: 5579261789264048973, guid: 14b607820298a5e4aae24fb783245a34, type: 3}
+  - sandMan: {fileID: -8679921383154817045, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
+  - pet: {fileID: 1483556686349895631, guid: 6fb3f594596e57647b3928832f688f67, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
