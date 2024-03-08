@@ -1,18 +1,19 @@
 using TMPro;
+using Unity.Netcode;
 using UnityEngine;
+
+public enum GameState
+{
+    Running,
+    Won,
+    Lost
+}
 
 /// <summary>
 /// Script permettant de déterminer si les joueurs ont gagnés ou perdus
 /// </summary>
 public class WinLoseHandler : Singleton<WinLoseHandler>
 {
-    public enum GameState
-    {
-        Running,
-        Won,
-        Lost
-    }
-
     [SerializeField]
     private GameObject endGameCanvas;
     [SerializeField]
@@ -52,5 +53,10 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
         endGameText.text = text;
         //gameAudioSource.PlayOneShot(oneShotClip);
         endGameCanvas.SetActive(true);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        RelayConnectionManager.Instance.DisconnectFromServer();
     }
 }

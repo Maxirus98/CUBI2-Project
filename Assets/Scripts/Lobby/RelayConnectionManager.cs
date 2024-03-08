@@ -29,6 +29,8 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
             // Initialise l'API de UGS
             await UnityServices.InitializeAsync();
 
+
+            if (AuthenticationService.Instance.IsSignedIn) return;
             AuthenticationService.Instance.SignedIn += () =>
             {
                 Debug.Log($"Signed in {AuthenticationService.Instance.PlayerId}");
@@ -90,6 +92,15 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
         {
             Debug.LogError(rse);
         }
+    }
+
+    public void DisconnectFromServer()
+    {
+        GameManager.Instance.LoadLevelAsync(NetworkLoader.Scene.MainMenu.ToString());
+        Destroy(GameManager.Instance.gameObject);
+        //AuthenticationService.Instance.SignOut();
+        NetworkManager.Singleton.Shutdown();
+        Destroy(gameObject);
     }
 
     public void DisablePasswordUi()

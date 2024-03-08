@@ -40,8 +40,8 @@ public class GameManager : Singleton<GameManager>
         gameMenu.SetActive(!gameMenu.activeInHierarchy);
     }
 
-    // Application.Quit() ne fonctionne pas dans l'éditeur, seulement dans le jeu build.
-    // TODO: Vérifier que le jeu n'est pas en train de sauvegarder avant de fermer
+    // Application.Quit() ne fonctionne pas dans l'Ã©diteur, seulement dans le jeu build.
+    // TODO: VÃ©rifier que le jeu n'est pas en train de sauvegarder avant de fermer
     public void QuitGame()
     {
         Application.Quit();
@@ -49,9 +49,14 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadLevelAsync(string levelName)
     {
+        Time.timeScale = 1f;
+        for (int i = 0;i < transform.childCount; i++) {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
+        
         if (CurrentLevelName.Equals(levelName))
         {
-            Debug.Log($"On ne peut pas charger la même scène 2 fois: {levelName}");
+            Debug.Log($"On ne peut pas charger la mÃªme scÃ¨ne 2 fois: {levelName}");
             return;
         }
 
@@ -59,7 +64,7 @@ public class GameManager : Singleton<GameManager>
         AsyncOperation loadSceneAsync = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Single);
         if (loadSceneAsync == null)
         {
-            Debug.Log($"Une erreur est surevenue lors du chargement de la scène: {levelName}");
+            Debug.Log($"Une erreur est surevenue lors du chargement de la scÃ¨ne: {levelName}");
             return;
         }
 
@@ -78,11 +83,11 @@ public class GameManager : Singleton<GameManager>
             }
         }
 
-        Debug.Log($"Fin du chargement de la scène {CurrentLevelName}");
+        Debug.Log($"Fin du chargement de la scÃ¨ne {CurrentLevelName}");
     }
 
     /// <summary>
-    /// Méthode pour rendre les GameObjects de la liste systemPrefabs persistants à travers les scènes.
+    /// MÃ©thode pour rendre les GameObjects de la liste systemPrefabs persistants Ã  travers les scÃ¨nes.
     /// </summary>
     private void KeepSystemPrefabs()
     {

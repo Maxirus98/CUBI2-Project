@@ -5,7 +5,7 @@ public static class NetworkLoader
 {
     public enum Scene
     {
-        Menu,
+        MainMenu,
         LoadingScene,
         Lobby,
         CharacterSelection,

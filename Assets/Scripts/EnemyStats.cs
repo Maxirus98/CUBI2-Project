@@ -7,6 +7,8 @@ public class EnemyStats : NetworkBehaviour
     private int maxHealth = 3;
     private int currentHealth;
 
+    private WinLoseHandler winLoseHandler;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -17,6 +19,11 @@ public class EnemyStats : NetworkBehaviour
         if (other.CompareTag("Projectile"))
         {
             TakeDamage(1);
+        }
+
+        if (other.CompareTag("Bed"))
+        {
+            WinLoseHandler.Instance.UpdateGameState(GameState.Lost);
         }
     }
 
