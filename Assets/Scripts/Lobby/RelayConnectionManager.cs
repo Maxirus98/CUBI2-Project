@@ -98,7 +98,6 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
     {
         GameManager.Instance.LoadLevelAsync(NetworkLoader.Scene.MainMenu.ToString());
         Destroy(GameManager.Instance.gameObject);
-        //AuthenticationService.Instance.SignOut();
         NetworkManager.Singleton.Shutdown();
         Destroy(gameObject);
     }

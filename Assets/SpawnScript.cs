@@ -8,7 +8,9 @@ public class SpawnScript : MonoBehaviour
     public GameObject ennemy;
 
     [SerializeField]
-    Transform[] spawnPoint; 
+    Transform[] spawnPoint;
+
+    public int NumberOfEnemies = 3;
 
     void Start()
     {
@@ -19,13 +21,21 @@ public class SpawnScript : MonoBehaviour
             spawnPoint[i] = transform.GetChild(i);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < NumberOfEnemies; i++) {
 
             Transform randomPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
 
             var enemyInstance = Instantiate(ennemy, randomPoint.transform);
             var instanceNetworkObject = enemyInstance.GetComponent<NetworkObject>(); 
             instanceNetworkObject.Spawn();
+        }
+    }
+
+    private void Update()
+    {
+        if(NumberOfEnemies <= 0)
+        {
+            WinLoseHandler.Instance.UpdateGameState(GameState.Won);
         }
     }
 }

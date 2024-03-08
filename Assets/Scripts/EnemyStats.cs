@@ -7,22 +7,25 @@ public class EnemyStats : NetworkBehaviour
     private int maxHealth = 3;
     private int currentHealth;
 
-    private WinLoseHandler winLoseHandler;
+    private SpawnScript spawnScript;
 
     private void Start()
     {
         currentHealth = maxHealth;
+        spawnScript = GameObject.Find("Spawner").GetComponent<SpawnScript>();
     }
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Projectile"))
         {
+            Debug.Log("Triggered Projectile");
             TakeDamage(1);
         }
 
         if (other.CompareTag("Bed"))
         {
+            Debug.Log("Triggered bed");
             WinLoseHandler.Instance.UpdateGameState(GameState.Lost);
         }
     }
@@ -45,6 +48,19 @@ public class EnemyStats : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     private void DestroyServerRpc()
     {
+        SetEnemyCountClientRpc();
         NetworkObject.Despawn(gameObject);
+    }
+
+    /// <summary>
+    /// Dit à tous les clients de réduire le nombre d'ennemis
+    /// </summary>
+    [ClientRpc]
+    private void SetEnemyCountClientRpc()
+    {
+        if (spawnScript.NumberOfEnemies > 0)
+        {
+            spawnScript.NumberOfEnemies -= 1;
+        }
     }
 }

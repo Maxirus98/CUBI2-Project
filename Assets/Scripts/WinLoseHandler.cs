@@ -1,5 +1,4 @@
 using TMPro;
-using Unity.Netcode;
 using UnityEngine;
 
 public enum GameState
@@ -36,7 +35,7 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
                 
                 break;
             case GameState.Won:
-                EndGame("Partie gagnée!", gameWonAudio);
+                EndGame("Partie gagnée", gameWonAudio);
                 break;
             case GameState.Lost:
                 EndGame("Partie perdue", gameLostAudio);
@@ -45,7 +44,8 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
                 break;
         }
 
-        Time.timeScale = CurrentGameState == GameState.Running ? 1 : 0;
+        // Arrête le jeu et tous les événements après 3 secondes
+        Invoke(nameof(StopGameLoop), 3f);
     }
 
     private void EndGame(string text, AudioClip oneShotClip)
@@ -58,5 +58,11 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
     public void ReturnToMainMenu()
     {
         RelayConnectionManager.Instance.DisconnectFromServer();
+    }
+
+    // TODO: Changer ceci car les sons vont aussi s'arrêter
+    private void StopGameLoop()
+    {
+        Time.timeScale = CurrentGameState == GameState.Running ? 1 : 0;
     }
 }
