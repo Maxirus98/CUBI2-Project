@@ -2,10 +2,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class GameManager : Singleton<GameManager>
 {
     public string CurrentLevelName { get; set; }
+    
+    private GameData gameData = new GameData();
 
     [SerializeField]
     private GameObject[] systemPrefabs;
@@ -96,6 +99,24 @@ public class GameManager : Singleton<GameManager>
             var clonePrefab = Instantiate(go);
             instanceSystemPrefabsKept.Add(clonePrefab);
             DontDestroyOnLoad(clonePrefab);
+        }
+    }
+
+    // lorsque le joueur quitte le jeu ou sauvegarde le jeu
+    public void SaveGame()
+    {
+        string json = JsonUtility.ToJson(gameData, true);
+        File.WriteAllText(Application.persistentDataPath + "/turrets.json", json);
+    }
+
+    // lorsque le joueur revient au jeu
+    public void LoadGame()
+    {
+        string path = Application.persistentDataPath + "/turrets.json";
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            gameData = JsonUtility.FromJson<GameData>(json);
         }
     }
 }
