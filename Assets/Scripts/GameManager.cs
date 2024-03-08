@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class GameManager : Singleton<GameManager>
 {
     public string CurrentLevelName { get; set; }
+    
+    private GameData gameData = new GameData();
 
     [SerializeField]
     private GameObject[] systemPrefabs;
@@ -39,8 +42,8 @@ public class GameManager : Singleton<GameManager>
         gameMenu.SetActive(!gameMenu.activeInHierarchy);
     }
 
-    // Application.Quit() ne fonctionne pas dans l'éditeur, seulement dans le jeu build.
-    // TODO: Vérifier que le jeu n'est pas en train de sauvegarder avant de fermer
+    // Application.Quit() ne fonctionne pas dans l'ï¿½diteur, seulement dans le jeu build.
+    // TODO: Vï¿½rifier que le jeu n'est pas en train de sauvegarder avant de fermer
     public void QuitGame()
     {
         Application.Quit();
@@ -50,7 +53,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (CurrentLevelName.Equals(levelName))
         {
-            Debug.Log($"On ne peut pas charger la même scène 2 fois: {levelName}");
+            Debug.Log($"On ne peut pas charger la mï¿½me scï¿½ne 2 fois: {levelName}");
             return;
         }
 
@@ -58,7 +61,7 @@ public class GameManager : Singleton<GameManager>
         AsyncOperation loadSceneAsync = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Single);
         if (loadSceneAsync == null)
         {
-            Debug.Log($"Une erreur est surevenue lors du chargement de la scène: {levelName}");
+            Debug.Log($"Une erreur est surevenue lors du chargement de la scï¿½ne: {levelName}");
             return;
         }
 
@@ -77,11 +80,11 @@ public class GameManager : Singleton<GameManager>
             }
         }
 
-        Debug.Log($"Fin du chargement de la scène {CurrentLevelName}");
+        Debug.Log($"Fin du chargement de la scï¿½ne {CurrentLevelName}");
     }
 
     /// <summary>
-    /// Méthode pour rendre les GameObjects de la liste systemPrefabs persistants à travers les scènes.
+    /// Mï¿½thode pour rendre les GameObjects de la liste systemPrefabs persistants ï¿½ travers les scï¿½nes.
     /// </summary>
     private void KeepSystemPrefabs()
     {
@@ -90,6 +93,24 @@ public class GameManager : Singleton<GameManager>
             var clonePrefab = Instantiate(go);
             instanceSystemPrefabsKept.Add(clonePrefab);
             DontDestroyOnLoad(clonePrefab);
+        }
+    }
+
+    // lorsque le joueur quitte le jeu ou sauvegarde le jeu
+    public void SaveGame()
+    {
+        string json = JsonUtility.ToJson(gameData, true);
+        File.WriteAllText(Application.persistentDataPath + "/turrets.json", json);
+    }
+
+    // lorsque le joueur revient au jeu
+    public void LoadGame()
+    {
+        string path = Application.persistentDataPath + "/turrets.json";
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            gameData = JsonUtility.FromJson<GameData>(json);
         }
     }
 }
