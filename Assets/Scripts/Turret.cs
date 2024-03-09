@@ -110,9 +110,14 @@ public class Turret : NetworkBehaviour
     void FireAtEnemy()
     {
         GameObject targetEnemy = enemies[0];
+        if (targetEnemy != null && cannonInstance != null)
         Vector3 firePoint = transform.position + new Vector3(0, 4.5f, 1.5f);
-        if (targetEnemy != null)
         {
+            Vector3 firePointOffset = transform.position + new Vector3(0, 4.5f, 1.5f);
+            Vector3 firePoint = cannonInstance.transform.position + 
+                                cannonInstance.transform.up * firePointOffset.y +
+                                cannonInstance.transform.forward * firePointOffset.z;
+
             GameObject bullet = Instantiate(bulletPrefab, firePoint, Quaternion.identity);
 
             Bullet bulletComponent = bullet.GetComponent<Bullet>();
@@ -137,7 +142,7 @@ public class Turret : NetworkBehaviour
         {
             GameObject targetEnemy = enemies[0];
             Vector3 targetDirection = targetEnemy.transform.position - transform.position;
-            targetDirection.y = 0; // todo: vérifier si le cannon fonctionne bien
+            targetDirection.y = 0; // Gardez la rotation verticale à 0
 
             Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
             cannonInstance.transform.rotation = Quaternion.Slerp(cannonInstance.transform.rotation, targetRotation, Time.deltaTime * 5f);
