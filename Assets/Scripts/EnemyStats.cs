@@ -35,6 +35,11 @@ public class EnemyStats : NetworkBehaviour
         if (currentHealth > 0)
         {
             currentHealth -= damage;
+            // vÃ©rifier imÃ©diatement si l'ennemi est mort
+            if (currentHealth <= 0)
+            {
+                DestroyServerRpc();
+            }
         } else
         {
             // TODO: Start particle effect or death animation before destroying
@@ -53,7 +58,7 @@ public class EnemyStats : NetworkBehaviour
     }
 
     /// <summary>
-    /// Dit à tous les clients de réduire le nombre d'ennemis
+    /// Dit ï¿½ tous les clients de rï¿½duire le nombre d'ennemis
     /// </summary>
     [ClientRpc]
     private void SetEnemyCountClientRpc()
