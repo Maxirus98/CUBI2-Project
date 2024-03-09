@@ -111,7 +111,6 @@ public class Turret : NetworkBehaviour
     {
         GameObject targetEnemy = enemies[0];
         if (targetEnemy != null && cannonInstance != null)
-        Vector3 firePoint = transform.position + new Vector3(0, 4.5f, 1.5f);
         {
             Vector3 firePointOffset = transform.position + new Vector3(0, 4.5f, 1.5f);
             Vector3 firePoint = cannonInstance.transform.position + 
