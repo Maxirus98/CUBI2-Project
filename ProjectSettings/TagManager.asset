@@ -8,7 +8,7 @@ TagManager:
   - Projectile
   - Sand
   - Water
-  - Bed
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -21,7 +21,7 @@ TagManager:
   - DuneNonWalkable
   - SandMan
   - pet
-  - 
+  - Tower
   - 
   - 
   - 

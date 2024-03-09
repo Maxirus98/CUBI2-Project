@@ -75,6 +75,5 @@ public class ReadyCheckUi : NetworkBehaviour
         {
             netReadyPlayerList.Remove(OwnerClientId);
         }
-        
     }
 }

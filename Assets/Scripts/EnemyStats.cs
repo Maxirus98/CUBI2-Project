@@ -23,9 +23,9 @@ public class EnemyStats : NetworkBehaviour
             TakeDamage(1);
         }
 
-        if (other.CompareTag("Bed"))
+        if (other.CompareTag("Door"))
         {
-            Debug.Log("Triggered bed");
+            Debug.Log("Triggered Door");
             WinLoseHandler.Instance.UpdateGameState(GameState.Lost);
         }
     }
@@ -35,7 +35,7 @@ public class EnemyStats : NetworkBehaviour
         if (currentHealth > 0)
         {
             currentHealth -= damage;
-            // vérifier imédiatement si l'ennemi est mort
+            // verifier immediatement si l'ennemi est mort
             if (currentHealth <= 0)
             {
                 DestroyServerRpc();
@@ -58,7 +58,7 @@ public class EnemyStats : NetworkBehaviour
     }
 
     /// <summary>
-    /// Dit � tous les clients de r�duire le nombre d'ennemis
+    /// Dit a tous les clients de reduire le nombre d'ennemis
     /// </summary>
     [ClientRpc]
     private void SetEnemyCountClientRpc()

@@ -1,8 +1,12 @@
-﻿using UnityEngine;
+﻿using Unity.Netcode;
+using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : NetworkBehaviour
 {
     public bool IsNearResource { get; set; }
+    public bool IsKo { get; set; }
+
+    public int CurrentUseable;
 
     [SerializeField]
     private PlayerResourceScript playerResource;
@@ -12,10 +16,10 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField]
     private int maxHealth = 5;
+    [SerializeField]
     private int currentHealth;
 
     private int maxUseable = 20;
-    public int CurrentUseable;
 
     void Start()
     {
@@ -68,10 +72,24 @@ public class PlayerStats : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
+        if (!IsOwner) return;
         if (currentHealth > 0)
         {
+            Debug.Log($"Current health, {currentHealth} for player: {NetworkManager.Singleton.LocalClientId}");
             currentHealth -= damage;
             PlayerResourceClone.SetHealth(currentHealth);
         }
+
+        if(currentHealth <= 0 && !IsKo)
+        {
+            SetKo();
+        }
+    }
+
+    private void SetKo()
+    {
+        Debug.Log($"Set Ko called, {currentHealth}, for player: {NetworkManager.Singleton.LocalClientId}");
+        IsKo = true;
+        PlayerKo.Instance.UpdatePlayerKoListServerRpc(NetworkManager.Singleton.LocalClientId);
     }
 }
