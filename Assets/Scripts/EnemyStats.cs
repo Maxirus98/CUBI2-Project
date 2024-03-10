@@ -63,9 +63,9 @@ public class EnemyStats : NetworkBehaviour
     [ClientRpc]
     private void SetEnemyCountClientRpc()
     {
-        if (spawnScript.NumberOfEnemies > 0)
+        if (spawnScript.NumberOfEnemies1 > 0)
         {
-            spawnScript.NumberOfEnemies -= 1;
+            spawnScript.NumberOfEnemies1 -= 1;
         }
     }
 }

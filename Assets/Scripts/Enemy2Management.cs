@@ -2,26 +2,29 @@ using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy1Management : MonoBehaviour {
+public class Enemy2Management : MonoBehaviour {
     // Deplacer les ennemis vers un point fixe
 
     public NavMeshAgent agent;
     public Transform sandMan;
     public Transform pet;
+    public Transform tower;
     public Transform closestPlayer;
+    
     public GameObject[] players;
 
     public float distAgentSandman;
     public float distAgentPet;
-    
+    public float distTower;
+
 
     [SerializeField]
-    public float Enemy1Speed;
+    public float Enemy2Speed;
 
     [SerializeField]
     public Vector3 destination; // Destination finale
 
-    public LayerMask whatIsSandman, whatIsPet;
+    public LayerMask whatIsSandman, whatIsPet, whatIsTower;
     public LayerMask closestLayer;
 
     // Ranges
@@ -30,11 +33,12 @@ public class Enemy1Management : MonoBehaviour {
 
     private void Awake() {
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = Enemy1Speed;
+        agent.speed = Enemy2Speed;
 
         sandMan = GameObject.Find("SandmanModel").transform;
         pet = GameObject.Find("PetModel").transform;
-        //closestPlayer = GameObject.Find("SandmanModel").transform;
+        tower = GameObject.Find("Tower").transform;
+        closestPlayer = GameObject.Find("SandmanModel").transform;
         //players = GameObject.FindGameObjectsWithTag("Player");
     }
     void Start() {
@@ -43,9 +47,10 @@ public class Enemy1Management : MonoBehaviour {
     }
 
     private void Update() {
-        
+
         distAgentSandman = Vector3.Distance(agent.transform.position, sandMan.transform.position);
         distAgentPet = Vector3.Distance(agent.transform.position, pet.transform.position);
+        distTower = Vector3.Distance(agent.transform.position, tower.transform.position);
 
         if (distAgentSandman >= distAgentPet) {
             closestLayer = whatIsPet;
@@ -56,7 +61,7 @@ public class Enemy1Management : MonoBehaviour {
             closestLayer = whatIsSandman;
             closestPlayer = sandMan.transform;
             Debug.Log(closestPlayer);
-            }
+        }
 
         playerInRange = Physics.CheckSphere(transform.position, rangeVue, closestLayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, rangeAttack, closestLayer);

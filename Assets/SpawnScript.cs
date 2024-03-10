@@ -4,13 +4,16 @@ using UnityEngine;
 public class SpawnScript : MonoBehaviour
 {
     public bool isTesting = false;
+
     [SerializeField]
     public GameObject ennemy;
 
     [SerializeField]
     Transform[] spawnPoint;
 
-    public int NumberOfEnemies = 3;
+    [SerializeField]
+    public int NumberOfEnemies1;
+    public int NumberOfEnemies2;
 
     void Start()
     {
@@ -21,7 +24,7 @@ public class SpawnScript : MonoBehaviour
             spawnPoint[i] = transform.GetChild(i);
         }
 
-        for (int i = 0; i < NumberOfEnemies; i++) {
+        for (int i = 0; i < NumberOfEnemies1; i++) {
 
             Transform randomPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
 
@@ -33,7 +36,7 @@ public class SpawnScript : MonoBehaviour
 
     private void Update()
     {
-        if(NumberOfEnemies <= 0)
+        if(NumberOfEnemies1 <= 0)
         {
             WinLoseHandler.Instance.UpdateGameState(GameState.Won);
         }

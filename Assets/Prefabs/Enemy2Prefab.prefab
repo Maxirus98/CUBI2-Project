@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 9065219266823676772}
   - component: {fileID: 7994925986529792752}
   - component: {fileID: 7631379802309111253}
+  - component: {fileID: -5867466604789239503}
   - component: {fileID: -1842606150214426299}
-  - component: {fileID: -173236425001255682}
   - component: {fileID: 6878464122916774355}
   - component: {fileID: -7505541389944584773}
   m_Layer: 0
   m_Name: Enemy2Prefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,6 +80,43 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-5867466604789239503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8594151093727181347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 074bc4c1df08ca24bb5f0678cca8912c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 7631379802309111253}
+  sandMan: {fileID: -8679921383154817045, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
+  pet: {fileID: 1483556686349895631, guid: 6fb3f594596e57647b3928832f688f67, type: 3}
+  tower: {fileID: 7485517737293056902, guid: 1585434021de34b928b1d9f0cce2fe18, type: 3}
+  closestPlayer: {fileID: 0}
+  players: []
+  distAgentSandman: 0
+  distAgentPet: 0
+  distTower: 0
+  Enemy2Speed: 0
+  destination: {x: -63.45, y: 1.5, z: 32.46}
+  whatIsSandman:
+    serializedVersion: 2
+    m_Bits: 512
+  whatIsPet:
+    serializedVersion: 2
+    m_Bits: 1024
+  whatIsTower:
+    serializedVersion: 2
+    m_Bits: 2048
+  closestLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  rangeVue: 20
+  rangeAttack: 0
 --- !u!114 &-1842606150214426299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,28 +138,6 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &-173236425001255682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8594151093727181347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 344b56692d2e9734bb26095dca2de471, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 5579261789264048973, guid: 14b607820298a5e4aae24fb783245a34, type: 3}
-  sandMan: {fileID: -8679921383154817045, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
-  pet: {fileID: 1483556686349895631, guid: 6fb3f594596e57647b3928832f688f67, type: 3}
-  players: []
-  destination: {x: -63.45, y: 1.5, z: 32.46}
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  rangeVue: 20
-  rangeAttack: 5
 --- !u!114 &6878464122916774355
 MonoBehaviour:
   m_ObjectHideFlags: 0
