@@ -14,13 +14,19 @@ public class Turret : NetworkBehaviour
     private float attackCounter = 0f;
 
     public GameObject bulletPrefab;
-    public GameObject bulletInstance;
 
     public List<GameObject> enemies = new List<GameObject>();
 
     private InputHandler inputHandler;
     [SerializeField]
     private GameObject buildText;
+
+    public Transform firePoint;
+
+    void Start()
+    {
+        firePoint = transform.Find("FirePoint");
+    }
 
     void Update()
     {
@@ -92,6 +98,8 @@ public class Turret : NetworkBehaviour
             cannonInstance = Instantiate(cannonPrefab, buildPosition, Quaternion.Euler(0, 0, 0));
             var instanceNetworkObject = cannonInstance.GetComponent<NetworkObject>();
 
+            firePoint = cannonInstance.transform.Find("FirePoint");
+
             // Spawn pour le serveur
             instanceNetworkObject.Spawn();
 
@@ -113,9 +121,7 @@ public class Turret : NetworkBehaviour
         GameObject targetEnemy = enemies[0];
         if (targetEnemy != null && cannonInstance != null)
         {
-            Vector3 firePoint = transform.position + new Vector3(0, 4.5f, 1.5f);
-
-            GameObject bulletInstance = Instantiate(bulletPrefab, firePoint, Quaternion.identity);
+            GameObject bulletInstance = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
             Bullet bulletComponent = bulletInstance.GetComponent<Bullet>();
             bulletComponent.SetTarget(targetEnemy.transform);
@@ -143,7 +149,6 @@ public class Turret : NetworkBehaviour
 
             Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
             cannonInstance.transform.rotation = Quaternion.Slerp(cannonInstance.transform.rotation, targetRotation, Time.deltaTime * 5f);
-            bulletInstance.transform.rotation = Quaternion.Slerp(bulletInstance.transform.rotation, targetRotation, Time.deltaTime * 5f);
         }
     }
 }
