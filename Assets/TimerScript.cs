@@ -6,10 +6,12 @@ public class TimerScript : MonoBehaviour
     public float TimeRemaining = 30;
 
     private TextMeshProUGUI text;
+    private SpawnScript spawnScript;
 
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
+        spawnScript = GameObject.Find("Spawner").GetComponent<SpawnScript>();
     }
 
     private void Update()
@@ -24,7 +26,7 @@ public class TimerScript : MonoBehaviour
             text.transform.parent.gameObject.SetActive(false);
 
             // TODO: Start Wave after timer
-
+            spawnScript.enabled = true;
         }
     }
 }

@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour
 
     public void OnTriggerEnter(Collider collider)
     {
+        Debug.Log($"Collided with: {collider.name}");
         if (collider.CompareTag("Player")) return;
         var projectileModel =  transform.GetChild(0);
         projectileModel.gameObject.SetActive(false);
