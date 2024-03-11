@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using TMPro;
 using Unity.Netcode;
@@ -20,6 +21,17 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
         base.Awake();
         await Authenticate();
         DontDestroyOnLoad(this);
+        NetworkManager.Singleton.OnClientDisconnectCallback += Singleton_OnClientDisconnectCallback;
+    }
+
+    private void OnDisable()
+    {
+        NetworkManager.Singleton.OnClientDisconnectCallback -= Singleton_OnClientDisconnectCallback;
+    }
+
+    private void Singleton_OnClientDisconnectCallback(ulong obj)
+    {
+        DisconnectFromServer(true);
     }
 
     private static async Task Authenticate()
@@ -94,11 +106,15 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
         }
     }
 
-    public void DisconnectFromServer()
+    public void DisconnectFromServer(bool hostDisconnected = false)
     {
         GameManager.Instance.LoadLevelAsync(NetworkLoader.Scene.MainMenu.ToString());
         Destroy(GameManager.Instance.gameObject);
-        NetworkManager.Singleton.Shutdown();
+        if(!hostDisconnected)
+        {
+            NetworkManager.Singleton.Shutdown();
+        }
+        
         Destroy(gameObject);
     }
 

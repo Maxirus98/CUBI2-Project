@@ -42,6 +42,10 @@ public class GameManager : Singleton<GameManager>
     {
         gameMenu.SetActive(!gameMenu.activeInHierarchy);
     }
+    public void ReturnToMainMenu()
+    {
+        RelayConnectionManager.Instance.DisconnectFromServer();
+    }
 
     // Application.Quit() ne fonctionne pas dans l'éditeur, seulement dans le jeu build.
     // TODO: Vérifier que le jeu n'est pas en train de sauvegarder avant de fermer

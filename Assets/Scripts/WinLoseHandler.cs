@@ -55,11 +55,6 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
         endGameCanvas.SetActive(true);
     }
 
-    public void ReturnToMainMenu()
-    {
-        RelayConnectionManager.Instance.DisconnectFromServer();
-    }
-
     // TODO: Changer ceci car les sons vont aussi s'arrêter
     private void StopGameLoop()
     {
