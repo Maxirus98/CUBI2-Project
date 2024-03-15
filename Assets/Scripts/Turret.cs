@@ -1,7 +1,9 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Turret : NetworkBehaviour
 {
@@ -23,9 +25,34 @@ public class Turret : NetworkBehaviour
 
     public Transform firePoint;
 
+    // Construction des tours sur le reseau
+    private NetworkList<ulong> netBuildingPlayerList = new(writePerm:NetworkVariableWritePermission.Owner);
+    private Slider sandmanSyncSlider;
+    private Slider petSyncSlider;
+    private float animationTime = 0f;
+
     void Start()
     {
+        sandmanSyncSlider = GameObject.Find("InteractionUI").transform.Find("SandmanSyncSlider").GetComponent<Slider>();
+        petSyncSlider = GameObject.Find("InteractionUI").transform.Find("PetSyncSlider").GetComponent<Slider>();
+
         firePoint = transform.Find("FirePoint");
+        netBuildingPlayerList.OnListChanged += NetBuildingPlayerList_OnListChanged;
+    }
+
+    private void NetBuildingPlayerList_OnListChanged(NetworkListEvent<ulong> changeEvent)
+    {
+        // Lorsque les 2 joueurs ont fini de construire, construire la tour
+        if (changeEvent.Type == NetworkListEvent<ulong>.EventType.Add)
+        {
+            Debug.Log($"Added to list, Size: {netBuildingPlayerList.Count}");
+            if(netBuildingPlayerList.Count >= 2)
+            {
+                BuildServerRpc();
+                HideSlidersClientRpc();
+                buildText.SetActive(false);
+            }
+        }
     }
 
     void Update()
@@ -73,6 +100,11 @@ public class Turret : NetworkBehaviour
             {
                 inputHandler.nearbyTurret = null;
             }
+
+            // Reset local sliders
+            sandmanSyncSlider.gameObject.SetActive(false);
+            petSyncSlider.gameObject.SetActive(false);
+            animationTime = 0f;
         }
     }
 
@@ -80,7 +112,53 @@ public class Turret : NetworkBehaviour
     {
         if (isPlayerInRange && cannonPrefab != null && !isBuilt)
         {
-            BuildServerRpc();
+            RequestToBuildServerRpc(NetworkManager.LocalClientId);
+        }
+    }
+
+    [ClientRpc]
+    public void HideSlidersClientRpc()
+    {
+        sandmanSyncSlider.gameObject.SetActive(false);
+        petSyncSlider.gameObject.SetActive(false);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void RequestToBuildServerRpc(ulong clientId)
+    {
+        // TODO: Play request build audio
+        
+        // Fait apparaître le slider de synchronization pour les 2 joueurs
+        var isSandman = NetworkManager.ConnectedClients[clientId].PlayerObject.transform.GetChild(0).gameObject.activeInHierarchy;
+        AnimateSliderOverTimeClientRpc(clientId, isSandman);
+    }
+
+    [ClientRpc]
+    private void AnimateSliderOverTimeClientRpc(ulong clientId, bool isSandman)
+    {
+        StartCoroutine(AnimateSliderOverTime(clientId, isSandman));
+    }
+
+    private IEnumerator AnimateSliderOverTime(ulong clientId, bool isSandman)
+    {
+        var playerSlider = isSandman ? sandmanSyncSlider : petSyncSlider;
+        playerSlider.gameObject.SetActive(true);
+
+        animationTime = 0f;
+        var seconds = 3f;
+
+        while (animationTime < seconds)
+        {
+            animationTime += Time.deltaTime;
+            float lerpValue = animationTime / seconds;
+            playerSlider.value = Mathf.Lerp(0, seconds, lerpValue);
+            yield return null;
+        }
+
+        // Apres avoir fini sa part de la construction, le joueur ajoute son id au reseau
+        if (!netBuildingPlayerList.Contains(clientId) && IsOwner)
+        {
+            netBuildingPlayerList.Add(clientId);
         }
     }
 
@@ -108,7 +186,7 @@ public class Turret : NetworkBehaviour
     }
 
     /// <summary>
-    /// Dis � tous les joueurs/clients que cette tour est construite
+    /// Dis a tous les joueurs/clients que cette tour est construite
     /// </summary>
     [ClientRpc]
     private void IsBuiltClientRpc()

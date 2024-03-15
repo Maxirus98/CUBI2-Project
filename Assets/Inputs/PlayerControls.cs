@@ -64,6 +64,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Build"",
+                    ""type"": ""Button"",
+                    ""id"": ""10ebe653-0e9f-4541-89c1-4ae538783a8d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""ToggleGameMenu"",
                     ""type"": ""Button"",
                     ""id"": ""f2c30918-a8ed-4ec4-8907-9c3d227d366b"",
@@ -258,6 +267,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""MoveCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""516df1bb-f227-4644-bb2d-eb08ae98b422"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Build"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b90cea53-d398-4112-b302-c637ad0620e8"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Build"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -349,6 +380,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerBase_Move = m_PlayerBase.FindAction("Move", throwIfNotFound: true);
         m_PlayerBase_Attack = m_PlayerBase.FindAction("Attack", throwIfNotFound: true);
         m_PlayerBase_Interact = m_PlayerBase.FindAction("Interact", throwIfNotFound: true);
+        m_PlayerBase_Build = m_PlayerBase.FindAction("Build", throwIfNotFound: true);
         m_PlayerBase_ToggleGameMenu = m_PlayerBase.FindAction("ToggleGameMenu", throwIfNotFound: true);
         m_PlayerBase_MoveCamera = m_PlayerBase.FindAction("MoveCamera", throwIfNotFound: true);
         // UiGamepad
@@ -421,6 +453,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerBase_Move;
     private readonly InputAction m_PlayerBase_Attack;
     private readonly InputAction m_PlayerBase_Interact;
+    private readonly InputAction m_PlayerBase_Build;
     private readonly InputAction m_PlayerBase_ToggleGameMenu;
     private readonly InputAction m_PlayerBase_MoveCamera;
     public struct PlayerBaseActions
@@ -431,6 +464,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_PlayerBase_Move;
         public InputAction @Attack => m_Wrapper.m_PlayerBase_Attack;
         public InputAction @Interact => m_Wrapper.m_PlayerBase_Interact;
+        public InputAction @Build => m_Wrapper.m_PlayerBase_Build;
         public InputAction @ToggleGameMenu => m_Wrapper.m_PlayerBase_ToggleGameMenu;
         public InputAction @MoveCamera => m_Wrapper.m_PlayerBase_MoveCamera;
         public InputActionMap Get() { return m_Wrapper.m_PlayerBase; }
@@ -454,6 +488,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @Build.started += instance.OnBuild;
+            @Build.performed += instance.OnBuild;
+            @Build.canceled += instance.OnBuild;
             @ToggleGameMenu.started += instance.OnToggleGameMenu;
             @ToggleGameMenu.performed += instance.OnToggleGameMenu;
             @ToggleGameMenu.canceled += instance.OnToggleGameMenu;
@@ -476,6 +513,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @Build.started -= instance.OnBuild;
+            @Build.performed -= instance.OnBuild;
+            @Build.canceled -= instance.OnBuild;
             @ToggleGameMenu.started -= instance.OnToggleGameMenu;
             @ToggleGameMenu.performed -= instance.OnToggleGameMenu;
             @ToggleGameMenu.canceled -= instance.OnToggleGameMenu;
@@ -567,6 +607,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnBuild(InputAction.CallbackContext context);
         void OnToggleGameMenu(InputAction.CallbackContext context);
         void OnMoveCamera(InputAction.CallbackContext context);
     }
