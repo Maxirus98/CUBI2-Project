@@ -24,11 +24,10 @@ public class SpawnScript : MonoBehaviour {
     public int numWave = 1;
     public int totalEnemies;
 
-    private TimerScript timerScript;
-
     void Start() {
 
-        timerScript = GetComponent<TimerScript>();
+        //timerScript = GameObject.Find("Spawner").GetComponent<SpawnScript>();
+
 
         NumberOfEnemies1 = Wave1Enemies1;
         if (!isTesting && !NetworkManager.Singleton.IsHost)
@@ -40,7 +39,6 @@ public class SpawnScript : MonoBehaviour {
         }
         if (numWave == 1) {
             NumberOfEnemies1 = Wave1Enemies1;
-            NumberOfEnemies2 = 0;
             totalEnemies = NumberOfEnemies1;
         }
         else if (numWave == 2) {
@@ -73,10 +71,12 @@ public class SpawnScript : MonoBehaviour {
         }
     }
 
-    private void Update() {
+    public void Update() {
+        Debug.Log("Hello");
         if (totalEnemies <= 0) {
+            Debug.Log("Hello");
             numWave++;
-            timerScript.enabled = true;
+
 
             //WinLoseHandler.Instance.UpdateGameState(GameState.Won);
         }

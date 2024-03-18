@@ -42,10 +42,10 @@ public class Enemy1Management : MonoBehaviour {
         InvokeRepeating(nameof(ToKid), 1f, 5f);
     }
 
-    private void Update() {
+    public void Update() {
         
-        distAgentSandman = Vector3.Distance(agent.transform.position, sandMan.transform.position);
-        distAgentPet = Vector3.Distance(agent.transform.position, pet.transform.position);
+        distAgentSandman = Vector3.Distance(agent.transform.position, sandMan.position);
+        distAgentPet = Vector3.Distance(agent.transform.position, pet.position);
 
         if (distAgentSandman >= distAgentPet) {
             closestLayer = whatIsPet;
@@ -65,6 +65,7 @@ public class Enemy1Management : MonoBehaviour {
             ToKid();
         }
         if (playerInRange && !playerInAttackRange) {
+            Debug.Log(closestPlayer);
             ToPlayer(closestPlayer);
         }
         if (playerInRange && playerInAttackRange) {
