@@ -10,7 +10,7 @@ public class Enemy2Management : MonoBehaviour {
     public Transform pet;
     public Transform tower;
     public Transform closestPlayer;
-    
+
     public GameObject[] players;
 
     public float distAgentSandman;
