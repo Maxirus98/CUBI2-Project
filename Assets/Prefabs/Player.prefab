@@ -320,7 +320,7 @@ MonoBehaviour:
   petProbjectile: {fileID: 7768350242552672694, guid: 4ee67bece110c834e9ad410898aa8ccf, type: 3}
   sandmanProjectile: {fileID: 1990290837585218829, guid: 733bc831d8111114bb44cd4f7f3f0750, type: 3}
   petShootPoint: {fileID: 385882235406164311}
-  sandmanShootPoint: {fileID: 8197047172534064175}
+  sandmanShootPoint: {fileID: 3673639641734790175}
   projectileSpeed: 1500
   playerAnimatorHandler: {fileID: 7846121097352545806}
 --- !u!1 &7243892660582821806

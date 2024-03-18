@@ -90,6 +90,10 @@ public class PlayerCombat : NetworkBehaviour
         // AudioSource.PlayClipAtPoint(spawnClip, transform.position);
     }
 
+    /// <summary>
+    /// SetUiPointerPositionToShootPoint vient vérifier que les éléments nécessaires a faire apparaitre le Pointeur pour tirer sont presents
+    /// et il place le pointeur sur l'ecran a l'endroit ou le projectile sort.
+    /// </summary>
     private void SetUiPointerPositionToShootPoint()
     {
         if (currentShootPoint != null)
