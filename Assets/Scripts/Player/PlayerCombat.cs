@@ -19,6 +19,11 @@ public class PlayerCombat : NetworkBehaviour
     // [SerializeField] private AudioClip spawnClip;
     [SerializeField] private PlayerAnimatorHandler playerAnimatorHandler;
 
+
+    private PlayerStats playerStats;
+    private Transform pointer;
+    private Camera currentCamera;
+
     public override void OnNetworkSpawn()
     {
         SwitchProjectileAndShootPoint();
@@ -26,11 +31,17 @@ public class PlayerCombat : NetworkBehaviour
 
     private void Start()
     {
+        playerStats = GetComponent<PlayerStats>();
         var playerManager = GetComponent<PlayerManager>();
         if(playerManager.testing)
         {
             SwitchProjectileAndShootPoint();
         }
+    }
+
+    private void Update()
+    {
+        SetUiPointerPositionToShootPoint();
     }
 
     public void SwitchProjectileAndShootPoint()
@@ -56,7 +67,6 @@ public class PlayerCombat : NetworkBehaviour
         playerAnimatorHandler.PlayTargetAnimationByName("Attack");
     }
 
-
     [ServerRpc(RequireOwnership = false)]
     private void RequestFireServerRpc(Vector3 dir)
     {
@@ -78,5 +88,37 @@ public class PlayerCombat : NetworkBehaviour
         var projectile = Instantiate(currentProjectile, currentShootPoint.position, Quaternion.identity);
         projectile.Init(dir * projectileSpeed);
         // AudioSource.PlayClipAtPoint(spawnClip, transform.position);
+    }
+
+    /// <summary>
+    /// SetUiPointerPositionToShootPoint vient vérifier que les éléments nécessaires a faire apparaitre le Pointeur pour tirer sont presents
+    /// et il place le pointeur sur l'ecran a l'endroit ou le projectile sort.
+    /// </summary>
+    private void SetUiPointerPositionToShootPoint()
+    {
+        if (currentShootPoint != null)
+        {
+            if (CameraHandler.singleton != null && currentCamera == null)
+            {
+                currentCamera = CameraHandler.singleton.cameraTransform.GetComponent<Camera>();
+            }
+
+            if (currentCamera != null)
+            {
+
+                if (playerStats.PlayerResourceClone != null)
+                {
+                    if (pointer == null)
+                    {
+                        pointer = playerStats.PlayerResourceClone.transform.Find("Pointer");
+                    }
+                    else
+                    {
+                        var shootPointScreenPos = currentCamera.WorldToScreenPoint(currentShootPoint.position);
+                        pointer.position = shootPointScreenPos;
+                    }
+                }
+            }
+        }
     }
 }

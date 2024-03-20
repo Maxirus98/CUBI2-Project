@@ -21,7 +21,7 @@ public class CameraHandler : MonoBehaviour
     private float maximumLookAngle = 90f;
 
     [SerializeField]
-    private Transform cameraTransform;
+    public Transform cameraTransform;
     [SerializeField]
     private Transform cameraPivotTransform;
 

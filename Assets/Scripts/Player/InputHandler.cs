@@ -91,14 +91,17 @@ public class InputHandler : MonoBehaviour
 
     private void OnInteract()
     {
+        playerStats.GainResource();
+    }
+
+    private void OnBuild()
+    {
         var buildingCost = 5;
-        if(nearbyTurret && playerStats.CurrentUseable >= buildingCost)
+        if (nearbyTurret && playerStats.CurrentUseable >= buildingCost)
         {
             nearbyTurret.BuildCannon();
             playerStats.UseResource(buildingCost);
         }
-
-        playerStats.GainResource();
     }
 
     private void OnToggleGameMenu()

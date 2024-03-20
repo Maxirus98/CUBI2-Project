@@ -8,8 +8,7 @@ public class PlayerStats : NetworkBehaviour
 
     public int CurrentUseable;
 
-    [SerializeField]
-    private PlayerResourceScript playerResource;
+    public PlayerResourceScript playerResource;
 
     [HideInInspector]
     public PlayerResourceScript PlayerResourceClone;
