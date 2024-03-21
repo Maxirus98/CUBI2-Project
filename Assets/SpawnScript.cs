@@ -72,9 +72,9 @@ public class SpawnScript : MonoBehaviour {
     }
 
     public void Update() {
-        Debug.Log("Hello");
+        
         if (totalEnemies <= 0) {
-            Debug.Log("Hello");
+            Debug.Log("Plus d'ennemis");
             numWave++;
 
 

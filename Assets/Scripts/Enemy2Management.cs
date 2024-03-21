@@ -48,19 +48,19 @@ public class Enemy2Management : MonoBehaviour {
 
     private void Update() {
 
-        distAgentSandman = Vector3.Distance(agent.transform.position, sandMan.transform.position);
-        distAgentPet = Vector3.Distance(agent.transform.position, pet.transform.position);
-        distTower = Vector3.Distance(agent.transform.position, tower.transform.position);
+        distAgentSandman = Vector3.Distance(agent.transform.position, sandMan.position);
+        distAgentPet = Vector3.Distance(agent.transform.position, pet.position);
+        distTower = Vector3.Distance(agent.transform.position, tower.position);
 
         if (distAgentSandman >= distAgentPet) {
             closestLayer = whatIsPet;
             closestPlayer = pet.transform;
-            Debug.Log(closestPlayer);
+            //Debug.Log(closestPlayer);
         }
         else if (distAgentPet >= distAgentSandman) {
             closestLayer = whatIsSandman;
             closestPlayer = sandMan.transform;
-            Debug.Log(closestPlayer);
+            //Debug.Log(closestPlayer);
         }
 
         playerInRange = Physics.CheckSphere(transform.position, rangeVue, closestLayer);
