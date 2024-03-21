@@ -48,7 +48,7 @@ public class PlayerCombat : NetworkBehaviour
     {
         var isSandman = transform.GetChild(0).gameObject.activeInHierarchy;
         currentProjectile = isSandman ? sandmanProjectile : petProbjectile;
-        currentShootPoint = currentShootPoint ? sandmanShootPoint : petShootPoint;
+        currentShootPoint = isSandman ? sandmanShootPoint : petShootPoint;
     } 
 
     public void Attack()
