@@ -10,8 +10,10 @@ public class TimerScript : MonoBehaviour
 
     void Start()
     {
+        text.transform.parent.gameObject.SetActive(true);
         text = GetComponent<TextMeshProUGUI>();
         spawnScript = GameObject.Find("Spawner").GetComponent<SpawnScript>();
+        spawnScript.enabled = false;
     }
 
     private void Update()

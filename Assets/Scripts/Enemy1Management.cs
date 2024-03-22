@@ -47,7 +47,7 @@ public class Enemy1Management : MonoBehaviour {
         distAgentSandman = Vector3.Distance(agent.transform.position, sandMan.position);
         distAgentPet = Vector3.Distance(agent.transform.position, pet.position);
         Debug.Log("distAgentSandman :" + distAgentSandman);
-        Debug.Log("distAgentSandman :" + distAgentPet);
+        Debug.Log("distAgentPet :" + distAgentPet);
 
 
         if (distAgentSandman >= distAgentPet) {
