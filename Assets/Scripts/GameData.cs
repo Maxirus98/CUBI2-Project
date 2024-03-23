@@ -3,9 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class GameData
+public class GameData : MonoBehaviour
 {
     public List<TurretData> turrets = new List<TurretData>();
+
+    public static GameData Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            InitializeTurrets();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public class TurretData
     {
@@ -17,6 +33,15 @@ public class GameData
             this.towerIndex = towerIndex;
             this.isBuilt = isBuilt;
         }
+    }
+
+    private void InitializeTurrets()
+    {
+        for (int i = 1; i <= 18; i++)
+        {
+            turrets.Add(new TurretData("Tower" + i, false));
+        }
+        print("turrets" + turrets);
     }
 
     // Ajoute ou met à jour les données de la tour lorsqu'elle est construite ou détruite
@@ -34,8 +59,17 @@ public class GameData
             // ajoute une nouvelle tour à la liste
             turrets.Add(new TurretData(towerIndex, isBuilt));
         }
+        print("hereQ");
     }
+
+    public void LoadDataFromJson(string json)
+    {
+        GameData loadedData = JsonUtility.FromJson<GameData>(json);
+        if (loadedData != null)
+        {
+            // copie les données des tours
+            turrets = loadedData.turrets;
+        }
+    }
+
 }
-
-
-

@@ -173,7 +173,20 @@ public class Turret : NetworkBehaviour
         {
             // Spawn pour le joueur
             Vector3 buildPosition = transform.position + new Vector3(0, 4f, 0);
-            cannonInstance = Instantiate(cannonPrefab, buildPosition, Quaternion.Euler(0, 0, 0));
+            cannonInstance = Instantiate(cannonPrefab, buildPosition, Quaternion.Euler(0, 0, 0), transform);
+
+            print("herererere!!!!!!");
+            if (cannonInstance != null && cannonInstance.transform.parent != null)
+            {
+                string towerName = cannonInstance.transform.parent.name;
+                GameData.Instance.UpdateTurretData(towerName, true);
+                print("Tower built: " + towerName);
+            }
+            else
+            {
+                Debug.LogError("Cannon instance or parent is null!");
+            }
+
             var instanceNetworkObject = cannonInstance.GetComponent<NetworkObject>();
 
             firePoint = cannonInstance.transform.Find("FirePoint");
