@@ -20,11 +20,24 @@ public class PlayerManager : NetworkBehaviour
     public bool isInAir;
     public bool isGrounded;
 
+    public bool IsSandman;
+
+    public override void OnNetworkSpawn()
+    {
+        IsSandman = transform.GetChild(0).gameObject.activeInHierarchy;
+    }
+
     private void Awake()
     {
         if (!testing)
         {
             if (!IsOwner) this.enabled = false;
+            
+        }
+
+        if(testing)
+        {
+            IsSandman = transform.GetChild(0).gameObject.activeInHierarchy;
         }
     }
 

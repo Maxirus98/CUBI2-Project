@@ -16,27 +16,18 @@ public class PlayerCombat : NetworkBehaviour
     private Transform currentShootPoint;
 
     [SerializeField] private float projectileSpeed = 1500f;
-    // [SerializeField] private AudioClip spawnClip;
     [SerializeField] private PlayerAnimatorHandler playerAnimatorHandler;
-
 
     private PlayerStats playerStats;
     private Transform pointer;
     private Camera currentCamera;
-
-    public override void OnNetworkSpawn()
-    {
-        SwitchProjectileAndShootPoint();
-    }
+    private PlayerManager playerManager;
 
     private void Start()
     {
         playerStats = GetComponent<PlayerStats>();
-        var playerManager = GetComponent<PlayerManager>();
-        if(playerManager.testing)
-        {
-            SwitchProjectileAndShootPoint();
-        }
+        playerManager = GetComponent<PlayerManager>();
+        SwitchProjectileAndShootPoint();
     }
 
     private void Update()
@@ -46,9 +37,8 @@ public class PlayerCombat : NetworkBehaviour
 
     public void SwitchProjectileAndShootPoint()
     {
-        var isSandman = transform.GetChild(0).gameObject.activeInHierarchy;
-        currentProjectile = isSandman ? sandmanProjectile : petProbjectile;
-        currentShootPoint = isSandman ? sandmanShootPoint : petShootPoint;
+        currentProjectile = playerManager.IsSandman ? sandmanProjectile : petProbjectile;
+        currentShootPoint = playerManager.IsSandman ? sandmanShootPoint : petShootPoint;
     } 
 
     public void Attack()
@@ -87,7 +77,7 @@ public class PlayerCombat : NetworkBehaviour
     {
         var projectile = Instantiate(currentProjectile, currentShootPoint.position, Quaternion.identity);
         projectile.Init(dir * projectileSpeed);
-        // AudioSource.PlayClipAtPoint(spawnClip, transform.position);
+        AudioSource.PlayClipAtPoint(playerManager.IsSandman ? SoundManager.Instance.sandmanAttackFx : SoundManager.Instance.gunShootFx, transform.position);
     }
 
     /// <summary>

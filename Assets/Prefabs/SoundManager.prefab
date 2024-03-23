@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7350653245721185959
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4968756489308940783}
+  - component: {fileID: 6953184404608723838}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4968756489308940783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350653245721185959}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -39.353672, y: -12.335997, z: 117.37077}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6953184404608723838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350653245721185959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1091e9d11600bf42bd129af891b3544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunShootFx: {fileID: 8300000, guid: 68be08a2bb2a57e4f8bd53459f8f47b2, type: 3}
+  takeWaterFx: {fileID: 8300000, guid: 84bc3f57c90f35f449ea2c0cc478dd5e, type: 3}
+  takeSandFx: {fileID: 8300000, guid: d062440edebbcab4c857afdb6bbd20da, type: 3}
+  sandmanAttackFx: {fileID: 8300000, guid: 60877d50f4e71564882140c317f38668, type: 3}
+  enemyHitFx: {fileID: 8300000, guid: ea49aa539989c9f4e8393f65dab297a0, type: 3}
+  stepFx: {fileID: 8300000, guid: 65be021ae26315046b1e73577de4e5fa, type: 3}
+  attackEnemy1Fx: {fileID: 8300000, guid: 5668f37a083e464438a14b092590e3f1, type: 3}
+  enemyStepFx: {fileID: 8300000, guid: 6e645b10d93d4cf4a806a7de9a7cdb19, type: 3}
+  towerBuildingFx: {fileID: 8300000, guid: 4c7fc502faf665249b50459704b479be, type: 3}
+  towerEndBuildFx: {fileID: 8300000, guid: f79e7c915f91ebd49b8a31f9231dfda6, type: 3}
+  towerDestroyedFx: {fileID: 8300000, guid: 2c13ac4573229e74bb6ac95d2190717c, type: 3}
+  towerShootFx: {fileID: 8300000, guid: 867d7d28634abf445a112280453e4c6c, type: 3}
+  optionChangeMenuFx: {fileID: 8300000, guid: c8830f3a64cff3044ac0ce2fec298898, type: 3}
+  cleanDestroyedTowerFx: {fileID: 8300000, guid: ad3845be58351d94097fb2a0ac9b5f75, type: 3}
+  selectionMenuFx: {fileID: 8300000, guid: 0d9c7981bf7f09447bb5bc99acea122e, type: 3}
+  windFx: {fileID: 8300000, guid: e28dacd9417bbdc46b8629f7494acf60, type: 3}
+  waveStartSound: {fileID: 8300000, guid: 40adac39117cfb844803c03b5e922788, type: 3}
+  winSound: {fileID: 8300000, guid: 92da205e061a4d34a8c2d185255415eb, type: 3}
+  lostSound: {fileID: 8300000, guid: 043a014f2b9b7eb4ca1cd8bf7414709f, type: 3}
+  waveEndSound: {fileID: 8300000, guid: f9ef49c1ed7f9c844ba7598ee161e23d, type: 3}
+  animalSound: {fileID: 0}
+  enemyNearPortalSound: {fileID: 8300000, guid: 9922ce2c8ca1d9f4dafbcaec3e5ef4e5, type: 3}
+  menuMusic: {fileID: 0}
+  waveMusic: {fileID: 0}
