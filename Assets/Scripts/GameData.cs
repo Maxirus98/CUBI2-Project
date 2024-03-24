@@ -15,7 +15,6 @@ public class GameData : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            InitializeTurrets();
         }
         else
         {
@@ -25,28 +24,20 @@ public class GameData : MonoBehaviour
 
     public class TurretData
     {
-        public string towerIndex; // L'index des tours
+        public Transform towerIndex; // L'index des tours
         public bool isBuilt; // Si la tour est construite ou détruite
 
-        public TurretData(string towerIndex, bool isBuilt)
+        public TurretData(Transform towerIndex, bool isBuilt)
         {
             this.towerIndex = towerIndex;
             this.isBuilt = isBuilt;
         }
     }
 
-    private void InitializeTurrets()
-    {
-        for (int i = 1; i <= 18; i++)
-        {
-            turrets.Add(new TurretData("Tower" + i, false));
-        }
-        print("turrets" + turrets);
-    }
-
     // Ajoute ou met à jour les données de la tour lorsqu'elle est construite ou détruite
-    public void UpdateTurretData(string towerIndex, bool isBuilt)
+    public void UpdateTurretData(Transform towerIndex, bool isBuilt)
     {
+        print("UpdateTurretData called with towerName: " + towerIndex);
         // vérifie si la tour existe déjà dans la liste
         var existingTower = turrets.Find(turret => turret.towerIndex == towerIndex);
         if (existingTower != null)

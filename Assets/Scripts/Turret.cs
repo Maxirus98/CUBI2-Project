@@ -175,12 +175,20 @@ public class Turret : NetworkBehaviour
             Vector3 buildPosition = transform.position + new Vector3(0, 4f, 0);
             cannonInstance = Instantiate(cannonPrefab, buildPosition, Quaternion.Euler(0, 0, 0), transform);
 
-            print("herererere!!!!!!");
             if (cannonInstance != null && cannonInstance.transform.parent != null)
             {
-                string towerName = cannonInstance.transform.parent.name;
-                GameData.Instance.UpdateTurretData(towerName, true);
-                print("Tower built: " + towerName);
+                print("Before accessing GameData.Instance");
+                if (GameData.Instance == null)
+                {
+                    print("GameData.Instance is null!");
+                }
+                else
+                {
+                    print("GameData.Instance is not null");
+                    Transform towerName = cannonInstance.transform.parent;
+                    GameData.Instance.UpdateTurretData(towerName, true);
+                    print("Tower built: " + towerName);
+                }
             }
             else
             {
