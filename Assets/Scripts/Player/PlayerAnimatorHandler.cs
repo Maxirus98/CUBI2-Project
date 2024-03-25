@@ -30,6 +30,12 @@ public class PlayerAnimatorHandler : MonoBehaviour
     public void PlayTargetAnimationByName(string targetAnim)
     {
         Anim.CrossFade(targetAnim, 0.2f);
+        Anim.SetBool("isAttacking", true);
+    }
+
+    public bool IsShooting()
+    {
+        return Anim.GetBool("isAttacking");
     }
 
     private void ClampMovement(out float direction, float movement)

@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 /// <summary>
-/// Script o� tous les composants du joueur se rencontre pour int�ragir entre eux
+/// Script ou tous les composants du joueur se rencontre pour interagir entre eux
 /// </summary>
 public class PlayerManager : NetworkBehaviour
 {
@@ -19,7 +19,6 @@ public class PlayerManager : NetworkBehaviour
     [Header("Player Flags")]
     public bool isInAir;
     public bool isGrounded;
-
     public bool IsSandman;
 
     public override void OnNetworkSpawn()

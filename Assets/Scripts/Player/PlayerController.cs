@@ -10,6 +10,7 @@ public class PlayerController : NetworkBehaviour
     private InputHandler inputHandler;
     private PlayerManager playerManager;
     private PlayerAnimatorHandler playerAnimatorHandler;
+    private PlayerCombat playerCombat;
 
     [Header("Movements Stats")]
     [SerializeField] private float movementSpeed = 10f;
@@ -23,6 +24,7 @@ public class PlayerController : NetworkBehaviour
     private float groundDirectionRayDistance;
 
     private AudioSource playerAudioSource;
+    
 
     void Start()
     {
@@ -39,6 +41,12 @@ public class PlayerController : NetworkBehaviour
 
     public void HandleMovement(float delta)
     {
+        if (playerAnimatorHandler.IsShooting())
+        {
+            rb.velocity = Vector3.zero;
+            return;
+        }
+
         moveDirection = CameraPrefab.forward * inputHandler.Vertical;
         moveDirection += CameraPrefab.right * inputHandler.Horizontal;
         moveDirection.Normalize();
@@ -54,7 +62,7 @@ public class PlayerController : NetworkBehaviour
             var projectedVelocity = Vector3.ProjectOnPlane(moveDirection, normalVector);
             rb.velocity = projectedVelocity * movementSpeed;
         }
-
+       
         HandleRotation(delta);
 
         playerAnimatorHandler.UpdateAnimatorValues(inputHandler.MoveAmount);
