@@ -42,32 +42,40 @@ public class Enemy1Management : MonoBehaviour {
         InvokeRepeating(nameof(ToKid), 1f, 5f);
     }
 
-    private void Update() {
+    public void Update() {
         
-        distAgentSandman = Vector3.Distance(agent.transform.position, sandMan.transform.position);
-        distAgentPet = Vector3.Distance(agent.transform.position, pet.transform.position);
+        distAgentSandman = Vector3.Distance(agent.transform.position, sandMan.position);
+        distAgentPet = Vector3.Distance(agent.transform.position, pet.position);
+        Debug.Log("distAgentSandman :" + distAgentSandman);
+        Debug.Log("distAgentPet :" + distAgentPet);
+
 
         if (distAgentSandman >= distAgentPet) {
             closestLayer = whatIsPet;
             closestPlayer = pet.transform;
-            Debug.Log(closestPlayer);
+            Debug.Log("Closest player (devrait être pet)" + closestLayer);
+            Debug.Log("Closest player (devrait être pet)", closestPlayer);
         }
         else if (distAgentPet >= distAgentSandman) {
             closestLayer = whatIsSandman;
             closestPlayer = sandMan.transform;
-            Debug.Log(closestPlayer);
+            Debug.Log("Closest player (devrait être sandMan)" + closestLayer);
+            Debug.Log("Closest player (devrait être sandMan)" + closestPlayer);
             }
 
         playerInRange = Physics.CheckSphere(transform.position, rangeVue, closestLayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, rangeAttack, closestLayer);
 
         if (!playerInRange && !playerInAttackRange) {
+            Debug.Log("To kid");
             ToKid();
         }
         if (playerInRange && !playerInAttackRange) {
+            Debug.Log("Closest player :", closestPlayer);
             ToPlayer(closestPlayer);
         }
         if (playerInRange && playerInAttackRange) {
+            Debug.Log("Attacking");
             AttackPlayer(closestPlayer);
         }
 

@@ -1,5 +1,6 @@
 using Unity.Netcode;
 using UnityEngine;
+using TMPro;
 
 public class SpawnScript : MonoBehaviour {
     public bool isTesting = false;
@@ -24,15 +25,24 @@ public class SpawnScript : MonoBehaviour {
     public int numWave = 1;
     public int totalEnemies;
 
-    private TimerScript timerScript;
+    public TimerScript timerScript;
 
     void Start() {
 
-        timerScript = GetComponent<TimerScript>();
+        timerScript = GameObject.Find("Timer").GetComponent<TimerScript>();
+        if (timerScript == null) {
+            Debug.LogError("TimerScript component not found on the same GameObject!");
+            return;
+        }
+
+        timerScript.enabled = false;
+        Debug.Log(timerScript.enabled);
+        Debug.Log("Num wave :" + numWave);
 
         NumberOfEnemies1 = Wave1Enemies1;
         if (!isTesting && !NetworkManager.Singleton.IsHost)
             return;
+
         spawnPoint = new Transform[transform.childCount];
 
         for (int i = 0; i < transform.childCount; i++) {
@@ -55,30 +65,35 @@ public class SpawnScript : MonoBehaviour {
         }
 
         for (int i = 0; i < NumberOfEnemies1; i++) {
-
+            Debug.Log("Ennemi" + i);
             Transform randomPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
 
-            var enemyInstance = Instantiate(enemy1, randomPoint.transform);
-            var instanceNetworkObject = enemyInstance.GetComponent<NetworkObject>();
-            instanceNetworkObject.Spawn();
+            var enemy1Instance = Instantiate(enemy1, randomPoint.position, randomPoint.rotation);
+            var instanceNetworkObject1 = enemy1Instance.GetComponent<NetworkObject>();
+            instanceNetworkObject1.Spawn();
         }
 
-        for (int i = 0; i < NumberOfEnemies2; i++) {
-
+        for (int j = 0; j < NumberOfEnemies2; j++) {
+            Debug.Log("Nouvel ennemi2");
             Transform randomPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
 
-            var enemyInstance = Instantiate(enemy2, randomPoint.transform);
-            var instanceNetworkObject = enemyInstance.GetComponent<NetworkObject>();
-            instanceNetworkObject.Spawn();
+            var enemy2Instance = Instantiate(enemy2, randomPoint.position, randomPoint.rotation);
+            var instanceNetworkObject2 = enemy2Instance.GetComponent<NetworkObject>();
+            instanceNetworkObject2.Spawn();
         }
     }
 
-    private void Update() {
+    public void Update() {
+        
         if (totalEnemies <= 0) {
+            Debug.Log("Plus d'ennemis");
             numWave++;
             timerScript.enabled = true;
+            Debug.Log(timerScript.enabled);
+
 
             //WinLoseHandler.Instance.UpdateGameState(GameState.Won);
         }
     }
+   
 }
