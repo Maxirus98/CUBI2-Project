@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
+    private GameData gameData = new GameData();
 
     // Update is called once per frame
     void Update()
@@ -40,13 +42,32 @@ public class PauseMenu : MonoBehaviour
 
     public void MainMenu()
     {
+        SaveGame();
         GameIsPaused = false;
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("Lobby");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    // lorsque le joueur quitte le jeu ou sauvegarde le jeu
+    public void SaveGame()
+    {
+        string json = JsonUtility.ToJson(gameData, true);
+        File.WriteAllText(Application.persistentDataPath + "/turrets.json", json);
+    }
+
+    // lorsque le joueur revient au jeu
+    public void LoadGame()
+    {
+        string path = Application.persistentDataPath + "/turrets.json";
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            gameData = JsonUtility.FromJson<GameData>(json);
+        }
     }
 }
