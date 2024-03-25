@@ -20,6 +20,7 @@ public class EnemyStats : NetworkBehaviour
         if (other.CompareTag("Projectile"))
         {
             Debug.Log("Triggered Projectile");
+            AudioSource.PlayClipAtPoint(SoundManager.Instance.enemyHitFx, transform.position);
             TakeDamage(1);
         }
 

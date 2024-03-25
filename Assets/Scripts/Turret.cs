@@ -182,7 +182,6 @@ public class Turret : NetworkBehaviour
 
             // Spawn pour le serveur
             instanceNetworkObject.Spawn();
-
             IsBuiltClientRpc();
         }
     }
@@ -210,6 +209,7 @@ public class Turret : NetworkBehaviour
             NetworkObject bulletNetworkObject = bulletInstance.GetComponent<NetworkObject>();
             if (bulletNetworkObject != null && IsServer)
             {
+                AudioSource.PlayClipAtPoint(SoundManager.Instance.towerShootFx, transform.position);
                 bulletNetworkObject.Spawn();
             }
             else

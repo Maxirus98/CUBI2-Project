@@ -22,6 +22,8 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private float groundDetectionRayStartPoint = 0.5f;
     private float groundDirectionRayDistance;
 
+    private AudioSource playerAudioSource;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -29,6 +31,7 @@ public class PlayerController : NetworkBehaviour
         playerManager = GetComponent<PlayerManager>();
         groundDirectionRayDistance = groundDetectionRayStartPoint + 0.07f;
         playerAnimatorHandler = GetComponentInChildren<PlayerAnimatorHandler>();
+        playerAudioSource = GetComponent<AudioSource>();
     }
 
     #region Movement
@@ -55,6 +58,14 @@ public class PlayerController : NetworkBehaviour
         HandleRotation(delta);
 
         playerAnimatorHandler.UpdateAnimatorValues(inputHandler.MoveAmount);
+
+        if (!playerAudioSource.isPlaying && inputHandler.MoveAmount > 0) { 
+            playerAudioSource.Play();
+        } 
+
+        if(inputHandler.MoveAmount <= 0) {
+            playerAudioSource.Stop();
+        }
     }
 
     public bool IsOnDune()
