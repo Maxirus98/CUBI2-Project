@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b9988acac2b54c145a446386bf0c381f
+guid: cb42bf52c4242994f859c2c13583201d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -17,12 +17,14 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Inbetween bone
+      rotation in copied configuration does not match rotation in animation file:\n\t'gun_move_jnt'
+      : rotation error = 10.644823 deg\n"
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
       might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'spine1_jnt' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n"
+      to improve retargeting quality.\n\t'neck_jnt' has translation animation that
+      will be discarded.\n\t'head_jnt' has translation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -36,11 +38,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle
+      name: Run
       takeName: Take 001
       internalID: 1827226128182048838
-      firstFrame: 0
-      lastFrame: 23
+      firstFrame: 1
+      lastFrame: 18
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -60,124 +62,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: mesh
-        weight: 0
-      - path: mesh/lapin_msh_uv
-        weight: 0
-      - path: mesh/waterGun_MOD_v01
-        weight: 0
-      - path: rig
-        weight: 1
-      - path: rig/jnts_grp
-        weight: 1
-      - path: rig/jnts_grp/main_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/pelvis_inverse_L_jnt1
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/pelvis_inverse_L_jnt1/hip_L_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/pelvis_inverse_L_jnt1/hip_L_jnt/knee_L_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/pelvis_inverse_L_jnt1/hip_L_jnt/knee_L_jnt/ankle_L_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/pelvis_inverse_L_jnt1/hip_L_jnt/knee_L_jnt/ankle_L_jnt/toe_L_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/pelvis_inverse_L_jnt1/hip_L_jnt/knee_L_jnt/ankle_L_jnt/toe_L_jnt/toeend_L_jnt
-        weight: 0
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/pelvis_inverse_L_jnt1/hip_R_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/pelvis_inverse_L_jnt1/hip_R_jnt/knee_R_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/pelvis_inverse_L_jnt1/hip_R_jnt/knee_R_jnt/ankle_R_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/pelvis_inverse_L_jnt1/hip_R_jnt/knee_R_jnt/ankle_R_jnt/toe_R_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/pelvis_inverse_L_jnt1/hip_R_jnt/knee_R_jnt/ankle_R_jnt/toe_R_jnt/toeend_R_jnt
-        weight: 0
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/handmiddle_L_jnt
-        weight: 0
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/handmiddle_L_jnt/finger_L_jnt
-        weight: 0
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/handmiddle_L_jnt/finger_L_jnt/fingerend_L_jnt
-        weight: 0
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/gun_contact_R_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/gun_contact_R_jnt/gun_move_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/gun_contact_R_jnt/gun_move_jnt/gun_contact_L_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/handmiddle_R_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/handmiddle_R_jnt/finger_R_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/handmiddle_R_jnt/finger_R_jnt/fingerend_R_jnt
-        weight: 0
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_L_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_L_jnt/ear1_L_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_L_jnt/ear1_L_jnt/ear2_L_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_L_jnt/ear1_L_jnt/ear2_L_jnt/ear3_L_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_L_jnt/ear1_L_jnt/ear2_L_jnt/ear3_L_jnt/ear4_L_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_L_jnt/ear1_L_jnt/ear2_L_jnt/ear3_L_jnt/ear4_L_jnt/ear5_L_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_L_jnt/ear1_L_jnt/ear2_L_jnt/ear3_L_jnt/ear4_L_jnt/ear5_L_jnt/earend_L_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_R_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_R_jnt/ear1_R_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_R_jnt/ear1_R_jnt/ear2_R_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_R_jnt/ear1_R_jnt/ear2_R_jnt/ear3_R_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_R_jnt/ear1_R_jnt/ear2_R_jnt/ear3_R_jnt/ear4_R_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_R_jnt/ear1_R_jnt/ear2_R_jnt/ear3_R_jnt/ear4_R_jnt/ear5_R_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_R_jnt/ear1_R_jnt/ear2_R_jnt/ear3_R_jnt/ear4_R_jnt/ear5_R_jnt/earend_R_jnt
-        weight: 1
-      - path: rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/headend_jnt
-        weight: 0
-      - path: rig/main_ctrl
-        weight: 0
-      maskType: 0
+      transformMask: []
+      maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     isReadable: 0
@@ -203,7 +89,7 @@ ModelImporter:
     bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
-    maxBonesPerVertex: 6
+    maxBonesPerVertex: 4
     minBoneWeight: 0.001
     optimizeBones: 1
     meshOptimizationFlags: -1
@@ -575,7 +461,7 @@ ModelImporter:
     - name: elbow_L_jnt
       parentName: shoulder_L_jnt
       position: {x: -5.410736, y: 0, z: 2.6023627e-14}
-      rotation: {x: -0.5289569, y: -0.020042054, z: 0.020807805, w: 0.84815675}
+      rotation: {x: -0.52895695, y: -0.020042056, z: 0.020807806, w: 0.84815687}
       scale: {x: 1, y: 1, z: 1}
     - name: wrist_L_jnt
       parentName: elbow_L_jnt
@@ -640,7 +526,7 @@ ModelImporter:
     - name: finger_R_jnt
       parentName: handmiddle_R_jnt
       position: {x: 1.5656033, y: 4.5474734e-15, z: -0.000006363946}
-      rotation: {x: 0.01352087, y: 0.004978327, z: 0.029047245, w: 0.9994742}
+      rotation: {x: 0.01352087, y: 0.0049783266, z: 0.029047245, w: 0.99947417}
       scale: {x: 1, y: 1, z: 1}
     - name: fingerend_R_jnt
       parentName: finger_R_jnt
@@ -746,14 +632,14 @@ ModelImporter:
     feetSpacing: 0
     globalScale: 1
     rootMotionBoneName: 
-    hasTranslationDoF: 1
+    hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: b9988acac2b54c145a446386bf0c381f, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
