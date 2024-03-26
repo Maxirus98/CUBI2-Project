@@ -36,6 +36,6 @@ public class SoundManager : Singleton<SoundManager>
 
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(this);
     }
 }

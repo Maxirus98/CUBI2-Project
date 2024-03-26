@@ -31,7 +31,7 @@ public class PlayerCombat : NetworkBehaviour
 
     private void Update()
     {
-        SetUiPointerPositionToShootPoint();
+        InitializeCamera();
     }
 
     public void SwitchProjectileAndShootPoint()
@@ -74,18 +74,14 @@ public class PlayerCombat : NetworkBehaviour
     private void ExecuteShoot()
     {
         var dir = currentCamera.transform.forward;
-        
+        dir.y = 0;
         transform.rotation = Quaternion.LookRotation(dir);
         var projectile = Instantiate(currentProjectile, currentShootPoint.position, Quaternion.identity);
         projectile.Init(dir * projectileSpeed);
         AudioSource.PlayClipAtPoint(playerManager.IsSandman ? SoundManager.Instance.sandmanAttackFx : SoundManager.Instance.gunShootFx, transform.position);
     }
 
-    /// <summary>
-    /// SetUiPointerPositionToShootPoint vient vérifier que les éléments nécessaires a faire apparaitre le Pointeur pour tirer sont presents
-    /// et il place le pointeur sur l'ecran a l'endroit ou le projectile sort.
-    /// </summary>
-    private void SetUiPointerPositionToShootPoint()
+    private void InitializeCamera()
     {
         if (currentShootPoint != null)
         {
