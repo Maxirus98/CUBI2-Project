@@ -50,10 +50,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
       propertyPath: m_Name
-      value: tower_MOD_v02
+      value: Tower
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 764610660103743167}
   m_SourcePrefab: {fileID: 100100000, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
+--- !u!1 &7830130362764054844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
+  m_PrefabInstance: {fileID: 6947752152638975085}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &764610660103743167
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830130362764054844}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02, y: 0.020000005, z: 0.014312286}
+  m_Center: {x: 0, y: -0.0000219866, z: 0.007168616}

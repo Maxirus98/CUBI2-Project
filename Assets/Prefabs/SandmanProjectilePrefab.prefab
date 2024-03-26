@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 2995081864271880973}
   - component: {fileID: 356140922506459914}
   - component: {fileID: 1990290837585218829}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SandmanProjectilePrefab
   m_TagString: Projectile
   m_Icon: {fileID: 0}
