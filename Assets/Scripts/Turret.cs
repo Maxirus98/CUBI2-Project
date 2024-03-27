@@ -49,6 +49,7 @@ public class Turret : NetworkBehaviour
             if(netBuildingPlayerList.Count >= 2)
             {
                 BuildServerRpc();
+                AudioSource.PlayClipAtPoint(SoundManager.Instance.towerEndBuildFx, transform.position);
                 HideSlidersClientRpc();
                 buildText.SetActive(false);
             }
@@ -113,6 +114,7 @@ public class Turret : NetworkBehaviour
         if (isPlayerInRange && cannonPrefab != null && !isBuilt)
         {
             RequestToBuildServerRpc(NetworkManager.LocalClientId);
+            AudioSource.PlayClipAtPoint(SoundManager.Instance.towerBuildingFx, transform.position);
         }
     }
 
@@ -156,7 +158,7 @@ public class Turret : NetworkBehaviour
         }
 
         // Apres avoir fini sa part de la construction, le joueur ajoute son id au reseau
-        if (!netBuildingPlayerList.Contains(clientId) && IsOwner)
+        if (isPlayerInRange && !netBuildingPlayerList.Contains(clientId) && IsOwner)
         {
             netBuildingPlayerList.Add(clientId);
         }
@@ -180,7 +182,6 @@ public class Turret : NetworkBehaviour
 
             // Spawn pour le serveur
             instanceNetworkObject.Spawn();
-
             IsBuiltClientRpc();
         }
     }
@@ -208,6 +209,7 @@ public class Turret : NetworkBehaviour
             NetworkObject bulletNetworkObject = bulletInstance.GetComponent<NetworkObject>();
             if (bulletNetworkObject != null && IsServer)
             {
+                AudioSource.PlayClipAtPoint(SoundManager.Instance.towerShootFx, transform.position);
                 bulletNetworkObject.Spawn();
             }
             else

@@ -19,10 +19,13 @@ public class PlayerStats : NetworkBehaviour
     private int currentHealth;
 
     private int maxUseable = 20;
+    private PlayerManager playerManager;
+
 
     void Start()
     {
         InitializePlayerResource();
+        playerManager = GetComponent<PlayerManager>();
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -56,6 +59,7 @@ public class PlayerStats : NetworkBehaviour
         {
             CurrentUseable = maxUseable;
             PlayerResourceClone.SetUseable(maxUseable);
+            AudioSource.PlayClipAtPoint(playerManager.IsSandman ? SoundManager.Instance.takeSandFx : SoundManager.Instance.takeWaterFx, transform.position);
         }
     }
 
