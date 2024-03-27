@@ -17,7 +17,7 @@ public class PlayerCombat : NetworkBehaviour
     
 
     [SerializeField] private float projectileSpeed = 1500f;
-    [SerializeField] private PlayerAnimatorHandler playerAnimatorHandler;
+    public PlayerAnimatorHandler playerAnimatorHandler;
 
     private Camera currentCamera;
     private PlayerManager playerManager;
@@ -36,8 +36,10 @@ public class PlayerCombat : NetworkBehaviour
 
     public void SwitchProjectileAndShootPoint()
     {
+        playerManager.IsSandman = transform.GetChild(0).gameObject.activeInHierarchy;
         currentProjectile = playerManager.IsSandman ? sandmanProjectile : petProbjectile;
         currentShootPoint = playerManager.IsSandman ? sandmanShootPoint : petShootPoint;
+        playerAnimatorHandler = GetComponentInChildren<PlayerAnimatorHandler>(false);
     } 
 
     public void Attack()

@@ -10,7 +10,6 @@ public class PlayerController : NetworkBehaviour
     private InputHandler inputHandler;
     private PlayerManager playerManager;
     private PlayerAnimatorHandler playerAnimatorHandler;
-    private PlayerCombat playerCombat;
 
     [Header("Movements Stats")]
     [SerializeField] private float movementSpeed = 10f;
@@ -24,7 +23,11 @@ public class PlayerController : NetworkBehaviour
     private float groundDirectionRayDistance;
 
     private AudioSource playerAudioSource;
-    
+
+    [Header("Player Step Climb")]
+    [SerializeField] private float stepHeight = 0.3f;
+    [SerializeField] private float stepSmooth = 0.1f;
+    [SerializeField] private LayerMask groundLayer;
 
     void Start()
     {
@@ -32,8 +35,8 @@ public class PlayerController : NetworkBehaviour
         inputHandler = GetComponent<InputHandler>();
         playerManager = GetComponent<PlayerManager>();
         groundDirectionRayDistance = groundDetectionRayStartPoint + 0.07f;
-        playerAnimatorHandler = GetComponentInChildren<PlayerAnimatorHandler>();
         playerAudioSource = GetComponent<AudioSource>();
+        playerAnimatorHandler = GetComponentInChildren<PlayerAnimatorHandler>(false);
     }
 
     #region Movement
@@ -64,6 +67,7 @@ public class PlayerController : NetworkBehaviour
         }
        
         HandleRotation(delta);
+        ClimbStep();
 
         playerAnimatorHandler.UpdateAnimatorValues(inputHandler.MoveAmount);
 
@@ -129,4 +133,9 @@ public class PlayerController : NetworkBehaviour
         transform.rotation = targetRotation;
     }
     #endregion
+
+    private void ClimbStep()
+    {
+        
+    }
 }
