@@ -107,8 +107,8 @@ public class SpawnScript : MonoBehaviour {
         }
         if (numWave == 1) {
             NumberOfEnemies1 = Wave1Enemies1;
-            NumberOfEnemies2 = 4;
-            totalEnemies = NumberOfEnemies1;
+            NumberOfEnemies2 = 1;
+            totalEnemies = NumberOfEnemies1 + NumberOfEnemies2;
         }
         else if (numWave == 2) {
             NumberOfEnemies1 = Wave2Enemies1;
