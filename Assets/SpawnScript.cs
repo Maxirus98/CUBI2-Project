@@ -12,8 +12,8 @@ public class SpawnScript : MonoBehaviour {
     [SerializeField]
     Transform[] spawnPoint;
 
-    public int NumberOfEnemies1;
-    public int NumberOfEnemies2;
+    private int NumberOfEnemies1;
+    private int NumberOfEnemies2;
 
     [SerializeField]
     public int Wave1Enemies1;
@@ -23,23 +23,24 @@ public class SpawnScript : MonoBehaviour {
     public int Wave3Enemies2;
 
     public int numWave = 1;
+
     public int totalEnemies;
 
-    public TimerScript timerScript;
+    private TimerScript timerScript;
 
     void Start() {
-
+        /*print("ça marche");
+        
         timerScript = GameObject.Find("Timer").GetComponent<TimerScript>();
-        if (timerScript == null) {
-            Debug.LogError("TimerScript component not found on the same GameObject!");
-            return;
-        }
-
         timerScript.enabled = false;
-        Debug.Log(timerScript.enabled);
-        Debug.Log("Num wave :" + numWave);
 
+        //Debug.Log("TimerScript.enabled :" + timerScript.enabled);
+        //Debug.Log("Num wave :" + numWave);
+        //Debug.Log("NUMBER" + NumberOfEnemies1);
         NumberOfEnemies1 = Wave1Enemies1;
+        //Debug.Log("NUMBER" + NumberOfEnemies1);
+        //Debug.Log(NumberOfEnemies1);
+        //Debug.Log(Wave1Enemies1);
         if (!isTesting && !NetworkManager.Singleton.IsHost)
             return;
 
@@ -65,7 +66,7 @@ public class SpawnScript : MonoBehaviour {
         }
 
         for (int i = 0; i < NumberOfEnemies1; i++) {
-            Debug.Log("Ennemi" + i);
+            //Debug.Log("Ennemi" + i);
             Transform randomPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
 
             var enemy1Instance = Instantiate(enemy1, randomPoint.position, randomPoint.rotation);
@@ -74,7 +75,63 @@ public class SpawnScript : MonoBehaviour {
         }
 
         for (int j = 0; j < NumberOfEnemies2; j++) {
-            Debug.Log("Nouvel ennemi2");
+            //Debug.Log("Nouvel ennemi2");
+            Transform randomPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
+
+            var enemy2Instance = Instantiate(enemy2, randomPoint.position, randomPoint.rotation);
+            var instanceNetworkObject2 = enemy2Instance.GetComponent<NetworkObject>();
+            instanceNetworkObject2.Spawn();
+    }*/
+    }
+
+    private void OnEnable() {
+        print("ça marche");
+
+        timerScript = GameObject.Find("Timer").GetComponent<TimerScript>();
+        timerScript.enabled = false;
+
+        //Debug.Log("TimerScript.enabled :" + timerScript.enabled);
+        //Debug.Log("Num wave :" + numWave);
+        //Debug.Log("NUMBER" + NumberOfEnemies1);
+        NumberOfEnemies1 = Wave1Enemies1;
+        //Debug.Log("NUMBER" + NumberOfEnemies1);
+        //Debug.Log(NumberOfEnemies1);
+        //Debug.Log(Wave1Enemies1);
+        if (!isTesting && !NetworkManager.Singleton.IsHost)
+            return;
+
+        spawnPoint = new Transform[transform.childCount];
+
+        for (int i = 0; i < transform.childCount; i++) {
+            spawnPoint[i] = transform.GetChild(i);
+        }
+        if (numWave == 1) {
+            NumberOfEnemies1 = Wave1Enemies1;
+            NumberOfEnemies2 = 1;
+            totalEnemies = NumberOfEnemies1 + NumberOfEnemies2;
+        }
+        else if (numWave == 2) {
+            NumberOfEnemies1 = Wave2Enemies1;
+            NumberOfEnemies2 = Wave2Enemies2;
+            totalEnemies = NumberOfEnemies1 + NumberOfEnemies2;
+        }
+        else if (numWave == 3) {
+            NumberOfEnemies1 = Wave3Enemies1;
+            NumberOfEnemies2 = Wave3Enemies2;
+            totalEnemies = NumberOfEnemies1 + NumberOfEnemies2;
+        }
+
+        for (int i = 0; i < NumberOfEnemies1; i++) {
+            //Debug.Log("Ennemi" + i);
+            Transform randomPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
+
+            var enemy1Instance = Instantiate(enemy1, randomPoint.position, randomPoint.rotation);
+            var instanceNetworkObject1 = enemy1Instance.GetComponent<NetworkObject>();
+            instanceNetworkObject1.Spawn();
+        }
+
+        for (int j = 0; j < NumberOfEnemies2; j++) {
+            //Debug.Log("Nouvel ennemi2");
             Transform randomPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
 
             var enemy2Instance = Instantiate(enemy2, randomPoint.position, randomPoint.rotation);
@@ -87,7 +144,14 @@ public class SpawnScript : MonoBehaviour {
         
         if (totalEnemies <= 0) {
             Debug.Log("Plus d'ennemis");
-            numWave++;
+            if (numWave == 1) {
+                numWave = 2;
+            }
+            else if (numWave == 2) {
+                numWave = 3;
+            }
+
+            Debug.Log(timerScript.enabled);
             timerScript.enabled = true;
             Debug.Log(timerScript.enabled);
 
