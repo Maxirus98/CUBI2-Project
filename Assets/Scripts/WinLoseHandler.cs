@@ -17,12 +17,6 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
     private GameObject endGameCanvas;
     [SerializeField]
     private TextMeshProUGUI endGameText;
-    [SerializeField]
-    private AudioSource gameAudioSource;
-    [SerializeField]
-    private AudioClip gameLostAudio;
-    [SerializeField]
-    private AudioClip gameWonAudio;
 
     public GameState CurrentGameState {get; set;}
 
@@ -35,10 +29,10 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
                 
                 break;
             case GameState.Won:
-                EndGame("Partie gagnée", gameWonAudio);
+                EndGame("Partie gagnée", SoundManager.Instance.winSound);
                 break;
             case GameState.Lost:
-                EndGame("Partie perdue", gameLostAudio);
+                EndGame("Partie perdue", SoundManager.Instance.lostSound);
                 break;
             default:
                 break;
@@ -51,7 +45,7 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
     private void EndGame(string text, AudioClip oneShotClip)
     {
         endGameText.text = text;
-        //gameAudioSource.PlayOneShot(oneShotClip);
+        AudioSource.PlayClipAtPoint(oneShotClip, transform.position);
         endGameCanvas.SetActive(true);
     }
 
