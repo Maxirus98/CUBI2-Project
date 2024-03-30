@@ -58,7 +58,6 @@ public class PauseMenu : MonoBehaviour
     {
         gameData.UpdateAllTowersData();
         string json = JsonUtility.ToJson(gameData);
-        Debug.Log(json);
         File.WriteAllText(Application.persistentDataPath + "/turrets.json", json);
     }
 
@@ -70,6 +69,7 @@ public class PauseMenu : MonoBehaviour
         {
             string json = File.ReadAllText(path);
             gameData = JsonUtility.FromJson<GameData>(json);
+            gameData.ApplyLoadedData();
         }
     }
 }
