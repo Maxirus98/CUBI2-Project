@@ -12,19 +12,24 @@ public class SpawnScript : MonoBehaviour {
     [SerializeField]
     Transform[] spawnPoint;
 
-    private int NumberOfEnemies1;
-    private int NumberOfEnemies2;
+    public int numWave = 1;
 
+    [Header("Nombre d'ennemis")]
     [SerializeField]
     public int Wave1Enemies1;
+    public int Wave1Enemies2;
     public int Wave2Enemies1;
     public int Wave2Enemies2;
     public int Wave3Enemies1;
     public int Wave3Enemies2;
 
-    public int numWave = 1;
 
+
+
+    [Header("Ne pas changer")]
     public int totalEnemies;
+    private int NumberOfEnemies1;
+    private int NumberOfEnemies2;
 
     private TimerScript timerScript;
 
@@ -107,7 +112,7 @@ public class SpawnScript : MonoBehaviour {
         }
         if (numWave == 1) {
             NumberOfEnemies1 = Wave1Enemies1;
-            NumberOfEnemies2 = 1;
+            NumberOfEnemies2 = Wave1Enemies2;
             totalEnemies = NumberOfEnemies1 + NumberOfEnemies2;
         }
         else if (numWave == 2) {

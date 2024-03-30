@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class GameData
+public class GameData : MonoBehaviour
 {
     public List<TurretData> turrets = new List<TurretData>();
 
+    [System.Serializable]
     public class TurretData
     {
         public string towerIndex; // L'index des tours
@@ -33,6 +33,39 @@ public class GameData
         {
             // ajoute une nouvelle tour à la liste
             turrets.Add(new TurretData(towerIndex, isBuilt));
+        }
+    }
+
+    public void UpdateAllTowersData()
+    {
+        var towersParent = GameObject.Find("Tower").transform;
+        for (int index = 0; index < towersParent.childCount; index++)
+        {
+            var tower = towersParent.GetChild(index);
+            var turretComponent = tower.GetComponent<Turret>();
+
+            if (turretComponent != null)
+            {
+                var isBuilt = turretComponent.isBuilt;
+                UpdateTurretData(tower.name, turretComponent.isBuilt);
+            }
+        }
+    }
+
+    public void ApplyLoadedData()
+    {
+        var towersParent = GameObject.Find("Towers").transform;
+        foreach (var turretData in turrets)
+        {
+            Transform towerTransform = towersParent.Find(turretData.towerIndex);
+            if (towerTransform != null)
+            {
+                Turret turretComponent = towerTransform.GetComponent<Turret>();
+                if (turretComponent != null)
+                {
+                    turretComponent.isBuilt = turretData.isBuilt;
+                }
+            }
         }
     }
 }
