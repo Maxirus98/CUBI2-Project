@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
-    private GameData gameData = new GameData();
+    public GameData gameData;
 
     // Update is called once per frame
     void Update()
@@ -45,7 +45,7 @@ public class PauseMenu : MonoBehaviour
         SaveGame();
         GameIsPaused = false;
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("MainMenu");
+        //SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame()
@@ -56,7 +56,9 @@ public class PauseMenu : MonoBehaviour
     // lorsque le joueur quitte le jeu ou sauvegarde le jeu
     public void SaveGame()
     {
-        string json = JsonUtility.ToJson(gameData, true);
+        gameData.UpdateAllTowersData();
+        string json = JsonUtility.ToJson(gameData);
+        Debug.Log(json);
         File.WriteAllText(Application.persistentDataPath + "/turrets.json", json);
     }
 
