@@ -8,27 +8,25 @@ public class Enemy2Management : MonoBehaviour {
     public NavMeshAgent agent;
     public Transform sandMan;
     public Transform pet;
-    public Transform tower;
     public Transform closestPlayer;
-
     public GameObject[] players;
 
     public float distAgentSandman;
     public float distAgentPet;
-    public float distTower;
-
 
     [SerializeField]
-    public float Enemy2Speed;
+    float Enemy2Speed;
 
     [SerializeField]
-    public Vector3 destination; // Destination finale
+    Vector3 destination; // Destination finale
 
-    public LayerMask whatIsSandman, whatIsPet, whatIsTower;
-    public LayerMask closestLayer;
+    LayerMask whatIsSandman, whatIsPet;
+    LayerMask closestLayer;
 
     // Ranges
-    public float rangeVue, rangeAttack;
+
+    [SerializeField]
+    float rangeVue, rangeAttack;
     bool playerInRange, playerInAttackRange;
 
     private void Awake() {
@@ -37,8 +35,7 @@ public class Enemy2Management : MonoBehaviour {
 
         sandMan = GameObject.Find("SandmanModel").transform;
         pet = GameObject.Find("PetModel").transform;
-        tower = GameObject.Find("Tower").transform;
-        closestPlayer = GameObject.Find("SandmanModel").transform;
+        //closestPlayer = GameObject.Find("SandmanModel").transform;
         //players = GameObject.FindGameObjectsWithTag("Player");
     }
     void Start() {
@@ -46,33 +43,42 @@ public class Enemy2Management : MonoBehaviour {
         InvokeRepeating(nameof(ToKid), 1f, 5f);
     }
 
-    private void Update() {
+    public void Update() {
 
-        distAgentSandman = Vector3.Distance(agent.transform.position, sandMan.position);
-        distAgentPet = Vector3.Distance(agent.transform.position, pet.position);
-        distTower = Vector3.Distance(agent.transform.position, tower.position);
+        distAgentSandman = (agent.transform.position - sandMan.position).sqrMagnitude;
+        distAgentPet = (agent.transform.position - pet.position).sqrMagnitude;
+        //Debug.Log("distAgentSandman :" + distAgentSandman);
+        //Debug.Log("distAgentPet :" + distAgentPet);
+
 
         if (distAgentSandman >= distAgentPet) {
             closestLayer = whatIsPet;
             closestPlayer = pet.transform;
-            //Debug.Log(closestPlayer);
+            //Debug.Log("Closest player (devrait être pet)" + closestLayer);
+            //Debug.Log("Closest player (devrait être pet)", closestPlayer);
         }
         else if (distAgentPet >= distAgentSandman) {
             closestLayer = whatIsSandman;
             closestPlayer = sandMan.transform;
-            //Debug.Log(closestPlayer);
+            //Debug.Log("Closest player (devrait être sandMan)" + closestLayer);
+            //Debug.Log("Closest player (devrait être sandMan)" + closestPlayer);
         }
 
-        playerInRange = Physics.CheckSphere(transform.position, rangeVue, closestLayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, rangeAttack, closestLayer);
+        playerInRange = distAgentSandman <= rangeVue || distAgentPet <= rangeVue;
+        //playerInRange = Physics.CheckSphere(transform.position, rangeVue, closestLayer);
+        playerInAttackRange = distAgentSandman <= rangeAttack || distAgentPet <= rangeAttack;
+        //playerInAttackRange = Physics.CheckSphere(transform.position, rangeAttack, closestLayer);
 
         if (!playerInRange && !playerInAttackRange) {
+            //Debug.Log("To kid");
             ToKid();
         }
         if (playerInRange && !playerInAttackRange) {
+            //Debug.Log("Closest player :", closestPlayer);
             ToPlayer(closestPlayer);
         }
         if (playerInRange && playerInAttackRange) {
+            //Debug.Log("Attacking");
             AttackPlayer(closestPlayer);
         }
 

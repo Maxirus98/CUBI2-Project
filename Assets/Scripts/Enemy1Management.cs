@@ -13,19 +13,23 @@ public class Enemy1Management : MonoBehaviour {
 
     public float distAgentSandman;
     public float distAgentPet;
-    
+
+
+
 
     [SerializeField]
-    public float Enemy1Speed;
+    float Enemy1Speed;
 
     [SerializeField]
-    public Vector3 destination; // Destination finale
+    Vector3 destination; // Destination finale
 
-    public LayerMask whatIsSandman, whatIsPet;
-    public LayerMask closestLayer;
+    LayerMask whatIsSandman, whatIsPet;
+    LayerMask closestLayer;
 
     // Ranges
-    public float rangeVue, rangeAttack;
+
+    [SerializeField]
+    float rangeVue, rangeAttack;
     bool playerInRange, playerInAttackRange;
 
     private void Awake() {
@@ -43,39 +47,41 @@ public class Enemy1Management : MonoBehaviour {
     }
 
     public void Update() {
-        
-        distAgentSandman = Vector3.Distance(agent.transform.position, sandMan.position);
-        distAgentPet = Vector3.Distance(agent.transform.position, pet.position);
-        Debug.Log("distAgentSandman :" + distAgentSandman);
-        Debug.Log("distAgentPet :" + distAgentPet);
+
+        distAgentSandman = (agent.transform.position - sandMan.position).sqrMagnitude;
+        distAgentPet = (agent.transform.position - pet.position).sqrMagnitude;
+        //Debug.Log("distAgentSandman :" + distAgentSandman);
+        //Debug.Log("distAgentPet :" + distAgentPet);
 
 
         if (distAgentSandman >= distAgentPet) {
             closestLayer = whatIsPet;
             closestPlayer = pet.transform;
-            Debug.Log("Closest player (devrait être pet)" + closestLayer);
-            Debug.Log("Closest player (devrait être pet)", closestPlayer);
+            //Debug.Log("Closest player (devrait être pet)" + closestLayer);
+            //Debug.Log("Closest player (devrait être pet)", closestPlayer);
         }
         else if (distAgentPet >= distAgentSandman) {
             closestLayer = whatIsSandman;
             closestPlayer = sandMan.transform;
-            Debug.Log("Closest player (devrait être sandMan)" + closestLayer);
-            Debug.Log("Closest player (devrait être sandMan)" + closestPlayer);
-            }
+            //Debug.Log("Closest player (devrait être sandMan)" + closestLayer);
+            //Debug.Log("Closest player (devrait être sandMan)" + closestPlayer);
+        }
 
-        playerInRange = Physics.CheckSphere(transform.position, rangeVue, closestLayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, rangeAttack, closestLayer);
+        playerInRange = distAgentSandman <= rangeVue || distAgentPet <= rangeVue;
+        //playerInRange = Physics.CheckSphere(transform.position, rangeVue, closestLayer);
+        playerInAttackRange = distAgentSandman <= rangeAttack || distAgentPet <= rangeAttack;
+        //playerInAttackRange = Physics.CheckSphere(transform.position, rangeAttack, closestLayer);
 
         if (!playerInRange && !playerInAttackRange) {
-            Debug.Log("To kid");
+            //Debug.Log("To kid");
             ToKid();
         }
         if (playerInRange && !playerInAttackRange) {
-            Debug.Log("Closest player :", closestPlayer);
+            //Debug.Log("Closest player :", closestPlayer);
             ToPlayer(closestPlayer);
         }
         if (playerInRange && playerInAttackRange) {
-            Debug.Log("Attacking");
+            //Debug.Log("Attacking");
             AttackPlayer(closestPlayer);
         }
 
