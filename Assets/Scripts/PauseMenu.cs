@@ -56,9 +56,16 @@ public class PauseMenu : MonoBehaviour
     // lorsque le joueur quitte le jeu ou sauvegarde le jeu
     public void SaveGame()
     {
+        Debug.Log("Saving game...");
         gameData.UpdateAllTowersData();
         string json = JsonUtility.ToJson(gameData);
         File.WriteAllText(Application.persistentDataPath + "/turrets.json", json);
+    }
+
+    [System.Serializable]
+    public class TurretDataList
+    {
+        public List<GameData.TurretData> turrets = new List<GameData.TurretData>();
     }
 
     // lorsque le joueur revient au jeu
@@ -68,8 +75,11 @@ public class PauseMenu : MonoBehaviour
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            gameData = JsonUtility.FromJson<GameData>(json);
-            gameData.ApplyLoadedData();
+            TurretDataList loadedData = JsonUtility.FromJson<TurretDataList>(json);
+            Debug.Log("Loaded data: " + json);
+
+            gameData.ApplyLoadedData(loadedData.turrets);
         }
+        Debug.Log("loading game...");
     }
 }

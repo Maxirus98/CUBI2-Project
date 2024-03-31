@@ -20,5 +20,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GUI_SCENES/OptionsMenu.unity
     guid: 6cd48b4e1db57014ab49f94034c6e675
+  - enabled: 1
+    path: Assets/Scenes/GUI_SCENES/TutorialsMenu.unity
+    guid: dec3ec1c2ccda49ecb0d0f1a0f239a0e
+  - enabled: 1
+    path: Assets/Scenes/GUI_SCENES/ControlsMenu.unity
+    guid: b8bde8071996ca34a845d3846b01c115
+  - enabled: 1
+    path: Assets/Scenes/GUI_SCENES/AccessiblityMenu.unity
+    guid: 0363045e89022406f848a999935b6391
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 3cf351491b42d484fada2bbec3048bb2, type: 2}
