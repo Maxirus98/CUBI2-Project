@@ -52,10 +52,10 @@ public class GameData : MonoBehaviour
         }
     }
 
-    public void ApplyLoadedData()
+    public void ApplyLoadedData(List<TurretData> loadedTurrets)
     {
-        var towersParent = GameObject.Find("Towers").transform;
-        foreach (var turretData in turrets)
+        var towersParent = GameObject.Find("Tower").transform;
+        foreach (var turretData in loadedTurrets)
         {
             Transform towerTransform = towersParent.Find(turretData.towerIndex);
             if (towerTransform != null)
@@ -69,6 +69,3 @@ public class GameData : MonoBehaviour
         }
     }
 }
-
-
-
