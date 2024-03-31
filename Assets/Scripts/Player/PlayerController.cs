@@ -24,14 +24,19 @@ public class PlayerController : NetworkBehaviour
 
     private AudioSource playerAudioSource;
 
+    [Header("Player Step Climb")]
+    [SerializeField] private float stepHeight = 0.3f;
+    [SerializeField] private float stepSmooth = 0.1f;
+    [SerializeField] private LayerMask groundLayer;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         inputHandler = GetComponent<InputHandler>();
         playerManager = GetComponent<PlayerManager>();
         groundDirectionRayDistance = groundDetectionRayStartPoint + 0.07f;
-        playerAnimatorHandler = GetComponentInChildren<PlayerAnimatorHandler>();
         playerAudioSource = GetComponent<AudioSource>();
+        playerAnimatorHandler = GetComponentInChildren<PlayerAnimatorHandler>(false);
     }
 
     #region Movement
@@ -39,6 +44,12 @@ public class PlayerController : NetworkBehaviour
 
     public void HandleMovement(float delta)
     {
+        if (playerAnimatorHandler.IsShooting())
+        {
+            rb.velocity = Vector3.zero;
+            return;
+        }
+
         moveDirection = CameraPrefab.forward * inputHandler.Vertical;
         moveDirection += CameraPrefab.right * inputHandler.Horizontal;
         moveDirection.Normalize();
@@ -54,8 +65,9 @@ public class PlayerController : NetworkBehaviour
             var projectedVelocity = Vector3.ProjectOnPlane(moveDirection, normalVector);
             rb.velocity = projectedVelocity * movementSpeed;
         }
-
+       
         HandleRotation(delta);
+        ClimbStep();
 
         playerAnimatorHandler.UpdateAnimatorValues(inputHandler.MoveAmount);
 
@@ -121,4 +133,9 @@ public class PlayerController : NetworkBehaviour
         transform.rotation = targetRotation;
     }
     #endregion
+
+    private void ClimbStep()
+    {
+        
+    }
 }

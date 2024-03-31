@@ -31,10 +31,7 @@ public class CharacterPicker : NetworkBehaviour
             transform.GetChild(activeModelIndex).gameObject.SetActive(false);
             transform.position = Vector3.left * xPos + Vector3.up;
         }
-    }
 
-    private void Start()
-    {
         StartCoroutine(FindSwitchButton());
     }
 
