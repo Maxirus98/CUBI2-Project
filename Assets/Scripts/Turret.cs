@@ -207,9 +207,9 @@ public class Turret : NetworkBehaviour
 
             // Assurez que la méthode Spawn() fonctionne bien sur le serveur
             NetworkObject bulletNetworkObject = bulletInstance.GetComponent<NetworkObject>();
+            AudioSource.PlayClipAtPoint(SoundManager.Instance.towerShootFx, transform.position);
             if (bulletNetworkObject != null && IsServer)
             {
-                AudioSource.PlayClipAtPoint(SoundManager.Instance.towerShootFx, transform.position);
                 bulletNetworkObject.Spawn();
             }
             else
