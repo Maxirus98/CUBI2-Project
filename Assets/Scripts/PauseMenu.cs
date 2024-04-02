@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using UnityEngine.SceneManagement;
+using System;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -42,10 +41,12 @@ public class PauseMenu : MonoBehaviour
 
     public void MainMenu()
     {
-        SaveGame();
+        Debug.Log("Main Menu called");
         GameIsPaused = false;
         Time.timeScale = 1.0f;
-        //SceneManager.LoadScene("MainMenu");
+        SaveGame();
+        // Sur le reseau
+        GameManager.Instance.ReturnToMainMenu();
     }
 
     public void QuitGame()
@@ -56,10 +57,17 @@ public class PauseMenu : MonoBehaviour
     // lorsque le joueur quitte le jeu ou sauvegarde le jeu
     public void SaveGame()
     {
-        Debug.Log("Saving game...");
-        gameData.UpdateAllTowersData();
-        string json = JsonUtility.ToJson(gameData);
-        File.WriteAllText(Application.persistentDataPath + "/turrets.json", json);
+        try
+        {
+            Debug.Log("Saving game...");
+            gameData.UpdateAllTowersData();
+            string json = JsonUtility.ToJson(gameData);
+            File.WriteAllText(Application.persistentDataPath + "/turrets.json", json);
+        }
+        catch(Exception e)
+        {
+            Debug.LogError("Exception: " + e);
+        }
     }
 
     [System.Serializable]
