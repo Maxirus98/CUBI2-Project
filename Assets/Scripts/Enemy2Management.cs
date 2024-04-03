@@ -8,26 +8,28 @@ public class Enemy2Management : MonoBehaviour {
     public NavMeshAgent agent;
     public Transform sandMan;
     public Transform pet;
+    public Transform tower;
     public Transform closestPlayer;
     public GameObject[] players;
 
-    public float distAgentSandman;
-    public float distAgentPet;
+    public float distAgentSandman, distAgentPet, distTower;
 
     [SerializeField]
     float Enemy2Speed;
+    float arret = 3f;
+    float chargeSpeed = 10;
 
     [SerializeField]
     Vector3 destination; // Destination finale
 
-    LayerMask whatIsSandman, whatIsPet;
-    LayerMask closestLayer;
-
     // Ranges
 
     [SerializeField]
-    float rangeVue, rangeAttack;
-    bool playerInRange, playerInAttackRange;
+    float rangeVue, rangeAttack, rangeTowerAttack;
+    bool playerInRange, playerInAttackRange, towerInAttackRange;
+
+    private bool isAttackCharging;
+    private float chargeTimer = 0f;
 
     private void Awake() {
         agent = GetComponent<NavMeshAgent>();
@@ -35,10 +37,12 @@ public class Enemy2Management : MonoBehaviour {
 
         sandMan = GameObject.Find("SandmanModel").transform;
         pet = GameObject.Find("PetModel").transform;
+        tower = GameObject.Find("Tower").transform;
         //closestPlayer = GameObject.Find("SandmanModel").transform;
         //players = GameObject.FindGameObjectsWithTag("Player");
     }
     void Start() {
+        agent.stoppingDistance = 0;
         destination = new Vector3(-63.45f, 1.5f, 32.46f);
         InvokeRepeating(nameof(ToKid), 1f, 5f);
     }
@@ -47,27 +51,20 @@ public class Enemy2Management : MonoBehaviour {
 
         distAgentSandman = (agent.transform.position - sandMan.position).sqrMagnitude;
         distAgentPet = (agent.transform.position - pet.position).sqrMagnitude;
-        //Debug.Log("distAgentSandman :" + distAgentSandman);
-        //Debug.Log("distAgentPet :" + distAgentPet);
-
+        distTower = (agent.transform.position - tower.position).sqrMagnitude;
 
         if (distAgentSandman >= distAgentPet) {
-            closestLayer = whatIsPet;
             closestPlayer = pet.transform;
-            //Debug.Log("Closest player (devrait être pet)" + closestLayer);
-            //Debug.Log("Closest player (devrait être pet)", closestPlayer);
+
         }
         else if (distAgentPet >= distAgentSandman) {
-            closestLayer = whatIsSandman;
             closestPlayer = sandMan.transform;
-            //Debug.Log("Closest player (devrait être sandMan)" + closestLayer);
-            //Debug.Log("Closest player (devrait être sandMan)" + closestPlayer);
+
         }
 
         playerInRange = distAgentSandman <= rangeVue || distAgentPet <= rangeVue;
-        //playerInRange = Physics.CheckSphere(transform.position, rangeVue, closestLayer);
         playerInAttackRange = distAgentSandman <= rangeAttack || distAgentPet <= rangeAttack;
-        //playerInAttackRange = Physics.CheckSphere(transform.position, rangeAttack, closestLayer);
+        towerInAttackRange = distTower <= rangeTowerAttack;
 
         if (!playerInRange && !playerInAttackRange) {
             //Debug.Log("To kid");
@@ -80,6 +77,10 @@ public class Enemy2Management : MonoBehaviour {
         if (playerInRange && playerInAttackRange) {
             //Debug.Log("Attacking");
             AttackPlayer(closestPlayer);
+        }
+        if (towerInAttackRange) {
+            AttackTower(tower);
+            //AttackTower(getClosestTower());
         }
 
     }
@@ -95,4 +96,26 @@ public class Enemy2Management : MonoBehaviour {
         transform.LookAt(player);
 
     }
+    void AttackTower(Transform tower) {
+        transform.LookAt(tower);
+        if (!isAttackCharging) {
+            isAttackCharging = true;
+            chargeTimer = 0f;
+            agent.isStopped = true;
+        }
+        else {
+            chargeTimer += Time.deltaTime;
+
+            if (chargeTimer >= arret) {
+                agent.isStopped = false;
+                agent.speed = chargeSpeed;
+                agent.SetDestination(tower.position);
+            }
+        }
+    }
+
+    /*Transform getClosestTower() {
+
+        return tour;
+    }*/
 }
