@@ -92,7 +92,7 @@ public class Enemy2Management : MonoBehaviour {
         agent.SetDestination(player.position);
     }
     void AttackPlayer(Transform player) {
-        agent.SetDestination(player.position); // Attaque corps à corps
+        agent.SetDestination(player.position); // Attaque corps ? corps
         transform.LookAt(player);
 
     }

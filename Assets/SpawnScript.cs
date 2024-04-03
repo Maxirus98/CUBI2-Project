@@ -40,12 +40,10 @@ public class SpawnScript : MonoBehaviour {
     }
 
     private void OnEnable() {
-<<<<<<< HEAD
 
-=======
         print("ça marche");
         AudioSource.PlayClipAtPoint(SoundManager.Instance.waveStartSound, transform.position);
->>>>>>> 9053e95fd1a4fecc76fdd5f84bdf783d90c33b7d
+
         timerScript = GameObject.Find("Timer").GetComponent<TimerScript>();
         timerScript.enabled = false;
 
