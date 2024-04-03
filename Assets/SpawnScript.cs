@@ -79,9 +79,9 @@ public class SpawnScript : MonoBehaviour {
 
             var enemy1Instance = Instantiate(enemy1, randomPoint.position, randomPoint.rotation);
 
-            // Changement material
+            // Changement material EN DEV
 
-            int randomInt = GetRandom();
+            /*int randomInt = GetRandom();
 
             if (randomInt == 1) {
                 ChangeMaterial(enemy1Instance, CouleurEnemySandMan);
@@ -90,7 +90,7 @@ public class SpawnScript : MonoBehaviour {
             else if (randomInt == 2) {
                 ChangeMaterial(enemy1Instance, CouleurEnemyPet);
                 EditTag(enemy1Instance, CouleurEnemyPet);
-            }
+            }*/
 
             // Spawn
 
@@ -104,18 +104,6 @@ public class SpawnScript : MonoBehaviour {
 
             var enemy2Instance = Instantiate(enemy2, randomPoint.position, randomPoint.rotation);
 
-            // Changement material
-
-            int randomInt = GetRandom();
-
-            if (randomInt == 1) {
-                ChangeMaterial(enemy2Instance, CouleurEnemySandMan);
-                EditTag(enemy2Instance, CouleurEnemySandMan);
-            }
-            else if (randomInt == 2) {
-                ChangeMaterial(enemy2Instance, CouleurEnemyPet);
-                EditTag(enemy2Instance, CouleurEnemyPet);
-            }
 
             // Spawn
 
