@@ -102,15 +102,6 @@ MonoBehaviour:
   distAgentPet: 0
   Enemy1Speed: 1
   destination: {x: -63.45, y: 1.5, z: 32.46}
-  whatIsSandman:
-    serializedVersion: 2
-    m_Bits: 512
-  whatIsPet:
-    serializedVersion: 2
-    m_Bits: 1024
-  closestLayer:
-    serializedVersion: 2
-    m_Bits: 0
   rangeVue: 20
   rangeAttack: 0
 --- !u!114 &-5868117586542664610
@@ -248,6 +239,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonsterModel1
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 7d42958bd520bc742a4a5802ed1ba660, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: dd4f6dc7acbda1a4c9779495a208f07f, type: 3}
+    - target: {fileID: 5866666021909216657, guid: 7d42958bd520bc742a4a5802ed1ba660, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4d32d0b32571c574a9d6dda9e9f31a5d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
