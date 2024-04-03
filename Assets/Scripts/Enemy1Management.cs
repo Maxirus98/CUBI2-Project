@@ -32,6 +32,9 @@ public class Enemy1Management : MonoBehaviour {
     float rangeVue, rangeAttack;
     bool playerInRange, playerInAttackRange;
 
+    // For Attack animation
+    private Animator anim;
+
     private void Awake() {
         agent = GetComponent<NavMeshAgent>();
         agent.speed = Enemy1Speed;
@@ -41,9 +44,11 @@ public class Enemy1Management : MonoBehaviour {
         //closestPlayer = GameObject.Find("SandmanModel").transform;
         //players = GameObject.FindGameObjectsWithTag("Player");
     }
-    void Start() {
+    void Start() { 
+        anim = GetComponentInChildren<Animator>();
         destination = new Vector3(-63.45f, 1.5f, 32.46f);
         InvokeRepeating(nameof(ToKid), 1f, 5f);
+        
     }
 
     public void Update() {
@@ -85,6 +90,7 @@ public class Enemy1Management : MonoBehaviour {
             AttackPlayer(closestPlayer);
         }
 
+        anim.SetBool("Attacking", playerInRange);
     }
     void ToKid() {
         agent.SetDestination(destination);
@@ -96,6 +102,5 @@ public class Enemy1Management : MonoBehaviour {
     void AttackPlayer(Transform player) {
         agent.SetDestination(player.position); // Attaque corps à corps
         transform.LookAt(player);
-
     }
 }
