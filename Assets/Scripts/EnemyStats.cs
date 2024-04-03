@@ -8,11 +8,21 @@ public class EnemyStats : NetworkBehaviour
     private int currentHealth;
 
     private SpawnScript spawnScript;
+    private Animator animator;
 
     private void Start()
     {
         currentHealth = maxHealth;
         spawnScript = GameObject.Find("Spawner").GetComponent<SpawnScript>();
+        animator = GetComponent<Animator>();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.CompareTag("Player"))
+        {
+            animator.CrossFade("Attack", 0.2f);
+        }
     }
 
     public void OnTriggerEnter(Collider other)

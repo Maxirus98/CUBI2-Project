@@ -1,0 +1,1221 @@
+fileFormatVersion: 2
+guid: f417f2d51ea26404a801bd99ba6f07c7
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
+      copied configuration does not match position in animation file:\n\t'elbow_L_jnt'
+      : position error = 7.834108 mm\n\t'thumb2_L_jnt' : position error = 41.630859
+      mm\n\t'index2_L_jnt' : position error = 95.962051 mm\n"
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'shoulder_L_jnt' has translation animation
+      that will be discarded.\n\t'elbow_L_jnt' has translation animation that will
+      be discarded.\n\t'wrist_L_jnt' has translation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Punch
+      takeName: Take 001
+      internalID: 1827226128182048838
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ctrl
+        weight: 0
+      - path: ctrl/foot_L_ctrl
+        weight: 0
+      - path: ctrl/foot_L_ctrl/locAlign_ankle_L_jnt
+        weight: 0
+      - path: ctrl/foot_L_ctrl/locAlign_ankle_L_jnt/foot_L_ctrl
+        weight: 0
+      - path: ctrl/foot_L_ctrl/locAlign_ankle_L_jnt/foot_L_ctrl/locAlign_toe_L_jnt
+        weight: 0
+      - path: ctrl/foot_L_ctrl/locAlign_ankle_L_jnt/foot_L_ctrl/locAlign_toe_L_jnt/toe_L_ctrl
+        weight: 0
+      - path: ctrl/foot_R_ctrl
+        weight: 0
+      - path: ctrl/foot_R_ctrl/locAlign_ankle_R_jnt
+        weight: 0
+      - path: ctrl/foot_R_ctrl/locAlign_ankle_R_jnt/foot_R_ctrl
+        weight: 0
+      - path: ctrl/foot_R_ctrl/locAlign_ankle_R_jnt/foot_R_ctrl/locAlign_toe_R_jnt
+        weight: 0
+      - path: ctrl/foot_R_ctrl/locAlign_ankle_R_jnt/foot_R_ctrl/locAlign_toe_R_jnt/toe_R_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_pelvis_inverse_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_pelvis_inverse_jnt/hips_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_fingers1_L_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_fingers1_L_jnt/fingers1_L_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_fingers1_L_jnt/fingers1_L_ctrl/locAlign_fingers2_L_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_fingers1_L_jnt/fingers1_L_ctrl/locAlign_fingers2_L_jnt/fingers2_L_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_index1_L_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_index1_L_jnt/index1_L_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_index1_L_jnt/index1_L_ctrl/locAlign_index2_L_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_index1_L_jnt/index1_L_ctrl/locAlign_index2_L_jnt/index2_L_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_thumb1_L_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_thumb1_L_jnt/thumb1_L_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_thumb1_L_jnt/thumb1_L_ctrl/locAlign_thumb2_L_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_thumb1_L_jnt/thumb1_L_ctrl/locAlign_thumb2_L_jnt/thumb2_L_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_fingers1_R_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_fingers1_R_jnt/fingers1_R_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_fingers1_R_jnt/fingers1_R_ctrl/locAlign_fingers2_R_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_fingers1_R_jnt/fingers1_R_ctrl/locAlign_fingers2_R_jnt/fingers2_R_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_index1_R_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_index1_R_jnt/index1_R_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_index1_R_jnt/index1_R_ctrl/locAlign_index2_R_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_index1_R_jnt/index1_R_ctrl/locAlign_index2_R_jnt/index2_R_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_thumb1_R_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_thumb1_R_jnt/thumb1_R_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_thumb1_R_jnt/thumb1_R_ctrl/locAlign_thumb2_R_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_thumb1_R_jnt/thumb1_R_ctrl/locAlign_thumb2_R_jnt/thumb2_R_ctrl
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/locAlign_neck_jnt
+        weight: 0
+      - path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/locAlign_neck_jnt/neck_ctrl
+        weight: 0
+      - path: pelvis_jnt
+        weight: 1
+      - path: pelvis_jnt/pelvis_inverse_jnt
+        weight: 1
+      - path: pelvis_jnt/pelvis_inverse_jnt/hip_L_jnt
+        weight: 1
+      - path: pelvis_jnt/pelvis_inverse_jnt/hip_L_jnt/knee_L_jnt
+        weight: 1
+      - path: pelvis_jnt/pelvis_inverse_jnt/hip_L_jnt/knee_L_jnt/ankle_L_jnt
+        weight: 1
+      - path: pelvis_jnt/pelvis_inverse_jnt/hip_L_jnt/knee_L_jnt/ankle_L_jnt/toe_L_jnt
+        weight: 1
+      - path: pelvis_jnt/pelvis_inverse_jnt/hip_L_jnt/knee_L_jnt/ankle_L_jnt/toe_L_jnt/toe_end_L_jnt
+        weight: 0
+      - path: pelvis_jnt/pelvis_inverse_jnt/hip_R_jnt
+        weight: 1
+      - path: pelvis_jnt/pelvis_inverse_jnt/hip_R_jnt/knee_R_jnt
+        weight: 1
+      - path: pelvis_jnt/pelvis_inverse_jnt/hip_R_jnt/knee_R_jnt/ankle_R_jnt
+        weight: 1
+      - path: pelvis_jnt/pelvis_inverse_jnt/hip_R_jnt/knee_R_jnt/ankle_R_jnt/toe_R_jnt
+        weight: 1
+      - path: pelvis_jnt/pelvis_inverse_jnt/hip_R_jnt/knee_R_jnt/ankle_R_jnt/toe_R_jnt/toe_end_R_jnt
+        weight: 0
+      - path: pelvis_jnt/spine1_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/fingers1_L_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/fingers1_L_jnt/fingers2_L_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/fingers1_L_jnt/fingers2_L_jnt/fingers_end_L_jnt
+        weight: 0
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/index1_L_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/index1_L_jnt/index2_L_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/index1_L_jnt/index2_L_jnt/index_end_L_jnt
+        weight: 0
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/thumb1_L_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/thumb1_L_jnt/thumb2_L_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/thumb1_L_jnt/thumb2_L_jnt/thumb_end_L_jnt
+        weight: 0
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/fingers1_R_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/fingers1_R_jnt/fingers2_R_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/fingers1_R_jnt/fingers2_R_jnt/fingers_end_R_jnt
+        weight: 0
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/index1_R_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/index1_R_jnt/index2_R_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/index1_R_jnt/index2_R_jnt/index_end_R_jnt
+        weight: 0
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/thumb1_R_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/thumb1_R_jnt/thumb2_R_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/thumb1_R_jnt/thumb2_R_jnt/thumb_end_R_jnt
+        weight: 0
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt
+        weight: 1
+      - path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: pelvis_jnt
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: hip_L_jnt
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: hip_R_jnt
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: knee_L_jnt
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: knee_R_jnt
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ankle_L_jnt
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ankle_R_jnt
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: spine2_jnt
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: spine3_jnt
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: neck_jnt
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: clavicule_L_jnt
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: clavicule_R_jnt
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: shoulder_L_jnt
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: shoulder_R_jnt
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: elbow_L_jnt
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: elbow_R_jnt
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: wrist_L_jnt
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: wrist_R_jnt
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: toe_L_jnt
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: toe_R_jnt
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb1_L_jnt
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb2_L_jnt
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: index1_L_jnt
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: index2_L_jnt
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: fingers1_L_jnt
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: fingers2_L_jnt
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb1_R_jnt
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb2_R_jnt
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: index1_R_jnt
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: index2_R_jnt
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: fingers1_R_jnt
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: fingers2_R_jnt
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: spine4_jnt
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: head_jnt
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: monstre_rig(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ctrl
+      parentName: monstre_rig(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: foot_L_ctrl
+      parentName: ctrl
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_ankle_L_jnt
+      parentName: foot_L_ctrl
+      position: {x: -0.20790873, y: 0.12031444, z: 0.011911352}
+      rotation: {x: 0.17582774, y: 0.68489754, z: 0.17582774, w: 0.68489754}
+      scale: {x: 1, y: 1, z: 1}
+    - name: foot_L_ctrl
+      parentName: locAlign_ankle_L_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_toe_L_jnt
+      parentName: foot_L_ctrl
+      position: {x: -0.18112233, y: 3.5527136e-17, z: 7.105427e-17}
+      rotation: {x: 0, y: -0, z: -0.1858183, w: 0.9825841}
+      scale: {x: 1, y: 1, z: 1}
+    - name: toe_L_ctrl
+      parentName: locAlign_toe_L_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: foot_R_ctrl
+      parentName: ctrl
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: -1, y: 1, z: 1}
+    - name: locAlign_ankle_R_jnt
+      parentName: foot_R_ctrl
+      position: {x: -0.20790873, y: 0.12031444, z: 0.011911352}
+      rotation: {x: 0.17582774, y: 0.68489754, z: 0.17582774, w: 0.68489754}
+      scale: {x: 1, y: 1, z: 1}
+    - name: foot_R_ctrl
+      parentName: locAlign_ankle_R_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: -1, y: 1, z: 1}
+    - name: locAlign_toe_R_jnt
+      parentName: foot_R_ctrl
+      position: {x: -0.18112233, y: 3.5527136e-17, z: 7.105427e-17}
+      rotation: {x: 0, y: -0, z: -0.1858183, w: 0.9825841}
+      scale: {x: 1, y: 1, z: 1}
+    - name: toe_R_ctrl
+      parentName: locAlign_toe_R_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_pelvis_jnt
+      parentName: ctrl
+      position: {x: -0, y: 0.53996956, z: 0}
+      rotation: {x: 0, y: -0, z: -0.7071068, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pelvis_ctrl
+      parentName: locAlign_pelvis_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_pelvis_inverse_jnt
+      parentName: pelvis_ctrl
+      position: {x: -0.1052923, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: hips_ctrl
+      parentName: locAlign_pelvis_inverse_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_spine1_jnt
+      parentName: pelvis_ctrl
+      position: {x: 0.119969614, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: spine1_ctrl
+      parentName: locAlign_spine1_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_spine2_jnt
+      parentName: spine1_ctrl
+      position: {x: -0.31, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: spine2_ctrl
+      parentName: locAlign_spine2_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_spine3_jnt
+      parentName: spine2_ctrl
+      position: {x: -0.26, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: spine3_ctrl
+      parentName: locAlign_spine3_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_spine4_jnt
+      parentName: spine3_ctrl
+      position: {x: -0.21, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: spine4_ctrl
+      parentName: locAlign_spine4_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: arm_L_ctrl
+      parentName: spine4_ctrl
+      position: {x: 1.1999999, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_clavicule_L_jnt
+      parentName: arm_L_ctrl
+      position: {x: -0.29083836, y: 1.1712804, z: 0.1626588}
+      rotation: {x: 0, y: -0.2725069, z: -0, w: 0.96215385}
+      scale: {x: 1, y: 1, z: 1}
+    - name: clavicule_L_ctrl
+      parentName: locAlign_clavicule_L_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_shoulder_L_jnt
+      parentName: clavicule_L_ctrl
+      position: {x: -0.302195, y: 0, z: -3.5527136e-17}
+      rotation: {x: 0, y: 0.19925083, z: -0, w: 0.9799485}
+      scale: {x: 1, y: 1, z: 1}
+    - name: shoulder_L_ctrl
+      parentName: locAlign_shoulder_L_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_elbow_L_jnt
+      parentName: shoulder_L_ctrl
+      position: {x: -0.22851409, y: 1.4210854e-16, z: 3.5527136e-17}
+      rotation: {x: 0, y: 0.13134523, z: -0, w: 0.9913367}
+      scale: {x: 1, y: 1, z: 1}
+    - name: elbow_L_ctrl
+      parentName: locAlign_elbow_L_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_wrist_L_jnt
+      parentName: elbow_L_ctrl
+      position: {x: -0.28087363, y: -1.4210854e-16, z: 8.8817837e-17}
+      rotation: {x: 0, y: -0.034899104, z: -0, w: 0.99939084}
+      scale: {x: 1, y: 1, z: 1}
+    - name: wrist_L_ctrl
+      parentName: locAlign_wrist_L_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_fingers1_L_jnt
+      parentName: wrist_L_ctrl
+      position: {x: -0.1115042, y: -1.4210854e-16, z: -0.047305673}
+      rotation: {x: 0, y: -0.092860535, z: -0, w: 0.99567914}
+      scale: {x: 1, y: 1, z: 1}
+    - name: fingers1_L_ctrl
+      parentName: locAlign_fingers1_L_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_fingers2_L_jnt
+      parentName: fingers1_L_ctrl
+      position: {x: -0.07965272, y: 0, z: -7.105427e-17}
+      rotation: {x: 0, y: 0.0071235984, z: -0, w: 0.99997467}
+      scale: {x: 1, y: 1, z: 1}
+    - name: fingers2_L_ctrl
+      parentName: locAlign_fingers2_L_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_index1_L_jnt
+      parentName: wrist_L_ctrl
+      position: {x: -0.13518308, y: -1.4210854e-16, z: 0.057407744}
+      rotation: {x: 0, y: 0.020646496, z: -0, w: 0.99978685}
+      scale: {x: 1, y: 1, z: 1}
+    - name: index1_L_ctrl
+      parentName: locAlign_index1_L_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_index2_L_jnt
+      parentName: index1_L_ctrl
+      position: {x: -0.07840818, y: 0, z: -4.4408918e-17}
+      rotation: {x: 0, y: -0.010573402, z: -0, w: 0.9999441}
+      scale: {x: 1, y: 1, z: 1}
+    - name: index2_L_ctrl
+      parentName: locAlign_index2_L_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_thumb1_L_jnt
+      parentName: wrist_L_ctrl
+      position: {x: -0.0845394, y: -1.4210854e-16, z: 0.10313967}
+      rotation: {x: 0, y: 0.46899736, z: -0, w: 0.8831996}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thumb1_L_ctrl
+      parentName: locAlign_thumb1_L_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_thumb2_L_jnt
+      parentName: thumb1_L_ctrl
+      position: {x: -0.043366063, y: 1.4210854e-16, z: 2.842171e-16}
+      rotation: {x: 0, y: 0.008349857, z: -0, w: 0.99996513}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thumb2_L_ctrl
+      parentName: locAlign_thumb2_L_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: arm_R_ctrl
+      parentName: spine4_ctrl
+      position: {x: 1.1999999, y: 0, z: 0}
+      rotation: {x: 0.7071068, y: -0.7071068, z: -4.3297806e-17, w: 4.3297806e-17}
+      scale: {x: 1, y: 1, z: -1}
+    - name: locAlign_clavicule_R_jnt
+      parentName: arm_R_ctrl
+      position: {x: -0.29083836, y: 1.1712804, z: 0.1626588}
+      rotation: {x: 0, y: -0.2725069, z: -0, w: 0.96215385}
+      scale: {x: 1, y: 1, z: 1}
+    - name: clavicule_R_ctrl
+      parentName: locAlign_clavicule_R_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_shoulder_R_jnt
+      parentName: clavicule_R_ctrl
+      position: {x: -0.302195, y: 0, z: -3.5527136e-17}
+      rotation: {x: 0, y: 0.19925083, z: -0, w: 0.9799485}
+      scale: {x: 1, y: 1, z: 1}
+    - name: shoulder_R_ctrl
+      parentName: locAlign_shoulder_R_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_elbow_R_jnt
+      parentName: shoulder_R_ctrl
+      position: {x: -0.22851409, y: 1.4210854e-16, z: 3.5527136e-17}
+      rotation: {x: 0, y: 0.13134523, z: -0, w: 0.9913367}
+      scale: {x: 1, y: 1, z: 1}
+    - name: elbow_R_ctrl
+      parentName: locAlign_elbow_R_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_wrist_R_jnt
+      parentName: elbow_R_ctrl
+      position: {x: -0.28087363, y: -1.4210854e-16, z: 8.8817837e-17}
+      rotation: {x: 0, y: -0.034899104, z: -0, w: 0.99939084}
+      scale: {x: 1, y: 1, z: 1}
+    - name: wrist_R_ctrl
+      parentName: locAlign_wrist_R_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_fingers1_R_jnt
+      parentName: wrist_R_ctrl
+      position: {x: -0.1115042, y: -1.4210854e-16, z: -0.047305673}
+      rotation: {x: 0, y: -0.092860535, z: -0, w: 0.99567914}
+      scale: {x: 1, y: 1, z: 1}
+    - name: fingers1_R_ctrl
+      parentName: locAlign_fingers1_R_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_fingers2_R_jnt
+      parentName: fingers1_R_ctrl
+      position: {x: -0.07965272, y: 0, z: -7.105427e-17}
+      rotation: {x: 0, y: 0.0071235984, z: -0, w: 0.99997467}
+      scale: {x: 1, y: 1, z: 1}
+    - name: fingers2_R_ctrl
+      parentName: locAlign_fingers2_R_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_index1_R_jnt
+      parentName: wrist_R_ctrl
+      position: {x: -0.13518308, y: -1.4210854e-16, z: 0.057407744}
+      rotation: {x: 0, y: 0.020646496, z: -0, w: 0.99978685}
+      scale: {x: 1, y: 1, z: 1}
+    - name: index1_R_ctrl
+      parentName: locAlign_index1_R_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_index2_R_jnt
+      parentName: index1_R_ctrl
+      position: {x: -0.07840818, y: 0, z: -4.4408918e-17}
+      rotation: {x: 0, y: -0.010573402, z: -0, w: 0.9999441}
+      scale: {x: 1, y: 1, z: 1}
+    - name: index2_R_ctrl
+      parentName: locAlign_index2_R_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_thumb1_R_jnt
+      parentName: wrist_R_ctrl
+      position: {x: -0.0845394, y: -1.4210854e-16, z: 0.10313967}
+      rotation: {x: 0, y: 0.46899736, z: -0, w: 0.8831996}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thumb1_R_ctrl
+      parentName: locAlign_thumb1_R_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_thumb2_R_jnt
+      parentName: thumb1_R_ctrl
+      position: {x: -0.043366063, y: 1.4210854e-16, z: 2.842171e-16}
+      rotation: {x: 0, y: 0.008349857, z: -0, w: 0.99996513}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thumb2_R_ctrl
+      parentName: locAlign_thumb2_R_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: locAlign_neck_jnt
+      parentName: spine4_ctrl
+      position: {x: -0.16, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neck_ctrl
+      parentName: locAlign_neck_jnt
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: mesh
+      parentName: monstre_rig(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 10, y: 10, z: 10}
+    - name: body1
+      parentName: mesh
+      position: {x: -0, y: 0.10467582, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 9.65402, y: 11.889506, z: 9.222209}
+    - name: hornL
+      parentName: mesh
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: hornR
+      parentName: mesh
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: -1, y: 1, z: 1}
+    - name: pelvis_jnt
+      parentName: monstre_rig(Clone)
+      position: {x: -0, y: 0.53996956, z: 0}
+      rotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pelvis_inverse_jnt
+      parentName: pelvis_jnt
+      position: {x: -0.1052923, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: hip_L_jnt
+      parentName: pelvis_inverse_jnt
+      position: {x: 0.20014045, y: -0.20790873, z: -0.0070094443}
+      rotation: {x: -0.051953197, y: 0.70519567, z: 0.70519567, w: 0.051953197}
+      scale: {x: 1, y: 1, z: 1}
+    - name: knee_L_jnt
+      parentName: hip_L_jnt
+      position: {x: -0.17214574, y: -2.2204459e-17, z: -4.9303804e-33}
+      rotation: {x: 0.9955913, y: 0.09379793, z: 3.1548573e-17, w: 5.85312e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ankle_L_jnt
+      parentName: knee_L_jnt
+      position: {x: -0.1546485, y: -1.2212453e-17, z: 8.016786e-18}
+      rotation: {x: 0.8501635, y: 0.52651876, z: 2.8970411e-16, w: 1.5378488e-16}
+      scale: {x: 1, y: 1, z: 1}
+    - name: toe_L_jnt
+      parentName: ankle_L_jnt
+      position: {x: -0.18112233, y: -1.7763568e-17, z: 5.9888194e-17}
+      rotation: {x: -4.7041588e-32, y: 2.2073049e-16, z: -0.1858183, w: 0.9825841}
+      scale: {x: 1, y: 1, z: 1}
+    - name: toe_end_L_jnt
+      parentName: toe_L_jnt
+      position: {x: -0.1473306, y: 1.3322676e-17, z: 6.390797e-17}
+      rotation: {x: -0.04549906, y: -0.70564145, z: -0.04549906, w: 0.70564145}
+      scale: {x: 1, y: 1, z: 1}
+    - name: hip_R_jnt
+      parentName: pelvis_inverse_jnt
+      position: {x: 0.20014091, y: 0.20790899, z: -0.00700944}
+      rotation: {x: -0.70519537, y: -0.05195319, z: -0.0519532, w: 0.7051959}
+      scale: {x: 1, y: 1, z: 1}
+    - name: knee_R_jnt
+      parentName: hip_R_jnt
+      position: {x: 0.17214558, y: -0.00000003590442, z: -1.0658141e-16}
+      rotation: {x: 0.9955913, y: 0.09379793, z: -5.23991e-17, w: -5.65668e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ankle_R_jnt
+      parentName: knee_R_jnt
+      position: {x: 0.15464865, y: 0.00000003874325, z: -1.4210854e-16}
+      rotation: {x: 0.8501635, y: 0.52651876, z: -0.00000016593141, w: 0.00000033857174}
+      scale: {x: 1, y: 1, z: 1}
+    - name: toe_R_jnt
+      parentName: ankle_R_jnt
+      position: {x: 0.18112226, y: -0.00000041379423, z: -2.1316282e-16}
+      rotation: {x: 1.7809945e-29, y: 2.3277675e-16, z: -0.1858183, w: 0.9825841}
+      scale: {x: 1, y: 1, z: 1}
+    - name: toe_end_R_jnt
+      parentName: toe_R_jnt
+      position: {x: 0.14733, y: 0.00000007990832, z: -2.1316282e-16}
+      rotation: {x: -0.04549906, y: -0.70564145, z: -0.04549906, w: 0.70564145}
+      scale: {x: 1, y: 1, z: 1}
+    - name: spine1_jnt
+      parentName: pelvis_jnt
+      position: {x: 0.119969614, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: spine2_jnt
+      parentName: spine1_jnt
+      position: {x: -0.31, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: spine3_jnt
+      parentName: spine2_jnt
+      position: {x: -0.26, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: spine4_jnt
+      parentName: spine3_jnt
+      position: {x: -0.21, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: clavicule_L_jnt
+      parentName: spine4_jnt
+      position: {x: 0.028719587, y: -0.29083836, z: 0.1626588}
+      rotation: {x: 0.1132654, y: -0.11326543, z: 0.6979763, w: 0.6979764}
+      scale: {x: 1, y: 1, z: 1}
+    - name: shoulder_L_jnt
+      parentName: clavicule_L_jnt
+      position: {x: -0.302195, y: -2.842171e-16, z: -1.4210854e-16}
+      rotation: {x: 0, y: 0.19925083, z: -0, w: 0.9799485}
+      scale: {x: 1, y: 1, z: 1}
+    - name: elbow_L_jnt
+      parentName: shoulder_L_jnt
+      position: {x: -0.22851409, y: -4.2632563e-16, z: 5.3290704e-17}
+      rotation: {x: -0.000000027214234, y: -0.0047387774, z: 0.00000017123709, w: 0.9999888}
+      scale: {x: 1, y: 1, z: 1}
+    - name: wrist_L_jnt
+      parentName: elbow_L_jnt
+      position: {x: -0.28087363, y: 1.4210854e-16, z: 1.7763568e-17}
+      rotation: {x: 0, y: -0.034899104, z: -0, w: 0.99939084}
+      scale: {x: 1, y: 1, z: 1}
+    - name: fingers1_L_jnt
+      parentName: wrist_L_jnt
+      position: {x: -0.1115042, y: 0, z: -0.047305673}
+      rotation: {x: 0.0000000068672206, y: -0.08261054, z: -0.000000029338388, w: 0.996582}
+      scale: {x: 1, y: 1, z: 1}
+    - name: fingers2_L_jnt
+      parentName: fingers1_L_jnt
+      position: {x: -0.07965272, y: 7.4606985e-16, z: -3.1974422e-16}
+      rotation: {x: 0.011812496, y: 0.00009221582, z: 0.007933233, w: 0.9998988}
+      scale: {x: 1, y: 1, z: 1}
+    - name: fingers_end_L_jnt
+      parentName: fingers2_L_jnt
+      position: {x: -0.07734895, y: 0, z: -1.9095835e-16}
+      rotation: {x: 0, y: 0.06441077, z: -0, w: 0.9979235}
+      scale: {x: 1, y: 1, z: 1}
+    - name: index1_L_jnt
+      parentName: wrist_L_jnt
+      position: {x: -0.13518308, y: 1.4210854e-16, z: 0.057407744}
+      rotation: {x: 0.009949168, y: 0.018091213, z: 0.48177895, w: 0.8760496}
+      scale: {x: 1, y: 1, z: 1}
+    - name: index2_L_jnt
+      parentName: index1_L_jnt
+      position: {x: -0.04199387, y: 0.06621449, z: 4.440892e-18}
+      rotation: {x: -0.005095128, y: -0.009264799, z: -0.4818547, w: 0.8761873}
+      scale: {x: 1, y: 1, z: 1}
+    - name: index_end_L_jnt
+      parentName: index2_L_jnt
+      position: {x: -0.07899451, y: 0, z: -1.015854e-16}
+      rotation: {x: 0, y: -0.03148463, z: -0, w: 0.99950427}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thumb1_L_jnt
+      parentName: wrist_L_jnt
+      position: {x: -0.0845394, y: 0, z: 0.10313967}
+      rotation: {x: 0.2891693, y: 0.36582786, z: 0.27092767, w: 0.8421101}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thumb2_L_jnt
+      parentName: thumb1_L_jnt
+      position: {x: -0.030974811, y: 0.03034756, z: 0.00044980072}
+      rotation: {x: -0.13008164, y: 0.0675674, z: -0.37429854, w: 0.91564953}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thumb_end_L_jnt
+      parentName: thumb2_L_jnt
+      position: {x: -0.044582065, y: 0, z: 2.9309886e-16}
+      rotation: {x: 0, y: -0.49507454, z: -0, w: 0.8688505}
+      scale: {x: 1, y: 1, z: 1}
+    - name: clavicule_R_jnt
+      parentName: spine4_jnt
+      position: {x: 0.028719999, y: 0.29083797, z: 0.16265899}
+      rotation: {x: 0.69797635, y: 0.69797635, z: -0.11326523, w: 0.11326523}
+      scale: {x: 1, y: 1, z: 1}
+    - name: shoulder_R_jnt
+      parentName: clavicule_R_jnt
+      position: {x: 0.3021951, y: -8.5265126e-16, z: 0.0000001682192}
+      rotation: {x: 8.8047136e-32, y: 0.19925083, z: -3.9978155e-16, w: 0.9799485}
+      scale: {x: 1, y: 1, z: 1}
+    - name: elbow_R_jnt
+      parentName: shoulder_R_jnt
+      position: {x: 0.22851463, y: 0, z: -0.000000092208545}
+      rotation: {x: -0.000000001825296, y: -0.0047381064, z: -3.7113312e-10, w: 0.9999888}
+      scale: {x: 1, y: 1, z: 1}
+    - name: wrist_R_jnt
+      parentName: elbow_R_jnt
+      position: {x: 0.28087804, y: -5.684342e-16, z: 0.00000050870125}
+      rotation: {x: -3.2992017e-31, y: -0.034899104, z: -4.803947e-16, w: 0.99939084}
+      scale: {x: 1, y: 1, z: 1}
+    - name: fingers1_R_jnt
+      parentName: wrist_R_jnt
+      position: {x: 0.11149694, y: 0.0000007266536, z: 0.04730543}
+      rotation: {x: 0.010846996, y: -0.059731983, z: -0.10119233, w: 0.9930129}
+      scale: {x: 1, y: 1, z: 1}
+    - name: fingers2_R_jnt
+      parentName: fingers1_R_jnt
+      position: {x: 0.09401513, y: 0.008657075, z: -0.00023008193}
+      rotation: {x: 0.0027024264, y: 0.0018239649, z: 0.07126213, w: 0.9974523}
+      scale: {x: 1, y: 1, z: 1}
+    - name: fingers_end_R_jnt
+      parentName: fingers2_R_jnt
+      position: {x: 0.07735177, y: 0, z: -0.00000038566208}
+      rotation: {x: -6.1758e-33, y: 0.06441077, z: -4.629639e-16, w: 0.9979235}
+      scale: {x: 1, y: 1, z: 1}
+    - name: index1_R_jnt
+      parentName: wrist_R_jnt
+      position: {x: 0.13518205, y: 2.842171e-16, z: -0.05740778}
+      rotation: {x: 1.9417513e-31, y: 0.020646496, z: -4.968253e-16, w: 0.99978685}
+      scale: {x: 1, y: 1, z: 1}
+    - name: index2_R_jnt
+      parentName: index1_R_jnt
+      position: {x: 0.0784073, y: -1.4210854e-16, z: -0.000000117941305}
+      rotation: {x: -1.0820479e-30, y: -0.010573402, z: -4.883412e-16, w: 0.9999441}
+      scale: {x: 1, y: 1, z: 1}
+    - name: index_end_R_jnt
+      parentName: index2_R_jnt
+      position: {x: 0.078996606, y: 0, z: 0.00000019151146}
+      rotation: {x: 1.5415084e-33, y: -0.03148463, z: -4.6223176e-16, w: 0.99950427}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thumb1_R_jnt
+      parentName: wrist_R_jnt
+      position: {x: 0.08453376, y: 1.4210854e-16, z: -0.10314008}
+      rotation: {x: 0.00000005119903, y: 0.4574705, z: 0.00000016007915, w: 0.8892249}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thumb2_R_jnt
+      parentName: thumb1_R_jnt
+      position: {x: 0.043367032, y: -2.842171e-16, z: 0.0000017033167}
+      rotation: {x: 1.348198e-31, y: 0.008349857, z: -6.077176e-16, w: 0.99996513}
+      scale: {x: 1, y: 1, z: 1}
+    - name: thumb_end_R_jnt
+      parentName: thumb2_R_jnt
+      position: {x: 0.044582564, y: -1.4210854e-16, z: 0.000001975484}
+      rotation: {x: -1.9861106e-31, y: -0.49507454, z: -5.3173997e-16, w: 0.8688505}
+      scale: {x: 1, y: 1, z: 1}
+    - name: neck_jnt
+      parentName: spine4_jnt
+      position: {x: -0.16, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: head_jnt
+      parentName: neck_jnt
+      position: {x: -0.48, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: dd4f6dc7acbda1a4c9779495a208f07f, type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
