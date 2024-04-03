@@ -8,7 +8,7 @@ public class Enemy2Management : MonoBehaviour {
     public NavMeshAgent agent;
     public Transform sandMan;
     public Transform pet;
-    public Transform tower;
+    //public Transform tower;
     public Transform closestPlayer;
     public GameObject[] players;
 
@@ -26,7 +26,8 @@ public class Enemy2Management : MonoBehaviour {
 
     [SerializeField]
     float rangeVue, rangeAttack, rangeTowerAttack;
-    bool playerInRange, playerInAttackRange, towerInAttackRange;
+    bool playerInRange, playerInAttackRange;
+    //towerInAttackRange;
 
     private bool isAttackCharging;
     private float chargeTimer = 0f;
@@ -37,7 +38,9 @@ public class Enemy2Management : MonoBehaviour {
 
         sandMan = GameObject.Find("SandmanModel").transform;
         pet = GameObject.Find("PetModel").transform;
-        tower = GameObject.Find("Tower").transform;
+        //tower = GameObject.Find("Tower").transform;
+
+
         //closestPlayer = GameObject.Find("SandmanModel").transform;
         //players = GameObject.FindGameObjectsWithTag("Player");
     }
@@ -51,7 +54,7 @@ public class Enemy2Management : MonoBehaviour {
 
         distAgentSandman = (agent.transform.position - sandMan.position).sqrMagnitude;
         distAgentPet = (agent.transform.position - pet.position).sqrMagnitude;
-        distTower = (agent.transform.position - tower.position).sqrMagnitude;
+        //distTower = (agent.transform.position - tower.position).sqrMagnitude;
 
         if (distAgentSandman >= distAgentPet) {
             closestPlayer = pet.transform;
@@ -64,7 +67,7 @@ public class Enemy2Management : MonoBehaviour {
 
         playerInRange = distAgentSandman <= rangeVue || distAgentPet <= rangeVue;
         playerInAttackRange = distAgentSandman <= rangeAttack || distAgentPet <= rangeAttack;
-        towerInAttackRange = distTower <= rangeTowerAttack;
+        //towerInAttackRange = distTower <= rangeTowerAttack;
 
         if (!playerInRange && !playerInAttackRange) {
             //Debug.Log("To kid");
@@ -78,10 +81,11 @@ public class Enemy2Management : MonoBehaviour {
             //Debug.Log("Attacking");
             AttackPlayer(closestPlayer);
         }
-        if (towerInAttackRange) {
+        // EN DEV
+        /*if (towerInAttackRange) {
             AttackTower(tower);
             //AttackTower(getClosestTower());
-        }
+        }*/
 
     }
     void ToKid() {
