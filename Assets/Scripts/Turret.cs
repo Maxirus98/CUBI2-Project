@@ -26,10 +26,16 @@ public class Turret : NetworkBehaviour
     public Transform firePoint;
 
     // Construction des tours sur le reseau
-    private NetworkList<ulong> netBuildingPlayerList = new(writePerm:NetworkVariableWritePermission.Owner);
+    private NetworkList<ulong> netBuildingPlayerList = new(writePerm: NetworkVariableWritePermission.Owner);
     private Slider sandmanSyncSlider;
     private Slider petSyncSlider;
     private float animationTime = 0f;
+
+    public Slider hpSlider;
+
+    public int hp = 100;
+
+    private int maxHp;
 
     void Start()
     {
@@ -38,6 +44,8 @@ public class Turret : NetworkBehaviour
 
         firePoint = transform.Find("FirePoint");
         netBuildingPlayerList.OnListChanged += NetBuildingPlayerList_OnListChanged;
+
+        maxHp = hp;
     }
 
     private void NetBuildingPlayerList_OnListChanged(NetworkListEvent<ulong> changeEvent)
@@ -46,7 +54,7 @@ public class Turret : NetworkBehaviour
         if (changeEvent.Type == NetworkListEvent<ulong>.EventType.Add)
         {
             Debug.Log($"Added to list, Size: {netBuildingPlayerList.Count}");
-            if(netBuildingPlayerList.Count >= 2)
+            if (netBuildingPlayerList.Count >= 2)
             {
                 BuildServerRpc();
                 AudioSource.PlayClipAtPoint(SoundManager.Instance.towerEndBuildFx, transform.position);
@@ -129,7 +137,7 @@ public class Turret : NetworkBehaviour
     private void RequestToBuildServerRpc(ulong clientId)
     {
         // TODO: Play request build audio
-        
+
         // Fait apparaître le slider de synchronization pour les 2 joueurs
         var isSandman = NetworkManager.ConnectedClients[clientId].PlayerObject.transform.GetChild(0).gameObject.activeInHierarchy;
         AnimateSliderOverTimeClientRpc(clientId, isSandman);
@@ -229,6 +237,20 @@ public class Turret : NetworkBehaviour
 
             Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
             cannonInstance.transform.rotation = Quaternion.Slerp(cannonInstance.transform.rotation, targetRotation, Time.deltaTime * 5f);
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        hp -= damage;
+        hpSlider.value = (float)hp / maxHp;
+        if (hp <= 0)
+        {
+            if (isBuilt)
+            {
+                Destroy(cannonInstance);
+                isBuilt = false;
+            }
         }
     }
 }
