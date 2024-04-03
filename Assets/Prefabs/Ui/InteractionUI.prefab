@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 2008930673750400967}
   - component: {fileID: 1276861255541585672}
   - component: {fileID: 7948422378967444323}
+  - component: {fileID: 635515562984793397}
   m_Layer: 5
   m_Name: InteractionUI
   m_TagString: Untagged
@@ -360,6 +361,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &635515562984793397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4772226713000156659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc9ea1f173c70450da2aa52ad35c256d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 6894994821274922266}
+  gameData: {fileID: 1357446433779903231}
 --- !u!1 &6079887253492198139
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19a57b0c5ed9a499f9aea6e8617d2b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turrets: []
 --- !u!1 &8206474777689479255
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,6 +925,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2949112347368413509}
     m_Modifications:
+    - target: {fileID: 1103380122182389088, guid: 23df18e356c8c46828e811a827583d7b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 635515562984793397}
+    - target: {fileID: 1972181612377363112, guid: 23df18e356c8c46828e811a827583d7b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 635515562984793397}
     - target: {fileID: 2762086054035666201, guid: 23df18e356c8c46828e811a827583d7b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -989,17 +1013,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3806973650214653480, guid: 23df18e356c8c46828e811a827583d7b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 635515562984793397}
     - target: {fileID: 7478739216577129892, guid: 23df18e356c8c46828e811a827583d7b, type: 3}
       propertyPath: m_Name
       value: PauseCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8849998040885351923, guid: 23df18e356c8c46828e811a827583d7b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8849998040885351923, guid: 23df18e356c8c46828e811a827583d7b, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23df18e356c8c46828e811a827583d7b, type: 3}
 --- !u!224 &2176019627345720743 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2762086054035666201, guid: 23df18e356c8c46828e811a827583d7b, type: 3}
+  m_PrefabInstance: {fileID: 4063971944916254910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6894994821274922266 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7478739216577129892, guid: 23df18e356c8c46828e811a827583d7b, type: 3}
   m_PrefabInstance: {fileID: 4063971944916254910}
   m_PrefabAsset: {fileID: 0}

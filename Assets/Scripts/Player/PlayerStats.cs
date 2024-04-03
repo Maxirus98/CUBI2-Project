@@ -43,6 +43,7 @@ public class PlayerStats : NetworkBehaviour
         {
             Debug.Log($"triggered with {other.gameObject.name}");
             TakeDamage(1);
+            AudioSource.PlayClipAtPoint(SoundManager.Instance.attackEnemy1Fx, transform.position);
         }
     }
 
