@@ -165,7 +165,7 @@ public class SpawnScript : MonoBehaviour {
             Debug.Log(timerScript.enabled);
 
 
-            WinLoseHandler.Instance.UpdateGameState(GameState.Won);
+            // WinLoseHandler.Instance.UpdateGameState(GameState.Won);
         }
     }
    
