@@ -91,7 +91,7 @@ public class SpawnScript : MonoBehaviour {
 
     private void OnEnable() {
         print("ça marche");
-
+        AudioSource.PlayClipAtPoint(SoundManager.Instance.waveStartSound, transform.position);
         timerScript = GameObject.Find("Timer").GetComponent<TimerScript>();
         timerScript.enabled = false;
 
@@ -151,9 +151,13 @@ public class SpawnScript : MonoBehaviour {
             Debug.Log("Plus d'ennemis");
             if (numWave == 1) {
                 numWave = 2;
+                totalEnemies = Wave2Enemies1 + Wave2Enemies2;
+                GameManager.Instance.GetComponent<AudioSource>().PlayOneShot(SoundManager.Instance.waveEndSound);
             }
             else if (numWave == 2) {
                 numWave = 3;
+                totalEnemies = Wave3Enemies1 + Wave3Enemies2;
+                GameManager.Instance.GetComponent<AudioSource>().PlayOneShot(SoundManager.Instance.waveEndSound);
             }
 
             Debug.Log(timerScript.enabled);
@@ -161,7 +165,7 @@ public class SpawnScript : MonoBehaviour {
             Debug.Log(timerScript.enabled);
 
 
-            //WinLoseHandler.Instance.UpdateGameState(GameState.Won);
+            // WinLoseHandler.Instance.UpdateGameState(GameState.Won);
         }
     }
    

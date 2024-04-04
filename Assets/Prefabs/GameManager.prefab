@@ -567,9 +567,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endGameCanvas: {fileID: 3692684416872823428}
   endGameText: {fileID: 2480373440187295702}
-  gameAudioSource: {fileID: 8758109760400106412}
-  gameLostAudio: {fileID: 0}
-  gameWonAudio: {fileID: 0}
 --- !u!82 &8758109760400106412
 AudioSource:
   m_ObjectHideFlags: 0
