@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 
 public class SpawnScript : MonoBehaviour {
+
     public bool isTesting = false;
 
     [SerializeField]
@@ -23,8 +24,9 @@ public class SpawnScript : MonoBehaviour {
     public int Wave3Enemies1;
     public int Wave3Enemies2;
 
-
-
+    [Header("Couleurs des ennemis")]
+    public Material CouleurEnemySandMan;
+    public Material CouleurEnemyPet;
 
     [Header("Ne pas changer")]
     public int totalEnemies;
@@ -34,74 +36,19 @@ public class SpawnScript : MonoBehaviour {
     private TimerScript timerScript;
 
     void Start() {
-        /*print("ça marche");
-        
-        timerScript = GameObject.Find("Timer").GetComponent<TimerScript>();
-        timerScript.enabled = false;
-
-        //Debug.Log("TimerScript.enabled :" + timerScript.enabled);
-        //Debug.Log("Num wave :" + numWave);
-        //Debug.Log("NUMBER" + NumberOfEnemies1);
-        NumberOfEnemies1 = Wave1Enemies1;
-        //Debug.Log("NUMBER" + NumberOfEnemies1);
-        //Debug.Log(NumberOfEnemies1);
-        //Debug.Log(Wave1Enemies1);
-        if (!isTesting && !NetworkManager.Singleton.IsHost)
-            return;
-
-        spawnPoint = new Transform[transform.childCount];
-
-        for (int i = 0; i < transform.childCount; i++) {
-            spawnPoint[i] = transform.GetChild(i);
-        }
-        if (numWave == 1) {
-            NumberOfEnemies1 = Wave1Enemies1;
-            NumberOfEnemies2 = 0;
-            totalEnemies = NumberOfEnemies1;
-        }
-        else if (numWave == 2) {
-            NumberOfEnemies1 = Wave2Enemies1;
-            NumberOfEnemies2 = Wave2Enemies2;
-            totalEnemies = NumberOfEnemies1 + NumberOfEnemies2;
-        }
-        else if (numWave == 3) {
-            NumberOfEnemies1 = Wave3Enemies1;
-            NumberOfEnemies2 = Wave3Enemies2;
-            totalEnemies = NumberOfEnemies1 + NumberOfEnemies2;
-        }
-
-        for (int i = 0; i < NumberOfEnemies1; i++) {
-            //Debug.Log("Ennemi" + i);
-            Transform randomPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
-
-            var enemy1Instance = Instantiate(enemy1, randomPoint.position, randomPoint.rotation);
-            var instanceNetworkObject1 = enemy1Instance.GetComponent<NetworkObject>();
-            instanceNetworkObject1.Spawn();
-        }
-
-        for (int j = 0; j < NumberOfEnemies2; j++) {
-            //Debug.Log("Nouvel ennemi2");
-            Transform randomPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
-
-            var enemy2Instance = Instantiate(enemy2, randomPoint.position, randomPoint.rotation);
-            var instanceNetworkObject2 = enemy2Instance.GetComponent<NetworkObject>();
-            instanceNetworkObject2.Spawn();
-    }*/
+       
     }
 
     private void OnEnable() {
+
         print("ça marche");
         AudioSource.PlayClipAtPoint(SoundManager.Instance.waveStartSound, transform.position);
+
         timerScript = GameObject.Find("Timer").GetComponent<TimerScript>();
         timerScript.enabled = false;
 
-        //Debug.Log("TimerScript.enabled :" + timerScript.enabled);
-        //Debug.Log("Num wave :" + numWave);
-        //Debug.Log("NUMBER" + NumberOfEnemies1);
-        NumberOfEnemies1 = Wave1Enemies1;
-        //Debug.Log("NUMBER" + NumberOfEnemies1);
-        //Debug.Log(NumberOfEnemies1);
-        //Debug.Log(Wave1Enemies1);
+        //NumberOfEnemies1 = Wave1Enemies1;
+
         if (!isTesting && !NetworkManager.Singleton.IsHost)
             return;
 
@@ -131,6 +78,22 @@ public class SpawnScript : MonoBehaviour {
             Transform randomPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
 
             var enemy1Instance = Instantiate(enemy1, randomPoint.position, randomPoint.rotation);
+
+            // Changement material EN DEV
+
+            /*int randomInt = GetRandom();
+
+            if (randomInt == 1) {
+                ChangeMaterial(enemy1Instance, CouleurEnemySandMan);
+                EditTag(enemy1Instance, CouleurEnemySandMan);
+            }
+            else if (randomInt == 2) {
+                ChangeMaterial(enemy1Instance, CouleurEnemyPet);
+                EditTag(enemy1Instance, CouleurEnemyPet);
+            }*/
+
+            // Spawn
+
             var instanceNetworkObject1 = enemy1Instance.GetComponent<NetworkObject>();
             instanceNetworkObject1.Spawn();
         }
@@ -140,6 +103,10 @@ public class SpawnScript : MonoBehaviour {
             Transform randomPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
 
             var enemy2Instance = Instantiate(enemy2, randomPoint.position, randomPoint.rotation);
+
+
+            // Spawn
+
             var instanceNetworkObject2 = enemy2Instance.GetComponent<NetworkObject>();
             instanceNetworkObject2.Spawn();
         }
@@ -168,5 +135,29 @@ public class SpawnScript : MonoBehaviour {
             // WinLoseHandler.Instance.UpdateGameState(GameState.Won);
         }
     }
-   
+
+    private void ChangeMaterial(GameObject enemy, Material newMaterial) {
+        Renderer enemyRend = enemy.GetComponent<Renderer>();
+        if (enemyRend != null && newMaterial != null){
+            enemyRend.material = newMaterial;
+        }
+        else {
+            Debug.LogWarning("Renderer ou matériau manquant");
+        }
+    }
+
+    private int GetRandom() {
+        int aleatoire = Random.Range(1, 3);
+        return aleatoire;
+
+    }
+
+    private void EditTag(GameObject enemy, Material newMaterial) {
+        if (newMaterial == CouleurEnemySandMan) {
+            enemy.tag = "EnemyForSandMan";
+        }
+        else if (newMaterial == CouleurEnemyPet) {
+            enemy.tag = "EnemyForPet";
+        }
+    }
 }
