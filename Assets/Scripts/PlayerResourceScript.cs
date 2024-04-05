@@ -38,7 +38,7 @@ public class PlayerResourceScript : MonoBehaviour
     {
         Debug.Log("Setting max useable to " + resource);
         useableSlider.maxValue = resource;
-        useableSlider.value = resource / 2;
+        useableSlider.value = resource;
     }
 
     public void SetUseable(int resource)
