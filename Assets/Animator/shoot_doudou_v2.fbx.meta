@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 6c52e7abb1d8b2042b2e3c187eeeded0
+guid: 0d54c40cd0369d14ca359a44dd260e22
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: 34fe55cfd9455b64f8954247646dee21, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -24,7 +19,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Inbetween bone
       rotation in copied configuration does not match rotation in animation file:\n\t'gun_move_jnt'
-      : rotation error = 10.644824 deg\n"
+      : rotation error = 10.644823 deg\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -36,25 +31,38 @@ ModelImporter:
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
-    extraExposedTransformPaths:
-    - mesh
-    - rig
-    - rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_L_jnt
-    - rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_L_jnt/ear1_L_jnt
-    - rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_L_jnt/ear1_L_jnt/ear2_L_jnt
-    - rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_L_jnt/ear1_L_jnt/ear2_L_jnt/ear3_L_jnt
-    - rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_L_jnt/ear1_L_jnt/ear2_L_jnt/ear3_L_jnt/ear4_L_jnt
-    - rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_L_jnt/ear1_L_jnt/ear2_L_jnt/ear3_L_jnt/ear4_L_jnt/ear5_L_jnt
-    - rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_L_jnt/ear1_L_jnt/ear2_L_jnt/ear3_L_jnt/ear4_L_jnt/ear5_L_jnt/earend_L_jnt
-    - rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_R_jnt
-    - rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_R_jnt/ear1_R_jnt
-    - rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_R_jnt/ear1_R_jnt/ear2_R_jnt
-    - rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_R_jnt/ear1_R_jnt/ear2_R_jnt/ear3_R_jnt
-    - rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_R_jnt/ear1_R_jnt/ear2_R_jnt/ear3_R_jnt/ear4_R_jnt
-    - rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_R_jnt/ear1_R_jnt/ear2_R_jnt/ear3_R_jnt/ear4_R_jnt/ear5_R_jnt
-    - rig/jnts_grp/main_jnt/pelvis_L_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt/earbase_R_jnt/ear1_R_jnt/ear2_R_jnt/ear3_R_jnt/ear4_R_jnt/ear5_R_jnt/earend_R_jnt
+    extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: ShootPet
+      takeName: Take 001
+      internalID: 1827226128182048838
+      firstFrame: 0
+      lastFrame: 11
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -78,7 +86,7 @@ ModelImporter:
     bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
-    maxBonesPerVertex: 6
+    maxBonesPerVertex: 4
     minBoneWeight: 0.001
     optimizeBones: 1
     meshOptimizationFlags: -1
@@ -450,7 +458,7 @@ ModelImporter:
     - name: elbow_L_jnt
       parentName: shoulder_L_jnt
       position: {x: -5.410736, y: 0, z: 2.6023627e-14}
-      rotation: {x: -0.52895695, y: -0.020042056, z: 0.020807806, w: 0.84815687}
+      rotation: {x: -0.5289569, y: -0.020042054, z: 0.020807805, w: 0.84815675}
       scale: {x: 1, y: 1, z: 1}
     - name: wrist_L_jnt
       parentName: elbow_L_jnt
@@ -515,7 +523,7 @@ ModelImporter:
     - name: finger_R_jnt
       parentName: handmiddle_R_jnt
       position: {x: 1.5656033, y: 4.5474734e-15, z: -0.000006363946}
-      rotation: {x: 0.01352087, y: 0.0049783266, z: 0.029047245, w: 0.99947417}
+      rotation: {x: 0.01352087, y: 0.004978327, z: 0.029047245, w: 0.9994742}
       scale: {x: 1, y: 1, z: 1}
     - name: fingerend_R_jnt
       parentName: finger_R_jnt
@@ -621,7 +629,7 @@ ModelImporter:
     feetSpacing: 0
     globalScale: 1
     rootMotionBoneName: 
-    hasTranslationDoF: 0
+    hasTranslationDoF: 1
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: b9988acac2b54c145a446386bf0c381f, type: 3}
