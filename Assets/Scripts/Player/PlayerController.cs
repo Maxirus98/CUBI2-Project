@@ -34,7 +34,7 @@ public class PlayerController : NetworkBehaviour
         rb = GetComponent<Rigidbody>();
         inputHandler = GetComponent<InputHandler>();
         playerManager = GetComponent<PlayerManager>();
-        groundDirectionRayDistance = groundDetectionRayStartPoint + 0.07f;
+        groundDirectionRayDistance = groundDetectionRayStartPoint + 0.1f;
         playerAudioSource = GetComponent<AudioSource>();
         playerAnimatorHandler = GetComponentInChildren<PlayerAnimatorHandler>(false);
     }

@@ -49,8 +49,11 @@ public class PlayerStats : NetworkBehaviour
 
     public void UseResource(int spending)
     {
-        CurrentUseable -= spending;
-        PlayerResourceClone.SetUseable(CurrentUseable);
+        if(CurrentUseable > 0)
+        {
+            CurrentUseable -= spending;
+            PlayerResourceClone.SetUseable(CurrentUseable);
+        }
     }
 
     public void GainResource()
@@ -70,7 +73,7 @@ public class PlayerStats : NetworkBehaviour
         currentHealth = maxHealth;
         PlayerResourceClone.SetMaxHealth(maxHealth);
 
-        CurrentUseable = maxUseable / 2;
+        CurrentUseable = maxUseable;
         PlayerResourceClone.SetMaxUseable(maxUseable);
     }
 

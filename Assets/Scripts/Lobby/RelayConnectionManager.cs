@@ -9,12 +9,19 @@ using Unity.Services.Core;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RelayConnectionManager : Singleton<RelayConnectionManager>
 {
+    public Button resetCodeButton;
     [SerializeField] private TextMeshProUGUI joinCodeTmp;
     [SerializeField] private TMP_InputField joinInputTmp;
     private const int MaxConnections = 2;
+
+    void Start()
+    {
+        resetCodeButton.onClick.AddListener(() => resetCode());
+    }
 
     protected override async void Awake()
     {
@@ -48,7 +55,7 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
                 Debug.Log($"Signed in {AuthenticationService.Instance.PlayerId}");
             };
 
-            // On évite de créer des comptes. Pour ce prototype, on s'authentifie au serveur anonymement
+            // On ï¿½vite de crï¿½er des comptes. Pour ce prototype, on s'authentifie au serveur anonymement
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
         } catch (AuthenticationException e)
         {
@@ -64,12 +71,12 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
             var allocationDetails = await RelayService.Instance.CreateAllocationAsync(MaxConnections);
             joinCodeTmp.text = await RelayService.Instance.GetJoinCodeAsync(allocationDetails.AllocationId);
             
-            // Applique les détails de la connexion au UnityTransport
+            // Applique les dï¿½tails de la connexion au UnityTransport
             var relayServerData = new RelayServerData(allocationDetails, "dtls");
             transport.SetRelayServerData(relayServerData);
 
 
-            // Débute la connexion du host
+            // Dï¿½bute la connexion du host
             Debug.Log("Create game and start host");
             NetworkManager.Singleton.StartHost();
 
@@ -92,11 +99,11 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
             JoinAllocation clientAllocationDetails = 
                 await RelayService.Instance.JoinAllocationAsync(joinInputTmp.text);
 
-            // Applique les détails de la connexion du client au UnityTransport
+            // Applique les dï¿½tails de la connexion du client au UnityTransport
             var relayServerData = new RelayServerData(clientAllocationDetails, "dtls");
             transport.SetRelayServerData(relayServerData);
 
-            // Débute la connexion du client
+            // Dï¿½bute la connexion du client
             NetworkManager.Singleton.StartClient();
             DisablePasswordUi();
         }
@@ -121,5 +128,12 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
     public void DisablePasswordUi()
     {
         transform.GetChild(0).gameObject.SetActive(false);
+    }
+
+    public void resetCode() 
+    {
+        //disable and reset code
+        joinCodeTmp.text = null;
+        DisablePasswordUi();
     }
 }
