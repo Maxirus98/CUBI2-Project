@@ -9,25 +9,39 @@ using Unity.Services.Core;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class RelayConnectionManager : Singleton<RelayConnectionManager>
 {
-    public Button resetCodeButton;
+    private static RelayConnectionManager _instance;
+    public static RelayConnectionManager Instance { get { return _instance; } }
+    private NetworkManager _networkManagerInstance;
     [SerializeField] private TextMeshProUGUI joinCodeTmp;
     [SerializeField] private TMP_InputField joinInputTmp;
     private const int MaxConnections = 2;
 
     void Start()
     {
-        resetCodeButton.onClick.AddListener(() => resetCode());
+        DisablePasswordUi();
     }
 
     protected override async void Awake()
     {
+        // if (_instance != null && _instance != this)
+        // {
+        //     RelayConnectionManager[] existingInstances = FindObjectsOfType<RelayConnectionManager>();
+        //     foreach (RelayConnectionManager instance in existingInstances)
+        //     {
+        //         if (instance != this)
+        //         {
+        //             Destroy(instance.gameObject);
+        //         }
+        //     }
+        // return;
+        // }
+        // _instance = this;
+        DontDestroyOnLoad(this);
         base.Awake();
         await Authenticate();
-        DontDestroyOnLoad(this);
         NetworkManager.Singleton.OnClientDisconnectCallback += Singleton_OnClientDisconnectCallback;
     }
 
@@ -130,10 +144,4 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
         transform.GetChild(0).gameObject.SetActive(false);
     }
 
-    public void resetCode() 
-    {
-        //disable and reset code
-        joinCodeTmp.text = null;
-        DisablePasswordUi();
-    }
 }

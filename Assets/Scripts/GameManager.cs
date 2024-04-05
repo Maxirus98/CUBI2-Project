@@ -58,11 +58,12 @@ public class GameManager : Singleton<GameManager>
             transform.GetChild(i).gameObject.SetActive(false);
         }
         
-        if (CurrentLevelName.Equals(levelName))
-        {
-            Debug.Log($"On ne peut pas charger la même scène 2 fois: {levelName}");
-            return;
-        }
+        // Was causing issues
+        // if (CurrentLevelName.Equals(levelName))
+        // {
+        //     Debug.Log($"On ne peut pas charger la même scène 2 fois: {levelName}");
+        //     return;
+        // }
 
         CurrentLevelName = levelName;
         AsyncOperation loadSceneAsync = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Single);
