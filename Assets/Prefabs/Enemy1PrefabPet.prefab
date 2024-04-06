@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2926982675300637957}
   - component: {fileID: 3264778380789892943}
   m_Layer: 0
-  m_Name: Enemy1Prefab
+  m_Name: Enemy1PrefabPet
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

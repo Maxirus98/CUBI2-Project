@@ -7,7 +7,9 @@ public class SpawnScript : MonoBehaviour {
     public bool isTesting = false;
 
     [SerializeField]
-    public GameObject enemy1;
+    public GameObject enemy1Normal;
+    public GameObject enemy1SandMan;
+    public GameObject enemy1Pet;
     public GameObject enemy2;
 
     [SerializeField]
@@ -17,11 +19,22 @@ public class SpawnScript : MonoBehaviour {
 
     [Header("Nombre d'ennemis")]
     [SerializeField]
-    public int Wave1Enemies1;
+    public int Wave1Enemies1Normal;
+    public int Wave1Enemies1SandMan;
+    public int Wave1Enemies1Pet;
+
     public int Wave1Enemies2;
-    public int Wave2Enemies1;
+
+    public int Wave2Enemies1Normal;
+    public int Wave2Enemies1SandMan;
+    public int Wave2Enemies1Pet;
+
     public int Wave2Enemies2;
-    public int Wave3Enemies1;
+
+    public int Wave3Enemies1Normal;
+    public int Wave3Enemies1SandMan;
+    public int Wave3Enemies1Pet;
+
     public int Wave3Enemies2;
 
     [Header("Couleurs des ennemis")]
@@ -30,8 +43,8 @@ public class SpawnScript : MonoBehaviour {
 
     [Header("Ne pas changer")]
     public int totalEnemies;
-    private int NumberOfEnemies1;
-    private int NumberOfEnemies2;
+    private int NumberOfEnemies1, NumberOfEnemies2, NumberOfEnemies1Normal, NumberOfEnemies1SandMan, NumberOfEnemies1Pet;
+
 
     private TimerScript timerScript;
 
@@ -47,7 +60,7 @@ public class SpawnScript : MonoBehaviour {
         timerScript = GameObject.Find("Timer").GetComponent<TimerScript>();
         timerScript.enabled = false;
 
-        NumberOfEnemies1 = Wave1Enemies1;
+        NumberOfEnemies1 = Wave1Enemies1Normal + Wave1Enemies1SandMan + Wave1Enemies1Pet;
 
         if (!isTesting && !NetworkManager.Singleton.IsHost)
             return;
@@ -58,26 +71,38 @@ public class SpawnScript : MonoBehaviour {
             spawnPoint[i] = transform.GetChild(i);
         }
         if (numWave == 1) {
-            NumberOfEnemies1 = Wave1Enemies1;
+            NumberOfEnemies1Normal = Wave1Enemies1Normal;
+            NumberOfEnemies1SandMan = Wave1Enemies1SandMan;
+            NumberOfEnemies1Pet = Wave1Enemies1Pet;
+
+            NumberOfEnemies1 = Wave1Enemies1Normal + Wave1Enemies1SandMan + Wave1Enemies1Pet;
             NumberOfEnemies2 = Wave1Enemies2;
             totalEnemies = NumberOfEnemies1 + NumberOfEnemies2;
         }
         else if (numWave == 2) {
-            NumberOfEnemies1 = Wave2Enemies1;
+            NumberOfEnemies1Normal = Wave2Enemies1Normal;
+            NumberOfEnemies1SandMan = Wave2Enemies1SandMan;
+            NumberOfEnemies1Pet = Wave2Enemies1Pet;
+
+            NumberOfEnemies1 = Wave2Enemies1Normal + Wave2Enemies1SandMan + Wave2Enemies1Pet;
             NumberOfEnemies2 = Wave2Enemies2;
             totalEnemies = NumberOfEnemies1 + NumberOfEnemies2;
         }
         else if (numWave == 3) {
-            NumberOfEnemies1 = Wave3Enemies1;
+            NumberOfEnemies1Normal = Wave3Enemies1Normal;
+            NumberOfEnemies1SandMan = Wave3Enemies1SandMan;
+            NumberOfEnemies1Pet = Wave3Enemies1Pet;
+
+            NumberOfEnemies1 = Wave3Enemies1Normal + Wave3Enemies1SandMan + Wave3Enemies1Pet;
             NumberOfEnemies2 = Wave3Enemies2;
             totalEnemies = NumberOfEnemies1 + NumberOfEnemies2;
         }
 
-        for (int i = 0; i < NumberOfEnemies1; i++) {
+        for (int i = 0; i < NumberOfEnemies1Normal; i++) {
             //Debug.Log("Ennemi" + i);
             Transform randomPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
 
-            var enemy1Instance = Instantiate(enemy1, randomPoint.position, randomPoint.rotation);
+            var enemy1NormalInstance = Instantiate(enemy1Normal, randomPoint.position, randomPoint.rotation);
 
             // Changement material EN DEV
 
@@ -94,11 +119,29 @@ public class SpawnScript : MonoBehaviour {
 
             // Spawn
 
-            var instanceNetworkObject1 = enemy1Instance.GetComponent<NetworkObject>();
+            var instanceNetworkObject1 = enemy1NormalInstance.GetComponent<NetworkObject>();
             instanceNetworkObject1.Spawn();
         }
 
-        for (int j = 0; j < NumberOfEnemies2; j++) {
+        for (int j = 0; j < NumberOfEnemies1SandMan; j++) {
+            Transform randomPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
+
+            var enemy1SandManInstance = Instantiate(enemy1SandMan, randomPoint.position, randomPoint.rotation);
+
+            var instanceNetworkObject2 = enemy1SandManInstance.GetComponent<NetworkObject>();
+            instanceNetworkObject2.Spawn();
+        }
+
+        for (int k = 0; k < NumberOfEnemies1Pet; k++) {
+            Transform randomPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
+
+            var enemy1PetInstance = Instantiate(enemy1Pet, randomPoint.position, randomPoint.rotation);
+
+            var instanceNetworkObject2 = enemy1PetInstance.GetComponent<NetworkObject>();
+            instanceNetworkObject2.Spawn();
+        }
+
+        for (int l = 0; l < NumberOfEnemies2; l++) {
             //Debug.Log("Nouvel ennemi2");
             Transform randomPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
 
@@ -118,12 +161,12 @@ public class SpawnScript : MonoBehaviour {
             Debug.Log("Plus d'ennemis");
             if (numWave == 1) {
                 numWave = 2;
-                totalEnemies = Wave2Enemies1 + Wave2Enemies2;
-                //GameManager.Instance.GetComponent<AudioSource>().PlayOneShot(SoundManager.Instance.waveEndSound);
+                //totalEnemies = Wave2Enemies1 + Wave2Enemies2;
+                GameManager.Instance.GetComponent<AudioSource>().PlayOneShot(SoundManager.Instance.waveEndSound);
             }
             else if (numWave == 2) {
                 numWave = 3;
-                totalEnemies = Wave3Enemies1 + Wave3Enemies2;
+                //totalEnemies = Wave3Enemies1 + Wave3Enemies2;
                 GameManager.Instance.GetComponent<AudioSource>().PlayOneShot(SoundManager.Instance.waveEndSound);
             }
             else if (numWave == 3) {
