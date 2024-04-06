@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.AI;
@@ -8,7 +9,7 @@ public class Enemy2Management : MonoBehaviour {
     public NavMeshAgent agent;
     public Transform sandMan;
     public Transform pet;
-    //public Transform tower;
+
     public Transform closestPlayer;
     public GameObject[] players;
 
@@ -26,11 +27,13 @@ public class Enemy2Management : MonoBehaviour {
 
     [SerializeField]
     float rangeVue, rangeAttack, rangeTowerAttack;
-    bool playerInRange, playerInAttackRange;
-    //towerInAttackRange;
+    bool playerInRange, playerInAttackRange, towerInAttackRange;
+
 
     private bool isAttackCharging;
     private float chargeTimer = 0f;
+
+    public List<Transform> towers = new List<Transform>();
 
     private void Awake() {
         agent = GetComponent<NavMeshAgent>();
@@ -38,6 +41,7 @@ public class Enemy2Management : MonoBehaviour {
 
         sandMan = GameObject.Find("SandmanModel").transform;
         pet = GameObject.Find("PetModel").transform;
+        //var towers =  FindObjectsOfType(Turret);
         //tower = GameObject.Find("Tower").transform;
 
 
@@ -81,13 +85,28 @@ public class Enemy2Management : MonoBehaviour {
             //Debug.Log("Attacking");
             AttackPlayer(closestPlayer);
         }
-        // EN DEV
-        /*if (towerInAttackRange) {
-            AttackTower(tower);
+        //EN DEV
+        if (towerInAttackRange) {
+            Transform targetTower = towers[0];
+            AttackTower(targetTower);
             //AttackTower(getClosestTower());
-        }*/
+        }
 
     }
+
+    void OnTriggerEnter(Collider col) {
+        if (col.tag == "Tower") {
+            towers.Add(col.transform);
+            towerInAttackRange = true;
+        }
+    }
+
+    void OnTriggerExit(Collider col) {
+        if (col.tag == "Enemy") {
+            towers.Remove(col.transform);
+        }
+    }
+
     void ToKid() {
         agent.SetDestination(destination);
     }
@@ -96,7 +115,7 @@ public class Enemy2Management : MonoBehaviour {
         agent.SetDestination(player.position);
     }
     void AttackPlayer(Transform player) {
-        agent.SetDestination(player.position); // Attaque corps ? corps
+        agent.SetDestination(player.position); // Attaque corps à corps
         transform.LookAt(player);
 
     }

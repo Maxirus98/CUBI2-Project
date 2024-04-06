@@ -92,6 +92,9 @@ public class Enemy1Management : MonoBehaviour {
 
         anim.SetBool("Attacking", playerInRange);
     }
+
+
+
     void ToKid() {
         agent.SetDestination(destination);
     }

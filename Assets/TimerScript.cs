@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TimerScript : MonoBehaviour
 {
-    private float TimeRemaining = 30;
+    private float TimeRemaining = 5;
 
     
     [SerializeField] private TextMeshProUGUI text;
@@ -22,7 +22,7 @@ public class TimerScript : MonoBehaviour
 
     private void OnEnable() {
         print("Start timerscript");
-        TimeRemaining = 30;
+        TimeRemaining = 5;
         spawnScript = GameObject.Find("Spawner").GetComponent<SpawnScript>();
         spawnScript.enabled = false;
         text.transform.gameObject.SetActive(true);
