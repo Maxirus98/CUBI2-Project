@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using TMPro;
 using Unity.Netcode;
@@ -12,9 +11,6 @@ using UnityEngine;
 
 public class RelayConnectionManager : Singleton<RelayConnectionManager>
 {
-    private static RelayConnectionManager _instance;
-    public static RelayConnectionManager Instance { get { return _instance; } }
-    private NetworkManager _networkManagerInstance;
     [SerializeField] private TextMeshProUGUI joinCodeTmp;
     [SerializeField] private TMP_InputField joinInputTmp;
     private const int MaxConnections = 2;
@@ -113,7 +109,7 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
             JoinAllocation clientAllocationDetails = 
                 await RelayService.Instance.JoinAllocationAsync(joinInputTmp.text);
 
-            // Applique les d�tails de la connexion du client au UnityTransport
+            // Applique les details de la connexion du client au UnityTransport
             var relayServerData = new RelayServerData(clientAllocationDetails, "dtls");
             transport.SetRelayServerData(relayServerData);
 
@@ -131,7 +127,10 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
     {
         GameManager.Instance.LoadLevelAsync(NetworkLoader.Scene.MainMenu.ToString());
         Destroy(GameManager.Instance.gameObject);
-        if(!hostDisconnected)
+        Destroy(SoundManager.Instance.gameObject);
+        Destroy(NetworkManager.Singleton.gameObject);
+
+        if (!hostDisconnected)
         {
             NetworkManager.Singleton.Shutdown();
         }

@@ -39,6 +39,7 @@ public class GameManager : Singleton<GameManager>
     {
         gameMenu.SetActive(!gameMenu.activeInHierarchy);
     }
+
     public void ReturnToMainMenu()
     {
         RelayConnectionManager.Instance.DisconnectFromServer();
@@ -79,6 +80,8 @@ public class GameManager : Singleton<GameManager>
 
     private void OnLoadSceneComplete(AsyncOperation ao)
     {
+
+        // Debug.Log("Scene : " + CurrentLevelName);
         if (loadOperations.Contains(ao))
         {
             loadOperations.Remove(ao);
