@@ -1,5 +1,4 @@
 using TMPro;
-using Unity.Tutorials.Core.Editor;
 using UnityEngine;
 
 public class TimerScript : MonoBehaviour
