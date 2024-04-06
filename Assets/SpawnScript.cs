@@ -47,7 +47,7 @@ public class SpawnScript : MonoBehaviour {
         timerScript = GameObject.Find("Timer").GetComponent<TimerScript>();
         timerScript.enabled = false;
 
-        //NumberOfEnemies1 = Wave1Enemies1;
+        NumberOfEnemies1 = Wave1Enemies1;
 
         if (!isTesting && !NetworkManager.Singleton.IsHost)
             return;
@@ -119,14 +119,17 @@ public class SpawnScript : MonoBehaviour {
             if (numWave == 1) {
                 numWave = 2;
                 totalEnemies = Wave2Enemies1 + Wave2Enemies2;
-                GameManager.Instance.GetComponent<AudioSource>().PlayOneShot(SoundManager.Instance.waveEndSound);
+                //GameManager.Instance.GetComponent<AudioSource>().PlayOneShot(SoundManager.Instance.waveEndSound);
             }
             else if (numWave == 2) {
                 numWave = 3;
                 totalEnemies = Wave3Enemies1 + Wave3Enemies2;
                 GameManager.Instance.GetComponent<AudioSource>().PlayOneShot(SoundManager.Instance.waveEndSound);
             }
-
+            else if (numWave == 3) {
+                WinLoseHandler.Instance.UpdateGameState(GameState.Won);
+            }
+            
             Debug.Log(timerScript.enabled);
             timerScript.enabled = true;
             Debug.Log(timerScript.enabled);

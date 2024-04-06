@@ -96,7 +96,7 @@ public class Enemy2Management : MonoBehaviour {
         agent.SetDestination(player.position);
     }
     void AttackPlayer(Transform player) {
-        agent.SetDestination(player.position); // Attaque corps ? corps
+        agent.SetDestination(player.position); // Attaque corps à corps
         transform.LookAt(player);
 
     }
