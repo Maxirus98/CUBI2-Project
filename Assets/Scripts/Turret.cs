@@ -37,6 +37,7 @@ public class Turret : NetworkBehaviour
 
     private int maxHp;
 
+
     void Start()
     {
         sandmanSyncSlider = GameObject.Find("InteractionUI").transform.Find("SandmanSyncSlider").GetComponent<Slider>();
@@ -177,7 +178,7 @@ public class Turret : NetworkBehaviour
     /// pour que tous les joueurs puissent le voir
     /// </summary>
     [ServerRpc(RequireOwnership = false)]
-    private void BuildServerRpc()
+    public void BuildServerRpc()
     {
         if (IsServer)
         {
@@ -252,5 +253,15 @@ public class Turret : NetworkBehaviour
                 isBuilt = false;
             }
         }
+    }
+    [ServerRpc()]
+    public void DestroyTowerServerRpc() {
+        // Méthode pour détruire les tours sur le serveur
+        DestroyTowerClientRpc();
+    }
+
+    [ClientRpc()]
+    public void DestroyTowerClientRpc() {
+        // Méthode pour détruire les tours sur le serveur
     }
 }

@@ -1,7 +1,11 @@
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
+using static GameData;
+using static PauseMenu;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -14,6 +18,9 @@ public class GameManager : Singleton<GameManager>
     private GameObject gameMenu;
     private List<AsyncOperation> loadOperations = new List<AsyncOperation>();
     private List<GameObject> instanceSystemPrefabsKept = new List<GameObject>();
+
+
+    public GameData gameData;
 
     void Start()
     {
@@ -78,12 +85,6 @@ public class GameManager : Singleton<GameManager>
 
     private void OnLoadSceneComplete(AsyncOperation ao)
     {
-        Debug.Log($"current level name: {CurrentLevelName}");
-        if (CurrentLevelName.Equals("level_scene"))
-        {
-            PauseMenu pauseMenu = new PauseMenu();
-            pauseMenu.LoadGame();
-        }
         if (loadOperations.Contains(ao))
         {
             loadOperations.Remove(ao);
@@ -106,6 +107,36 @@ public class GameManager : Singleton<GameManager>
             var clonePrefab = Instantiate(go);
             instanceSystemPrefabsKept.Add(clonePrefab);
             DontDestroyOnLoad(clonePrefab);
+        }
+    }
+
+    // lorsque le joueur revient au jeu
+    public void LoadGame() {
+        string path = Application.persistentDataPath + "/turrets.json";
+        if (File.Exists(path)) {
+            string json = File.ReadAllText(path);
+            TurretDataList loadedData = JsonUtility.FromJson<TurretDataList>(json);
+            Debug.Log("Loaded data: " + json);
+
+            ApplyLoadedData(loadedData.turrets);
+        }
+        Debug.Log("loading game...");
+    }
+
+    public void ApplyLoadedData(List<TurretData> loadedTurrets) {
+        var towersParent = GameObject.Find("Tower").transform;
+        foreach (var turretData in loadedTurrets) {
+            Transform towerTransform = towersParent.Find(turretData.towerIndex);
+            if (towerTransform != null) {
+                Turret turretComponent = towerTransform.GetComponent<Turret>();
+                if (turretComponent != null) {
+                    turretComponent.isBuilt = turretData.isBuilt;
+                    if (turretComponent.isBuilt) {
+                        turretComponent.DestroyTowerServerRpc();
+                    }
+                }
+            }
+
         }
     }
 }
