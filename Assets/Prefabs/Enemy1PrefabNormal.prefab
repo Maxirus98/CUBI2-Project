@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3940390249
+  GlobalObjectIdHash: 3357285855
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 5579261789264048973}
   sandMan: {fileID: -8679921383154817045, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
-  pet: {fileID: 1483556686349895631, guid: 6fb3f594596e57647b3928832f688f67, type: 3}
+  pet: {fileID: -8679921383154817045, guid: 6c52e7abb1d8b2042b2e3c187eeeded0, type: 3}
   closestPlayer: {fileID: 0}
   players: []
   distAgentSandman: 0
