@@ -21,13 +21,14 @@ public class PlayerStats : NetworkBehaviour
     private int maxUseable = 20;
     private PlayerManager playerManager;
     private PlayerAnimatorHandler playerAnimatorHandler;
-
+    private Rigidbody rb;
 
     void Start()
     {
         InitializePlayerResource();
         playerManager = GetComponent<PlayerManager>();
         playerAnimatorHandler = GetComponentInChildren<PlayerAnimatorHandler>();
+        rb = GetComponent<Rigidbody>();
     }
 
     public void OnCollisionEnter(Collision collision)

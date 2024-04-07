@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1803128491563179311
 Transform:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1360443522
+  GlobalObjectIdHash: 1602945624
   InScenePlacedSourceGlobalObjectIdHash: 954975189
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -222,7 +222,7 @@ PrefabInstance:
     - target: {fileID: -2516557814110317798, guid: dd4f6dc7acbda1a4c9779495a208f07f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: -2798969365954337254, guid: 7d42958bd520bc742a4a5802ed1ba660, type: 3}
+      objectReference: {fileID: 2100000, guid: 33afecb11aebde04ea1e6bec5dd36eb5, type: 2}
     - target: {fileID: -1926865509576843174, guid: dd4f6dc7acbda1a4c9779495a208f07f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

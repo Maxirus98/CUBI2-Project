@@ -107,6 +107,10 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8789106961832929578, guid: 6c52e7abb1d8b2042b2e3c187eeeded0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3ff78ad86b0c83e43b887640ef53ef23, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -195,7 +199,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad8deae8091111f4eb30a56c1f4e0d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TransitionStateInfoList: []
+  TransitionStateInfoList:
+  - IsCrossFadeExit: 0
+    Layer: 1
+    OriginatingState: -1459219776
+    DestinationState: 31985442
+    TransitionDuration: 0.25
+    TriggerNameHash: 1654612129
+    TransitionIndex: 0
   m_Animator: {fileID: 1180872917830172645}
 --- !u!95 &1180872917830172645
 Animator:
