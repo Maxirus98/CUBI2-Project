@@ -3,7 +3,13 @@ guid: 3da240ad98b55df42b3956c94119ae42
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - enemy1Normal: {fileID: 2894268811013546652, guid: 14b607820298a5e4aae24fb783245a34, type: 3}
+  - enemy1SandMan: {fileID: 2894268811013546652, guid: 440592bd936bf7f4a9ab01a66cd2edd7, type: 3}
+  - enemy1Pet: {fileID: 2894268811013546652, guid: 7a10c06aeef9f724c894f333af530f59, type: 3}
+  - enemy2: {fileID: 8594151093727181347, guid: 83c540adbdb12814d90f290a5a2b6f7e, type: 3}
+  - CouleurEnemySandMan: {fileID: 2100000, guid: 13b0cef27e276024b8b326bbda00ebd6, type: 2}
+  - CouleurEnemyPet: {fileID: 2100000, guid: 76957f4354453b04fb2dd8ee5e96bed9, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

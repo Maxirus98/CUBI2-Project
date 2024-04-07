@@ -169,9 +169,9 @@ public class SpawnScript : MonoBehaviour {
                 //totalEnemies = Wave3Enemies1 + Wave3Enemies2;
                 GameManager.Instance.GetComponent<AudioSource>().PlayOneShot(SoundManager.Instance.waveEndSound);
             }
-            else if (numWave == 3) {
+            /*else if (numWave == 3) {
                 WinLoseHandler.Instance.UpdateGameState(GameState.Won);
-            }
+            }*/
             
             Debug.Log(timerScript.enabled);
             timerScript.enabled = true;

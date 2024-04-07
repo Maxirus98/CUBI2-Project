@@ -1,7 +1,11 @@
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
+using static GameData;
+using static PauseMenu;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -14,6 +18,9 @@ public class GameManager : Singleton<GameManager>
     private GameObject gameMenu;
     private List<AsyncOperation> loadOperations = new List<AsyncOperation>();
     private List<GameObject> instanceSystemPrefabsKept = new List<GameObject>();
+
+
+    public GameData gameData;
 
     void Start()
     {
@@ -59,12 +66,11 @@ public class GameManager : Singleton<GameManager>
             transform.GetChild(i).gameObject.SetActive(false);
         }
         
-        // Was causing issues
-        // if (CurrentLevelName.Equals(levelName))
-        // {
-        //     Debug.Log($"On ne peut pas charger la même scène 2 fois: {levelName}");
-        //     return;
-        // }
+        if (CurrentLevelName.Equals(levelName))
+        {
+            Debug.Log($"On ne peut pas charger la même scène 2 fois: {levelName}");
+            return;
+        }
 
         CurrentLevelName = levelName;
         AsyncOperation loadSceneAsync = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Single);
@@ -104,6 +110,36 @@ public class GameManager : Singleton<GameManager>
             var clonePrefab = Instantiate(go);
             instanceSystemPrefabsKept.Add(clonePrefab);
             DontDestroyOnLoad(clonePrefab);
+        }
+    }
+
+    // lorsque le joueur revient au jeu
+    public void LoadGame() {
+        string path = Application.persistentDataPath + "/turrets.json";
+        if (File.Exists(path)) {
+            string json = File.ReadAllText(path);
+            TurretDataList loadedData = JsonUtility.FromJson<TurretDataList>(json);
+            Debug.Log("Loaded data: " + json);
+
+            ApplyLoadedData(loadedData.turrets);
+        }
+        Debug.Log("loading game...");
+    }
+
+    public void ApplyLoadedData(List<TurretData> loadedTurrets) {
+        var towersParent = GameObject.Find("Tower").transform;
+        foreach (var turretData in loadedTurrets) {
+            Transform towerTransform = towersParent.Find(turretData.towerIndex);
+            if (towerTransform != null) {
+                Turret turretComponent = towerTransform.GetComponent<Turret>();
+                if (turretComponent != null) {
+                    turretComponent.isBuilt = turretData.isBuilt;
+                    if (turretComponent.isBuilt) {
+                        turretComponent.DestroyTowerServerRpc();
+                    }
+                }
+            }
+
         }
     }
 }

@@ -76,18 +76,5 @@ public class PauseMenu : MonoBehaviour
         public List<GameData.TurretData> turrets = new List<GameData.TurretData>();
     }
 
-    // lorsque le joueur revient au jeu
-    public void LoadGame()
-    {
-        string path = Application.persistentDataPath + "/turrets.json";
-        if (File.Exists(path))
-        {
-            string json = File.ReadAllText(path);
-            TurretDataList loadedData = JsonUtility.FromJson<TurretDataList>(json);
-            Debug.Log("Loaded data: " + json);
 
-            gameData.ApplyLoadedData(loadedData.turrets);
-        }
-        Debug.Log("loading game...");
-    }
 }
