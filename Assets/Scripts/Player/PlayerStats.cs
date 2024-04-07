@@ -20,12 +20,14 @@ public class PlayerStats : NetworkBehaviour
 
     private int maxUseable = 20;
     private PlayerManager playerManager;
+    private PlayerAnimatorHandler playerAnimatorHandler;
 
 
     void Start()
     {
         InitializePlayerResource();
         playerManager = GetComponent<PlayerManager>();
+        playerAnimatorHandler = GetComponentInChildren<PlayerAnimatorHandler>();
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -44,6 +46,7 @@ public class PlayerStats : NetworkBehaviour
             Debug.Log($"triggered with {other.gameObject.name}");
             TakeDamage(1);
             AudioSource.PlayClipAtPoint(SoundManager.Instance.attackEnemy1Fx, transform.position);
+            playerAnimatorHandler.Hit();
         }
     }
 

@@ -33,6 +33,11 @@ public class PlayerAnimatorHandler : MonoBehaviour
         Anim.SetBool("isAttacking", true);
     }
 
+    public void Hit()
+    {
+        Anim.SetTrigger("Hit");
+    }
+
     public bool IsShooting()
     {
         return Anim.GetBool("isAttacking");
