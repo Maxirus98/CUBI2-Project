@@ -8,11 +8,13 @@ public class EnemyStats : NetworkBehaviour
     private int currentHealth;
 
     private SpawnScript spawnScript;
+    private Animator anim;
 
     private void Start()
     {
         currentHealth = maxHealth;
         spawnScript = GameObject.Find("Spawner").GetComponent<SpawnScript>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -22,6 +24,7 @@ public class EnemyStats : NetworkBehaviour
             Debug.Log("Triggered Projectile");
             AudioSource.PlayClipAtPoint(SoundManager.Instance.enemyHitFx, transform.position);
             TakeDamage(1);
+            anim.SetTrigger("Hit");
         }
 
         if (other.CompareTag("Door"))

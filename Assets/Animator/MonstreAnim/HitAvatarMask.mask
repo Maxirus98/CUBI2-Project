@@ -1,0 +1,243 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: HitAvatarMask
+  m_Mask: 00000000010000000000000000000000000000000000000000000000000000000000000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: ctrl
+    m_Weight: 0
+  - m_Path: ctrl/foot_L_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/foot_L_ctrl/locAlign_ankle_L_jnt
+    m_Weight: 0
+  - m_Path: ctrl/foot_L_ctrl/locAlign_ankle_L_jnt/foot_L_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/foot_L_ctrl/locAlign_ankle_L_jnt/foot_L_ctrl/locAlign_toe_L_jnt
+    m_Weight: 0
+  - m_Path: ctrl/foot_L_ctrl/locAlign_ankle_L_jnt/foot_L_ctrl/locAlign_toe_L_jnt/toe_L_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/foot_R_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/foot_R_ctrl/locAlign_ankle_R_jnt
+    m_Weight: 0
+  - m_Path: ctrl/foot_R_ctrl/locAlign_ankle_R_jnt/foot_R_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/foot_R_ctrl/locAlign_ankle_R_jnt/foot_R_ctrl/locAlign_toe_R_jnt
+    m_Weight: 0
+  - m_Path: ctrl/foot_R_ctrl/locAlign_ankle_R_jnt/foot_R_ctrl/locAlign_toe_R_jnt/toe_R_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_pelvis_inverse_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_pelvis_inverse_jnt/hips_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl
+    m_Weight: 1
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_fingers1_L_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_fingers1_L_jnt/fingers1_L_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_fingers1_L_jnt/fingers1_L_ctrl/locAlign_fingers2_L_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_fingers1_L_jnt/fingers1_L_ctrl/locAlign_fingers2_L_jnt/fingers2_L_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_index1_L_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_index1_L_jnt/index1_L_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_index1_L_jnt/index1_L_ctrl/locAlign_index2_L_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_index1_L_jnt/index1_L_ctrl/locAlign_index2_L_jnt/index2_L_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_thumb1_L_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_thumb1_L_jnt/thumb1_L_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_thumb1_L_jnt/thumb1_L_ctrl/locAlign_thumb2_L_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_L_ctrl/locAlign_clavicule_L_jnt/clavicule_L_ctrl/locAlign_shoulder_L_jnt/shoulder_L_ctrl/locAlign_elbow_L_jnt/elbow_L_ctrl/locAlign_wrist_L_jnt/wrist_L_ctrl/locAlign_thumb1_L_jnt/thumb1_L_ctrl/locAlign_thumb2_L_jnt/thumb2_L_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_fingers1_R_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_fingers1_R_jnt/fingers1_R_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_fingers1_R_jnt/fingers1_R_ctrl/locAlign_fingers2_R_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_fingers1_R_jnt/fingers1_R_ctrl/locAlign_fingers2_R_jnt/fingers2_R_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_index1_R_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_index1_R_jnt/index1_R_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_index1_R_jnt/index1_R_ctrl/locAlign_index2_R_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_index1_R_jnt/index1_R_ctrl/locAlign_index2_R_jnt/index2_R_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_thumb1_R_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_thumb1_R_jnt/thumb1_R_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_thumb1_R_jnt/thumb1_R_ctrl/locAlign_thumb2_R_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/arm_R_ctrl/locAlign_clavicule_R_jnt/clavicule_R_ctrl/locAlign_shoulder_R_jnt/shoulder_R_ctrl/locAlign_elbow_R_jnt/elbow_R_ctrl/locAlign_wrist_R_jnt/wrist_R_ctrl/locAlign_thumb1_R_jnt/thumb1_R_ctrl/locAlign_thumb2_R_jnt/thumb2_R_ctrl
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/locAlign_neck_jnt
+    m_Weight: 0
+  - m_Path: ctrl/locAlign_pelvis_jnt/pelvis_ctrl/locAlign_spine1_jnt/spine1_ctrl/locAlign_spine2_jnt/spine2_ctrl/locAlign_spine3_jnt/spine3_ctrl/locAlign_spine4_jnt/spine4_ctrl/locAlign_neck_jnt/neck_ctrl
+    m_Weight: 0
+  - m_Path: mesh
+    m_Weight: 0
+  - m_Path: mesh/body1
+    m_Weight: 0
+  - m_Path: mesh/hornL
+    m_Weight: 0
+  - m_Path: mesh/hornR
+    m_Weight: 0
+  - m_Path: pelvis_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/pelvis_inverse_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/pelvis_inverse_jnt/hip_L_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/pelvis_inverse_jnt/hip_L_jnt/knee_L_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/pelvis_inverse_jnt/hip_L_jnt/knee_L_jnt/ankle_L_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/pelvis_inverse_jnt/hip_L_jnt/knee_L_jnt/ankle_L_jnt/toe_L_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/pelvis_inverse_jnt/hip_L_jnt/knee_L_jnt/ankle_L_jnt/toe_L_jnt/toe_end_L_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/pelvis_inverse_jnt/hip_R_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/pelvis_inverse_jnt/hip_R_jnt/knee_R_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/pelvis_inverse_jnt/hip_R_jnt/knee_R_jnt/ankle_R_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/pelvis_inverse_jnt/hip_R_jnt/knee_R_jnt/ankle_R_jnt/toe_R_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/pelvis_inverse_jnt/hip_R_jnt/knee_R_jnt/ankle_R_jnt/toe_R_jnt/toe_end_R_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/fingers1_L_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/fingers1_L_jnt/fingers2_L_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/fingers1_L_jnt/fingers2_L_jnt/fingers_end_L_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/index1_L_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/index1_L_jnt/index2_L_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/index1_L_jnt/index2_L_jnt/index_end_L_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/thumb1_L_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/thumb1_L_jnt/thumb2_L_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_L_jnt/shoulder_L_jnt/elbow_L_jnt/wrist_L_jnt/thumb1_L_jnt/thumb2_L_jnt/thumb_end_L_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/fingers1_R_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/fingers1_R_jnt/fingers2_R_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/fingers1_R_jnt/fingers2_R_jnt/fingers_end_R_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/index1_R_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/index1_R_jnt/index2_R_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/index1_R_jnt/index2_R_jnt/index_end_R_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/thumb1_R_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/thumb1_R_jnt/thumb2_R_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/clavicule_R_jnt/shoulder_R_jnt/elbow_R_jnt/wrist_R_jnt/thumb1_R_jnt/thumb2_R_jnt/thumb_end_R_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt
+    m_Weight: 0
+  - m_Path: pelvis_jnt/spine1_jnt/spine2_jnt/spine3_jnt/spine4_jnt/neck_jnt/head_jnt
+    m_Weight: 0
