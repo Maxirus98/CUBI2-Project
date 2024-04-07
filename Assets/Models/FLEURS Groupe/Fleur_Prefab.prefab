@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7639245772532466183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2398143368112833002}
+  m_Layer: 0
+  m_Name: Fleur_Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2398143368112833002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7639245772532466183}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.32336, y: -0.24789, z: 0.073865}
+  m_LocalScale: {x: 1.087885, y: 1.087885, z: 1.087885}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3853870162215052107}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &3670727279131182240
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2398143368112833002}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: bbff378eb27e67944856f8d6c7004c1d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 133.88516
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bbff378eb27e67944856f8d6c7004c1d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 133.88512
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bbff378eb27e67944856f8d6c7004c1d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.593649
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bbff378eb27e67944856f8d6c7004c1d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bbff378eb27e67944856f8d6c7004c1d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.0657827
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bbff378eb27e67944856f8d6c7004c1d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.15944123
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bbff378eb27e67944856f8d6c7004c1d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.15355685
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bbff378eb27e67944856f8d6c7004c1d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.68889654
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bbff378eb27e67944856f8d6c7004c1d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.6902321
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bbff378eb27e67944856f8d6c7004c1d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bbff378eb27e67944856f8d6c7004c1d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: bbff378eb27e67944856f8d6c7004c1d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: bbff378eb27e67944856f8d6c7004c1d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 739d22cc4002ada4e997929015286408, type: 2}
+    - target: {fileID: -7511558181221131132, guid: bbff378eb27e67944856f8d6c7004c1d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0a823f58bc549b3419d00ac9442d875d, type: 2}
+    - target: {fileID: -7511558181221131132, guid: bbff378eb27e67944856f8d6c7004c1d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2b35a267e4b34db4ab2b9e20ba6b3658, type: 2}
+    - target: {fileID: 919132149155446097, guid: bbff378eb27e67944856f8d6c7004c1d,
+        type: 3}
+      propertyPath: m_Name
+      value: Fleur_MOD
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bbff378eb27e67944856f8d6c7004c1d, type: 3}
+--- !u!4 &3853870162215052107 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bbff378eb27e67944856f8d6c7004c1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 3670727279131182240}
+  m_PrefabAsset: {fileID: 0}
