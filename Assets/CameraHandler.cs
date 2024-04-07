@@ -54,10 +54,10 @@ public class CameraHandler : MonoBehaviour
     public void HandleCameraRotation(float delta, float mouseXInput, float mouseYInput)
     {
         lookAngle += (mouseXInput * lookSpeed) / delta;
-        pivotAngle -= (mouseYInput * pivotSpeed) / delta;
+        // pivotAngle -= (mouseYInput * pivotSpeed) / delta;
 
         // Clamp pivotAngle entre le minimumPivot et le maximumPivot pour éviter d'aller sous ou plus haut que ces valeurs
-        pivotAngle = Mathf.Clamp(pivotAngle, minimumPivot, maximumPivot);
+        // pivotAngle = Mathf.Clamp(pivotAngle, minimumPivot, maximumPivot);
         // L'angle de vue du Camera Holder sur l'axe des y
         var rotation = Vector3.zero;
         rotation.y = lookAngle;
