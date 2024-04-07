@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TimerScript : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class TimerScript : MonoBehaviour
 
     
     [SerializeField] private TextMeshProUGUI text;
-    [SerializeField] private TextMeshProUGUI label;
+    [SerializeField] private Image clockImage;
     private SpawnScript spawnScript;
 
     void Start()
@@ -26,7 +27,7 @@ public class TimerScript : MonoBehaviour
         spawnScript = GameObject.Find("Spawner").GetComponent<SpawnScript>();
         spawnScript.enabled = false;
         text.transform.gameObject.SetActive(true);
-        label.transform.gameObject.SetActive(true);
+        clockImage.transform.gameObject.SetActive(true);
     }
 
     private void Update()
@@ -39,10 +40,10 @@ public class TimerScript : MonoBehaviour
         } else
         {
             text.transform.gameObject.SetActive(false);
-            label.transform.gameObject.SetActive(false);
+            clockImage.transform.gameObject.SetActive(false);
 
             // TODO: Start Wave after timer
-            spawnScript.enabled = true;
+            spawnScript.EnableSpawnScript(this);
         }
     }
 }
