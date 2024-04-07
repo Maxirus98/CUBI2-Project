@@ -11,8 +11,6 @@ public class PlayerCombat : NetworkBehaviour
     private Transform petShootPoint;
     [SerializeField]
     private Transform sandmanShootPoint;
-    [SerializeField]
-    private Transform arrow;
 
     private Projectile currentProjectile;
     private Transform currentShootPoint;
@@ -97,11 +95,6 @@ public class PlayerCombat : NetworkBehaviour
             {
                 currentCamera = CameraHandler.singleton.cameraTransform.GetComponent<Camera>();
             }
-        }
-
-        if(!arrow.gameObject.activeInHierarchy)
-        {
-            arrow.gameObject.SetActive(true);
         }
     }
 }

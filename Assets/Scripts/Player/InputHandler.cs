@@ -43,7 +43,7 @@ public class InputHandler : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         playerStats = GetComponent<PlayerStats>();
         // Ce composant est sur l'enfant, car le projectile change selon le personnage sélectionné
-        playerCombat = GetComponentInChildren<PlayerCombat>();
+        playerCombat = GetComponent<PlayerCombat>();
     }
 
     private void OnDisable()
