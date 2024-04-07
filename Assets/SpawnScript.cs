@@ -183,8 +183,8 @@ public class SpawnScript : MonoBehaviour {
 
     public void EnableSpawnScript(TimerScript pTimer)
     {
-        enabled = true;
         timerScript = pTimer;
+        enabled = true;
     }
 
     private void ChangeMaterial(GameObject enemy, Material newMaterial) {
