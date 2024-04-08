@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3264778380789892943}
   m_Layer: 0
   m_Name: Enemy1PrefabPet
-  m_TagString: Enemy
+  m_TagString: EnemyPet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 717051657
+  GlobalObjectIdHash: 774275417
   InScenePlacedSourceGlobalObjectIdHash: 774275417
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
