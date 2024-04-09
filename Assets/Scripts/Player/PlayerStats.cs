@@ -33,8 +33,7 @@ public class PlayerStats : NetworkBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Enemy"))
-        {
+        if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("EnemyPet") || collision.collider.CompareTag("EnemySandMan")) {
             Debug.Log($"Collided with {collision.gameObject.name}");
             TakeDamage(1);
         }

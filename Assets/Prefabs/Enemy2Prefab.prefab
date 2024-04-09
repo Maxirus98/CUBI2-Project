@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9065219266823676772
 Transform:
   m_ObjectHideFlags: 0
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2984334171
+  GlobalObjectIdHash: 1442393070
   InScenePlacedSourceGlobalObjectIdHash: 4221968443
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -202,8 +202,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 7631379802309111253}
-  sandMan: {fileID: 0}
-  pet: {fileID: 0}
+  sandMan: {fileID: -8679921383154817045, guid: d23e51c7bbc37864093c7c6749ea32e9, type: 3}
+  pet: {fileID: -8679921383154817045, guid: 6c52e7abb1d8b2042b2e3c187eeeded0, type: 3}
   closestPlayer: {fileID: 0}
   players: []
   distAgentSandman: 0

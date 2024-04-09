@@ -13,7 +13,7 @@ public class Enemy1Management : MonoBehaviour {
 
     public float distAgentSandman;
     public float distAgentPet;
-
+    private GameObject[] towers;
 
 
 
@@ -106,4 +106,24 @@ public class Enemy1Management : MonoBehaviour {
         agent.SetDestination(player.position); // Attaque corps à corps
         transform.LookAt(player);
     }
+
+
+    /*public void OnTowerBuilt() {
+        AvoidTowers();
+    }
+
+    void AvoidTowers() {
+        foreach (GameObject tower in towers) {
+            NavMeshPath path = new NavMeshPath();
+            if (NavMesh.CalculatePath(transform.position, destination, NavMesh.AllAreas, path)) {
+                if (path.status == NavMeshPathStatus.PathComplete) {
+                    return;
+                }
+            }
+
+            Vector3 towerDirection = (tower.transform.position - transform.position).normalized;
+            Vector3 avoidancePoint = tower.transform.position + towerDirection * 5f;
+            agent.SetDestination(avoidancePoint);
+        }
+    }*/
 }

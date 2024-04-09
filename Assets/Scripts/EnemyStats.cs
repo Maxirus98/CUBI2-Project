@@ -1,5 +1,6 @@
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 
 public class EnemyStats : NetworkBehaviour
 {
@@ -19,9 +20,21 @@ public class EnemyStats : NetworkBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Projectile"))
+        if (other.CompareTag("ProjectileSandMan") && CompareTag("EnemySandMan"))
         {
-            Debug.Log("Triggered Projectile");
+            Debug.Log("Triggered ProjectileSandMan");
+            AudioSource.PlayClipAtPoint(SoundManager.Instance.enemyHitFx, transform.position);
+            TakeDamage(1);
+            anim.SetTrigger("Hit");
+        }
+        else if (other.CompareTag("ProjectilePet") && CompareTag("EnemyPet")) {
+            Debug.Log("Triggered ProjectilePet");
+            AudioSource.PlayClipAtPoint(SoundManager.Instance.enemyHitFx, transform.position);
+            TakeDamage(1);
+            anim.SetTrigger("Hit");
+        }
+        else if ((other.CompareTag("ProjectilePet") || other.CompareTag("ProjectileSandMan")) && CompareTag("Enemy")) {
+            Debug.Log("Triggered ProjectilePet");
             AudioSource.PlayClipAtPoint(SoundManager.Instance.enemyHitFx, transform.position);
             TakeDamage(1);
             anim.SetTrigger("Hit");
