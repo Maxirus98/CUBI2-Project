@@ -9,6 +9,8 @@ public class Turret : NetworkBehaviour
 {
     public GameObject cannonPrefab;
     private GameObject cannonInstance;
+    public GameObject destroyTowerPrefab;
+    private GameObject destroyTowerInstance;
     public bool isPlayerInRange = false;
     public bool isBuilt = false;
 
@@ -263,5 +265,9 @@ public class Turret : NetworkBehaviour
     [ClientRpc()]
     public void DestroyTowerClientRpc() {
         // Méthode pour détruire les tours sur le serveur
+        Vector3 destroyPosition = transform.position + new Vector3(0, 1f, 0);
+        destroyTowerInstance = Instantiate(destroyTowerPrefab, destroyPosition, Quaternion.Euler(0, 0, 0));
+        var instanceNetworkObject = destroyTowerInstance.GetComponent<NetworkObject>();
+        instanceNetworkObject.Spawn();
     }
 }
