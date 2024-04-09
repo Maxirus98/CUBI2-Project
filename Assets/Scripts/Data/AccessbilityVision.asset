@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c36da41474f614c998cb843a422544, type: 3}
+  m_Name: AccessbilityVision
+  m_EditorClassIdentifier: 
+  waterMonsterModel: {fileID: 0}
+  sandMonsterModel: {fileID: 2894268811013546652, guid: 440592bd936bf7f4a9ab01a66cd2edd7, type: 3}
+  sandmanModel: {fileID: 0}
+  petModel: {fileID: 0}
+  waterMonsterMat: {fileID: 0}
+  sandMonsterMat: {fileID: 2100000, guid: da455c6bc38d1b442be4c5b5e54b81ac, type: 2}
+  sandmanMat: {fileID: 0}
+  petModelMat: {fileID: 0}

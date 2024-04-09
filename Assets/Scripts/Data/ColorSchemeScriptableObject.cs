@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Color", menuName = "ScriptableObjects/ColorScheme", order = 1)]
-public class ColorSchemScriptableObject : ScriptableObject
+public class ColorSchemeScriptableObject : ScriptableObject
 {
     public GameObject waterMonsterModel;
     public GameObject sandMonsterModel;

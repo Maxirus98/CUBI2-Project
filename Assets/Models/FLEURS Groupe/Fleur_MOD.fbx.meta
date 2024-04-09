@@ -3,7 +3,22 @@ guid: bbff378eb27e67944856f8d6c7004c1d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fleurs001
+    second: {fileID: 2100000, guid: c103bad6e33b83a40a2062120f286238, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: fleurs002
+    second: {fileID: 2100000, guid: 6079d9f41018cbb4e93764194f609845, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tiges
+    second: {fileID: 2100000, guid: 6cb9c328abb4f344c92f4f6de1ebb4c6, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

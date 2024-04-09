@@ -107,6 +107,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3564783574603935192, guid: 761435748e4059948980c1b188090c4f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3329727581900859002}
+    - targetCorrespondingSourceObject: {fileID: 3564783574603935192, guid: 761435748e4059948980c1b188090c4f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2814570678923373727}
   m_SourcePrefab: {fileID: 100100000, guid: 761435748e4059948980c1b188090c4f, type: 3}
 --- !u!1 &1578885764128226679 stripped
 GameObject:
@@ -135,6 +138,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5546347261141537002, guid: 761435748e4059948980c1b188090c4f, type: 3}
+--- !u!114 &2814570678923373727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578885764128226679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcf9cc109293f9749bb7be353890dc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorBlindMat: {fileID: 2100000, guid: 281f8685b7e4b834082748086cd98a96, type: 2}
+  normalVisionMat: {fileID: 2100000, guid: 212381c6adff684498d90b7754050e6f, type: 2}
 --- !u!4 &2529697563139897156 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 761435748e4059948980c1b188090c4f, type: 3}

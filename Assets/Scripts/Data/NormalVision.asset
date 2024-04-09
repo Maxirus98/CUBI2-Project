@@ -16,7 +16,7 @@ MonoBehaviour:
   sandMonsterModel: {fileID: 919132149155446097, guid: 7d42958bd520bc742a4a5802ed1ba660, type: 3}
   sandmanModel: {fileID: 919132149155446097, guid: d23e51c7bbc37864093c7c6749ea32e9, type: 3}
   petModel: {fileID: 919132149155446097, guid: 6c52e7abb1d8b2042b2e3c187eeeded0, type: 3}
-  waterMonsterMat: {fileID: 2100000, guid: 5a7e354c7e45c3d4a86bdfff02fd6d3e, type: 2}
-  sandMonsterMat: {fileID: 2100000, guid: c7731f0b72efaae4cbfa1323a787a921, type: 2}
+  waterMonsterMat: {fileID: 2100000, guid: 87ecd215deb010c438ce596077b4bb02, type: 2}
+  sandMonsterMat: {fileID: 2100000, guid: 33afecb11aebde04ea1e6bec5dd36eb5, type: 2}
   sandmanMat: {fileID: 2100000, guid: c7731f0b72efaae4cbfa1323a787a921, type: 2}
   petModelMat: {fileID: 2100000, guid: caab9d356c295bb409c7eb94cef5b0dc, type: 2}
