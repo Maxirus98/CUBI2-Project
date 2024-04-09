@@ -32,10 +32,6 @@ public class PlayerCombat : NetworkBehaviour
     private void Update()
     {
         InitializeCamera();
-        if(currentCamera != null)
-        {
-            
-        }
     }
 
     public void SwitchProjectileAndShootPoint()
