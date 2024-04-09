@@ -1,4 +1,6 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Script pour set le ColorScheme color blind ou non
@@ -10,13 +12,16 @@ public class AccessibilityManager : MonoBehaviour
 
     public static readonly string Key = "Accessbility";
 
-    public void ToNormalMode()
-    {
-        PlayerPrefs.SetInt(Key, NORMAL_VISION_MODE);
-    }
+    [SerializeField]
+    private Image accessibilityButtonImage;
 
-    public void ToColorBlind()
+    public void ToggleColorblindMode()
     {
-        PlayerPrefs.SetInt(Key, COLOR_BLIND_MODE);
+        var currentMode = PlayerPrefs.GetInt(Key);
+        Debug.Log("Current mode: " + currentMode);
+        var nextMode = currentMode == NORMAL_VISION_MODE ? COLOR_BLIND_MODE : NORMAL_VISION_MODE;
+        PlayerPrefs.SetInt(Key, nextMode);
+
+        accessibilityButtonImage.gameObject.SetActive(!accessibilityButtonImage.gameObject.activeInHierarchy);
     }
 }

@@ -9,7 +9,8 @@ public class ColorAccessibilityHandler : MonoBehaviour
 
     [SerializeField]
     private Color colorAcc;
-    
+
+    public bool checkAccessibilityButton = false;
     private void Start()
     {
         SetColorToCurrentColorScheme();
@@ -30,13 +31,18 @@ public class ColorAccessibilityHandler : MonoBehaviour
         if(trailRenderer != null)
         {
             trailRenderer.startColor = isNormalVision ? normalVisionColor: colorAcc;
-            trailRenderer.endColor = isNormalVision ? Color.yellow : Color.white;
+            trailRenderer.endColor = Color.white;
         }
 
         var image = GetComponent<Image>();
-        if (image != null)
+        if (image != null && !checkAccessibilityButton)
         {
             image.color = isNormalVision ? normalVisionColor : colorAcc;
+        }
+
+        if(checkAccessibilityButton)
+        {
+            image.gameObject.SetActive(!isNormalVision);
         }
     }
         

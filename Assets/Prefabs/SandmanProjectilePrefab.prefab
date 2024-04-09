@@ -106,7 +106,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.97647065, g: 0.7490196, b: 0.18039216, a: 1}
+      key0: {r: 0.7803922, g: 0.3137255, b: 0.3137255, a: 1}
       key1: {r: 0.97647065, g: 0.7490196, b: 0.18039216, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -158,8 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3dd1d9266abd24e88bd17923a1f8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalVisionColor: {r: 0.9748427, g: 0.7496002, b: 0.18086699, a: 0}
-  colorAcc: {r: 0.90588236, g: 0.07058821, b: 0.8545109, a: 0}
+  normalVisionColor: {r: 0.9748427, g: 0.7496002, b: 0.18086699, a: 1}
+  colorAcc: {r: 0.90588236, g: 0.18255818, b: 0.07058821, a: 1}
 --- !u!1 &8029412468091416255
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalVisionColor: {r: 1, g: 0.70004344, b: 0.22327036, a: 1}
-  colorAcc: {r: 1, g: 0.627451, b: 0.9803922, a: 1}
+  colorAcc: {r: 1, g: 0.32848507, b: 0.27358478, a: 1}
 --- !u!198 &5918153499552229498 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 4313937984985795921, guid: e34b259b78201f74da7f0f017579d8b8, type: 3}

@@ -455,6 +455,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 764610660103743167}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5094346606123572008}
   m_SourcePrefab: {fileID: 100100000, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
 --- !u!4 &7485517737293056902 stripped
 Transform:
@@ -487,3 +490,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.020000005, z: 0.014312286}
   m_Center: {x: 0, y: -0.0000219866, z: 0.007168616}
+--- !u!114 &5094346606123572008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830130362764054844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcf9cc109293f9749bb7be353890dc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorBlindMat: {fileID: 2100000, guid: 74feb08e470de3243b76b9f966485146, type: 2}
+  normalVisionMat: {fileID: 2100000, guid: 13b0cef27e276024b8b326bbda00ebd6, type: 2}
