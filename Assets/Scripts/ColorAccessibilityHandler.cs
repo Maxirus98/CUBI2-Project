@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class ColorAccessibilityHandler : MonoBehaviour
 {
     [SerializeField]
@@ -31,6 +31,12 @@ public class ColorAccessibilityHandler : MonoBehaviour
         {
             trailRenderer.startColor = isNormalVision ? normalVisionColor: colorAcc;
             trailRenderer.endColor = isNormalVision ? Color.yellow : Color.white;
+        }
+
+        var image = GetComponent<Image>();
+        if (image != null)
+        {
+            image.color = isNormalVision ? normalVisionColor : colorAcc;
         }
     }
         
