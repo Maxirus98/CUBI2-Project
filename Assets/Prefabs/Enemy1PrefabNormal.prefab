@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3940390249
+  GlobalObjectIdHash: 3357285855
   InScenePlacedSourceGlobalObjectIdHash: 3357285855
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -102,8 +102,8 @@ MonoBehaviour:
   distAgentPet: 0
   Enemy1Speed: 1
   destination: {x: -63.45, y: 1.5, z: 32.46}
-  rangeVue: 20
-  rangeAttack: 0
+  rangeVue: 50
+  rangeAttack: 20
 --- !u!114 &-5868117586542664610
 MonoBehaviour:
   m_ObjectHideFlags: 0

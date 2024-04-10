@@ -90,7 +90,7 @@ public class Enemy1Management : MonoBehaviour {
             AttackPlayer(closestPlayer);
         }
 
-        anim.SetBool("Attacking", playerInRange);
+        anim.SetBool("Attacking", playerInAttackRange);
     }
 
 
