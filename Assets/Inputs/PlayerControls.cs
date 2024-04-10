@@ -251,7 +251,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""id"": ""aff5fc4b-4b83-4a69-b74a-636e39271fb3"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""ScaleVector2(x=0.5,y=0.5)"",
                     ""groups"": """",
                     ""action"": ""MoveCamera"",
                     ""isComposite"": false,

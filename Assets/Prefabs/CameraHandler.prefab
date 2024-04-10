@@ -81,8 +81,8 @@ MonoBehaviour:
   lookSpeed: 0.05
   followSpeed: 0.2
   pivotSpeed: 0.03
-  minimumPivot: 0
-  maximumPivot: 35
+  minimumPivot: -20
+  maximumPivot: 20
   minimumLookAngle: 0
   maximumLookAngle: 90
   cameraTransform: {fileID: 161700524717742744}
