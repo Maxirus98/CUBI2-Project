@@ -486,6 +486,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7143872241637617593, guid: 96606106f839a8646a42c9b0fe5b8728, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ff42c9ee387a0844827a3806f161912, type: 2}
     - target: {fileID: 919132149155446097, guid: 96606106f839a8646a42c9b0fe5b8728, type: 3}
       propertyPath: m_Name
       value: SandmanModel
@@ -642,7 +646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf9cc109293f9749bb7be353890dc85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorBlindMat: {fileID: 2100000, guid: c9acdd3d84536434cba5620c598967c1, type: 2}
+  colorBlindMat: {fileID: 2100000, guid: f6e01b01275786e42bf10426b43ae039, type: 2}
   normalVisionMat: {fileID: 2100000, guid: de5baa1761af7614f885918a039911d6, type: 2}
 --- !u!1001 &7380915334690868229
 PrefabInstance:
@@ -695,6 +699,10 @@ PrefabInstance:
     - target: {fileID: 805349977212703132, guid: 140d896568156164392227257967342a, type: 3}
       propertyPath: m_Name
       value: PetModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 805349977212703132, guid: 140d896568156164392227257967342a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 805349977212703132, guid: 140d896568156164392227257967342a, type: 3}
       propertyPath: m_TagString
