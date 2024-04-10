@@ -59,7 +59,10 @@ public class Turret : NetworkBehaviour
             Debug.Log($"Added to list, Size: {netBuildingPlayerList.Count}");
             if (netBuildingPlayerList.Count >= 2)
             {
-                BuildServerRpc();
+                if(IsServer)
+                {
+                    BuildServerRpc();
+                }
                 AudioSource.PlayClipAtPoint(SoundManager.Instance.towerEndBuildFx, transform.position);
                 HideSlidersClientRpc();
                 buildText.SetActive(false);
@@ -188,7 +191,7 @@ public class Turret : NetworkBehaviour
     /// Le joueur/client dit au serveur de spawn un cannon sur la sc�ne 
     /// pour que tous les joueurs puissent le voir
     /// </summary>
-    [ServerRpc(RequireOwnership = false)]
+    [ServerRpc]
     public void BuildServerRpc()
     {
         if (IsServer)
