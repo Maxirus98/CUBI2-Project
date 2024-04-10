@@ -23,5 +23,11 @@ public class AccessibilityManager : MonoBehaviour
         PlayerPrefs.SetInt(Key, nextMode);
 
         accessibilityButtonImage.gameObject.SetActive(!accessibilityButtonImage.gameObject.activeInHierarchy);
+        
+        var handlers = Object.FindObjectsOfType<AccessibilityHandler>();
+        foreach (var handler in handlers)
+        {
+            handler.SetColorToCurrentColorScheme();
+        }
     }
 }

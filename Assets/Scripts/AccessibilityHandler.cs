@@ -15,7 +15,7 @@ public class AccessibilityHandler : MonoBehaviour
         SetColorToCurrentColorScheme();
     }
 
-    private void SetColorToCurrentColorScheme()
+    public void SetColorToCurrentColorScheme()
     {
         var skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
         var meshRenderer = GetComponent<MeshRenderer>();
