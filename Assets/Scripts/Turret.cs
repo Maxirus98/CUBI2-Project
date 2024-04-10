@@ -91,7 +91,12 @@ public class Turret : NetworkBehaviour
         else if (col.tag == "Player")
         {
             isPlayerInRange = true;
-            buildText.SetActive(!isBuilt);
+            var colNetworkObj = col.GetComponent<NetworkObject>();
+
+            if(NetworkManager.LocalClientId == colNetworkObj.OwnerClientId)
+            {
+                buildText.SetActive(!isBuilt);
+            }
             inputHandler = col.GetComponent<InputHandler>();
 
             inputHandler.nearbyTurret = this;
@@ -113,10 +118,14 @@ public class Turret : NetworkBehaviour
                 inputHandler.nearbyTurret = null;
             }
 
+            var colNetworkObj = col.GetComponent<NetworkObject>();
             // Reset local sliders
-            sandmanSyncSlider.gameObject.SetActive(false);
-            petSyncSlider.gameObject.SetActive(false);
-            animationTime = 0f;
+            if (NetworkManager.LocalClientId == colNetworkObj.OwnerClientId)
+            {
+                sandmanSyncSlider.gameObject.SetActive(false);
+                petSyncSlider.gameObject.SetActive(false);
+                animationTime = 0f;
+            }
         }
     }
 
