@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Playables;
@@ -65,14 +66,9 @@ public class GameManager : Singleton<GameManager>
         for (int i = 0;i < transform.childCount; i++) {
             transform.GetChild(i).gameObject.SetActive(false);
         }
-        
-        if (CurrentLevelName.Equals(levelName))
-        {
-            Debug.Log($"On ne peut pas charger la même scène 2 fois: {levelName}");
-            return;
-        }
 
         CurrentLevelName = levelName;
+        
         AsyncOperation loadSceneAsync = SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Single);
         if (loadSceneAsync == null)
         {
@@ -82,6 +78,23 @@ public class GameManager : Singleton<GameManager>
 
         loadSceneAsync.completed += OnLoadSceneComplete;
         loadOperations.Add(loadSceneAsync);
+        if (levelName.Equals("MainMenu"))
+        {
+            Destroy(SoundManager.Instance.gameObject);
+            if (RelayConnectionManager.Instance != null)
+            {
+                Destroy(RelayConnectionManager.Instance.gameObject);
+            }
+            if (NetworkManager.Singleton != null)
+            {
+                Destroy(NetworkManager.Singleton.gameObject);
+            }
+            if (Instance != null)
+            {
+                Destroy(Instance.gameObject);
+
+            }
+        }
     }
 
     private void OnLoadSceneComplete(AsyncOperation ao)
@@ -97,6 +110,7 @@ public class GameManager : Singleton<GameManager>
             }
         }
 
+        CurrentLevelName = SceneManager.GetActiveScene().name;
         Debug.Log($"Fin du chargement de la scène {CurrentLevelName}");
     }
 
