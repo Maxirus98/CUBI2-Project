@@ -253,6 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameraPrefab: {fileID: 0}
+  rb: {fileID: 0}
   movementSpeed: 10
   rotationSpeed: 10
   fallingSpeed: 90
@@ -291,6 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testing: 0
+  cameraHandlerClone: {fileID: 0}
   cameraHandler: {fileID: 7986330913172783398, guid: 3411f9e4a6864b54b84edeb5d9e9d41c, type: 3}
   isInAir: 0
   isGrounded: 0
@@ -310,7 +312,7 @@ MonoBehaviour:
   CurrentUseable: 0
   playerResource: {fileID: 4104535678630300262, guid: 5397584597af8d4479d2f437323b5d51, type: 3}
   PlayerResourceClone: {fileID: 0}
-  maxHealth: 5
+  maxHealth: 10
   currentHealth: 0
 --- !u!114 &7823902636632377766
 MonoBehaviour:

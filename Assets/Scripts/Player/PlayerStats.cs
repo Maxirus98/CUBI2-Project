@@ -59,6 +59,8 @@ public class PlayerStats : NetworkBehaviour
         {
             CurrentUseable = maxUseable;
             PlayerResourceClone.SetUseable(maxUseable);
+            currentHealth = maxHealth;
+            PlayerResourceClone.SetHealth(currentHealth);
             AudioSource.PlayClipAtPoint(playerManager.IsSandman ? SoundManager.Instance.takeSandFx : SoundManager.Instance.takeWaterFx, transform.position);
         }
     }

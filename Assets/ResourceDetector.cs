@@ -13,7 +13,7 @@ public class ResourceDetector : MonoBehaviour
         playerStats.IsNearResource = other.CompareTag(ResourceTag);
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         playerStats.IsNearResource = other.CompareTag(ResourceTag);
     }
