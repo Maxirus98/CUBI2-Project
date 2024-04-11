@@ -8,6 +8,7 @@ using Unity.Services.Core;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RelayConnectionManager : Singleton<RelayConnectionManager>
 {
@@ -92,7 +93,7 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
 
             joinCodeTmp.transform.parent.gameObject.SetActive(true);
 
-            NetworkLoader.LoadNetwork(NetworkLoader.Scene.CharacterSelection); 
+            NetworkLoader.LoadNetwork(NetworkLoader.Scene.CharacterSelection);
         }
         catch (RelayServiceException rse)
         {
@@ -142,5 +143,4 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
     {
         transform.GetChild(0).gameObject.SetActive(false);
     }
-
 }

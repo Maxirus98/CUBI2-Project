@@ -23,7 +23,7 @@ public class PlayerStats : NetworkBehaviour
     private PlayerAnimatorHandler playerAnimatorHandler;
     private Rigidbody rb;
 
-    void Start()
+    public void Initialize()
     {
         InitializePlayerResource();
         playerManager = GetComponent<PlayerManager>();
@@ -101,5 +101,10 @@ public class PlayerStats : NetworkBehaviour
         Debug.Log($"Set Ko called, {currentHealth}, for player: {NetworkManager.Singleton.LocalClientId}");
         IsKo = true;
         PlayerKo.Instance.UpdatePlayerKoListServerRpc(NetworkManager.Singleton.LocalClientId);
+    }
+
+    private void OnDisable()
+    {
+        PlayerResourceClone = null;
     }
 }

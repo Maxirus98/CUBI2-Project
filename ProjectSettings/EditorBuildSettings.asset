@@ -29,5 +29,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GUI_SCENES/ControlsMenu.unity
     guid: b8bde8071996ca34a845d3846b01c115
+  - enabled: 1
+    path: Assets/Scenes/ReloadingScene.unity
+    guid: f1aff07bcc375ab4a838b4352e3064ca
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 3cf351491b42d484fada2bbec3048bb2, type: 2}

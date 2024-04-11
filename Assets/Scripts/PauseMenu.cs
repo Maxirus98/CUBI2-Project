@@ -9,19 +9,20 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameData gameData;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        GameManager.Instance.gameMenu = pauseMenuUI;
+    }
+
+    public void TogglePauseMenu()
+    {
+        if (GameIsPaused)
         {
-            if (GameIsPaused)
-            {
-                Resume();
-            }
-            else
-            {
-                Pause();
-            }
+            Resume();
+        }
+        else
+        {
+            Pause();
         }
     }
 
@@ -39,14 +40,13 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
     }
 
-    public void MainMenu()
+    public void Recommencer()
     {
         Debug.Log("Main Menu called");
         GameIsPaused = false;
         Time.timeScale = 1.0f;
         SaveGame();
-        // Sur le reseau
-        GameManager.Instance.ReturnToMainMenu();
+        NetworkLoader.ReloadScene();
     }
 
     public void QuitGame()

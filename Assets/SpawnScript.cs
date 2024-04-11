@@ -119,7 +119,7 @@ public class SpawnScript : MonoBehaviour {
             // Spawn
 
             var instanceNetworkObject1 = enemy1NormalInstance.GetComponent<NetworkObject>();
-            instanceNetworkObject1.Spawn();
+            instanceNetworkObject1.Spawn(true);
         }
 
         for (int j = 0; j < NumberOfEnemies1SandMan; j++) {
@@ -128,7 +128,7 @@ public class SpawnScript : MonoBehaviour {
             var enemy1SandManInstance = Instantiate(enemy1SandMan, randomPoint.position, randomPoint.rotation);
 
             var instanceNetworkObject2 = enemy1SandManInstance.GetComponent<NetworkObject>();
-            instanceNetworkObject2.Spawn();
+            instanceNetworkObject2.Spawn(true);
         }
 
         for (int k = 0; k < NumberOfEnemies1Pet; k++) {
@@ -137,7 +137,7 @@ public class SpawnScript : MonoBehaviour {
             var enemy1PetInstance = Instantiate(enemy1Pet, randomPoint.position, randomPoint.rotation);
 
             var instanceNetworkObject2 = enemy1PetInstance.GetComponent<NetworkObject>();
-            instanceNetworkObject2.Spawn();
+            instanceNetworkObject2.Spawn(true);
         }
 
         for (int l = 0; l < NumberOfEnemies2; l++) {
@@ -150,7 +150,7 @@ public class SpawnScript : MonoBehaviour {
             // Spawn
 
             var instanceNetworkObject2 = enemy2Instance.GetComponent<NetworkObject>();
-            instanceNetworkObject2.Spawn();
+            instanceNetworkObject2.Spawn(true);
         }
     }
 

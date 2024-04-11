@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,10 +26,11 @@ public class InputHandler : MonoBehaviour
     private float attackCooldown = 0.5f;
 
     private PlayerStats playerStats;
+    private PlayerInput playerInput;
 
     private void OnEnable()
     {
-        var playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInput>();
         playerInput.enabled = true;
 
         if (inputActions == null)
@@ -49,6 +51,8 @@ public class InputHandler : MonoBehaviour
     private void OnDisable()
     {
         inputActions.Disable();
+        playerInput.enabled = false;
+        playerController.enabled = false;
     }
 
     public void TickInput()

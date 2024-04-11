@@ -11,6 +11,10 @@ TagManager:
   - Door
   - Tower
   - Mushroom
+  - ProjectileSandMan
+  - ProjectilePet
+  - EnemySandMan
+  - EnemyPet
   layers:
   - Default
   - TransparentFX

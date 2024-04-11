@@ -71,4 +71,9 @@ public class CameraHandler : MonoBehaviour
         targetRotation = Quaternion.Euler(rotation);
         cameraPivotTransform.localRotation = targetRotation;
     }
+
+    private void OnDestroy()
+    {
+        targetTransform.GetComponent<PlayerManager>().cameraHandlerClone = null;
+    }
 }
