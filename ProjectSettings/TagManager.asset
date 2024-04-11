@@ -15,6 +15,7 @@ TagManager:
   - ProjectilePet
   - EnemySandMan
   - EnemyPet
+  - Cactus
   layers:
   - Default
   - TransparentFX

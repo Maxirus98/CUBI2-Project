@@ -33,17 +33,10 @@ public class PlayerStats : NetworkBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("EnemyPet") || collision.collider.CompareTag("EnemySandMan")) {
+        if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("EnemyPet") ||
+            collision.collider.CompareTag("EnemySandMan") ||
+            collision.collider.CompareTag("Cactus")) {
             Debug.Log($"Collided with {collision.gameObject.name}");
-            TakeDamage(1);
-        }
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            Debug.Log($"triggered with {other.gameObject.name}");
             TakeDamage(1);
             AudioSource.PlayClipAtPoint(SoundManager.Instance.attackEnemy1Fx, transform.position);
             playerAnimatorHandler.Hit();

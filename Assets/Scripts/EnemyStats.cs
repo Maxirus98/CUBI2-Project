@@ -50,7 +50,7 @@ public class EnemyStats : NetworkBehaviour
         anim.SetTrigger("Hit");
     }
 
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         if (currentHealth > 0)
         {

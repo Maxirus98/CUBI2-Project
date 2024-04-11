@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CACTUSlow
       objectReference: {fileID: 0}
+    - target: {fileID: 3564783574603935192, guid: 761435748e4059948980c1b188090c4f, type: 3}
+      propertyPath: m_TagString
+      value: Cactus
+      objectReference: {fileID: 0}
     - target: {fileID: 6589126927893049898, guid: 761435748e4059948980c1b188090c4f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

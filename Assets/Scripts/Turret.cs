@@ -204,7 +204,7 @@ public class Turret : NetworkBehaviour
             firePoint = cannonInstance.transform.Find("FirePoint");
 
             // Spawn pour le serveur
-            instanceNetworkObject.Spawn(true);
+            instanceNetworkObject.Spawn();
             IsBuiltClientRpc();
         }
     }
