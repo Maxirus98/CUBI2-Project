@@ -47,16 +47,19 @@ public class SpawnScript : MonoBehaviour {
 
 
     private TimerScript timerScript;
+    private AudioSource audioSource;
 
-    void Start() {
-       
+    void Awake() {
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable() {
 
-        print("ça marche");
-        AudioSource.PlayClipAtPoint(SoundManager.Instance.waveStartSound, transform.position);
-
+        audioSource.PlayOneShot(SoundManager.Instance.waveStartSound);
+        if(!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
         timerScript.enabled = false;
 
         NumberOfEnemies1 = Wave1Enemies1Normal + Wave1Enemies1SandMan + Wave1Enemies1Pet;
@@ -178,6 +181,14 @@ public class SpawnScript : MonoBehaviour {
 
 
             // WinLoseHandler.Instance.UpdateGameState(GameState.Won);
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
         }
     }
 
