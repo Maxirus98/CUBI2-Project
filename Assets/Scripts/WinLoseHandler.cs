@@ -4,8 +4,9 @@ using UnityEngine;
 public enum GameState
 {
     Running,
+    DoorLost,
     Won,
-    Lost
+    HpLost,
 }
 
 /// <summary>
@@ -26,13 +27,15 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
         switch (CurrentGameState)
         {
             case GameState.Running:
-                
+                break;
+            case GameState.DoorLost:
+                EndGame("Attention! Les cauchemars ont réussi leur objectif. La petite Rosalie se réveille de son cauchemar.", SoundManager.Instance.lostSound);
                 break;
             case GameState.Won:
-                EndGame("Partie gagnée", SoundManager.Instance.winSound);
+                EndGame("Bravo! Le rêve a été stabilisé, vous avez vaincu tous les cauchemars", SoundManager.Instance.winSound);
                 break;
-            case GameState.Lost:
-                EndGame("Partie perdue", SoundManager.Instance.lostSound);
+            case GameState.HpLost:
+                EndGame("Attention! Un des défenseurs oniriques est tombé. La petite Sophie se réveille de son cauchemar.", SoundManager.Instance.lostSound);
                 break;
             default:
                 break;

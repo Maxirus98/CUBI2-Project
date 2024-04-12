@@ -42,10 +42,10 @@ public class PlayerKo : NetworkBehaviour
     {
         if (changeEvent.Type == NetworkListEvent<ulong>.EventType.Add)
         {
-            if(netKoPlayers.Count >= 2)
+            if(netKoPlayers.Count >= 1)
             {
                 Debug.Log($"Players dead: {netKoPlayers.Count}");
-                WinLoseHandler.Instance.UpdateGameState(GameState.Lost);
+                WinLoseHandler.Instance.UpdateGameState(GameState.HpLost);
             }
         }
     }

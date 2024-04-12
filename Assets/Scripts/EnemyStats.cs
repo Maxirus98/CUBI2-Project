@@ -37,8 +37,7 @@ public class EnemyStats : NetworkBehaviour
 
         if (other.CompareTag("Door"))
         {
-            Debug.Log("Triggered Door");
-            WinLoseHandler.Instance.UpdateGameState(GameState.Lost);
+            WinLoseHandler.Instance.UpdateGameState(GameState.DoorLost);
         }
     }
 
