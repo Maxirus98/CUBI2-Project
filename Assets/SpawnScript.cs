@@ -47,7 +47,7 @@ public class SpawnScript : MonoBehaviour {
 
 
     private TimerScript timerScript;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
 
     void Awake() {
         audioSource = GetComponent<AudioSource>();
@@ -56,10 +56,7 @@ public class SpawnScript : MonoBehaviour {
     private void OnEnable() {
 
         audioSource.PlayOneShot(SoundManager.Instance.waveStartSound);
-        if(!audioSource.isPlaying)
-        {
-            audioSource.Play();
-        }
+        audioSource.Play();
         timerScript.enabled = false;
 
         NumberOfEnemies1 = Wave1Enemies1Normal + Wave1Enemies1SandMan + Wave1Enemies1Pet;
