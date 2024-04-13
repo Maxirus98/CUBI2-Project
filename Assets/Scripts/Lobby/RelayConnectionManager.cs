@@ -81,7 +81,7 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
         var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
         try
         {
-            var allocationDetails = await RelayService.Instance.CreateAllocationAsync(MaxConnections);
+            var allocationDetails = await RelayService.Instance.CreateAllocationAsync(MaxConnections, "northamerica-northeast1");
             joinCodeTmp.text = await RelayService.Instance.GetJoinCodeAsync(allocationDetails.AllocationId);
             
             // Applique les d�tails de la connexion au UnityTransport

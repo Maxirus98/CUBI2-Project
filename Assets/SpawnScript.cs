@@ -160,12 +160,14 @@ public class SpawnScript : MonoBehaviour {
             Debug.Log("Plus d'ennemis");
             if (numWave == 1) {
                 numWave = 2;
-                //totalEnemies = Wave2Enemies1 + Wave2Enemies2;
+                totalEnemies = NumberOfEnemies1 + NumberOfEnemies2;
+                print("wave 1 : " + totalEnemies);
                 GameManager.Instance.GetComponent<AudioSource>().PlayOneShot(SoundManager.Instance.waveEndSound);
             }
             else if (numWave == 2) {
                 numWave = 3;
-                //totalEnemies = Wave3Enemies1 + Wave3Enemies2;
+                totalEnemies = NumberOfEnemies1 + NumberOfEnemies2;
+                print(totalEnemies);
                 GameManager.Instance.GetComponent<AudioSource>().PlayOneShot(SoundManager.Instance.waveEndSound);
             }
             /*else if (numWave == 3) {
@@ -173,7 +175,7 @@ public class SpawnScript : MonoBehaviour {
             }*/
             
             //Debug.Log(timerScript.enabled);
-            //timerScript.enabled = true;
+            timerScript.enabled = true;
             //Debug.Log(timerScript.enabled);
 
 

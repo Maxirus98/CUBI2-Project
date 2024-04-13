@@ -133,6 +133,7 @@ public class Enemy2Management : MonoBehaviour {
                 agent.isStopped = false;
                 agent.speed = chargeSpeed;
                 agent.SetDestination(tower.position);
+
             }
         }
     }

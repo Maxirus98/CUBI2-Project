@@ -268,6 +268,7 @@ public class Turret : NetworkBehaviour
             }
         }
     }
+
     [ServerRpc()]
     public void DestroyTowerServerRpc() {
         // Méthode pour détruire les tours sur le serveur
