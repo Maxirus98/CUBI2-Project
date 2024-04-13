@@ -411,23 +411,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6830128
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.68301284
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.18301237
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.18301238
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -435,11 +435,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
       propertyPath: m_Name
-      value: Tower
+      value: TowerPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
       propertyPath: m_Layer
@@ -458,6 +458,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5094346606123572008}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1729842640897752745}
   m_SourcePrefab: {fileID: 100100000, guid: 30d81ad53ef80d04cb7ab68c91cce75d, type: 3}
 --- !u!4 &7485517737293056902 stripped
 Transform:
@@ -504,3 +507,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorBlindMat: {fileID: 2100000, guid: 74feb08e470de3243b76b9f966485146, type: 2}
   normalVisionMat: {fileID: 2100000, guid: 13b0cef27e276024b8b326bbda00ebd6, type: 2}
+--- !u!114 &-1729842640897752745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830130362764054844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 0
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1

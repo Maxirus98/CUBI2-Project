@@ -9,6 +9,8 @@ public class Turret : NetworkBehaviour
 {
     public GameObject cannonPrefab;
     private GameObject cannonInstance;
+    public GameObject towerPrefab;
+    private GameObject towerInstance;
     public GameObject destroyTowerPrefab;
     private GameObject destroyTowerInstance;
     public bool isPlayerInRange = false;
@@ -25,7 +27,7 @@ public class Turret : NetworkBehaviour
     [SerializeField]
     private GameObject buildText;
 
-    public Transform firePoint;
+    private Transform firePoint;
 
     // Construction des tours sur le reseau
     private NetworkList<ulong> netBuildingPlayerList = new(writePerm: NetworkVariableWritePermission.Owner);
@@ -197,14 +199,19 @@ public class Turret : NetworkBehaviour
         if (IsServer)
         {
             // Spawn pour le joueur
+            Vector3 buildTowerPosition = transform.position;
+            towerInstance = Instantiate(towerPrefab, buildTowerPosition, Quaternion.Euler(-90, 0, -30));
+            var instanceTowerNetworkObject = towerInstance.GetComponent<NetworkObject>();
+
             Vector3 buildPosition = transform.position + new Vector3(0, 4f, 0);
             cannonInstance = Instantiate(cannonPrefab, buildPosition, Quaternion.Euler(0, 0, 0));
-            var instanceNetworkObject = cannonInstance.GetComponent<NetworkObject>();
+            var instanceCannonNetworkObject = cannonInstance.GetComponent<NetworkObject>();
 
             firePoint = cannonInstance.transform.Find("FirePoint");
 
             // Spawn pour le serveur
-            instanceNetworkObject.Spawn(true);
+            instanceTowerNetworkObject.Spawn(true);
+            instanceCannonNetworkObject.Spawn(true);
             IsBuiltClientRpc();
         }
     }
@@ -263,8 +270,9 @@ public class Turret : NetworkBehaviour
         {
             if (isBuilt)
             {
-                Destroy(cannonInstance);
                 isBuilt = false;
+                Turret turretComponent = transform.GetComponent<Turret>();
+                turretComponent.DestroyTowerServerRpc();
             }
         }
     }
