@@ -13,9 +13,7 @@ public class Enemy1Management : MonoBehaviour {
 
     public float distAgentSandman;
     public float distAgentPet;
-    private GameObject[] towers;
-
-
+    //private readonly GameObject[] towers = GameObject.FindGameObjectsWithTag("Tower");
 
     [SerializeField]
     float Enemy1Speed;
