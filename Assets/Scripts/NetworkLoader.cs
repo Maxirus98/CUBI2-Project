@@ -50,13 +50,6 @@ public static class NetworkLoader
 
     public static void ReloadScene()
     {
-        var netObj = NetworkManager.Singleton.LocalClient.PlayerObject;
-        var playerManager = netObj.GetComponent<PlayerManager>();
-        if (playerManager != null)
-        {
-            playerManager.DeactivateComponents();
-        }
-
         NetworkManager.Singleton.SceneManager.LoadScene(Scene.ReloadingScene.ToString(), LoadSceneMode.Single);
     }
 }
