@@ -3,7 +3,7 @@ using UnityEngine;
 using System.IO;
 using System;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : NetworkBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
@@ -56,6 +56,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     // lorsque le joueur quitte le jeu ou sauvegarde le jeu
+    [ClientRpc]
     public void SaveGame()
     {
         try
