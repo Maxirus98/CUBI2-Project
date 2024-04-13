@@ -8,6 +8,11 @@ public class CharacterValidation : MonoBehaviour
     public GameObject[] players;
     private int disabledPlayerCount = 0;
 
+    private void Start()
+    {
+        disabledPlayerCount = 0;
+    }
+
     private void Update()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
