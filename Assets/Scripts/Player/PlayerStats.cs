@@ -23,7 +23,7 @@ public class PlayerStats : NetworkBehaviour
     private PlayerAnimatorHandler playerAnimatorHandler;
     private Rigidbody rb;
 
-    void Start()
+    public void Initialize()
     {
         InitializePlayerResource();
         playerManager = GetComponent<PlayerManager>();
@@ -33,17 +33,10 @@ public class PlayerStats : NetworkBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("EnemyPet") || collision.collider.CompareTag("EnemySandMan")) {
+        if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("EnemyPet") ||
+            collision.collider.CompareTag("EnemySandMan") ||
+            collision.collider.CompareTag("Cactus")) {
             Debug.Log($"Collided with {collision.gameObject.name}");
-            TakeDamage(1);
-        }
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            Debug.Log($"triggered with {other.gameObject.name}");
             TakeDamage(1);
             AudioSource.PlayClipAtPoint(SoundManager.Instance.attackEnemy1Fx, transform.position);
             playerAnimatorHandler.Hit();
@@ -66,6 +59,8 @@ public class PlayerStats : NetworkBehaviour
         {
             CurrentUseable = maxUseable;
             PlayerResourceClone.SetUseable(maxUseable);
+            currentHealth = maxHealth;
+            PlayerResourceClone.SetHealth(currentHealth);
             AudioSource.PlayClipAtPoint(playerManager.IsSandman ? SoundManager.Instance.takeSandFx : SoundManager.Instance.takeWaterFx, transform.position);
         }
     }
@@ -101,5 +96,10 @@ public class PlayerStats : NetworkBehaviour
         Debug.Log($"Set Ko called, {currentHealth}, for player: {NetworkManager.Singleton.LocalClientId}");
         IsKo = true;
         PlayerKo.Instance.UpdatePlayerKoListServerRpc(NetworkManager.Singleton.LocalClientId);
+    }
+
+    private void OnDisable()
+    {
+        PlayerResourceClone = null;
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
 
@@ -7,6 +5,12 @@ public class Bullet : NetworkBehaviour
 {
     public float speed = 10f;
     private Transform target;
+    private NetworkObject networkObject;
+
+    private void Start()
+    {
+        networkObject = GetComponent<NetworkObject>();
+    }
 
     public void SetTarget(Transform newTarget)
     {
@@ -22,7 +26,7 @@ public class Bullet : NetworkBehaviour
 
             if (dir.magnitude <= distanceThisFrame)
             {
-                HitTarget();
+                HitEnemy();
                 return;
             }
 
@@ -31,12 +35,20 @@ public class Bullet : NetworkBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            if (IsHost)
+            {
+                networkObject.Despawn();
+            }
         }
     }
 
-    void HitTarget()
+    void HitEnemy()
     {
-        Destroy(gameObject); 
+        var enemy = target.GetComponent<EnemyStats>();
+        enemy.TakeDamage(1);
+        if (IsHost)
+        {
+            networkObject.Despawn();
+        }
     }
 }

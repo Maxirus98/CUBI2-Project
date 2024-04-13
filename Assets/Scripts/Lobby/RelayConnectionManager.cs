@@ -8,9 +8,11 @@ using Unity.Services.Core;
 using Unity.Services.Relay;
 using Unity.Services.Relay.Models;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RelayConnectionManager : Singleton<RelayConnectionManager>
 {
+    [SerializeField] private Button createGameBtn;
     [SerializeField] private TextMeshProUGUI joinCodeTmp;
     [SerializeField] private TMP_InputField joinInputTmp;
     private const int MaxConnections = 2;
@@ -75,6 +77,7 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
 
     public async void CreateGame()
     {
+        createGameBtn.interactable = false;
         var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
         try
         {
@@ -92,10 +95,11 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
 
             joinCodeTmp.transform.parent.gameObject.SetActive(true);
 
-            NetworkLoader.LoadNetwork(NetworkLoader.Scene.CharacterSelection); 
+            NetworkLoader.LoadNetwork(NetworkLoader.Scene.CharacterSelection);
         }
         catch (RelayServiceException rse)
         {
+            createGameBtn.interactable = true;
             Debug.LogError(rse);
         }
     }
@@ -142,5 +146,4 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
     {
         transform.GetChild(0).gameObject.SetActive(false);
     }
-
 }

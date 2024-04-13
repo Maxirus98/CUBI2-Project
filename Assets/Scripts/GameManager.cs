@@ -15,8 +15,8 @@ public class GameManager : Singleton<GameManager>
     [SerializeField]
     private GameObject[] systemPrefabs;
 
-    [SerializeField]
-    private GameObject gameMenu;
+    [HideInInspector]
+    public GameObject gameMenu;
     private List<AsyncOperation> loadOperations = new List<AsyncOperation>();
     private List<GameObject> instanceSystemPrefabsKept = new List<GameObject>();
 
@@ -45,7 +45,11 @@ public class GameManager : Singleton<GameManager>
 
     public void ToggleGameMenu()
     {
-        gameMenu.SetActive(!gameMenu.activeInHierarchy);
+        if(gameMenu != null)
+        {
+            gameMenu.SetActive(!gameMenu.activeInHierarchy);
+            Time.timeScale = !gameMenu.activeInHierarchy ? 1.0f : 0.0f;
+        }
     }
 
     public void ReturnToMainMenu()
@@ -80,7 +84,10 @@ public class GameManager : Singleton<GameManager>
         loadOperations.Add(loadSceneAsync);
         if (levelName.Equals("MainMenu"))
         {
-            Destroy(SoundManager.Instance.gameObject);
+            if(SoundManager.Instance != null)
+            {
+                Destroy(SoundManager.Instance.gameObject);
+            }
             if (RelayConnectionManager.Instance != null)
             {
                 Destroy(RelayConnectionManager.Instance.gameObject);

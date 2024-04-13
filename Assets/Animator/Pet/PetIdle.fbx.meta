@@ -20,9 +20,12 @@ ModelImporter:
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'spine1_jnt' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n"
+      might lower retargeting quality:\n\t'spine1_jnt' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'ear1_R_jnt' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n\t'ear2_R_jnt'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ear1_L_jnt'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ear2_L_jnt'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -334,7 +337,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: ear1_L_jnt
+    - boneName: ear4_L_jnt
       humanName: LeftEye
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -342,7 +345,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: ear1_R_jnt
+    - boneName: ear4_R_jnt
       humanName: RightEye
       limit:
         min: {x: 0, y: 0, z: 0}

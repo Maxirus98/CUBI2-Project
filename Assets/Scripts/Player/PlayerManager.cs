@@ -8,13 +8,13 @@ using UnityEngine;
 public class PlayerManager : NetworkBehaviour
 {
     public bool testing;
+    public CameraHandler cameraHandlerClone;
+
     [SerializeField]
     private CameraHandler cameraHandler;
-    private CameraHandler cameraHandlerClone;
     private InputHandler inputHandler;
     private PlayerController playerController;
     private PlayerStats playerStats;
-    private Vector3 lastPosition;
 
     [Header("Player Flags")]
     public bool isInAir;
@@ -40,53 +40,60 @@ public class PlayerManager : NetworkBehaviour
         }
     }
 
-    private void Start()
+    private void OnEnable()
     {
         InitializeComponents();
-        // Spawn une cam�ra pour le joueur (Client)
-        if (cameraHandlerClone == null)
-        {
-            cameraHandlerClone = Instantiate(cameraHandler);
-            cameraHandlerClone.targetTransform = transform;
-            playerController.CameraPrefab = cameraHandlerClone.transform;
-        }
-        lastPosition = transform.position;
-        var playerSpawnPoint = GameObject.Find("PlayerSpawn");
-        var offsetX = IsHost ? 4 : -4;
-        transform.position = playerSpawnPoint.transform.position + Vector3.right * offsetX;
     }
 
     void Update()
     {
         var delta = Time.deltaTime;
         inputHandler.TickInput();
+        if (transform == null) return;
         playerController.HandleMovement(delta);
         playerController.HandleFalling(delta);
-
-        if (playerController.IsOnDune())
-        {
-            Debug.Log("On dune");
-            // TODO: Code commenté temporairement pour la démo puisque ça bloque le passage
-            ///transform.position = lastPosition;
-        }
-        else
-        {
-            //lastPosition = transform.position;
-        }
     }
 
     private void FixedUpdate()
     {
         float delta = Time.fixedDeltaTime;
-        if (cameraHandler != null)
+        if (cameraHandlerClone != null && transform != null)
         {
             cameraHandlerClone.FollowTarget(delta);
             cameraHandlerClone.HandleCameraRotation(delta, inputHandler.MouseX, inputHandler.MouseY);
         }
     }
 
+    /// <summary>
+    /// Spawn une camera pour le joueur (Client)
+    /// </summary>
+    public void InitializeCamera()
+    {
+        Debug.Log("Initialize Camera");
+        if (cameraHandlerClone == null)
+        {
+            cameraHandlerClone = Instantiate(cameraHandler);
+            cameraHandlerClone.targetTransform = transform;
+            playerController.CameraPrefab = cameraHandlerClone.transform;
+        }
+
+        var playerSpawnPoint = GameObject.Find("PlayerSpawn");
+        var offsetX = IsHost ? 4 : -4;
+        transform.position = playerSpawnPoint.transform.position + Vector3.right * offsetX;
+    }
+
+    public void DeactivateComponents()
+    {
+        inputHandler.enabled = false;
+        playerController.enabled = false;
+        playerStats.enabled = false;
+
+        cameraHandlerClone = null;
+    }
+
     private void InitializeComponents()
     {
+        Debug.Log("Initialize Components");
         inputHandler = GetComponent<InputHandler>();
         playerController = GetComponent<PlayerController>();
         playerStats = GetComponent<PlayerStats>();
@@ -94,5 +101,8 @@ public class PlayerManager : NetworkBehaviour
         inputHandler.enabled = true;
         playerController.enabled = true;
         playerStats.enabled = true;
+
+        playerStats.Initialize();
+        InitializeCamera();
     }
 }

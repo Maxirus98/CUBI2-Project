@@ -4,9 +4,10 @@ using UnityEngine;
 public class PlayerController : NetworkBehaviour
 {
     public Transform CameraPrefab;
+    [HideInInspector]
+    public Rigidbody rb;
 
     private Vector3 moveDirection;
-    private Rigidbody rb;
     private InputHandler inputHandler;
     private PlayerManager playerManager;
     private PlayerAnimatorHandler playerAnimatorHandler;

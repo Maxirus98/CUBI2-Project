@@ -1,6 +1,5 @@
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.ProBuilder.MeshOperations;
 
 public class EnemyStats : NetworkBehaviour
 {
@@ -22,32 +21,35 @@ public class EnemyStats : NetworkBehaviour
     {
         if (other.CompareTag("ProjectileSandMan") && CompareTag("EnemySandMan"))
         {
-            Debug.Log("Triggered ProjectileSandMan");
-            AudioSource.PlayClipAtPoint(SoundManager.Instance.enemyHitFx, transform.position);
-            TakeDamage(1);
-            anim.SetTrigger("Hit");
+            OnHit("Turret projectile Sandman");
         }
         else if (other.CompareTag("ProjectilePet") && CompareTag("EnemyPet")) {
-            Debug.Log("Triggered ProjectilePet");
-            AudioSource.PlayClipAtPoint(SoundManager.Instance.enemyHitFx, transform.position);
-            TakeDamage(1);
-            anim.SetTrigger("Hit");
+            OnHit("Projectile Pet hit");
+
         }
         else if ((other.CompareTag("ProjectilePet") || other.CompareTag("ProjectileSandMan")) && CompareTag("Enemy")) {
-            Debug.Log("Triggered ProjectilePet");
-            AudioSource.PlayClipAtPoint(SoundManager.Instance.enemyHitFx, transform.position);
-            TakeDamage(1);
-            anim.SetTrigger("Hit");
+            OnHit("Projectile player hit");
+        }
+        else if (other.CompareTag("Projectile") && (CompareTag("EnemySandMan") || CompareTag("EnemyPet") || CompareTag("Enemy")))
+        {
+            OnHit("Turret projectile Hit");
         }
 
         if (other.CompareTag("Door"))
         {
-            Debug.Log("Triggered Door");
-            WinLoseHandler.Instance.UpdateGameState(GameState.Lost);
+            WinLoseHandler.Instance.UpdateGameState(GameState.DoorLost);
         }
     }
 
-    private void TakeDamage(int damage)
+    private void OnHit(string message)
+    {
+        Debug.Log(message);
+        AudioSource.PlayClipAtPoint(SoundManager.Instance.enemyHitFx, transform.position);
+        TakeDamage(1);
+        anim.SetTrigger("Hit");
+    }
+
+    public void TakeDamage(int damage)
     {
         if (currentHealth > 0)
         {
