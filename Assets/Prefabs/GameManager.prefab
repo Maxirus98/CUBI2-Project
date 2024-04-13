@@ -255,7 +255,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2503292212955355635}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: Recommencer
         m_Mode: 1
@@ -783,7 +783,6 @@ GameObject:
   - component: {fileID: 7290660677199197074}
   - component: {fileID: 1003922906262312619}
   - component: {fileID: 8758109760400106412}
-  - component: {fileID: 2503292212955355635}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -836,7 +835,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endGameCanvas: {fileID: 3692684416872823428}
   endGameText: {fileID: 2480373440187295702}
-  gameData: {fileID: 0}
 --- !u!82 &8758109760400106412
 AudioSource:
   m_ObjectHideFlags: 0
@@ -933,20 +931,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2503292212955355635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5674814599132580124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc9ea1f173c70450da2aa52ad35c256d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 5674814599132580124}
-  gameData: {fileID: 0}
 --- !u!1 &6528514637552817436
 GameObject:
   m_ObjectHideFlags: 0

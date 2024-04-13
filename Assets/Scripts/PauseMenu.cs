@@ -3,6 +3,7 @@ using UnityEngine;
 using System.IO;
 using System;
 using Unity.Netcode;
+using UnityEditor;
 
 public class PauseMenu : NetworkBehaviour
 {
@@ -13,6 +14,7 @@ public class PauseMenu : NetworkBehaviour
     private void Start()
     {
         GameManager.Instance.gameMenu = pauseMenuUI;
+        GameManager.Instance.pauseMenu = this;
     }
 
     public void TogglePauseMenu()

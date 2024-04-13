@@ -22,6 +22,7 @@ public class GameManager : Singleton<GameManager>
 
 
     public GameData gameData;
+    public PauseMenu pauseMenu;
 
     void Start()
     {
@@ -102,6 +103,11 @@ public class GameManager : Singleton<GameManager>
 
             }
         }
+    }
+
+    public void Recommencer()
+    {
+        pauseMenu.Recommencer();
     }
 
     private void OnLoadSceneComplete(AsyncOperation ao)
