@@ -105,4 +105,9 @@ public class PlayerManager : NetworkBehaviour
         playerStats.Initialize();
         InitializeCamera();
     }
+
+    private void OnDisable()
+    {
+        DeactivateComponents();
+    }
 }
