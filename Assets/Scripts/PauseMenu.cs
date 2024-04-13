@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
+using Unity.Netcode;
 
 public class PauseMenu : NetworkBehaviour
 {
@@ -44,7 +45,7 @@ public class PauseMenu : NetworkBehaviour
     {
         GameIsPaused = false;
         Time.timeScale = 1.0f;
-        SaveGame();
+        SaveGameClientRpc();
         // set endGameCanvas active to false
         WinLoseHandler.Instance.endGameCanvas.SetActive(false);
         NetworkLoader.ReloadScene();
@@ -57,7 +58,7 @@ public class PauseMenu : NetworkBehaviour
 
     // lorsque le joueur quitte le jeu ou sauvegarde le jeu
     [ClientRpc]
-    public void SaveGame()
+    public void SaveGameClientRpc()
     {
         try
         {
