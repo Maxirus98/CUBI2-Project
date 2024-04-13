@@ -49,8 +49,14 @@ public class PauseMenu : NetworkBehaviour
         Time.timeScale = 1.0f;
         SaveGameClientRpc();
         // set endGameCanvas active to false
-        WinLoseHandler.Instance.endGameCanvas.SetActive(false);
+        DisableEndGameMenuClientRpc();
         NetworkLoader.ReloadScene();
+    }
+
+    [ClientRpc]
+    public void DisableEndGameMenuClientRpc()
+    {
+        WinLoseHandler.Instance.endGameCanvas.SetActive(false);
     }
 
     public void QuitGame()
