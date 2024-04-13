@@ -40,8 +40,6 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
             default:
                 break;
         }
-
-        Invoke(nameof(StopGameLoop), 1f);
     }
 
     private void EndGame(string text, AudioClip oneShotClip)
@@ -52,11 +50,5 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
         endGameText.text = text + $" Vous avez construit {turretBuiltCount} tours. Vous n'aurez pas accès à ces emplacements de construction pour les prochaines parties";
         AudioSource.PlayClipAtPoint(oneShotClip, transform.position);
         endGameCanvas.SetActive(true);
-    }
-
-    // TODO: Changer ceci car les sons vont aussi s'arrï¿½ter
-    private void StopGameLoop()
-    {
-        Time.timeScale = CurrentGameState == GameState.Running ? 1 : 0;
     }
 }
