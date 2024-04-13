@@ -15,8 +15,18 @@ public class Enemy1Management : MonoBehaviour {
     public float distAgentPet;
     //private readonly GameObject[] towers = GameObject.FindGameObjectsWithTag("Tower");
 
-    [SerializeField]
-    float Enemy1Speed;
+    [Header("Vos valeurs pour des tests, 1 pour chaque couleur")]
+    public float Enemy1Speed1;
+    public float Enemy1Speed2;
+    public float Enemy1Speed3;
+
+    [Header("Mettre vos valeurs après vos tests définitifs")]
+    public float Enemy1SpeedMin;
+    public float Enemy1SpeedMax;
+    private float SpeedAleatoire;
+
+    [Header("Cocher la case si vous voulez l'aléatoire")]
+    public bool areSpeedValuesChosen = false;
 
     [SerializeField]
     Vector3 destination; // Destination finale
@@ -30,13 +40,34 @@ public class Enemy1Management : MonoBehaviour {
     float rangeVue, rangeAttack;
     bool playerInRange, playerInAttackRange;
 
+
+
     // For Attack animation
     private Animator anim;
 
     private void Awake() {
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = Enemy1Speed;
 
+        if (areSpeedValuesChosen) {
+            agent.speed = Random.Range(Enemy1SpeedMin, Enemy1SpeedMin);
+        }
+        else if (!areSpeedValuesChosen) {
+            if (agent.tag == "Enemy") {
+                print(agent.tag);
+                print(Enemy1Speed1);
+                agent.speed = Enemy1Speed1;
+            }
+            else if (agent.tag == "EnemySandMan") {
+                print(agent.tag);
+                print(Enemy1Speed2);
+                agent.speed = Enemy1Speed2;
+            }
+            else if (agent.tag == "EnemyPet") {
+                print(agent.tag);
+                print(Enemy1Speed3);
+                agent.speed = Enemy1Speed3;
+            }
+        }
         sandMan = GameObject.Find("SandmanModel").transform;
         pet = GameObject.Find("PetModel").transform;
         //closestPlayer = GameObject.Find("SandmanModel").transform;

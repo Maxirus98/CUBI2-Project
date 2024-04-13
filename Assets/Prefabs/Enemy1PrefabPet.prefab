@@ -100,7 +100,9 @@ MonoBehaviour:
   players: []
   distAgentSandman: 0
   distAgentPet: 0
-  Enemy1Speed: 1
+  Enemy1Speed1: 1
+  Enemy1Speed2: 5
+  Enemy1Speed3: 10
   destination: {x: -63.45, y: 1.5, z: 32.46}
   rangeVue: 50
   rangeAttack: 5
