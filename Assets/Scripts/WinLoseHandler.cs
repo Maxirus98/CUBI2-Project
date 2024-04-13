@@ -41,8 +41,7 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
                 break;
         }
 
-        // Arr�te le jeu et tous les �v�nements apr�s 3 secondes
-        Invoke(nameof(StopGameLoop), 3f);
+        Invoke(nameof(StopGameLoop), 1f);
     }
 
     private void EndGame(string text, AudioClip oneShotClip)
