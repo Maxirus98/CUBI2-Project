@@ -204,7 +204,7 @@ public class Turret : NetworkBehaviour
             firePoint = cannonInstance.transform.Find("FirePoint");
 
             // Spawn pour le serveur
-            instanceNetworkObject.Spawn();
+            instanceNetworkObject.Spawn(true);
             IsBuiltClientRpc();
         }
     }
@@ -233,7 +233,7 @@ public class Turret : NetworkBehaviour
             AudioSource.PlayClipAtPoint(SoundManager.Instance.towerShootFx, transform.position);
             if (bulletNetworkObject != null && IsServer)
             {
-                bulletNetworkObject.Spawn();
+                bulletNetworkObject.Spawn(true);
             }
             else
             {
@@ -269,18 +269,12 @@ public class Turret : NetworkBehaviour
         }
     }
 
-    [ServerRpc()]
+    [ServerRpc]
     public void DestroyTowerServerRpc() {
         // Méthode pour détruire les tours sur le serveur
-        DestroyTowerClientRpc();
-    }
-
-    [ClientRpc()]
-    public void DestroyTowerClientRpc() {
-        // Méthode pour détruire les tours sur le serveur
-        Vector3 destroyPosition = transform.position + new Vector3(0, 1f, 0);
+        Vector3 destroyPosition = transform.position + new Vector3(0, 0.5f, 0);
         destroyTowerInstance = Instantiate(destroyTowerPrefab, destroyPosition, Quaternion.Euler(0, 0, 0));
         var instanceNetworkObject = destroyTowerInstance.GetComponent<NetworkObject>();
-        instanceNetworkObject.Spawn();
+        instanceNetworkObject.Spawn(true);
     }
 }

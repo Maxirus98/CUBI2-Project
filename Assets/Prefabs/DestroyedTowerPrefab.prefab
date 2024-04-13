@@ -4852,15 +4852,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8b02361679c606b46a0e82d02107c425, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0018589532
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8b02361679c606b46a0e82d02107c425, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.009734492
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8b02361679c606b46a0e82d02107c425, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00067343947
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8b02361679c606b46a0e82d02107c425, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4900,10 +4900,39 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8b02361679c606b46a0e82d02107c425, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2767176101408765719}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8b02361679c606b46a0e82d02107c425, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4798136288718493052}
   m_SourcePrefab: {fileID: 100100000, guid: 8b02361679c606b46a0e82d02107c425, type: 3}
 --- !u!4 &1216742490578200346 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8b02361679c606b46a0e82d02107c425, type: 3}
   m_PrefabInstance: {fileID: 1686604263468613873}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1993243562618781088 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8b02361679c606b46a0e82d02107c425, type: 3}
+  m_PrefabInstance: {fileID: 1686604263468613873}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4798136288718493052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993243562618781088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 0
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1

@@ -157,7 +157,10 @@ public class GameManager : Singleton<GameManager>
                     turretComponent.isBuilt = turretData.isBuilt;
                     if (turretComponent.isBuilt) {
                         turretComponent.gameObject.SetActive(false);
-                        turretComponent.DestroyTowerServerRpc();
+                        if(NetworkManager.Singleton.IsServer)
+                        {
+                            turretComponent.DestroyTowerServerRpc();
+                        }
                     }
                 }
             }
