@@ -10,12 +10,12 @@ public enum GameState
 }
 
 /// <summary>
-/// Script permettant de déterminer si les joueurs ont gagnés ou perdus
+/// Script permettant de dï¿½terminer si les joueurs ont gagnï¿½s ou perdus
 /// </summary>
 public class WinLoseHandler : Singleton<WinLoseHandler>
 {
     [SerializeField]
-    private GameObject endGameCanvas;
+    public GameObject endGameCanvas;
     [SerializeField]
     private TextMeshProUGUI endGameText;
 
@@ -29,19 +29,19 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
             case GameState.Running:
                 break;
             case GameState.DoorLost:
-                EndGame("Attention! Les cauchemars ont réussi leur objectif. La petite Rosalie se réveille de son cauchemar.", SoundManager.Instance.lostSound);
+                EndGame("Attention! Les cauchemars ont rï¿½ussi leur objectif. La petite Rosalie se rï¿½veille de son cauchemar.", SoundManager.Instance.lostSound);
                 break;
             case GameState.Won:
-                EndGame("Bravo! Le rêve a été stabilisé, vous avez vaincu tous les cauchemars", SoundManager.Instance.winSound);
+                EndGame("Bravo! Le rï¿½ve a ï¿½tï¿½ stabilisï¿½, vous avez vaincu tous les cauchemars", SoundManager.Instance.winSound);
                 break;
             case GameState.HpLost:
-                EndGame("Attention! Un des défenseurs oniriques est tombé. La petite Sophie se réveille de son cauchemar.", SoundManager.Instance.lostSound);
+                EndGame("Attention! Un des dï¿½fenseurs oniriques est tombï¿½. La petite Sophie se rï¿½veille de son cauchemar.", SoundManager.Instance.lostSound);
                 break;
             default:
                 break;
         }
 
-        // Arrête le jeu et tous les événements après 3 secondes
+        // Arrï¿½te le jeu et tous les ï¿½vï¿½nements aprï¿½s 3 secondes
         Invoke(nameof(StopGameLoop), 3f);
     }
 
@@ -52,7 +52,7 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
         endGameCanvas.SetActive(true);
     }
 
-    // TODO: Changer ceci car les sons vont aussi s'arrêter
+    // TODO: Changer ceci car les sons vont aussi s'arrï¿½ter
     private void StopGameLoop()
     {
         Time.timeScale = CurrentGameState == GameState.Running ? 1 : 0;

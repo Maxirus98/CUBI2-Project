@@ -30,7 +30,7 @@ public class EnemyStats : NetworkBehaviour
         else if ((other.CompareTag("ProjectilePet") || other.CompareTag("ProjectileSandMan")) && CompareTag("Enemy")) {
             OnHit("Projectile player hit");
         }
-        else if (other.CompareTag("Projectile") && (CompareTag("EnemySandMan") || CompareTag("EnemyPet") || CompareTag("Enemy")))
+        else if (other.CompareTag("Projectile") && (CompareTag("EnemySandMan") || CompareTag("EnemyPet") || CompareTag("Enemy")))
         {
             OnHit("Turret projectile Hit");
         }

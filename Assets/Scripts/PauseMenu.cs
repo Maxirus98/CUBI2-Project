@@ -42,10 +42,11 @@ public class PauseMenu : MonoBehaviour
 
     public void Recommencer()
     {
-        Debug.Log("Main Menu called");
         GameIsPaused = false;
         Time.timeScale = 1.0f;
         SaveGame();
+        // set endGameCanvas active to false
+        WinLoseHandler.Instance.endGameCanvas.SetActive(false);
         NetworkLoader.ReloadScene();
     }
 
