@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameData : MonoBehaviour
+public class GameData : Singleton<GameData>
 {
     public List<TurretData> turrets = new List<TurretData>();
 

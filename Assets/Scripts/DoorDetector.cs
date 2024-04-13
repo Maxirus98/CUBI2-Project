@@ -19,7 +19,7 @@ public class DoorDetector : MonoBehaviour
 
         foreach (var hit in hits)
         {
-            if (hit.collider.CompareTag("Enemy"))
+            if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("EnemyPet") || hit.collider.CompareTag("EnemySandMan"))
             {
                 Debug.Log("Hit " + hit.collider.name);
                 if(!audioSource.isPlaying)

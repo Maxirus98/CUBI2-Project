@@ -47,7 +47,10 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
 
     private void EndGame(string text, AudioClip oneShotClip)
     {
-        endGameText.text = text;
+        GameData.Instance.UpdateAllTowersData();
+        var turretBuiltCount = GameData.Instance.turrets.FindAll(t => t.isBuilt).Count;
+
+        endGameText.text = text + $" Vous avez construit {turretBuiltCount} tours. Vous n'aurez pas accès à ces emplacements de construction pour les prochaines parties";
         AudioSource.PlayClipAtPoint(oneShotClip, transform.position);
         endGameCanvas.SetActive(true);
     }

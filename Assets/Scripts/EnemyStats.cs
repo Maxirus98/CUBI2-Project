@@ -41,6 +41,14 @@ public class EnemyStats : NetworkBehaviour
         }
     }
 
+    public void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Door"))
+        {
+            WinLoseHandler.Instance.UpdateGameState(GameState.DoorLost);
+        }
+    }
+
     private void OnHit(string message)
     {
         Debug.Log(message);
