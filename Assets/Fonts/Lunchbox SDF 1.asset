@@ -58,11 +58,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Lunchbox SDF
+  m_Name: Lunchbox SDF 1
   m_EditorClassIdentifier: 
-  hashCode: -801241736
+  hashCode: -673890455
   material: {fileID: 8213585859505595653}
-  materialHashCode: -1085310760
+  materialHashCode: 234875689
   m_Version: 1.1.0
   m_SourceFontFileGUID: a60bf177c3d848b418a65aab54978053
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: a60bf177c3d848b418a65aab54978053, type: 3}
@@ -2788,7 +2788,7 @@ Material:
     - _ColorMask: 15
     - _CullMode: 0
     - _Diffuse: 0.5
-    - _FaceDilate: 0
+    - _FaceDilate: 0.11
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
     - _GlowInner: 0.05
@@ -2802,12 +2802,12 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 0.455
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
-    - _ScaleRatioB: 0.6770833
-    - _ScaleRatioC: 0.6770833
+    - _ScaleRatioB: 0.5854167
+    - _ScaleRatioC: 0.5854167
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
