@@ -612,7 +612,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Construire
+  m_text: "Construire [B]. Vous devez \xEAtre 2 pour construire."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5cfca7e85d849774390c018d0683dc51, type: 2}
   m_sharedMaterial: {fileID: 8213585859505595653, guid: 5cfca7e85d849774390c018d0683dc51, type: 2}

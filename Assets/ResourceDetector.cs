@@ -17,11 +17,6 @@ public class ResourceDetector : MonoBehaviour
         playerStats.ToggleResourceText(ResourceText, other.CompareTag(ResourceTag));
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        playerStats.IsNearResource = other.CompareTag(ResourceTag);
-    }
-
     private void OnTriggerExit(Collider other)
     {
         playerStats.ToggleResourceText(ResourceText, false);

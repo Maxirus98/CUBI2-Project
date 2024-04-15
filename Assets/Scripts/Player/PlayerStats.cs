@@ -11,7 +11,6 @@ public class PlayerStats : NetworkBehaviour
 
     public PlayerResourceScript playerResource;
 
-    [HideInInspector]
     public PlayerResourceScript PlayerResourceClone;
 
     [SerializeField]
