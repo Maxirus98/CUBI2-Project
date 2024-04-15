@@ -7,14 +7,16 @@ using UnityEditor;
 
 public class PauseMenu : NetworkBehaviour
 {
-    public static bool GameIsPaused = false;
+    public static bool GameIsPaused = true;
     public GameObject pauseMenuUI;
     public GameData gameData;
+    public GameObject Intro;
 
     private void Start()
     {
         GameManager.Instance.gameMenu = pauseMenuUI;
         GameManager.Instance.pauseMenu = this;
+        Intro.SetActive(true);
     }
 
     public void TogglePauseMenu()
@@ -75,7 +77,7 @@ public class PauseMenu : NetworkBehaviour
             string json = JsonUtility.ToJson(gameData);
             File.WriteAllText(Application.persistentDataPath + "/turrets.json", json);
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             Debug.LogError("Exception: " + e);
         }
