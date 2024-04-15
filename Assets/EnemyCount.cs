@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class EnemyCount : MonoBehaviour
     public TextMeshProUGUI enemyCount;
     public TextMeshProUGUI enemyLabel;
     public SpawnScript spawnScript;
+    public TextMeshProUGUI waveCountText;
 
     void Start()
     {
@@ -28,4 +30,11 @@ public class EnemyCount : MonoBehaviour
         enemyLabel.gameObject.SetActive(isSpawned);
     }
 
+    public IEnumerator ShowWave(int waveNum)
+    {
+        waveCountText.transform.parent.gameObject.SetActive(true);
+        waveCountText.text = $"Vague {waveNum}";
+        yield return new WaitForSeconds(2);
+        waveCountText.transform.parent.gameObject.SetActive(false);
+    }
 }

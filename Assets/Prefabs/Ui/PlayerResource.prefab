@@ -311,6 +311,7 @@ MonoBehaviour:
   enemyCount: {fileID: 2025936677235090161}
   enemyLabel: {fileID: 6021780574977610658}
   spawnScript: {fileID: 0}
+  waveCountText: {fileID: 3383079438804733858}
 --- !u!1 &5608103757203954219
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,6 +792,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91af0fd28a43daa4ba9c608f0900fcd5, type: 3}
+--- !u!114 &3383079438804733858 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4276151233425802281, guid: 91af0fd28a43daa4ba9c608f0900fcd5, type: 3}
+  m_PrefabInstance: {fileID: 1559631093266893707}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4037051050607417287 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3288349823069150284, guid: 91af0fd28a43daa4ba9c608f0900fcd5, type: 3}

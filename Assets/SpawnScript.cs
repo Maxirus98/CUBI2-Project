@@ -55,10 +55,12 @@ public class SpawnScript : MonoBehaviour {
     }
 
     private void OnEnable() {
-        enemyCount.ShowMonsterCount(true);
         audioSource.PlayOneShot(SoundManager.Instance.waveStartSound);
         audioSource.Play();
         timerScript.enabled = false;
+
+        enemyCount.ShowMonsterCount(true);
+        StartCoroutine(enemyCount.ShowWave(numWave));
 
         NumberOfEnemies1 = Wave1Enemies1Normal + Wave1Enemies1SandMan + Wave1Enemies1Pet;
 
