@@ -15,11 +15,11 @@ public enum GameState
 public class WinLoseHandler : Singleton<WinLoseHandler>
 {
     [SerializeField]
-    public GameObject endGameCanvas;
+    public GameObject endGameCanvas, winCanvas, loseCanvas;
     [SerializeField]
     private TextMeshProUGUI endGameText;
 
-    public GameState CurrentGameState {get; set;}
+    public GameState CurrentGameState { get; set; }
 
     public void UpdateGameState(GameState newGameState)
     {
@@ -29,12 +29,15 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
             case GameState.Running:
                 break;
             case GameState.DoorLost:
+                loseCanvas.SetActive(true);
                 EndGame("Attention! Les cauchemars ont rï¿½ussi leur objectif. La petite Rosalie se rï¿½veille de son cauchemar.", SoundManager.Instance.lostSound);
                 break;
             case GameState.Won:
+                winCanvas.SetActive(true);
                 EndGame("Bravo! Le rï¿½ve a ï¿½tï¿½ stabilisï¿½, vous avez vaincu tous les cauchemars", SoundManager.Instance.winSound);
                 break;
             case GameState.HpLost:
+                loseCanvas.SetActive(true);
                 EndGame("Attention! Un des dï¿½fenseurs oniriques est tombï¿½. La petite Sophie se rï¿½veille de son cauchemar.", SoundManager.Instance.lostSound);
                 break;
             default:
@@ -47,8 +50,8 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
         GameData.Instance.UpdateAllTowersData();
         var turretBuiltCount = GameData.Instance.turrets.FindAll(t => t.isBuilt).Count;
 
-        endGameText.text = text + $" Vous avez construit {turretBuiltCount} tours. Vous n'aurez pas accès à ces emplacements de construction pour les prochaines parties";
+        endGameText.text = text + $" Vous avez construit {turretBuiltCount} tours. Vous n'aurez pas accï¿½s ï¿½ ces emplacements de construction pour les prochaines parties";
         AudioSource.PlayClipAtPoint(oneShotClip, transform.position);
-        endGameCanvas.SetActive(true);
+        endGameCanvas.SetActive(true);  
     }
 }
