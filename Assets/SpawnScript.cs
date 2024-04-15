@@ -47,7 +47,7 @@ public class SpawnScript : MonoBehaviour {
 
 
     private TimerScript timerScript;
-    public AudioSource audioSource;
+    private AudioSource audioSource;
 
     void Awake() {
         audioSource = GetComponent<AudioSource>();

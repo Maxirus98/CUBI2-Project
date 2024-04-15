@@ -4,6 +4,7 @@ using Unity.Netcode;
 public class Bullet : NetworkBehaviour
 {
     public float speed = 10f;
+    public int damage = 3;
     private Transform target;
     private NetworkObject networkObject;
 
@@ -45,7 +46,7 @@ public class Bullet : NetworkBehaviour
     void HitEnemy()
     {
         var enemy = target.GetComponent<EnemyStats>();
-        enemy.TakeDamage(1);
+        enemy.TakeDamage(damage);
         if (IsHost)
         {
             networkObject.Despawn();

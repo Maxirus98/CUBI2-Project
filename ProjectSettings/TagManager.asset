@@ -16,6 +16,7 @@ TagManager:
   - EnemySandMan
   - EnemyPet
   - Cactus
+  - PlayerModel
   layers:
   - Default
   - TransparentFX

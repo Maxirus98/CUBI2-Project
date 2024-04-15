@@ -86,6 +86,7 @@ public class Turret : NetworkBehaviour
         }
     }
 
+    private int playersNearbyCount = 0;
 
     void OnTriggerEnter(Collider col)
     {
@@ -93,18 +94,30 @@ public class Turret : NetworkBehaviour
         {
             enemies.Add(col.gameObject);
         }
-        else if (col.tag == "Player")
+    }
+
+    private float playerDetectionRange = 10f;
+    private void OnTriggerStay(Collider col)
+    {
+        if (col.tag == "Player")
         {
-            isPlayerInRange = true;
+            isPlayerInRange = (transform.position - col.transform.position).sqrMagnitude <= playerDetectionRange;
             var colNetworkObj = col.GetComponent<NetworkObject>();
-
-            if(NetworkManager.LocalClientId == colNetworkObj.OwnerClientId)
+            playersNearbyCount += isPlayerInRange ? 1 : -1;
+            if (NetworkManager.LocalClientId == colNetworkObj.OwnerClientId)
             {
-                buildText.SetActive(!isBuilt);
+                var showUi = isPlayerInRange && !isBuilt;
+                buildText.SetActive(showUi);
+                sandmanSyncSlider.gameObject.SetActive(showUi);
+                petSyncSlider.gameObject.SetActive(showUi);
+                animationTime = isPlayerInRange ? animationTime : 0f;
+                
+                inputHandler = col.GetComponent<InputHandler>();
+                if (inputHandler != null)
+                {
+                    inputHandler.nearbyTurret = isPlayerInRange ? this : null;
+                }
             }
-            inputHandler = col.GetComponent<InputHandler>();
-
-            inputHandler.nearbyTurret = this;
         }
     }
 
@@ -114,23 +127,11 @@ public class Turret : NetworkBehaviour
         {
             enemies.Remove(col.gameObject);
         }
-        else if (col.tag == "Player")
-        {
-            isPlayerInRange = false;
-            buildText.SetActive(false);
-            if (inputHandler != null)
-            {
-                inputHandler.nearbyTurret = null;
-            }
 
-            var colNetworkObj = col.GetComponent<NetworkObject>();
-            // Reset local sliders
-            if (NetworkManager.LocalClientId == colNetworkObj.OwnerClientId)
-            {
-                sandmanSyncSlider.gameObject.SetActive(false);
-                petSyncSlider.gameObject.SetActive(false);
-                animationTime = 0f;
-            }
+        if(col.CompareTag("Player"))
+        {
+            sandmanSyncSlider.value = 0f;
+            petSyncSlider.value = 0f;
         }
     }
 
@@ -227,6 +228,7 @@ public class Turret : NetworkBehaviour
 
     void FireAtEnemy()
     {
+        enemies.RemoveAll(item => item == null);
         GameObject targetEnemy = enemies[0];
         if (targetEnemy != null && cannonInstance != null)
         {
