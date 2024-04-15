@@ -1,4 +1,5 @@
-﻿using Unity.Netcode;
+﻿using System.Resources;
+using Unity.Netcode;
 using UnityEngine;
 
 public class PlayerStats : NetworkBehaviour
@@ -44,6 +45,14 @@ public class PlayerStats : NetworkBehaviour
         }
     }
 
+    public void ToggleResourceText(string text, bool isShowing)
+    {
+        if(PlayerResourceClone != null)
+        {
+            PlayerResourceClone.ToggleResourceText(text, isShowing);
+        }
+    }
+
     public void UseResource(int spending)
     {
         if(CurrentUseable > 0)
@@ -55,7 +64,7 @@ public class PlayerStats : NetworkBehaviour
 
     public void GainResource()
     {
-        // TODO: Dire plus d'information au joueur
+        print("Gain Resource " + IsNearResource);
         if (IsNearResource)
         {
             CurrentUseable = maxUseable;

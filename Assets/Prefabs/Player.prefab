@@ -628,6 +628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ResourceTag: Water
+  ResourceText: "Acqu\xE9rir de l'eau [B]"
   playerStats: {fileID: 5347896979987663414}
 --- !u!114 &4073098550050961464
 MonoBehaviour:
@@ -861,6 +862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ResourceTag: Sand
+  ResourceText: "Acqu\xE9rir du sable [B]"
   playerStats: {fileID: 5347896979987663414}
 --- !u!114 &7656569711723084730
 MonoBehaviour:

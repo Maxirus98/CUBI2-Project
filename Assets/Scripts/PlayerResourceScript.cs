@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
@@ -13,6 +14,15 @@ public class PlayerResourceScript : MonoBehaviour
     private Slider useableSlider;
     [SerializeField]
     private Image useableFill;
+
+    [SerializeField]
+    private TextMeshProUGUI resourceUi;
+
+    public void ToggleResourceText(string text, bool isShowing)
+    {
+        resourceUi.text = text;
+        resourceUi.gameObject.SetActive(isShowing);
+    }
 
     public void SetMaxHealth(int health)
     {

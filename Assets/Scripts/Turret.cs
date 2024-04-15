@@ -162,7 +162,10 @@ public class Turret : NetworkBehaviour
     [ClientRpc]
     private void AnimateSliderOverTimeClientRpc(ulong clientId, bool isSandman)
     {
-        StartCoroutine(AnimateSliderOverTime(clientId, isSandman));
+        if(isPlayerInRange)
+        {
+            StartCoroutine(AnimateSliderOverTime(clientId, isSandman));
+        }
     }
 
     private IEnumerator AnimateSliderOverTime(ulong clientId, bool isSandman)
