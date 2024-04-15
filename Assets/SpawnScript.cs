@@ -48,13 +48,14 @@ public class SpawnScript : MonoBehaviour {
 
     private TimerScript timerScript;
     private AudioSource audioSource;
+    public EnemyCount enemyCount;
 
     void Awake() {
         audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable() {
-
+        enemyCount.ShowMonsterCount(true);
         audioSource.PlayOneShot(SoundManager.Instance.waveStartSound);
         audioSource.Play();
         timerScript.enabled = false;
@@ -156,6 +157,7 @@ public class SpawnScript : MonoBehaviour {
 
     public void Update() {
         
+
         if (totalEnemies <= 0) {
             Debug.Log("Plus d'ennemis");
             if (numWave == 1) {
@@ -189,6 +191,8 @@ public class SpawnScript : MonoBehaviour {
         {
             audioSource.Stop();
         }
+
+        enemyCount.ShowMonsterCount(false);
     }
 
     public void EnableSpawnScript(TimerScript pTimer)
