@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 1803128491563179311}
   - component: {fileID: 5579261789264048973}
   - component: {fileID: 9053265356758079100}
-  - component: {fileID: 1211587891488794227}
   - component: {fileID: -5868117586542664610}
   - component: {fileID: 2926982675300637957}
   - component: {fileID: 3264778380789892943}
+  - component: {fileID: 9105277098275082049}
   m_Layer: 0
   m_Name: Enemy1PrefabPet
   m_TagString: EnemyPet
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 774275417
+  GlobalObjectIdHash: 717051657
   InScenePlacedSourceGlobalObjectIdHash: 774275417
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -81,34 +81,6 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &1211587891488794227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2894268811013546652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 344b56692d2e9734bb26095dca2de471, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 5579261789264048973}
-  sandMan: {fileID: -8679921383154817045, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
-  pet: {fileID: -8679921383154817045, guid: 6c52e7abb1d8b2042b2e3c187eeeded0, type: 3}
-  closestPlayer: {fileID: 0}
-  players: []
-  distAgentSandman: 0
-  distAgentPet: 0
-  Enemy1Speed1: 1
-  Enemy1Speed2: 1
-  Enemy1Speed3: 1
-  Enemy1SpeedMin: 0
-  Enemy1SpeedMax: 0
-  areSpeedValuesChosen: 0
-  destination: {x: -63.45, y: 1.5, z: 32.46}
-  rangeVue: 50
-  rangeAttack: 5
 --- !u!114 &-5868117586542664610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +148,34 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &9105277098275082049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2894268811013546652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344b56692d2e9734bb26095dca2de471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 5579261789264048973}
+  sandMan: {fileID: -8679921383154817045, guid: d23e51c7bbc37864093c7c6749ea32e9, type: 3}
+  pet: {fileID: -8679921383154817045, guid: 6c52e7abb1d8b2042b2e3c187eeeded0, type: 3}
+  closestPlayer: {fileID: 0}
+  players: []
+  distAgentSandman: 0
+  distAgentPet: 0
+  Enemy1Speed1: 1
+  Enemy1Speed2: 1
+  Enemy1Speed3: 1
+  Enemy1SpeedMin: 0
+  Enemy1SpeedMax: 0
+  areSpeedValuesChosen: 0
+  destination: {x: 0, y: 0, z: 0}
+  rangeVue: 100
+  rangeAttack: 50
 --- !u!1001 &7584392312779111316
 PrefabInstance:
   m_ObjectHideFlags: 0
