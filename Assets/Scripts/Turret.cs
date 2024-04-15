@@ -86,7 +86,6 @@ public class Turret : NetworkBehaviour
         }
     }
 
-    private int playersNearbyCount = 0;
 
     void OnTriggerEnter(Collider col)
     {
@@ -103,7 +102,6 @@ public class Turret : NetworkBehaviour
         {
             isPlayerInRange = (transform.position - col.transform.position).sqrMagnitude <= playerDetectionRange;
             var colNetworkObj = col.GetComponent<NetworkObject>();
-            playersNearbyCount += isPlayerInRange ? 1 : -1;
             if (NetworkManager.LocalClientId == colNetworkObj.OwnerClientId)
             {
                 var showUi = isPlayerInRange && !isBuilt;
@@ -286,5 +284,11 @@ public class Turret : NetworkBehaviour
         destroyTowerInstance = Instantiate(destroyTowerPrefab, destroyPosition, Quaternion.Euler(0, 0, 0));
         var instanceNetworkObject = destroyTowerInstance.GetComponent<NetworkObject>();
         instanceNetworkObject.Spawn(true);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, playerDetectionRange);
     }
 }

@@ -104,7 +104,6 @@ public class InputHandler : MonoBehaviour
         if (nearbyTurret && playerStats.CurrentUseable >= buildingCost)
         {
             nearbyTurret.BuildCannon();
-            playerStats.UseResource(buildingCost);
         }
     }
 
