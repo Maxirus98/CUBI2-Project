@@ -24,19 +24,6 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
 
     protected override async void Awake()
     {
-        // if (_instance != null && _instance != this)
-        // {
-        //     RelayConnectionManager[] existingInstances = FindObjectsOfType<RelayConnectionManager>();
-        //     foreach (RelayConnectionManager instance in existingInstances)
-        //     {
-        //         if (instance != this)
-        //         {
-        //             Destroy(instance.gameObject);
-        //         }
-        //     }
-        // return;
-        // }
-        // _instance = this;
         DontDestroyOnLoad(this);
         base.Awake();
         await Authenticate();

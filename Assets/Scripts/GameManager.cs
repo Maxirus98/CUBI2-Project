@@ -49,7 +49,6 @@ public class GameManager : Singleton<GameManager>
         if(gameMenu != null)
         {
             gameMenu.SetActive(!gameMenu.activeInHierarchy);
-            Time.timeScale = !gameMenu.activeInHierarchy ? 1.0f : 0.0f;
         }
     }
 
