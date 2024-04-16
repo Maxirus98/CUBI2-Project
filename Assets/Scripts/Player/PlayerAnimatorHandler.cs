@@ -20,8 +20,7 @@ public class PlayerAnimatorHandler : MonoBehaviour
     /// <param name="moveAmount"></param>
     public void UpdateAnimatorValues(float moveAmount)
     {
-        float v;
-        ClampMovement(out v, moveAmount);
+        float v = moveAmount > 0f ? 1f: 0f;
 
         // Valeurs du BlendTree de mouvements
         Anim.SetFloat("Movement", v, 0.1f, Time.deltaTime);
@@ -45,19 +44,19 @@ public class PlayerAnimatorHandler : MonoBehaviour
 
     private void ClampMovement(out float direction, float movement)
     {
-        if (movement > 0f && movement < -0.55f)
-        {
-            direction = 0.5f;
-        }
-        else if (movement > 0.55f)
+        if (movement > 0f && movement < -0.1f)
         {
             direction = 1f;
         }
-        else if (movement < 0f && movement > -0.55f)
+        else if (movement > 0.1f)
         {
-            direction = -0.5f;
+            direction = 1f;
         }
-        else if (movement < -0.55f)
+        else if (movement < 0f && movement > -0.1f)
+        {
+            direction = -1f;
+        }
+        else if (movement < -0.1f)
         {
             direction = -1f;
         }
