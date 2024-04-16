@@ -30,15 +30,15 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
                 break;
             case GameState.DoorLost:
                 loseCanvas.SetActive(true);
-                EndGame("Attention! Les cauchemars ont r�ussi leur objectif. La petite Rosalie se r�veille de son cauchemar.", SoundManager.Instance.lostSound);
+                EndGame("Attention! Les cauchemars ont réussi leur objectif. La petite Rosalie se réveille de son cauchemar.", SoundManager.Instance.lostSound);
                 break;
             case GameState.Won:
                 winCanvas.SetActive(true);
-                EndGame("Bravo! Le r�ve a �t� stabilis�, vous avez vaincu tous les cauchemars", SoundManager.Instance.winSound);
+                EndGame("Bravo! Le reve a été stabilisé, vous avez vaincu tous les cauchemars", SoundManager.Instance.winSound);
                 break;
             case GameState.HpLost:
                 loseCanvas.SetActive(true);
-                EndGame("Attention! Un des d�fenseurs oniriques est tomb�. La petite Sophie se r�veille de son cauchemar.", SoundManager.Instance.lostSound);
+                EndGame("Attention! Un des défenseurs oniriques est tombé. La petite Sophie se réveille de son cauchemar.", SoundManager.Instance.lostSound);
                 break;
             default:
                 break;
@@ -50,7 +50,7 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
         GameData.Instance.UpdateAllTowersData();
         var turretBuiltCount = GameData.Instance.turrets.FindAll(t => t.isBuilt).Count;
 
-        endGameText.text = text + $" Vous avez construit {turretBuiltCount} tours. Vous n'aurez pas acc�s � ces emplacements de construction pour les prochaines parties";
+        endGameText.text = text + $" Vous avez construit {turretBuiltCount} tours. Vous n'aurez pas accès a ces emplacements de construction pour les prochaines parties";
         AudioSource.PlayClipAtPoint(oneShotClip, transform.position);
         endGameCanvas.SetActive(true);  
     }

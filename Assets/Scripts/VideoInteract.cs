@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class VideoInteract : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
-    public GameObject intro;
+    public GameObject introGui;
     public Button skipButton, tutosButton, closeTutosButton;
     public GameObject tutos;
 
@@ -19,25 +19,25 @@ public class VideoInteract : MonoBehaviour
         skipButton.onClick.AddListener(skipTutos);
         tutosButton.onClick.AddListener(showTutos);
         closeTutosButton.onClick.AddListener(closeTutos);
-        intro.SetActive(false);
+        introGui.SetActive(false);
         tutos.SetActive(false);
         videoPlayer.loopPointReached += EndReached;
     }
 
     void EndReached(VideoPlayer vp)
     {
-        intro.SetActive(true);
+        introGui.SetActive(true);
     }
 
     public void skipTutos()
     {
-        intro.SetActive(false);
+        introGui.SetActive(false);
         videoPlayer.gameObject.SetActive(false);
     }
 
     public void showTutos()
     {
-        intro.SetActive(false);
+        introGui.SetActive(false);
         videoPlayer.gameObject.SetActive(false);
         tutos.SetActive(true);
     }
