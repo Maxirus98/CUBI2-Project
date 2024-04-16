@@ -64,17 +64,17 @@ public class Enemy1Management : MonoBehaviour {
             agent.speed = Random.Range(Enemy1SpeedMin, Enemy1SpeedMin);
         }
         else if (!areSpeedValuesChosen) {
-            if (agent.tag == "Enemy") {
+            if (agent.CompareTag("Enemy")) {
                 print(agent.tag);
                 print(Enemy1Speed1);
                 agent.speed = Enemy1Speed1;
             }
-            else if (agent.tag == "EnemySandMan") {
+            else if (agent.CompareTag("EnemySandMan")) {
                 print(agent.tag);
                 print(Enemy1Speed2);
                 agent.speed = Enemy1Speed2;
             }
-            else if (agent.tag == "EnemyPet") {
+            else if (agent.CompareTag("EnemyPet")) {
                 print(agent.tag);
                 print(Enemy1Speed3);
                 agent.speed = Enemy1Speed3;
@@ -101,6 +101,7 @@ public class Enemy1Management : MonoBehaviour {
             pathRandom = Random.Range(0, pathSpawnPoint3.Count);
             path = pathSpawnPoint3[pathRandom];
         }
+        
 
 
     }
@@ -194,7 +195,7 @@ public class Enemy1Management : MonoBehaviour {
             new Vector3(4.4f, -0.3101822f, 94.1f),
             new Vector3(-12.88f, -0.3101822f, 78.53f),
             new Vector3(-6.1f, -0.3101822f, 49f),
-            (destination)
+            destination
         };
 
 
@@ -233,7 +234,7 @@ public class Enemy1Management : MonoBehaviour {
         List<Vector3> path2 = new() {
             new Vector3(-81.55f, -1.5f, 163.8f),
             new Vector3(-57.9f, -0.3101822f, 110.3f),
-            (destination)
+            destination
         };
 
 
@@ -272,7 +273,7 @@ public class Enemy1Management : MonoBehaviour {
             new Vector3(-129.8f, -1.5f, 163.8f),
             new Vector3(-119.3f, -0.3101822f, 117.7f),
             new Vector3(-75.7f, -0.3101822f, 96.4f),
-            (destination)
+            destination
         };
 
 
