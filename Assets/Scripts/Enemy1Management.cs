@@ -85,9 +85,22 @@ public class Enemy1Management : MonoBehaviour {
         //closestPlayer = GameObject.Find("SandmanModel").transform;
         //players = GameObject.FindGameObjectsWithTag("Player");
         SpawnPointOfAgent = GetSpawnPoint();
-        pathSpawnPoint1 = SetPathList(pathSpawnPoint1);
-        pathRandom = Random.Range(0, pathSpawnPoint1.Count);
-        path = pathSpawnPoint1[pathRandom];
+
+        if (SpawnPointOfAgent == 1) {
+            pathSpawnPoint1 = SetPathList1(pathSpawnPoint1);
+            pathRandom = Random.Range(0, pathSpawnPoint1.Count);
+            path = pathSpawnPoint1[pathRandom];
+        }
+        else if (SpawnPointOfAgent == 2) {
+            pathSpawnPoint2 = SetPathList2(pathSpawnPoint2);
+            pathRandom = Random.Range(0, pathSpawnPoint2.Count);
+            path = pathSpawnPoint2[pathRandom];
+            }
+        else if (SpawnPointOfAgent == 3) {
+            pathSpawnPoint3 = SetPathList3(pathSpawnPoint3);
+            pathRandom = Random.Range(0, pathSpawnPoint3.Count);
+            path = pathSpawnPoint3[pathRandom];
+        }
 
 
     }
@@ -144,57 +157,15 @@ public class Enemy1Management : MonoBehaviour {
 
 
     void ToKid() {
-        
-        if (SpawnPointOfAgent == 1) {
-            print("SP : 1");
-            print("dsit = " + (agent.transform.position - path[numDestination]).sqrMagnitude);
-            print(agent.transform.position);
-            print(path[numDestination]);
-            print("distance " + ((agent.transform.position - path[numDestination]).sqrMagnitude < 10f));
-            print("num " + (numDestination < path.Count));
 
-            print("pitié : " + ((agent.transform.position - path[numDestination]).sqrMagnitude < 10f && (numDestination < path.Count)));
-            
 
-            if ((agent.transform.position - path[numDestination]).sqrMagnitude < 10f && (numDestination < (path.Count+1))) {
-                print("ça marche");
+
+        if ((agent.transform.position - path[numDestination]).sqrMagnitude < 10f && (numDestination < (path.Count - 1))) {
+                
                 numDestination++;
                 agent.SetDestination(path[numDestination]);
                 
 
-            }
-
-        }
-
-        else if (SpawnPointOfAgent == 2) {
-            //print("SP : 2");
-            agent.SetDestination(destination);
-
-           /*pathRandom = Random.Range(0, pathSpawnPoint2.Count);
-            path = pathSpawnPoint2[pathRandom];
-
-
-            if ((agent.transform.position - path[numDestination]).sqrMagnitude < 1f && (numDestination < path.Count)) {
-                agent.SetDestination(path[numDestination]);
-                numDestination++;
-
-            }*/
-
-        }
-
-        else if (SpawnPointOfAgent == 3) {
-            //print("SP : 3");
-            agent.SetDestination(destination);
-
-           /*pathRandom = Random.Range(0, pathSpawnPoint3.Count);
-            path = pathSpawnPoint3[pathRandom];
-
-
-            if ((agent.transform.position - path[numDestination]).sqrMagnitude < 1f && (numDestination < path.Count)) {
-                agent.SetDestination(path[numDestination]);
-                numDestination++;
-
-            }*/
 
         }
 
@@ -208,7 +179,7 @@ public class Enemy1Management : MonoBehaviour {
         transform.LookAt(player);
     }
     //path1.Add(new Vector3(f, -0.3101822f, f));
-    List<List<Vector3>> SetPathList(List<List<Vector3>> list) {
+    List<List<Vector3>> SetPathList1(List<List<Vector3>> list) {
         List<Vector3> path1 = new() {
             new Vector3(12.7f, 1.5f, 163.8f),
             new Vector3(3.16f, -0.3101822f, 148.04f),
@@ -235,10 +206,95 @@ public class Enemy1Management : MonoBehaviour {
             destination
         };
 
+        List<Vector3> path4 = new() {
+            new Vector3(12.7f, 1.5f, 163.8f),
+            new Vector3(-24.6f, 1.5f, 151.7f),
+            new Vector3(-48.4f, -0.3101822f, 107.8f),
+            destination
+        };
+
         list.Add(path1);
         list.Add(path2);
         list.Add(path3);
+        list.Add(path4);
 
+
+        return list;
+    }
+
+    List<List<Vector3>> SetPathList2(List<List<Vector3>> list) {
+        List<Vector3> path1 = new() {
+            new Vector3(-81.55f, -1.5f, 163.8f),
+            new Vector3(-26.2f, -0.3101822f, 149.2f),
+            new Vector3(-49.5f, -0.3101822f, 111.1f),
+            destination
+        };
+
+        List<Vector3> path2 = new() {
+            new Vector3(-81.55f, -1.5f, 163.8f),
+            new Vector3(-57.9f, -0.3101822f, 110.3f),
+            (destination)
+        };
+
+
+        List<Vector3> path3 = new() {
+            new Vector3(-81.55f, -1.5f, 163.8f),
+            new Vector3(-71.3f, -0.3101822f, 147.3f),
+            new Vector3(-68f, -0.3101822f, 99.1f),
+            destination
+        };
+
+        List<Vector3> path4 = new() {
+            new Vector3(-81.55f, -1.5f, 163.8f),
+            new Vector3(-89.2f, 1.5f, 154.7f),
+            new Vector3(-67f, -0.3101822f, 95.3f),
+            destination
+        };
+
+        list.Add(path1);
+        list.Add(path2);
+        list.Add(path3);
+        list.Add(path4);
+
+
+        return list;
+    }
+
+    List<List<Vector3>> SetPathList3(List<List<Vector3>> list) {
+        List<Vector3> path1 = new() {
+            new Vector3(-129.8f, -1.5f, 163.8f),
+            new Vector3(-93.7f, -0.3101822f, 138.4f),
+            new Vector3(-72.5f, -0.3101822f, 100.2f),
+            destination
+        };
+
+        List<Vector3> path2 = new() {
+            new Vector3(-129.8f, -1.5f, 163.8f),
+            new Vector3(-119.3f, -0.3101822f, 117.7f),
+            new Vector3(-75.7f, -0.3101822f, 96.4f),
+            (destination)
+        };
+
+
+        List<Vector3> path3 = new() {
+            new Vector3(-129.8f, -1.5f, 163.8f),
+            new Vector3(-109.3f, -0.3101822f, 110.5f),
+            new Vector3(-86.6f, -0.3101822f, 88.5f),
+            new Vector3(-109.6f, -0.3101822f, 37.3f),
+            destination
+        };
+
+        List<Vector3> path4 = new() {
+            new Vector3(-129.8f, -1.5f, 163.8f),
+            new Vector3(-120.8f, 1.5f, 110.2f),
+            new Vector3(110.2f, -0.3101822f, 47f),
+            destination
+        };
+
+        list.Add(path1);
+        list.Add(path2);
+        list.Add(path3);
+        list.Add(path4);
 
 
         return list;
