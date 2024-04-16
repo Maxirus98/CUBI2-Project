@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2133258454442208249}
   - component: {fileID: 1961800473479602855}
   - component: {fileID: 4538079872764982300}
+  - component: {fileID: 2781718640149499421}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -133,6 +134,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2781718640149499421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26054085459104650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3af9035bb8ed8468e630341980cf92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleFactor: 1.1
+  animationDuration: 0.15
 --- !u!1 &87817147634333623
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,6 +160,7 @@ GameObject:
   - component: {fileID: 129571271148767459}
   - component: {fileID: 1886501088763062530}
   - component: {fileID: 2526548148152808118}
+  - component: {fileID: 3451658935901160550}
   m_Layer: 5
   m_Name: Replay
   m_TagString: Untagged
@@ -266,6 +282,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3451658935901160550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87817147634333623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3af9035bb8ed8468e630341980cf92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleFactor: 1.1
+  animationDuration: 0.15
 --- !u!1 &592177628915256890
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,7 +819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7824260960392968941
 RectTransform:
   m_ObjectHideFlags: 0
@@ -887,6 +917,7 @@ GameObject:
   - component: {fileID: 3455950517259393162}
   - component: {fileID: 8996435556184624807}
   - component: {fileID: 4357374555751598239}
+  - component: {fileID: 1020982567629693513}
   m_Layer: 5
   m_Name: Replay
   m_TagString: Untagged
@@ -1008,6 +1039,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1020982567629693513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3996402764066672659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3af9035bb8ed8468e630341980cf92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleFactor: 1.1
+  animationDuration: 0.15
 --- !u!1 &4108810170264172953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,6 +1065,7 @@ GameObject:
   - component: {fileID: 4843354658257089512}
   - component: {fileID: 522268107270490981}
   - component: {fileID: 7528039822245047361}
+  - component: {fileID: 7561121910302237009}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -1141,6 +1187,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7561121910302237009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4108810170264172953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3af9035bb8ed8468e630341980cf92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleFactor: 1.1
+  animationDuration: 0.15
 --- !u!1 &4605559332682173428
 GameObject:
   m_ObjectHideFlags: 0
