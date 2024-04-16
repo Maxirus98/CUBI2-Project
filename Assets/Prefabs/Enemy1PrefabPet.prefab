@@ -170,9 +170,9 @@ MonoBehaviour:
   Enemy1Speed1: 2
   Enemy1Speed2: 2
   Enemy1Speed3: 2
-  Enemy1SpeedMin: 0
-  Enemy1SpeedMax: 0
-  areSpeedValuesChosen: 1
+  Enemy1SpeedMin: 1
+  Enemy1SpeedMax: 3
+  areSpeedValuesChosen: 0
   destination: {x: 0, y: 0, z: 0}
   rangeVue: 100
   rangeAttack: 50
