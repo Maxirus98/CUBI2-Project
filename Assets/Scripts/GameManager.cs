@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
@@ -153,6 +154,11 @@ public class GameManager : Singleton<GameManager>
     }
 
     public void ApplyLoadedData(List<TurretData> loadedTurrets) {
+        var builtTurrets = loadedTurrets.Where(t => t.isBuilt).ToList();
+        if(builtTurrets.Count >= 10)
+        {
+            ClearData();
+        }
         var towersParent = GameObject.Find("Tower").transform;
         foreach (var turretData in loadedTurrets) {
             Transform towerTransform = towersParent.Find(turretData.towerIndex);
@@ -170,6 +176,16 @@ public class GameManager : Singleton<GameManager>
                 }
             }
 
+        }
+    }
+
+    public void ClearData()
+    {
+        string path = Application.persistentDataPath + "/turrets.json";
+
+        if (File.Exists(path))
+        {
+            File.Delete(path);
         }
     }
 }
