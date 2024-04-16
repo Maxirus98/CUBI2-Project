@@ -7,6 +7,8 @@ using UnityEngine.UI;
 /// </summary>
 public class PlayerResourceScript : MonoBehaviour
 {
+
+    // [SerializeField] public GameObject sandIcon, waterIcon;
     [SerializeField]
     private Slider healthSlider;
 
@@ -17,6 +19,17 @@ public class PlayerResourceScript : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI resourceUi;
+
+    void Start() 
+    {
+        // bool IsSandman = transform.GetChild(0).gameObject.activeInHierarchy;
+        // if (IsSandman) 
+        // {
+        //     sandIcon.SetActive(true);
+        // } else {
+        //     waterIcon.SetActive(true);
+        // }
+    }
 
     public void ToggleResourceText(string text, bool isShowing)
     {
