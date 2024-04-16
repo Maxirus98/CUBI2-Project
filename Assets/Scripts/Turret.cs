@@ -89,7 +89,7 @@ public class Turret : NetworkBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.tag == "Enemy")
+        if (col.CompareTag("Enemy") || col.CompareTag("EnemyPet") || col.CompareTag("EnemySandMan"))
         {
             enemies.Add(col.gameObject);
         }
@@ -121,7 +121,7 @@ public class Turret : NetworkBehaviour
 
     void OnTriggerExit(Collider col)
     {
-        if (col.tag == "Enemy")
+        if (col.CompareTag("Enemy") || col.CompareTag("EnemyPet") || col.CompareTag("EnemySandMan"))
         {
             enemies.Remove(col.gameObject);
         }
