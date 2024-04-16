@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 7631379802309111253}
-  sandMan: {fileID: -8679921383154817045, guid: d23e51c7bbc37864093c7c6749ea32e9, type: 3}
+  sandMan: {fileID: -8679921383154817045, guid: 0dea969cbd2a4dd4297311923e1e47b6, type: 3}
   pet: {fileID: -8679921383154817045, guid: 6c52e7abb1d8b2042b2e3c187eeeded0, type: 3}
   closestPlayer: {fileID: 0}
   players: []
