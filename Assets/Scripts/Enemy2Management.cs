@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -86,11 +87,7 @@ public class Enemy2Management : MonoBehaviour {
             AttackPlayer(closestPlayer);
         }
         //EN DEV
-        if (towerInAttackRange) {
-            Transform targetTower = towers[0];
-            AttackTower(targetTower);
-            //AttackTower(getClosestTower());
-        }
+
 
     }
 
@@ -98,11 +95,15 @@ public class Enemy2Management : MonoBehaviour {
         if (col.tag == "Tower") {
             towers.Add(col.transform);
             towerInAttackRange = true;
+            var tower = col.GetComponent<Turret>();
+            if (tower.isBuilt){
+                AttackTower(tower.transform, tower);
+            }
         }
     }
 
     void OnTriggerExit(Collider col) {
-        if (col.tag == "Enemy") {
+        if (col.tag == "Tower") {
             towers.Remove(col.transform);
         }
     }
@@ -119,7 +120,7 @@ public class Enemy2Management : MonoBehaviour {
         transform.LookAt(player);
 
     }
-    void AttackTower(Transform tower) {
+    void AttackTower(Transform tower, Turret towerAtt) {
         transform.LookAt(tower);
         if (!isAttackCharging) {
             isAttackCharging = true;
@@ -133,6 +134,7 @@ public class Enemy2Management : MonoBehaviour {
                 agent.isStopped = false;
                 agent.speed = chargeSpeed;
                 agent.SetDestination(tower.position);
+                towerAtt.TakeDamage(1);
 
             }
         }
