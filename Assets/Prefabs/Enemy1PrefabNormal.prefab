@@ -101,8 +101,8 @@ MonoBehaviour:
   distAgentSandman: 0
   distAgentPet: 0
   Enemy1Speed1: 2
-  Enemy1Speed2: 1
-  Enemy1Speed3: 1
+  Enemy1Speed2: 1.5
+  Enemy1Speed3: 1.5
   Enemy1SpeedMin: 1
   Enemy1SpeedMax: 3
   areSpeedValuesChosen: 0

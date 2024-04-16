@@ -294,6 +294,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SplashFX
       objectReference: {fileID: 0}
+    - target: {fileID: 7102771640335983105, guid: 071973045e8350f40b3089710bdf05b1, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
