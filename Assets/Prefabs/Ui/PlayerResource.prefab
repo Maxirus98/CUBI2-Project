@@ -767,6 +767,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4276151233425802281, guid: 91af0fd28a43daa4ba9c608f0900fcd5, type: 3}
+      propertyPath: m_fontSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276151233425802281, guid: 91af0fd28a43daa4ba9c608f0900fcd5, type: 3}
+      propertyPath: m_margin.x
+      value: 11.764801
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276151233425802281, guid: 91af0fd28a43daa4ba9c608f0900fcd5, type: 3}
+      propertyPath: m_margin.z
+      value: 16.51213
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276151233425802281, guid: 91af0fd28a43daa4ba9c608f0900fcd5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 5244094343265666397, guid: 91af0fd28a43daa4ba9c608f0900fcd5, type: 3}
       propertyPath: m_Name
       value: TowerImage
@@ -788,7 +804,8 @@ PrefabInstance:
       value: ShieldImage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5244094343265666397, guid: 91af0fd28a43daa4ba9c608f0900fcd5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91af0fd28a43daa4ba9c608f0900fcd5, type: 3}

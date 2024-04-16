@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1602945624
+  GlobalObjectIdHash: 954975189
   InScenePlacedSourceGlobalObjectIdHash: 954975189
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -100,12 +100,12 @@ MonoBehaviour:
   players: []
   distAgentSandman: 0
   distAgentPet: 0
-  Enemy1Speed1: 1
-  Enemy1Speed2: 1
-  Enemy1Speed3: 1
+  Enemy1Speed1: 2
+  Enemy1Speed2: 2
+  Enemy1Speed3: 2
   Enemy1SpeedMin: 0
   Enemy1SpeedMax: 0
-  areSpeedValuesChosen: 0
+  areSpeedValuesChosen: 1
   destination: {x: -63.45, y: 1.5, z: 32.46}
   rangeVue: 100
   rangeAttack: 5
