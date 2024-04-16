@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ddbf0e3912d0fa24abafc5ddde8e0fd5
+guid: 5eb1721b2d3490648abd00f2b4959318
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: sand
-    second: {fileID: 2100000, guid: 677727f470cd2734ba5914babb7787f4, type: 2}
+      name: nuage1
+    second: {fileID: 2100000, guid: 3bc1b0503ab925541a1e52f9bca471bc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

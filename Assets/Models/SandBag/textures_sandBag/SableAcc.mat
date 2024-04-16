@@ -64,7 +64,7 @@ Material:
     - _Brightness: 0.229
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _Detail: 0.38
+    - _Detail: 0.3
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1

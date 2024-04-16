@@ -29,6 +29,7 @@ public class AccessibilityHandler : MonoBehaviour
         if (meshRenderer != null)
         {
             meshRenderer.material = isNormalVision ? normalVisionMat : colorBlindMat;
+            
         }
     }
 }

@@ -64,7 +64,7 @@ Material:
     - _Brightness: 0.229
     - _BumpScale: 1
     - _Cutoff: 0.5
-    - _Detail: 0.38
+    - _Detail: 0.3
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
@@ -81,6 +81,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.9529412, g: 0.8408295, b: 0.53333336, a: 1}
+    - _Color: {r: 0.7798742, g: 0.45370036, b: 0.6457355, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

@@ -5,6 +5,7 @@ public class DisableAfterVideo : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
     public GameObject endMenu;
+
     void Start()
     {
         if (videoPlayer == null)

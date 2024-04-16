@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: ddbf0e3912d0fa24abafc5ddde8e0fd5
+guid: 1004b8785a6a6eb44aeb89e988e3a158
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: sand
-    second: {fileID: 2100000, guid: 677727f470cd2734ba5914babb7787f4, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -45,7 +40,6 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
