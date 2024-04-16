@@ -5,28 +5,26 @@ public class DoorDetector : MonoBehaviour
 {
     public float rangeRadius;
     public AudioSource audioSource;
+    public bool canPlay = false;
 
     void Update()
     {
         var hits = Physics.SphereCastAll(transform.position, rangeRadius, Vector3.forward, 0f);
-        var hitEnemies = hits.Where(h => h.collider.CompareTag("Enemy"));
+        var hitEnemies = hits.Where(h => h.collider.CompareTag("Enemy") || h.collider.CompareTag("EnemyPet") || h.collider.CompareTag("EnemySandMan"));
 
         if(hitEnemies.Count() <= 0)
         {
+            canPlay = true;
             audioSource.Stop();
-            return;
         }
-
-        foreach (var hit in hits)
+        
+        if(canPlay && hitEnemies.Count() > 0)
         {
-            if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("EnemyPet") || hit.collider.CompareTag("EnemySandMan"))
-            {
-                if(!audioSource.isPlaying)
-                {
-                    audioSource.PlayOneShot(audioSource.clip);
-                }
-            }
+            canPlay = false;
+            audioSource.Play();
         }
+        
+        
     }
 
     private void OnDrawGizmos()
