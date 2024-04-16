@@ -201,7 +201,7 @@ public class Turret : NetworkBehaviour
         if (IsServer)
         {
             // Spawn pour le joueur
-            Vector3 buildTowerPosition = transform.position;
+            Vector3 buildTowerPosition = transform.position + Vector3.down;
             towerInstance = Instantiate(towerPrefab, buildTowerPosition, Quaternion.Euler(-90, 0, -30));
             var instanceTowerNetworkObject = towerInstance.GetComponent<NetworkObject>();
 

@@ -38,6 +38,7 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
     private void Singleton_OnClientDisconnectCallback(ulong obj)
     {
         DisconnectFromServer(true);
+        DisablePasswordUi();
     }
 
     private static async Task Authenticate()
@@ -139,6 +140,8 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
 
     public void DisablePasswordUi()
     {
-        transform.GetChild(0).gameObject.SetActive(false);
+        if(transform.GetChild(0).gameObject.activeInHierarchy) {
+            transform.GetChild(0).gameObject.SetActive(false);
+        }
     }
 }
