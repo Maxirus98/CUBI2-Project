@@ -1758,7 +1758,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Sophie-Rose s'endors paisiblement. Sa fid\xE8le peluche et le marchand
+  m_text: "Sophie-Rose s'endort paisiblement. Sa fid\xE8le peluche et le marchand
     de sable vont s'activer dans ses r\xEAves pour la prot\xE9ger contre les cauchemars."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 975eee569b649814ba8aaf8b88e74bec, type: 2}
