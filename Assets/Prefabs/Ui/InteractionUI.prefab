@@ -3501,7 +3501,7 @@ PrefabInstance:
       objectReference: {fileID: 635515562984793397}
     - target: {fileID: 5134551430233476572, guid: 0b177dbcafc7b6e47995f19efdaf1258, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Recommencer
+      value: RecommencerServerRpc
       objectReference: {fileID: 0}
     - target: {fileID: 7015525319456402601, guid: 0b177dbcafc7b6e47995f19efdaf1258, type: 3}
       propertyPath: m_Name

@@ -45,7 +45,8 @@ public class PauseMenu : NetworkBehaviour
         GameIsPaused = true;
     }
 
-    public void Recommencer()
+    [ServerRpc(RequireOwnership = false)]
+    public void RecommencerServerRpc()
     {
         GameIsPaused = false;
         Time.timeScale = 1.0f;

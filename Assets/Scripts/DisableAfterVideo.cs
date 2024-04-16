@@ -13,8 +13,14 @@ public class DisableAfterVideo : MonoBehaviour
         {
             videoPlayer = GetComponent<VideoPlayer>();
         }
-
+        videoPlayer.started += VideoPlayer_started;
         videoPlayer.loopPointReached += EndReached;
+    }
+
+    private void VideoPlayer_started(VideoPlayer source)
+    {
+        endMenu.SetActive(false);
+        endState.SetActive(false);
     }
 
     void EndReached(VideoPlayer vp)

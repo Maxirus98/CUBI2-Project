@@ -107,7 +107,7 @@ public class GameManager : Singleton<GameManager>
 
     public void Recommencer()
     {
-        pauseMenu.Recommencer();
+        pauseMenu.RecommencerServerRpc();
     }
 
     private void OnLoadSceneComplete(AsyncOperation ao)
