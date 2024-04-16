@@ -10,7 +10,7 @@ public enum GameState
 }
 
 /// <summary>
-/// Script permettant de d�terminer si les joueurs ont gagn�s ou perdus
+/// Script permettant de determiner si les joueurs ont gagnes ou perdus
 /// </summary>
 public class WinLoseHandler : Singleton<WinLoseHandler>
 {

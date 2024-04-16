@@ -1506,7 +1506,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 1
@@ -1758,8 +1758,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Rose s'endors paisiblement. Sa fid\xE8le peluche et le marchand de sable
-    vont s'activer dans ses reves pour la prot\xE9ger contre les cauchemars."
+  m_text: "Sophie-Rose s'endors paisiblement. Sa fid\xE8le peluche et le marchand
+    de sable vont s'activer dans ses r\xEAves pour la prot\xE9ger contre les cauchemars."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 975eee569b649814ba8aaf8b88e74bec, type: 2}
   m_sharedMaterial: {fileID: 8213585859505595653, guid: 975eee569b649814ba8aaf8b88e74bec, type: 2}
