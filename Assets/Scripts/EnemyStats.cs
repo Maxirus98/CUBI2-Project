@@ -92,7 +92,7 @@ public class EnemyStats : NetworkBehaviour
     {
         if (spawnScript.totalEnemies > 0)
         {
-            spawnScript.totalEnemies -= 1;
+            spawnScript.SetTotalEnemiesClientRpc(spawnScript.totalEnemies - 1);
         }
     }
 }

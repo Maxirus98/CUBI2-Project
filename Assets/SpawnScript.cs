@@ -4,8 +4,6 @@ using TMPro;
 
 public class SpawnScript : NetworkBehaviour {
 
-    public bool isTesting = false;
-
     [SerializeField]
     public GameObject enemy1Normal;
     public GameObject enemy1SandMan;
@@ -49,22 +47,22 @@ public class SpawnScript : NetworkBehaviour {
     private TimerScript timerScript;
     private AudioSource audioSource;
     public EnemyCount enemyCount;
+    private bool hasWon = false;
 
     void Awake() {
         audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable() {
+        timerScript.enabled = false;
+        if (hasWon) return;
+        StartCoroutine(enemyCount.ShowWave(numWave));
         audioSource.PlayOneShot(SoundManager.Instance.waveStartSound);
         audioSource.Play();
-        timerScript.enabled = false;
-
-        enemyCount.ShowMonsterCount(true);
-        StartCoroutine(enemyCount.ShowWave(numWave));
 
         NumberOfEnemies1 = Wave1Enemies1Normal + Wave1Enemies1SandMan + Wave1Enemies1Pet;
 
-        if (!isTesting && !NetworkManager.Singleton.IsHost)
+        if (!IsHost)
             return;
 
         spawnPoint = new Transform[transform.childCount];
@@ -99,7 +97,6 @@ public class SpawnScript : NetworkBehaviour {
             NumberOfEnemies1 = Wave3Enemies1Normal + Wave3Enemies1SandMan + Wave3Enemies1Pet;
             NumberOfEnemies2 = Wave3Enemies2;
             SetTotalEnemiesClientRpc(NumberOfEnemies1 + NumberOfEnemies2);
-
         }
 
         for (int i = 0; i < NumberOfEnemies1Normal; i++) {
@@ -131,33 +128,40 @@ public class SpawnScript : NetworkBehaviour {
             Transform randomPoint = spawnPoint[Random.Range(0, spawnPoint.Length)];
 
             var enemy2Instance = Instantiate(enemy2, randomPoint.position, randomPoint.rotation);
-
-
-            // Spawn
-
             var instanceNetworkObject2 = enemy2Instance.GetComponent<NetworkObject>();
             instanceNetworkObject2.Spawn(true);
         }
     }
 
     public void Update() {
-        timerScript.enabled = totalEnemies <= 0;
+        if (hasWon) return;
+        var noEnemies = totalEnemies <= 0;
+        timerScript.enabled = noEnemies;
+        enemyCount.ShowMonsterCount(!noEnemies);
 
-        if (totalEnemies <= 0) {
-            if (numWave == 1) {
-                SetNumWaveClientRpc(2);
-                SetTotalEnemiesClientRpc(NumberOfEnemies1 + NumberOfEnemies2);
-                GameManager.Instance.GetComponent<AudioSource>().PlayOneShot(SoundManager.Instance.waveEndSound);
-            }
-            else if (numWave == 2) {
-                SetNumWaveClientRpc(3);
-                SetTotalEnemiesClientRpc(NumberOfEnemies1 + NumberOfEnemies2);
-                GameManager.Instance.GetComponent<AudioSource>().PlayOneShot(SoundManager.Instance.waveEndSound);
-            }
-            else if (numWave == 3) {
+        if (noEnemies)
+        {
+            GameManager.Instance.GetComponent<AudioSource>().PlayOneShot(SoundManager.Instance.waveEndSound);
+            if(numWave >= 3)
+            {
+                hasWon = true;
                 WinLoseHandler.Instance.UpdateGameState(GameState.Won);
             }
+
+            if (!IsHost) return;
+            if (numWave == 1)
+            {
+                SetNumWaveClientRpc(2);
+                SetTotalEnemiesClientRpc(NumberOfEnemies1 + NumberOfEnemies2);
+
+            }
+            else if (numWave == 2)
+            {
+                SetNumWaveClientRpc(3);
+                SetTotalEnemiesClientRpc(NumberOfEnemies1 + NumberOfEnemies2);
+            }
         }
+
     }
 
     private void OnDisable()
@@ -177,14 +181,16 @@ public class SpawnScript : NetworkBehaviour {
     }
 
     [ClientRpc]
-    private void SetNumWaveClientRpc(int num)
+    public void SetTotalEnemiesClientRpc(int total)
     {
-        numWave = num;
+        totalEnemies = total;
+        print("Total enemies: " + totalEnemies);
     }
 
     [ClientRpc]
-    private void SetTotalEnemiesClientRpc(int total)
+    private void SetNumWaveClientRpc(int num)
     {
-        totalEnemies = total;
+        numWave = num;
+        print("Num wave: " + numWave);
     }
 }
