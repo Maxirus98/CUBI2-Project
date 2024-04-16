@@ -14,7 +14,6 @@ public class CharacterPicker : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        Debug.Log("OnNetworkSpawn was called");
         netActiveModelIndex.OnValueChanged += OnModelValueChanged;
         activeModelIndex = IsHost ? 0 : 1;
         unactiveModelIndex = IsHost ? 1 : 0;
@@ -32,10 +31,10 @@ public class CharacterPicker : NetworkBehaviour
             transform.position = Vector3.left * xPos + Vector3.up;
         }
 
-        StartCoroutine(FindSwitchButton());
+       //StartCoroutine(FindSwitchButton());
     }
 
-    private IEnumerator FindSwitchButton()
+/*    private IEnumerator FindSwitchButton()
     {
         yield return new WaitForSeconds(1);
         switchCharacterButton = GameObject.Find("SwitchCharacter").GetComponent<Button>();
@@ -48,7 +47,7 @@ public class CharacterPicker : NetworkBehaviour
         {
             EnableSwitchCharacterButtonRpc();   
         }
-    }
+    }*/
 
     public override void OnDestroy()
     {

@@ -68,10 +68,14 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
         var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
         try
         {
+            if (!AuthenticationService.Instance.IsSignedIn)
+            {
+                await AuthenticationService.Instance.SignInAnonymouslyAsync();
+            }
+
             var allocationDetails = await RelayService.Instance.CreateAllocationAsync(MaxConnections);
             joinCodeTmp.text = await RelayService.Instance.GetJoinCodeAsync(allocationDetails.AllocationId);
             
-            // Applique les d�tails de la connexion au UnityTransport
             var relayServerData = new RelayServerData(allocationDetails, "dtls");
             transport.SetRelayServerData(relayServerData);
 
@@ -97,6 +101,11 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
 
         try
         {
+            if (!AuthenticationService.Instance.IsSignedIn)
+            {
+                await AuthenticationService.Instance.SignInAnonymouslyAsync();
+            }
+
             JoinAllocation clientAllocationDetails = 
                 await RelayService.Instance.JoinAllocationAsync(joinInputTmp.text);
 
@@ -104,7 +113,6 @@ public class RelayConnectionManager : Singleton<RelayConnectionManager>
             var relayServerData = new RelayServerData(clientAllocationDetails, "dtls");
             transport.SetRelayServerData(relayServerData);
 
-            // D�bute la connexion du client
             NetworkManager.Singleton.StartClient();
             DisablePasswordUi();
         }

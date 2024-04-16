@@ -21,10 +21,9 @@ public class DoorDetector : MonoBehaviour
         {
             if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("EnemyPet") || hit.collider.CompareTag("EnemySandMan"))
             {
-                Debug.Log("Hit " + hit.collider.name);
                 if(!audioSource.isPlaying)
                 {
-                    audioSource.Play();
+                    audioSource.PlayOneShot(audioSource.clip);
                 }
             }
         }
