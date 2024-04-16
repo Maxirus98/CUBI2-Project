@@ -25,6 +25,7 @@ public class PlayerStats : NetworkBehaviour
     public void Initialize()
     {
         InitializePlayerResource();
+        IsKo = false;
         playerManager = GetComponent<PlayerManager>();
         playerAnimatorHandler = GetComponentInChildren<PlayerAnimatorHandler>();
     }
