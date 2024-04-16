@@ -58,11 +58,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Lunchbox SDF 1
+  m_Name: Lunchbox SDF 2
   m_EditorClassIdentifier: 
-  hashCode: -673890455
+  hashCode: -801241736
   material: {fileID: 8213585859505595653}
-  materialHashCode: 234875689
+  materialHashCode: -1085310760
   m_Version: 1.1.0
   m_SourceFontFileGUID: a60bf177c3d848b418a65aab54978053
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: a60bf177c3d848b418a65aab54978053, type: 3}
@@ -1561,21 +1561,6 @@ MonoBehaviour:
     m_Scale: 1
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
-  - m_Index: 2
-    m_Metrics:
-      m_Width: 0
-      m_Height: 0
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 0
-      m_HorizontalAdvance: 22.28125
-    m_GlyphRect:
-      m_X: 0
-      m_Y: 0
-      m_Width: 0
-      m_Height: 0
-    m_Scale: 1
-    m_AtlasIndex: 0
-    m_ClassDefinitionType: 0
   m_CharacterTable:
   - m_ElementType: 1
     m_Unicode: 32
@@ -1968,10 +1953,6 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 8230
     m_GlyphIndex: 113
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 13
-    m_GlyphIndex: 2
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: -8509861171367394074}
@@ -2807,7 +2788,7 @@ Material:
     - _ColorMask: 15
     - _CullMode: 0
     - _Diffuse: 0.5
-    - _FaceDilate: 0.11
+    - _FaceDilate: 0
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
     - _GlowInner: 0.05
@@ -2821,12 +2802,12 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.247
+    - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
-    - _ScaleRatioB: 0.5854167
-    - _ScaleRatioC: 0.5854167
+    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
