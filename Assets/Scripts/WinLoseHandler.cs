@@ -34,7 +34,7 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
                 break;
             case GameState.Won:
                 winCanvas.SetActive(true);
-                EndGame("Partie Gagnée! Vous avez éliminé tous les cauchemars", SoundManager.Instance.winSound);
+                EndGame("Partie Gagnée! Vous avez éliminé tous les cauchemars. La petite Sophie-Rose fait de beaux rêves.", SoundManager.Instance.winSound);
                 break;
             case GameState.HpLost:
                 loseCanvas.SetActive(true);
