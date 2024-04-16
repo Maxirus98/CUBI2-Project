@@ -53,7 +53,6 @@ public class Enemy1Management : MonoBehaviour {
     private int SpawnPointOfAgent;
     private int pathRandom;
 
-
     // For Attack animation
     private Animator anim;
 
@@ -82,8 +81,6 @@ public class Enemy1Management : MonoBehaviour {
         }
         sandMan = GameObject.Find("SandmanModel").transform;
         pet = GameObject.Find("PetModel").transform;
-        //closestPlayer = GameObject.Find("SandmanModel").transform;
-        //players = GameObject.FindGameObjectsWithTag("Player");
         SpawnPointOfAgent = GetSpawnPoint();
 
         if (SpawnPointOfAgent == 1) {
@@ -95,91 +92,70 @@ public class Enemy1Management : MonoBehaviour {
             pathSpawnPoint2 = SetPathList2(pathSpawnPoint2);
             pathRandom = Random.Range(0, pathSpawnPoint2.Count);
             path = pathSpawnPoint2[pathRandom];
-            }
+        }
         else if (SpawnPointOfAgent == 3) {
             pathSpawnPoint3 = SetPathList3(pathSpawnPoint3);
             pathRandom = Random.Range(0, pathSpawnPoint3.Count);
             path = pathSpawnPoint3[pathRandom];
         }
-        
-
-
     }
+
     void Start() { 
         anim = GetComponentInChildren<Animator>();
         destination = new Vector3(-63.45f, 1.5f, 32.46f);
         numDestination = 0;
         InvokeRepeating(nameof(ToKid), 1f, 5f);
-        
     }
+
 
     public void Update() {
 
         distAgentSandman = (agent.transform.position - sandMan.position).sqrMagnitude;
         distAgentPet = (agent.transform.position - pet.position).sqrMagnitude;
-        //Debug.Log("distAgentSandman :" + distAgentSandman);
-        //Debug.Log("distAgentPet :" + distAgentPet);
-
 
         if (distAgentSandman >= distAgentPet) {
             closestLayer = whatIsPet;
             closestPlayer = pet.transform;
-            //Debug.Log("Closest player (devrait être pet)" + closestLayer);
-            //Debug.Log("Closest player (devrait être pet)", closestPlayer);
         }
         else if (distAgentPet >= distAgentSandman) {
             closestLayer = whatIsSandman;
             closestPlayer = sandMan.transform;
-            //Debug.Log("Closest player (devrait être sandMan)" + closestLayer);
-            //Debug.Log("Closest player (devrait être sandMan)" + closestPlayer);
         }
 
         playerInRange = distAgentSandman <= rangeVue || distAgentPet <= rangeVue;
-        //playerInRange = Physics.CheckSphere(transform.position, rangeVue, closestLayer);
         playerInAttackRange = distAgentSandman <= rangeAttack || distAgentPet <= rangeAttack;
-        //playerInAttackRange = Physics.CheckSphere(transform.position, rangeAttack, closestLayer);
 
         if (!playerInRange && !playerInAttackRange) {
  
             ToKid();
         }
         if (playerInRange && !playerInAttackRange) {
-            //Debug.Log("Closest player :", closestPlayer);
             ToPlayer(closestPlayer);
         }
         if (playerInRange && playerInAttackRange) {
-            //Debug.Log("Attacking");
             AttackPlayer(closestPlayer);
         }
 
         anim.SetBool("Attacking", playerInAttackRange);
     }
 
-
-
     void ToKid() {
-
-
-
         if ((agent.transform.position - path[numDestination]).sqrMagnitude < 10f && (numDestination < (path.Count - 1))) {
                 
                 numDestination++;
                 agent.SetDestination(path[numDestination]);
-                
-
-
         }
-
     }
 
     void ToPlayer(Transform player) {
         agent.SetDestination(player.position);
     }
+
     void AttackPlayer(Transform player) {
         agent.SetDestination(player.position); // Attaque corps à corps
         transform.LookAt(player);
     }
-    //path1.Add(new Vector3(f, -0.3101822f, f));
+
     List<List<Vector3>> SetPathList1(List<List<Vector3>> list) {
         List<Vector3> path1 = new() {
             new Vector3(12.7f, 1.5f, 163.8f),
@@ -317,23 +293,4 @@ public class Enemy1Management : MonoBehaviour {
         }
         return -1;
     }
-
-    /*public void OnTowerBuilt() {
-        AvoidTowers();
-    }
-
-    void AvoidTowers() {
-        foreach (GameObject tower in towers) {
-            NavMeshPath path = new NavMeshPath();
-            if (NavMesh.CalculatePath(transform.position, destination, NavMesh.AllAreas, path)) {
-                if (path.status == NavMeshPathStatus.PathComplete) {
-                    return;
-                }
-            }
-
-            Vector3 towerDirection = (tower.transform.position - transform.position).normalized;
-            Vector3 avoidancePoint = tower.transform.position + towerDirection * 5f;
-            agent.SetDestination(avoidancePoint);
-        }
-    }*/
 }
