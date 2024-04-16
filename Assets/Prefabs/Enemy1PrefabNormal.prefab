@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3357285855
+  GlobalObjectIdHash: 3940390249
   InScenePlacedSourceGlobalObjectIdHash: 3357285855
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -107,7 +107,7 @@ MonoBehaviour:
   Enemy1SpeedMax: 0
   areSpeedValuesChosen: 0
   destination: {x: -63.45, y: 1.5, z: 32.46}
-  rangeVue: 50
+  rangeVue: 100
   rangeAttack: 5
 --- !u!114 &-5868117586542664610
 MonoBehaviour:
