@@ -132,4 +132,3 @@ public class Enemy2Management : MonoBehaviour {
 
         return tour;
     }*/
-}
