@@ -154,11 +154,13 @@ public class GameManager : Singleton<GameManager>
     }
 
     public void ApplyLoadedData(List<TurretData> loadedTurrets) {
-        var builtTurrets = loadedTurrets.Where(t => t.isBuilt).ToList();
-        if(builtTurrets.Count >= 10)
+        var builtTurrets = loadedTurrets.Where(t => t.isBuilt).ToList();
+        if (builtTurrets.Count >= 10)
         {
             ClearData();
+            return;
         }
+
         var towersParent = GameObject.Find("Tower").transform;
         foreach (var turretData in loadedTurrets) {
             Transform towerTransform = towersParent.Find(turretData.towerIndex);
