@@ -1588,6 +1588,7 @@ MonoBehaviour:
   tutosButton: {fileID: 7607091661887296071}
   closeTutosButton: {fileID: 8051919652622684699}
   tutos: {fileID: 5594608202323717547}
+  blankTexture: {fileID: 8400000, guid: e15ad3a751edd40f5bf3155d040c86ba, type: 2}
 --- !u!1 &4772226713000156659
 GameObject:
   m_ObjectHideFlags: 0

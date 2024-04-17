@@ -8,6 +8,7 @@ public class VideoInteract : MonoBehaviour
     public GameObject introGui;
     public Button skipButton, tutosButton, closeTutosButton;
     public GameObject tutos;
+    public RenderTexture blankTexture;
 
     void Start()
     {
@@ -26,6 +27,8 @@ public class VideoInteract : MonoBehaviour
 
     void EndReached(VideoPlayer vp)
     {
+        vp.targetTexture.Release();
+        vp.targetTexture = blankTexture;
         introGui.SetActive(true);
     }
 

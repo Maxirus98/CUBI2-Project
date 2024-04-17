@@ -6,6 +6,7 @@ public class DisableAfterVideo : MonoBehaviour
     public VideoPlayer videoPlayer;
     [SerializeField] public GameObject endMenu;
     [SerializeField] public GameObject endState;
+    public RenderTexture blankTexture;
 
     void Start()
     {
@@ -25,7 +26,8 @@ public class DisableAfterVideo : MonoBehaviour
 
     void EndReached(VideoPlayer vp)
     {
-        //gameObject.SetActive(false);
+        vp.targetTexture.Release();
+        vp.targetTexture = blankTexture;
         endMenu.SetActive(true);
         endState.SetActive(true);
     }
