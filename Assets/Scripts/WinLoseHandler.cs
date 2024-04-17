@@ -19,6 +19,9 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
     [SerializeField]
     private TextMeshProUGUI endGameText;
 
+    [SerializeField]
+    private AudioSource audioSource;
+
     public GameState CurrentGameState { get; set; }
 
     public void UpdateGameState(GameState newGameState)
@@ -51,7 +54,7 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
         var turretBuiltCount = GameData.Instance.turrets.FindAll(t => t.isBuilt).Count;
 
         endGameText.text = text + $"\n Vous avez construit {turretBuiltCount} tours. Elles seront détruites la prochaine partie";
-        AudioSource.PlayClipAtPoint(oneShotClip, transform.position);
+        audioSource.PlayOneShot(oneShotClip);
         endGameCanvas.SetActive(true);  
     }
 }

@@ -1612,6 +1612,7 @@ MonoBehaviour:
   winCanvas: {fileID: 6866602241243739804}
   loseCanvas: {fileID: 7475288444019345171}
   endGameText: {fileID: 2480373440187295702}
+  audioSource: {fileID: 8758109760400106412}
 --- !u!82 &8758109760400106412
 AudioSource:
   m_ObjectHideFlags: 0
