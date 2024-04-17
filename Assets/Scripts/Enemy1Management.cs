@@ -30,7 +30,7 @@ public class Enemy1Management : MonoBehaviour {
     public bool areSpeedValuesChosen = false;
 
     [SerializeField]
-    Vector3 destination = new(-63.45f, 1.5f, 32.46f); // Destination finale
+    Vector3 destination; // Destination finale
 
     LayerMask whatIsSandman, whatIsPet;
     LayerMask closestLayer;
@@ -58,7 +58,7 @@ public class Enemy1Management : MonoBehaviour {
 
     private void Awake() {
         agent = GetComponent<NavMeshAgent>();
-        destination = new Vector3(-63.45f, 1.5f, 32.46f);
+
         if (areSpeedValuesChosen) {
             agent.speed = Random.Range(Enemy1SpeedMin, Enemy1SpeedMin);
         }
@@ -167,12 +167,13 @@ public class Enemy1Management : MonoBehaviour {
 
         List<Vector3> path2 = new() {
             new Vector3(12.7f, 1.5f, 163.8f),
-            new Vector3(-0.2f, -0.3101822f, 141.1f),
-            new Vector3(-4f, -0.3101822f, 92.1f),
-            new Vector3(-13.6f, -0.3101822f, 72.6f),
+            new Vector3(3.16f, -0.3101822f, 148.04f),
+            new Vector3(4.4f, -0.3101822f, 94.1f),
+            new Vector3(-12.88f, -0.3101822f, 78.53f),
             new Vector3(-6.1f, -0.3101822f, 49f),
             destination
         };
+
 
         List<Vector3> path3 = new() {
             new Vector3(12.7f, 1.5f, 163.8f),
@@ -184,7 +185,7 @@ public class Enemy1Management : MonoBehaviour {
 
         List<Vector3> path4 = new() {
             new Vector3(12.7f, 1.5f, 163.8f),
-            new Vector3(-24.6f, -0.3101822f, 151.7f),
+            new Vector3(-24.6f, 1.5f, 151.7f),
             new Vector3(-48.4f, -0.3101822f, 107.8f),
             destination
         };
@@ -222,7 +223,7 @@ public class Enemy1Management : MonoBehaviour {
 
         List<Vector3> path4 = new() {
             new Vector3(-81.55f, -1.5f, 163.8f),
-            new Vector3(-89.2f, -0.3101822f, 154.7f),
+            new Vector3(-89.2f, 1.5f, 154.7f),
             new Vector3(-67f, -0.3101822f, 95.3f),
             destination
         };
@@ -262,6 +263,7 @@ public class Enemy1Management : MonoBehaviour {
 
         List<Vector3> path4 = new() {
             new Vector3(-129.8f, -1.5f, 163.8f),
+            new Vector3(-120.8f, 1.5f, 110.2f),
             new Vector3(110.2f, -0.3101822f, 47f),
             destination
         };
