@@ -78,21 +78,21 @@ public class Enemy2Management : MonoBehaviour {
             //Debug.Log("To kid");
             ToKid();
         }
-        if (playerInRange && !playerInAttackRange) {
+        else if (playerInRange && !playerInAttackRange) {
             //Debug.Log("Closest player :", closestPlayer);
             ToPlayer(closestPlayer);
         }
-        if (playerInRange && playerInAttackRange) {
+        else if (playerInRange && playerInAttackRange) {
             //Debug.Log("Attacking");
             AttackPlayer(closestPlayer);
         }
-        //EN DEV
+        
 
 
     }
 
     void OnTriggerEnter(Collider col) {
-        if (col.tag == "Tower") {
+        if (col.CompareTag("Tower")) {
             towers.Add(col.transform);
             towerInAttackRange = true;
             var tower = col.GetComponent<Turret>();
@@ -103,7 +103,7 @@ public class Enemy2Management : MonoBehaviour {
     }
 
     void OnTriggerExit(Collider col) {
-        if (col.tag == "Tower") {
+        if (col.CompareTag("Tower")) {
             towers.Remove(col.transform);
         }
     }
@@ -122,26 +122,13 @@ public class Enemy2Management : MonoBehaviour {
     }
     void AttackTower(Transform tower, Turret towerAtt) {
         transform.LookAt(tower);
-        if (!isAttackCharging) {
-            isAttackCharging = true;
-            chargeTimer = 0f;
-            agent.isStopped = true;
-        }
-        else {
-            chargeTimer += Time.deltaTime;
+        agent.SetDestination(tower.position);
+        towerAtt.TakeDamage(1);
 
-            if (chargeTimer >= arret) {
-                agent.isStopped = false;
-                agent.speed = chargeSpeed;
-                agent.SetDestination(tower.position);
-                towerAtt.TakeDamage(1);
-
-            }
-        }
+    }
     }
 
     /*Transform getClosestTower() {
 
         return tour;
     }*/
-}

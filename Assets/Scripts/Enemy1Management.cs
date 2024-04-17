@@ -30,7 +30,7 @@ public class Enemy1Management : MonoBehaviour {
     public bool areSpeedValuesChosen = false;
 
     [SerializeField]
-    Vector3 destination; // Destination finale
+    Vector3 destination = new(-63.45f, 1.5f, 32.46f); // Destination finale
 
     LayerMask whatIsSandman, whatIsPet;
     LayerMask closestLayer;
@@ -58,7 +58,7 @@ public class Enemy1Management : MonoBehaviour {
 
     private void Awake() {
         agent = GetComponent<NavMeshAgent>();
-
+        destination = new Vector3(-63.45f, 1.5f, 32.46f);
         if (areSpeedValuesChosen) {
             agent.speed = Random.Range(Enemy1SpeedMin, Enemy1SpeedMin);
         }
