@@ -29,5 +29,11 @@ public class AccessibilityManager : MonoBehaviour
         {
             handler.SetColorToCurrentColorScheme();
         }
+
+        var colorHandlers = FindObjectsOfType<ColorAccessibilityHandler>();
+        foreach (var handler in colorHandlers)
+        {
+            handler.SetColorToCurrentColorScheme();
+        }
     }
 }

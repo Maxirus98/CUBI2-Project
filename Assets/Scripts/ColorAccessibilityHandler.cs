@@ -16,7 +16,7 @@ public class ColorAccessibilityHandler : MonoBehaviour
         SetColorToCurrentColorScheme();
     }
 
-    private void SetColorToCurrentColorScheme()
+    public void SetColorToCurrentColorScheme()
     {
         var particleSystem = GetComponent<ParticleSystem>();
         var isNormalVision = PlayerPrefs.GetInt(AccessibilityManager.Key) == AccessibilityManager.NORMAL_VISION_MODE;
