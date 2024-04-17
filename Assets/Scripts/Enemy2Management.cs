@@ -1,12 +1,8 @@
 using System.Collections.Generic;
-using System.Security.Cryptography;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy2Management : MonoBehaviour {
-    // Deplacer les ennemis vers un point fixe
-
     public NavMeshAgent agent;
     public Transform sandMan;
     public Transform pet;
@@ -22,19 +18,13 @@ public class Enemy2Management : MonoBehaviour {
     float chargeSpeed = 10;
 
     [SerializeField]
-    Vector3 destination; // Destination finale
-
-    // Ranges
+    Vector3 destination;
 
     [SerializeField]
     float rangeVue, rangeAttack, rangeTowerAttack;
     bool playerInRange, playerInAttackRange, towerInAttackRange;
 
-
-    private bool isAttackCharging;
-    private float chargeTimer = 0f;
-
-    public List<Transform> towers = new List<Transform>();
+    private float distTourEnemy2;
 
     private void Awake() {
         agent = GetComponent<NavMeshAgent>();
@@ -42,13 +32,8 @@ public class Enemy2Management : MonoBehaviour {
 
         sandMan = GameObject.Find("SandmanModel").transform;
         pet = GameObject.Find("PetModel").transform;
-        //var towers =  FindObjectsOfType(Turret);
-        //tower = GameObject.Find("Tower").transform;
-
-
-        //closestPlayer = GameObject.Find("SandmanModel").transform;
-        //players = GameObject.FindGameObjectsWithTag("Player");
     }
+
     void Start() {
         agent.stoppingDistance = 0;
         destination = new Vector3(-63.45f, 1.5f, 32.46f);
@@ -56,55 +41,44 @@ public class Enemy2Management : MonoBehaviour {
     }
 
     public void Update() {
-
         distAgentSandman = (agent.transform.position - sandMan.position).sqrMagnitude;
         distAgentPet = (agent.transform.position - pet.position).sqrMagnitude;
-        //distTower = (agent.transform.position - tower.position).sqrMagnitude;
+       
 
         if (distAgentSandman >= distAgentPet) {
             closestPlayer = pet.transform;
-
         }
         else if (distAgentPet >= distAgentSandman) {
             closestPlayer = sandMan.transform;
-
         }
 
         playerInRange = distAgentSandman <= rangeVue || distAgentPet <= rangeVue;
         playerInAttackRange = distAgentSandman <= rangeAttack || distAgentPet <= rangeAttack;
-        //towerInAttackRange = distTower <= rangeTowerAttack;
 
-        if (!playerInRange && !playerInAttackRange) {
-            //Debug.Log("To kid");
+        if (!playerInRange && !playerInAttackRange && !towerInAttackRange) {
             ToKid();
         }
-        else if (playerInRange && !playerInAttackRange) {
-            //Debug.Log("Closest player :", closestPlayer);
+        if (playerInRange && !playerInAttackRange && !towerInAttackRange) {
             ToPlayer(closestPlayer);
         }
-        else if (playerInRange && playerInAttackRange) {
-            //Debug.Log("Attacking");
+        if (playerInRange && playerInAttackRange && !towerInAttackRange) {
             AttackPlayer(closestPlayer);
         }
-        
-
-
     }
 
-    void OnTriggerEnter(Collider col) {
-        if (col.CompareTag("Tower")) {
-            towers.Add(col.transform);
+    void OnTriggerStay(Collider col) {
+        if (col.CompareTag("Tower") && col.GetComponent<Turret>().isBuilt) {
+            //distTourEnemy2 = (agent.transform.position - col.transform.position).sqrMagnitude;
+            print("Entrée");
             towerInAttackRange = true;
-            var tower = col.GetComponent<Turret>();
-            if (tower.isBuilt){
-                AttackTower(tower.transform, tower);
-            }
+            agent.SetDestination(col.transform.position);
         }
     }
 
     void OnTriggerExit(Collider col) {
         if (col.CompareTag("Tower")) {
-            towers.Remove(col.transform);
+            print("Sortie");
+            towerInAttackRange = false;
         }
     }
 
@@ -115,20 +89,9 @@ public class Enemy2Management : MonoBehaviour {
     void ToPlayer(Transform player) {
         agent.SetDestination(player.position);
     }
+
     void AttackPlayer(Transform player) {
-        agent.SetDestination(player.position); // Attaque corps à corps
+        agent.SetDestination(player.position);
         transform.LookAt(player);
-
     }
-    void AttackTower(Transform tower, Turret towerAtt) {
-        transform.LookAt(tower);
-        agent.SetDestination(tower.position);
-        towerAtt.TakeDamage(1);
-
-    }
-    }
-
-    /*Transform getClosestTower() {
-
-        return tour;
-    }*/
+}
