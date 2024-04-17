@@ -68,10 +68,13 @@ public class Enemy2Management : MonoBehaviour {
 
     void OnTriggerStay(Collider col) {
         if (col.CompareTag("Tower") && col.GetComponent<Turret>().isBuilt) {
-            //distTourEnemy2 = (agent.transform.position - col.transform.position).sqrMagnitude;
+            distTourEnemy2 = (agent.transform.position - col.transform.position).sqrMagnitude;
             print("Entrée");
             towerInAttackRange = true;
             agent.SetDestination(col.transform.position);
+            if (distTourEnemy2 < 4) {
+                col.GetComponent<Turret>().TakeDamage(1);
+            }
         }
     }
 
