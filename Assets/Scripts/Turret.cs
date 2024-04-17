@@ -265,19 +265,9 @@ public class Turret : NetworkBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage()
     {
-        hp -= damage;
-        hpSlider.value = (float)hp / maxHp;
-        if (hp <= 0)
-        {
-            if (isBuilt)
-            {
-                isBuilt = false;
-                Turret turretComponent = transform.GetComponent<Turret>();
-                turretComponent.DestroyTowerServerRpc();
-            }
-        }
+        DestroyTowerServerRpc();
     }
 
     [ServerRpc]
@@ -287,6 +277,16 @@ public class Turret : NetworkBehaviour
         destroyTowerInstance = Instantiate(destroyTowerPrefab, destroyPosition, Quaternion.Euler(0, 0, 0));
         var instanceNetworkObject = destroyTowerInstance.GetComponent<NetworkObject>();
         instanceNetworkObject.Spawn(true);
+
+        if(towerInstance != null)
+        {
+            towerInstance.GetComponent<NetworkObject>().Despawn();
+        }
+
+        if (cannonInstance != null)
+        {
+            cannonInstance.GetComponent<NetworkObject>().Despawn();
+        }
     }
 
     private void OnDrawGizmos()

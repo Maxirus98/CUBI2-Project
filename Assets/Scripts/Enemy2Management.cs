@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.GraphicsBuffer;
 
 public class Enemy2Management : MonoBehaviour {
     public NavMeshAgent agent;
@@ -25,11 +26,13 @@ public class Enemy2Management : MonoBehaviour {
     bool playerInRange, playerInAttackRange, towerInAttackRange;
 
     private float distTourEnemy2;
+    private Transform targetTower;
+    private Rigidbody rb;
 
     private void Awake() {
         agent = GetComponent<NavMeshAgent>();
         agent.speed = Enemy2Speed;
-
+        rb = GetComponent<Rigidbody>();
         sandMan = GameObject.Find("SandmanModel").transform;
         pet = GameObject.Find("PetModel").transform;
     }
@@ -66,34 +69,68 @@ public class Enemy2Management : MonoBehaviour {
         }
     }
 
-    void OnTriggerStay(Collider col) {
-        if (col.CompareTag("Tower") && col.GetComponent<Turret>().isBuilt) {
-            distTourEnemy2 = (agent.transform.position - col.transform.position).sqrMagnitude;
-            print("Entrée");
-            towerInAttackRange = true;
-            agent.SetDestination(col.transform.position);
-            if (distTourEnemy2 < 4) {
-                col.GetComponent<Turret>().TakeDamage(1);
+    private bool attackTower = true;
+
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.CompareTag("Tower") && col.GetComponent<Turret>().isBuilt)
+        {
+            agent.enabled = false;
+            targetTower = col.transform;
+        }
+    }
+
+    private void OnTriggerStay(Collider col)
+    {
+        if (col.CompareTag("Tower") && col.GetComponent<Turret>().isBuilt && attackTower)
+        {
+            if((transform.position - targetTower.position).sqrMagnitude < 12)
+            {
+                targetTower.GetComponent<Turret>().DestroyTowerServerRpc();
+                attackTower = false;
+                agent.enabled = true;
+                targetTower = null;
             }
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (targetTower != null)
+        {
+            MoveTowardsTower();
+        }
+    }
+
+    void MoveTowardsTower()
+    {
+        var direction = (targetTower.position - transform.position).normalized;
+        transform.LookAt(targetTower);
+        rb.AddForce(direction * 5f, ForceMode.Acceleration);
+    }
+
     void OnTriggerExit(Collider col) {
         if (col.CompareTag("Tower")) {
-            print("Sortie");
             towerInAttackRange = false;
+            agent.enabled = true;
+            targetTower = null;
+            attackTower = true;
         }
     }
 
     void ToKid() {
+        if (!agent.enabled) return;
         agent.SetDestination(destination);
     }
 
     void ToPlayer(Transform player) {
+        if (!agent.enabled) return;
         agent.SetDestination(player.position);
     }
 
     void AttackPlayer(Transform player) {
+        if (!agent.enabled) return;
         agent.SetDestination(player.position);
         transform.LookAt(player);
     }
