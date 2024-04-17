@@ -30,7 +30,7 @@ public class Enemy1Management : MonoBehaviour {
     public bool areSpeedValuesChosen = false;
 
     [SerializeField]
-    Vector3 destination = new(-63.45f, 1.5f, 32.46f);; // Destination finale
+    Vector3 destination = new(-63.45f, 1.5f, 32.46f); // Destination finale
 
     LayerMask whatIsSandman, whatIsPet;
     LayerMask closestLayer;
