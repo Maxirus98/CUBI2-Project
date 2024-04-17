@@ -35,13 +35,6 @@ public class Turret : NetworkBehaviour
     private Slider petSyncSlider;
     private float animationTime = 0f;
 
-    public Slider hpSlider;
-
-    public int hp = 100;
-
-    private int maxHp;
-
-
     void Start()
     {
         sandmanSyncSlider = GameObject.Find("InteractionUI").transform.Find("SandmanSyncSlider").GetComponent<Slider>();
@@ -49,8 +42,6 @@ public class Turret : NetworkBehaviour
 
         firePoint = transform.Find("FirePoint");
         netBuildingPlayerList.OnListChanged += NetBuildingPlayerList_OnListChanged;
-
-        maxHp = hp;
     }
 
     private void NetBuildingPlayerList_OnListChanged(NetworkListEvent<ulong> changeEvent)

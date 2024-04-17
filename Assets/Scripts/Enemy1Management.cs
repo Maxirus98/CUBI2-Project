@@ -252,7 +252,6 @@ public class Enemy1Management : MonoBehaviour {
             destination
         };
 
-
         List<Vector3> path3 = new() {
             new Vector3(-129.8f, -1.5f, 163.8f),
             new Vector3(-109.3f, -0.3101822f, 110.5f),
