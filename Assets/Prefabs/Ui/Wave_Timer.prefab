@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aa6349632b41ad46b1520c92952400b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartTime: 25
   text: {fileID: 5808479148872407830}
   clockImage: {fileID: 6116044655744360151}
 --- !u!1 &4772382930213622986
