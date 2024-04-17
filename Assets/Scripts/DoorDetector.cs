@@ -6,6 +6,8 @@ public class DoorDetector : MonoBehaviour
     public float rangeRadius;
     public AudioSource audioSource;
     public bool canPlay = false;
+    public GameObject warning;
+    public GameObject iconContainer;
 
     void Update()
     {
@@ -23,8 +25,9 @@ public class DoorDetector : MonoBehaviour
             canPlay = false;
             audioSource.Play();
         }
-        
-        
+
+        iconContainer.SetActive(hitEnemies.Count() > 0);
+        warning.SetActive(hitEnemies.Count() > 0);
     }
 
     private void OnDrawGizmos()
