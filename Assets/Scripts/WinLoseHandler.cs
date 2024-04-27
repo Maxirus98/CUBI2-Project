@@ -32,14 +32,17 @@ public class WinLoseHandler : Singleton<WinLoseHandler>
             case GameState.Running:
                 break;
             case GameState.DoorLost:
+                winCanvas.SetActive(false);
                 loseCanvas.SetActive(true);
                 EndGame("Partie perdue! Les cauchemars ont atteint la porte et réveillé Sophie-Rose.", SoundManager.Instance.lostSound);
                 break;
             case GameState.Won:
+                loseCanvas.SetActive(false);
                 winCanvas.SetActive(true);
                 EndGame("Partie Gagnée! Vous avez éliminé tous les cauchemars. La petite Sophie-Rose fait de beaux rêves.", SoundManager.Instance.winSound);
                 break;
             case GameState.HpLost:
+                winCanvas.SetActive(false);
                 loseCanvas.SetActive(true);
                 EndGame("Partie perdue! Un des défenseurs des rêves est tombé. La petite Sophie-Rose se réveille.", SoundManager.Instance.lostSound);
                 break;
