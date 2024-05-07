@@ -84,7 +84,6 @@ public class InputHandler : MonoBehaviour
 
     private void OnAttack()
     {
-        if (EventSystem.current.IsPointerOverGameObject()) return;
         var attackCost = 1;
         // Donne un cooldown aux attaques pour éviter de spawn le bouton d'attaque
         if(lastFired + attackCooldown < Time.time && playerStats.CurrentUseable > 0)
